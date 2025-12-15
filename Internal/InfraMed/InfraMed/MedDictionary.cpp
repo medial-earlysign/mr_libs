@@ -13,6 +13,7 @@
 #include <fstream>
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
+#include <regex>
 //#define _SCL_SECURE_NO_WARNINGS
 
 #include <queue>
@@ -368,10 +369,10 @@ void MedDictionary::get_members_to_all_sets(vector<int> &members, vector<int> &s
 //-----------------------------------------------------------------------------------------------
 void MedDictionary::get_regex_names(string regex_s, vector<string> &names)
 {
-	boost::regex regf(regex_s);
+	std::regex regf(regex_s);
 	for (auto &e : Id2Names) {
 		for (auto &v : e.second) {
-			if (boost::regex_match(v, regf)) {
+			if (std::regex_match(v, regf)) {
 				names.push_back(v);
 				break;
 			}
@@ -382,10 +383,10 @@ void MedDictionary::get_regex_names(string regex_s, vector<string> &names)
 //-----------------------------------------------------------------------------------------------
 void MedDictionary::get_regex_ids(string regex_s, vector<int> &ids)
 {
-	boost::regex regf(regex_s);
+	std::regex regf(regex_s);
 	for (auto &e : Id2Names) {
 		for (auto &v : e.second) {
-			if (boost::regex_match(v, regf)) {
+			if (std::regex_match(v, regf)) {
 				ids.push_back(e.first);
 				break;
 			}

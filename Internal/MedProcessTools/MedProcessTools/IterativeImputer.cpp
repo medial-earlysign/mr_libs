@@ -11,7 +11,7 @@
 #include "IterativeImputer.h"
 #include <regex>
 #include <unordered_set>
-#include <boost/regex.hpp>
+#include <regex>
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 #include <MedStat/MedStat/MedPerformance.h>
 
@@ -146,8 +146,8 @@ int IterativeImputer::init_feature_info(MedFeatures &mfd, string feat_name)
 	fi.name = feat_name;
 	fi.full_name = fp.resolve_feature_name(mfd, feat_name);
 	//fi.name = regex_replace(fi.full_name, regex("FTR_[:digit]+\\."), "");
-	boost::regex re("FTR_[[:digit:]]+\\.");
-	fi.name = boost::regex_replace(fi.full_name, re, ".");
+	std::regex re("FTR_[[:digit:]]+\\.");
+	fi.name = std::regex_replace(fi.full_name, re, ".");
 
 	fi.data = &(mfd.data[fi.full_name][0]);
 	fi.data_len = (int)mfd.data[fi.full_name].size();

@@ -11,7 +11,7 @@
 #include <MedAlgo/MedAlgo/MedAlgo.h>
 #include <MedAlgo/MedAlgo/MedLM.h>
 #include <cfloat>
-#include <boost/regex.hpp>
+#include <regex>
 
 #define DEFAULT_FEAT_GNRTR_NTHREADS 8
 
@@ -903,7 +903,7 @@ private:
 	vector<int> filter_vals_idx; // stores filter indexes
 	int input_sig_num_val_ch; // store num val channels for validation
 
-	void get_parents(int codeGroup, vector<int> &parents, const boost::regex &reg_pat, const boost::regex & remove_reg_pat);
+	void get_parents(int codeGroup, vector<int> &parents, const std::regex &reg_pat, const std::regex & remove_reg_pat);
 
 	void get_stats(const unordered_map<int, vector<vector<vector<int>>>> &categoryVal_to_stats,
 		vector<int> &all_signal_values, vector<int> &signal_indexes, vector<double> &valCnts, vector<double> &posCnts,

@@ -10,18 +10,19 @@
 #include "InfraMed/InfraMed/MedPidRepository.h"
 #include "MedProcessTools/MedProcessTools/MedModel.h"
 #include "MedProcessTools/MedProcessTools/SampleFilter.h"
+#include <regex>
 
 #ifndef AM_API_FOR_CLIENT
 
-bool any_regex_matcher_helper(const boost::regex &reg_pat, const vector<string> &nms)
+bool any_regex_matcher_helper(const std::regex &reg_pat, const vector<string> &nms)
 {
 	bool res = false;
 	for (size_t i = 0; i < nms.size() && !res; ++i)
-		res = boost::regex_match(nms[i], reg_pat);
+		res = std::regex_match(nms[i], reg_pat);
 	return res;
 }
 
-void get_parents_for_code(int codeGroup, vector<int> &parents, int max_depth, const boost::regex &reg_pat,
+void get_parents_for_code(int codeGroup, vector<int> &parents, int max_depth, const std::regex &reg_pat,
 						  const map<int, vector<int>> &member2Sets, const map<int, vector<string>> &id_to_names)
 {
 	vector<int> last_parents = {codeGroup};
@@ -77,7 +78,7 @@ void get_parents_for_code(int codeGroup, vector<int> &parents, int max_depth, co
 	parents.swap(fnal);
 }
 
-string get_code_name(int codeGroup, boost::regex &reg_pat, const map<int, vector<string>> &id_to_names, const map<int, vector<int>> &member2Sets)
+string get_code_name(int codeGroup, std::regex &reg_pat, const map<int, vector<string>> &id_to_names, const map<int, vector<int>> &member2Sets)
 {
 	vector<int> codes;
 	get_parents_for_code(codeGroup, codes, 5, reg_pat, member2Sets, id_to_names);
@@ -95,7 +96,7 @@ string get_code_name(int codeGroup, boost::regex &reg_pat, const map<int, vector
 			if (code == codeGroup && n == 0)
 				continue;
 			string sname = aliasing_names[n];
-			if (!boost::regex_match(sname, reg_pat))
+			if (!std::regex_match(sname, reg_pat))
 				continue;
 
 			curr_text += "|" + sname;
@@ -234,10 +235,10 @@ void MPSigExporter::gen_cat_dict(const string &field_name, int channel)
 	raw_val_to_new_val[field_name].reserve(Id2Names.size());
 	std::vector<std::string> category;
 	category.push_back("Undefined Category"); // category[0] , (code 0) is undefined
-	boost::regex filter_reg;
+	std::regex filter_reg;
 	if (!filter_regex.empty())
 	{
-		filter_reg = boost::regex(filter_regex);
+		filter_reg = std::regex(filter_regex);
 		printf("Activate regex complete match for \"%s\", dict size %zu\n", filter_regex.c_str(), o->dict.dict(section_id)->Member2Sets.size());
 	}
 	for (size_t i = 0; i < arr_sz; i++)

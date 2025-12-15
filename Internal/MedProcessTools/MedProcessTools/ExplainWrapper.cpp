@@ -13,6 +13,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/foreach.hpp>
 #include <boost/optional/optional.hpp>
+#include <regex>
 
 #define LOCAL_SECTION LOG_MED_MODEL
 #define LOCAL_LEVEL LOG_DEF_LEVEL
@@ -755,8 +756,8 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 		}
 	}
 	else if (file_name == "BY_SIGNAL_CATEG") {
-		boost::regex last_nth_reg(range_names);
-		boost::regex tm_val_ch_no_default_regex("t[0-9]+v[0-9]+");
+		std::regex last_nth_reg(range_names);
+		std::regex tm_val_ch_no_default_regex("t[0-9]+v[0-9]+");
 		for (int i = 0; i < nftrs; ++i)
 		{
 			vector<string> tokens;
@@ -770,7 +771,7 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 
 			if (idx + 1 < tokens.size()) {
 				if (boost::starts_with(tokens[idx + 1], "category_") ||
-					boost::regex_search(tokens[idx + 1], last_nth_reg)) {
+					std::regex_search(tokens[idx + 1], last_nth_reg)) {
 					boost::replace_all(tokens[idx + 1], "category_set_count_", "");
 					boost::replace_all(tokens[idx + 1], "category_set_sum_", "");
 					boost::replace_all(tokens[idx + 1], "category_set_first_time_", "");
@@ -779,14 +780,14 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 					boost::replace_all(tokens[idx + 1], "category_dep_count_", "");
 					boost::replace_all(tokens[idx + 1], "category_set_", "");
 					boost::replace_all(tokens[idx + 1], "category_intake_", "");
-					tokens[idx + 1] = boost::regex_replace(tokens[idx + 1], last_nth_reg, "");
+					tokens[idx + 1] = std::regex_replace(tokens[idx + 1], last_nth_reg, "");
 					word += "." + tokens[idx + 1];
 				}
 				++idx;
 				++idx;
 				//skip another last one if last one is "tXvY" format where X,Y are numbers:
 				int skip_count = 1;
-				if (boost::regex_search(tokens.back(), tm_val_ch_no_default_regex))
+				if (std::regex_search(tokens.back(), tm_val_ch_no_default_regex))
 					++skip_count;
 				//Add more tokens till last one - last one in ".win_X_Y"
 				while (idx + skip_count < tokens.size()) {
@@ -800,8 +801,8 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 		}
 	}
 	else if (file_name == "BY_SIGNAL_CATEG_TREND") {
-		boost::regex last_nth_reg(range_names);
-		boost::regex tm_val_ch_no_default_regex("t[0-9]+v[0-9]+");
+		std::regex last_nth_reg(range_names);
+		std::regex tm_val_ch_no_default_regex("t[0-9]+v[0-9]+");
 		for (int i = 0; i < nftrs; ++i)
 		{
 			vector<string> tokens;
@@ -815,7 +816,7 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 			bool categ = false;
 			if (idx + 1 < tokens.size()) {
 				if (boost::starts_with(tokens[idx + 1], "category_")
-					|| boost::regex_search(tokens[idx + 1], last_nth_reg)) {
+					|| std::regex_search(tokens[idx + 1], last_nth_reg)) {
 					boost::replace_all(tokens[idx + 1], "category_set_count_", "");
 					boost::replace_all(tokens[idx + 1], "category_set_sum_", "");
 					boost::replace_all(tokens[idx + 1], "category_set_first_time_", "");
@@ -824,7 +825,7 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 					boost::replace_all(tokens[idx + 1], "category_dep_count_", "");
 					boost::replace_all(tokens[idx + 1], "category_set_", "");
 					boost::replace_all(tokens[idx + 1], "category_intake_", "");
-					tokens[idx + 1] = boost::regex_replace(tokens[idx + 1], last_nth_reg, "");
+					tokens[idx + 1] = std::regex_replace(tokens[idx + 1], last_nth_reg, "");
 					word += "." + tokens[idx + 1];
 					categ = true;
 				}
@@ -832,7 +833,7 @@ void ExplainProcessings::read_feature_grouping(const string &file_name, const ve
 					++idx;
 					++idx;
 					int skip_count = 1;
-					if (boost::regex_search(tokens.back(), tm_val_ch_no_default_regex))
+					if (std::regex_search(tokens.back(), tm_val_ch_no_default_regex))
 						++skip_count;
 					//Add more tokens till last one - last one in ".win_X_Y"
 					while (idx + skip_count < tokens.size()) {

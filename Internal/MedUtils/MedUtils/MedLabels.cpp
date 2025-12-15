@@ -3,7 +3,7 @@
 #include <Logger/Logger/Logger.h>
 #include <InfraMed/InfraMed/MedPidRepository.h>
 #include <MedUtils/MedUtils/MedUtils.h>
-#include <boost/regex.hpp>
+#include <regex>
 
 #define LOCAL_SECTION LOG_INFRA
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
@@ -146,7 +146,7 @@ void update_loop(int pos, int ageBin_index, float ageBin, int signal_val,
 	}
 }
 
-static void _get_parents(int codeGroup, vector<int> &parents, bool has_regex, const boost::regex &reg_pat,
+static void _get_parents(int codeGroup, vector<int> &parents, bool has_regex, const std::regex &reg_pat,
 	int max_depth, int max_parents, const map<int, vector<int>> &_member2Sets, const map<int, vector<string>> &categoryId_to_name) {
 	vector<int> last_parents = { codeGroup };
 	if (last_parents.front() < 0)
@@ -179,7 +179,7 @@ static void _get_parents(int codeGroup, vector<int> &parents, bool has_regex, co
 			bool pass_regex_filter = false;
 			while (!pass_regex_filter && nm_idx < names.size())
 			{
-				pass_regex_filter = boost::regex_match(names[nm_idx], reg_pat);
+				pass_regex_filter = std::regex_match(names[nm_idx], reg_pat);
 				++nm_idx;
 			}
 			if (pass_regex_filter)
@@ -189,7 +189,7 @@ static void _get_parents(int codeGroup, vector<int> &parents, bool has_regex, co
 	}
 }
 
-static void propogate_hir(map<float, map<float, vector<int>>> &categoryVal_to_stats, bool has_regex, const boost::regex &reg_pat
+static void propogate_hir(map<float, map<float, vector<int>>> &categoryVal_to_stats, bool has_regex, const std::regex &reg_pat
 	, const map<int, vector<int>> &_member2Sets, const map<int, vector<string>> &categoryId_to_name) {
 	for (auto it = categoryVal_to_stats.begin(); it != categoryVal_to_stats.end(); ++it) {
 		int base_code = it->first;
@@ -212,7 +212,7 @@ static void propogate_hir(map<float, map<float, vector<int>>> &categoryVal_to_st
 	}
 }
 
-static void filter_regex_hir(map<float, map<float, vector<int>>> &categoryVal_to_stats, const boost::regex &reg_pat
+static void filter_regex_hir(map<float, map<float, vector<int>>> &categoryVal_to_stats, const std::regex &reg_pat
 	, const map<int, vector<string>> &categoryId_to_name) {
 	for (auto it = categoryVal_to_stats.begin(); it != categoryVal_to_stats.end();) {
 		int base_code = (int)it->first;
@@ -220,7 +220,7 @@ static void filter_regex_hir(map<float, map<float, vector<int>>> &categoryVal_to
 		const vector<string> &names = categoryId_to_name.at(base_code);
 		int pos_i = 0;
 		while (pos_i < names.size() && !found_match) {
-			found_match = boost::regex_match(names[pos_i], reg_pat);
+			found_match = std::regex_match(names[pos_i], reg_pat);
 			++pos_i;
 		}
 		if (found_match)
@@ -237,9 +237,9 @@ void MedLabels::calc_signal_stats(const string &repository_path, const string &s
 	const string &debug_file, const unordered_set<int> &debug_vals) const {
 	int sig_val_channel = 0;
 	int sig_time_channel = 0;
-	boost::regex reg_pat;
+	std::regex reg_pat;
 	if (!signalHirerchyType.empty())
-		reg_pat = boost::regex(signalHirerchyType);
+		reg_pat = std::regex(signalHirerchyType);
 	bool using_regex_filter = !signalHirerchyType.empty() && signalHirerchyType != "None";
 	MedRepository dataManager;
 	time_t start = time(NULL);

@@ -7,20 +7,20 @@
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
-#include <boost/regex.hpp>
+#include <regex>
 #if defined(__unix__) || defined(__APPLE__)
 #include <unistd.h>
 #endif
 
-bool any_regex_matcher(const boost::regex &reg_pat, const vector<string> &nms) {
+bool any_regex_matcher(const std::regex &reg_pat, const vector<string> &nms) {
 	bool res = false;
 	for (size_t i = 0; i < nms.size() && !res; ++i)
-		res = boost::regex_match(nms[i], reg_pat);
+		res = std::regex_match(nms[i], reg_pat);
 	return res;
 }
 
-void get_parents(int codeGroup, vector<int> &parents, int max_depth, const boost::regex &reg_pat,
-	const boost::regex &remove_pat, bool has_regex, bool has_remove,
+void get_parents(int codeGroup, vector<int> &parents, int max_depth, const std::regex &reg_pat,
+	const std::regex &remove_pat, bool has_regex, bool has_remove,
 	const map<int, vector<int>> &member2Sets, const map<int, vector<string>> &id_to_names) {
 	vector<int> last_parents = { codeGroup };
 	if (last_parents.front() < 0)
@@ -817,7 +817,7 @@ bool MedPatientPlotlyDate::add_categorical_chart(string &shtml, PidDataRec &rec,
 	const map<int, vector<string>> &id_to_names = rec.my_base_rep()->dict.dict(section_id)->Id2Names;
 	const map<int, vector<int>> &member_to_sets = rec.my_base_rep()->dict.dict(section_id)->Member2Sets;
 	if (sig_name == "Drug") bypass = 1;
-	boost::regex regf_1("^dc:\\d{8}");
+	std::regex regf_1("^dc:\\d{8}");
 	bool get_ascenders_codes = false;
 	string filter_regex = "";
 	string remove_reg = "";
@@ -828,8 +828,8 @@ bool MedPatientPlotlyDate::add_categorical_chart(string &shtml, PidDataRec &rec,
 		remove_reg = params.sig_params.at(sig_name).remove_regex_codes;
 		max_depth = params.sig_params.at(sig_name).ascender_limit;
 	}
-	boost::regex reg_f(filter_regex);
-	boost::regex reg_rem(remove_reg);
+	std::regex reg_f(filter_regex);
+	std::regex reg_rem(remove_reg);
 
 	for (int i = 0; i < usv.len; i++) {
 		int i_date = usv.Time(i, 0);
@@ -864,9 +864,9 @@ bool MedPatientPlotlyDate::add_categorical_chart(string &shtml, PidDataRec &rec,
 				for (int n = 0; n < aliasing_names.size(); n++) {
 					if (code == i_val && n == 0) continue;
 					string sname = aliasing_names[n];
-					if (bypass == 1 && (boost::regex_match(sname, regf_1))) continue;
-					if (!remove_reg.empty() && (boost::regex_match(sname, reg_rem))) continue;
-					if (!filter_regex.empty() && (!boost::regex_match(sname, reg_f))) continue;
+					if (bypass == 1 && (std::regex_match(sname, regf_1))) continue;
+					if (!remove_reg.empty() && (std::regex_match(sname, reg_rem))) continue;
+					if (!filter_regex.empty() && (!std::regex_match(sname, reg_f))) continue;
 					if (!curr_text.empty())
 						curr_text += "|";
 					curr_text += sname;
@@ -1041,7 +1041,7 @@ bool MedPatientPlotlyDate::add_categorical_table(string sig, string &shtml, PidD
 	const map<int, vector<string>> &id_to_names = rec.my_base_rep()->dict.dict(section_id)->Id2Names;
 	const map<int, vector<int>> &member_to_sets = rec.my_base_rep()->dict.dict(section_id)->Member2Sets;
 	if (sig == "Drug") bypass = 1;
-	boost::regex regf_1("^dc:\\d{8}");
+	std::regex regf_1("^dc:\\d{8}");
 	vector<vector<string>> string_channels;
 	vector<string> channels_names;
 	vector<int> lengths;
@@ -1056,8 +1056,8 @@ bool MedPatientPlotlyDate::add_categorical_table(string sig, string &shtml, PidD
 		remove_reg = params.sig_params.at(sig).remove_regex_codes;
 		max_depth = params.sig_params.at(sig).ascender_limit;
 	}
-	boost::regex reg_f(filter_regex);
-	boost::regex reg_rem(remove_reg);
+	std::regex reg_f(filter_regex);
+	std::regex reg_rem(remove_reg);
 
 	for (int i = 0; i < usv.n_time_channels(); i++) {
 		channels_names.push_back("(Time," + to_string(i) + ")");
@@ -1114,9 +1114,9 @@ bool MedPatientPlotlyDate::add_categorical_table(string sig, string &shtml, PidD
 						for (int n = 0; n < aliasing_names.size(); n++) {
 							if (code == i_val && n == 0) continue;
 							string sname = aliasing_names[n];
-							if (bypass == 1 && (boost::regex_match(sname, regf_1))) continue;
-							if (!remove_reg.empty() && (boost::regex_match(sname, reg_rem))) continue;
-							if (!filter_regex.empty() && (!boost::regex_match(sname, reg_f))) continue;
+							if (bypass == 1 && (std::regex_match(sname, regf_1))) continue;
+							if (!remove_reg.empty() && (std::regex_match(sname, reg_rem))) continue;
+							if (!filter_regex.empty() && (!std::regex_match(sname, reg_f))) continue;
 							if (!curr_text.empty())
 								curr_text += "|";
 							curr_text += sname;

@@ -2,14 +2,15 @@
 #include <cmath>
 #include <MedUtils/MedUtils/MedRegistry.h>
 #include <omp.h>
+#include <regex>
 
 #define LOCAL_SECTION LOG_FTRGNRTR
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 
-bool any_regex_match(const boost::regex &reg_pat, const vector<string> &nms) {
+bool any_regex_match(const std::regex &reg_pat, const vector<string> &nms) {
 	bool res = false;
 	for (size_t i = 0; i < nms.size() && !res; ++i)
-		res = boost::regex_match(nms[i], reg_pat);
+		res = std::regex_match(nms[i], reg_pat);
 	return res;
 }
 
@@ -219,10 +220,10 @@ int CategoryDependencyGenerator::update(map<string, string>& mapper) {
 			for (size_t i = 0; i < top_codes.size(); ++i) {
 				for (size_t k = 0; k < tokens.size(); k += 2)
 				{
-					boost::regex regex_find = boost::regex(tokens[k]);
+					std::regex regex_find = std::regex(tokens[k]);
 					string &regex_replace = tokens[k + 1];
 
-					top_codes[i] = boost::regex_replace(top_codes[i], regex_find, regex_replace);
+					top_codes[i] = std::regex_replace(top_codes[i], regex_find, regex_replace);
 				}
 			}
 		}
@@ -311,7 +312,7 @@ int _count_legal_rows(const  vector<vector<int>> &m, int minimal_balls) {
 
 
 
-void CategoryDependencyGenerator::get_parents(int codeGroup, vector<int> &parents, const boost::regex &reg_pat, const boost::regex &remove_reg_pat) {
+void CategoryDependencyGenerator::get_parents(int codeGroup, vector<int> &parents, const std::regex &reg_pat, const std::regex &remove_reg_pat) {
 
 	bool cached = false;
 #pragma omp critical
@@ -452,12 +453,12 @@ int CategoryDependencyGenerator::_learn(MedPidRepository& rep, const MedSamples&
 	vector<FeatureGenerator *> generators = { this };
 	unordered_set<int> extra_req_signal_ids;
 	handle_required_signals(processors, generators, extra_req_signal_ids, all_req_signal_ids_v, current_required_signal_ids);
-	boost::regex reg_pat;
-	boost::regex remove_reg_pat;
+	std::regex reg_pat;
+	std::regex remove_reg_pat;
 	if (!regex_filter.empty())
-		reg_pat = boost::regex(regex_filter);
+		reg_pat = std::regex(regex_filter);
 	if (!remove_regex_filter.empty())
-		remove_reg_pat = boost::regex(remove_regex_filter);
+		remove_reg_pat = std::regex(remove_regex_filter);
 
 	// Preparations
 	unordered_map<int, vector<vector<vector<int>>>> categoryVal_to_stats; //stats is gender,age, 4 ints counts:
@@ -818,8 +819,8 @@ int CategoryDependencyGenerator::_learn(MedPidRepository& rep, const MedSamples&
 		else {
 			bool found_nm = false;
 			for (size_t j = 0; j < category_names_repr.size() && !found_nm; ++j)
-				if (regex_filter.empty() || boost::regex_match(category_names_repr[j], reg_pat)) {
-					if (remove_regex_filter.empty() || !boost::regex_match(category_names_repr[j], remove_reg_pat)) {
+				if (regex_filter.empty() || std::regex_match(category_names_repr[j], reg_pat)) {
+					if (remove_regex_filter.empty() || !std::regex_match(category_names_repr[j], remove_reg_pat)) {
 						top_codes[i] = category_names_repr[j];
 						found_nm = true;
 					}

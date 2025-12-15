@@ -1,4 +1,3 @@
-#include <boost/regex.hpp>
 #include "FeatureProcess.h"
 
 #define LOCAL_SECTION LOG_FEATCLEANER

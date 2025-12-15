@@ -13,7 +13,7 @@
 #include <string>
 #include <iostream>
 #include <boost/program_options.hpp>
-#include <boost/regex.hpp>
+#include <regex>
 
 #include <Logger/Logger/Logger.h>
 #include <MedProcessTools/MedProcessTools/MedModel.h>
@@ -111,7 +111,7 @@ int read_run_params(int argc, char *argv[], po::variables_map &vm)
 
 //=================================================================================================================
 double add_pid_to_am(AlgoMarker *am, MedPidRepository &rep, vector<string> &ignore_sig, int pid, int time, string &sig, vector<long long> &times, vector<float> &vals, char **str_values,
-					 const map<string, boost::regex> &signal_categ_regex)
+					 const map<string, std::regex> &signal_categ_regex)
 {
 	// a small technicality
 	((MedialInfraAlgoMarker *)am)->set_sort(0); // getting rid of cases in which multiple data sets on the same day cause differences and fake failed tests.
@@ -181,7 +181,7 @@ double add_pid_to_am(AlgoMarker *am, MedPidRepository &rep, vector<string> &igno
 							if (signal_categ_regex.find(sig) != signal_categ_regex.end())
 							{
 								for (size_t iii = 0; iii < all_code_names.size(); ++iii)
-									if (boost::regex_match(all_code_names[iii], signal_categ_regex.at(sig)))
+									if (std::regex_match(all_code_names[iii], signal_categ_regex.at(sig)))
 									{
 										sv = all_code_names[iii];
 										break;
@@ -350,7 +350,7 @@ int get_preds_from_algomarker(AlgoMarker *am, const string &rep_conf, MedPidRepo
 		str_vals[i] = &buf[i * MAX_VAL_LEN];
 	}
 
-	map<string, boost::regex> signal_categ_regex;
+	map<string, std::regex> signal_categ_regex;
 
 	DYN(AM_API_ClearData(am));
 
@@ -431,15 +431,15 @@ string float_to_string(float val)
 
 //=================================================================================================================
 
-bool any_regex_matcher(const boost::regex &reg_pat, const vector<string> &nms)
+bool any_regex_matcher(const std::regex &reg_pat, const vector<string> &nms)
 {
 	bool res = false;
 	for (size_t i = 0; i < nms.size() && !res; ++i)
-		res = boost::regex_match(nms[i], reg_pat);
+		res = std::regex_match(nms[i], reg_pat);
 	return res;
 }
 
-void get_parents(int codeGroup, vector<int> &parents, int max_depth, const boost::regex &reg_pat,
+void get_parents(int codeGroup, vector<int> &parents, int max_depth, const std::regex &reg_pat,
 				 const map<int, vector<int>> &member2Sets, const map<int, vector<string>> &id_to_names)
 {
 	vector<int> filtered_p;
@@ -497,7 +497,7 @@ void get_parents(int codeGroup, vector<int> &parents, int max_depth, const boost
 //=================================================================================================================
 void add_sig_to_json(AlgoMarker *am, MedPidRepository &rep, vector<string> &ignore_sig,
 					 int pid, int time, string &sig, unordered_map<string, string> &units, json &json_out,
-					 const map<string, boost::regex> &signal_to_regex, int values_flag = 0)
+					 const map<string, std::regex> &signal_to_regex, int values_flag = 0)
 {
 	if (std::find(ignore_sig.begin(), ignore_sig.end(), sig) != ignore_sig.end())
 		return;
@@ -613,7 +613,7 @@ void add_sig_to_json(AlgoMarker *am, MedPidRepository &rep, vector<string> &igno
 					{
 						// Currentlly supports only 1 val cahnnel
 						// go up in parent till regex:
-						const boost::regex &reg_filter = signal_to_regex.at(sig);
+						const std::regex &reg_filter = signal_to_regex.at(sig);
 						vector<int> codes;
 						get_parents(signal_id_val, codes, 1000, reg_filter, member_to_sets, id_to_names);
 						// Break into all "codes":
@@ -630,7 +630,7 @@ void add_sig_to_json(AlgoMarker *am, MedPidRepository &rep, vector<string> &igno
 							const vector<string> &all_code_names = rep.dict.dicts[section_id].Id2Names[cd_];
 							string code_txt = "";
 							for (size_t iii = 0; iii < all_code_names.size(); ++iii)
-								if (boost::regex_match(all_code_names[iii], reg_filter))
+								if (std::regex_match(all_code_names[iii], reg_filter))
 								{
 									code_txt = all_code_names[iii];
 									break;
@@ -688,7 +688,7 @@ int get_preds_from_algomarker_single(po::variables_map &vm, AlgoMarker *am, stri
 	int print_msgs = (int)vm.count("print_msgs");
 	int write_jsons = (vm["out_jsons"].as<string>() != "");
 	unordered_map<string, string> units;
-	map<string, boost::regex> signal_categ_regex;
+	map<string, std::regex> signal_categ_regex;
 
 	// Read for vm syntax:
 	if (!vm["signal_categ_regex"].as<string>().empty())
@@ -709,7 +709,7 @@ int get_preds_from_algomarker_single(po::variables_map &vm, AlgoMarker *am, stri
 			if (tokens.size() != 2)
 				MTHROW_AND_ERR("Error bad file format %s. expecting 2 tokens\n",
 							   vm["signal_categ_regex"].as<string>().c_str());
-			signal_categ_regex[tokens[0]] = boost::regex(tokens[1]);
+			signal_categ_regex[tokens[0]] = std::regex(tokens[1]);
 		}
 		file_reader.close();
 	}

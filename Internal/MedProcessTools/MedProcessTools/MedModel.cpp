@@ -7,7 +7,7 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/find.hpp>
 #include <filesystem>
-#include <boost/regex.hpp>
+#include <regex>
 #include <boost/algorithm/string/regex.hpp>
 #include <cmath>
 #include <string>
@@ -1198,6 +1198,14 @@ string MedModel::make_absolute_path(const string& main_file, const string& small
 		MLOG_D("resolved relative path [%s] to [%s]\n", small_file.c_str(), abs.c_str());
 	return abs;
 }
+
+void split_regex(const string &regex_str, string &alt, vector<string> &result) {
+	std::regex re(regex_str);
+	std::sregex_token_iterator it(alt.begin(), alt.end(), re, -1);
+	std::sregex_token_iterator end;
+	result.assign(it, end);
+}
+
 void MedModel::alter_json(string &json_contents, vector<string>& alterations) {
 
 	if (alterations.size() == 0) return;
@@ -1206,7 +1214,7 @@ void MedModel::alter_json(string &json_contents, vector<string>& alterations) {
 	vector<string> fields;
 	MLOG_D("Json : replacing ");
 	for (string& alt : alterations) {
-		boost::algorithm::split_regex(fields, alt, boost::regex("::"));
+		split_regex("::", alt, fields);
 		if (fields.size() != 2)
 			MTHROW_AND_ERR("Cannot parse alteration string [%s] \n", alt.c_str());
 		vector<string> res;
@@ -1222,9 +1230,9 @@ void MedModel::alter_json(string &json_contents, vector<string>& alterations) {
 
 void MedModel::insert_environment_params_to_json(string& json_content) {
 
-	boost::regex expr{ "ENV\\{(\\S+)\\}" };
-	boost::sregex_iterator it(json_content.begin(), json_content.end(), expr);
-	boost::sregex_iterator end;
+	std::regex expr{ "ENV\\{(\\S+)\\}" };
+	std::sregex_iterator it(json_content.begin(), json_content.end(), expr);
+	std::sregex_iterator end;
 
 	map<string, string> mapping;
 	for (; it != end; ++it) {
@@ -1267,10 +1275,10 @@ string MedModel::json_file_to_string(int recursion_level, const string& main_fil
 	insert_environment_params_to_json(orig);
 
 	const char* pattern = "\\\"[[:blank:]]*json\\:(.+?)[[:blank:]]*?\\\"";
-	boost::regex ip_regex(pattern);
+	std::regex ip_regex(pattern);
 
-	boost::sregex_iterator it(orig.begin(), orig.end(), ip_regex);
-	boost::sregex_iterator end;
+	std::sregex_iterator it(orig.begin(), orig.end(), ip_regex);
+	std::sregex_iterator end;
 	int last_char = 0;
 	string out_string = "";
 	string add_path;
@@ -1291,13 +1299,13 @@ string MedModel::json_file_to_string(int recursion_level, const string& main_fil
 			my_alterations.push_back(tokens[i]);
 		for (string alt : alterations) {
 			vector<string> fields;
-			boost::algorithm::split_regex(fields, alt, boost::regex("::"));
+			split_regex("::", alt, fields);
 			if (fields.size() != 2)
 				MTHROW_AND_ERR("Cannot parse alteration string [%s] \n", alt.c_str());
 			bool overriden = false;
 			for (string existing_alt : my_alterations) {
 				vector<string> existing_fields;
-				boost::algorithm::split_regex(existing_fields, existing_alt, boost::regex("::"));
+				split_regex("::", existing_alt, existing_fields);
 				if (fields[0] == existing_fields[0]) {
 					MLOG_D("alteration [%s] overriden in the context of [%s] to [%s]\n",
 						fields[0].c_str(), small_file_inc.c_str(), existing_fields[1].c_str());
@@ -2824,8 +2832,8 @@ bool filter_by_json_query(SerializableObject &obj, const vector<string> &json_qu
 	//check whitelist:
 	for (const string &s : json_query_whitelist)
 	{
-		boost::regex reg_pat(s);
-		status = boost::regex_search(obj_json, reg_pat);
+		std::regex reg_pat(s);
+		status = std::regex_search(obj_json, reg_pat);
 		if (!status)
 			break;
 	}
@@ -2833,8 +2841,8 @@ bool filter_by_json_query(SerializableObject &obj, const vector<string> &json_qu
 	if (status) {
 		for (const string &s : json_query_blacklist)
 		{
-			boost::regex reg_pat(s);
-			status = !boost::regex_search(obj_json, reg_pat);
+			std::regex reg_pat(s);
+			status = !std::regex_search(obj_json, reg_pat);
 			if (!status)
 				break;
 		}

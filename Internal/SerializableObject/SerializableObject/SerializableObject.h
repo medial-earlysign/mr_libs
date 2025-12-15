@@ -7,7 +7,6 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/crc.hpp>
 #include <boost/algorithm/string/replace.hpp>
-#include <boost/regex.hpp>
 
 #include <cstring>
 #include <string>

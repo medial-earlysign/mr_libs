@@ -3,6 +3,7 @@
 
 #include <type_traits>
 #include <typeinfo>
+#include <regex>
 
 #if __GNUC__
 #if __cplusplus < 201402L
@@ -117,7 +118,7 @@ namespace MedSerialize {
 		//it's object:
 		string enum_nm = typeid(v).name();
 		//remove number prefix:
-		enum_nm = boost::regex_replace(enum_nm, boost::regex("^([0-9]*|enum )"), "");
+		enum_nm = std::regex_replace(enum_nm, std::regex("^([0-9]*|enum )"), "");
 		str << enum_nm << "::" << (int)v;
 		return str.str();
 	}
@@ -1550,7 +1551,7 @@ namespace MedSerialize {
 			if ((curr_line.size() > 1) && (curr_line[0] != '#')) { // ignore empty lines, ignore comment lines
 
 				// get rid of leading spaces, trailing spaced, and shrink inner spaces to a single one, get rid of tabs and end of line (win or linux)
-				string fixed_spaces = boost::regex_replace(curr_line, boost::regex("^ +| +$|( ) +|\r|\n|\t+"), string("$1"));
+				string fixed_spaces = std::regex_replace(curr_line, std::regex("^ +| +$|( ) +|\r|\n|\t+"), string("$1"));
 				data += fixed_spaces;
 			}
 		}
@@ -1574,18 +1575,18 @@ namespace MedSerialize {
 			//SRL_LOG("read_list: curr_line: %s\n", curr_line.c_str());
 			if ((curr_line.size() > 1) && (curr_line[0] != '#')) { // ignore empty lines, ignore comment lines
 				// move all tabs to spaces
-				string fixed_spaces = boost::regex_replace(fixed_spaces, boost::regex("\t+"), " ");
+				string fixed_spaces = std::regex_replace(fixed_spaces, std::regex("\t+"), " ");
 
 				// get rid of leading spaced, ending spaces, \r
-				fixed_spaces = boost::regex_replace(curr_line, boost::regex("^ +| +$|\r|\n"), "");
+				fixed_spaces = std::regex_replace(curr_line, std::regex("^ +| +$|\r|\n"), "");
 
 				fixed_spaces += "\n"; // re-adding eol, in case it was missing
 
 				// change all internal spaces and \n to comma
-				fixed_spaces = boost::regex_replace(fixed_spaces, boost::regex(" +|\n"), ",");
+				fixed_spaces = std::regex_replace(fixed_spaces, std::regex(" +|\n"), ",");
 
 				// make sure there are no adjacent commas
-				fixed_spaces = boost::regex_replace(fixed_spaces, boost::regex(",,+"), ",");
+				fixed_spaces = std::regex_replace(fixed_spaces, std::regex(",,+"), ",");
 
 				// add 
 				data += fixed_spaces;

@@ -7,7 +7,7 @@
 #include "DoCalcFeatProcessor.h"
 #include <MedStat/MedStat/MedPerformance.h>
 #include <omp.h>
-#include <boost/regex.hpp>
+#include <regex>
 #include "MedStat/MedStat/MedBootstrap.h"
 #include <MedAlgo/MedAlgo/MedGDLM.h>
 
@@ -920,8 +920,8 @@ int TagFeatureSelector::_learn(MedFeatures& features, unordered_set<int>& ids) {
 			auto start_it = feature_tags.begin();
 			while (!found_remove && start_it != feature_tags.end()) {
 				for (const string& substring : r) {
-					boost::regex regi(substring);
-					if (boost::regex_match(*start_it, regi)) {
+					std::regex regi(substring);
+					if (std::regex_match(*start_it, regi)) {
 						found_remove = true;
 						if (verbose)
 							MLOG("TagFeatureSelector removing [%s] because of tag [%s] that contains [%s]\n",
@@ -947,8 +947,8 @@ int TagFeatureSelector::_learn(MedFeatures& features, unordered_set<int>& ids) {
 			while (!found_match && start_it != feature_tags.end()) {
 				//MLOG("considering tag [%s]\n",(*start_it).c_str());
 				for (const string& substring : s) {
-					boost::regex regi(substring);
-					if (boost::regex_match(*start_it, regi)) {
+					std::regex regi(substring);
+					if (std::regex_match(*start_it, regi)) {
 						found_match = true;
 						if (verbose)
 							MLOG("TagFeatureSelector selecting [%s] because of tag [%s] that contains [%s]\n",

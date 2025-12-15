@@ -10,6 +10,7 @@
 #include "DuplicateProcessor.h"
 #include <omp.h>
 #include <algorithm>
+#include <regex>
 
 //=======================================================================================
 // Feature Processors
@@ -1207,10 +1208,10 @@ int OneHotFeatProcessor::Learn(MedFeatures& features, unordered_set<int>& ids) {
 		// multilabel mode - with regex
 		for (int i = 0; i < regex_list.size(); i++)
 		{
-			boost::regex regf(regex_list[i]);
+			std::regex regf(regex_list[i]);
 			for (auto& value2Name : features.attributes[resolved_feature_name].value2Name)
 			{
-				if (boost::regex_match(value2Name.second, regf)) {
+				if (std::regex_match(value2Name.second, regf)) {
 					unordered_map<float, string> val2name_tmp = { { value2Name.first, regex_list_names[i]} };
 					string name = get_feature_name(value2Name.first, out_prefix, val2name_tmp, features.medf_missing_value);
 					value2feature[value2Name.first].push_back(name);

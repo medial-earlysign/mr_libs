@@ -7,8 +7,6 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/find.hpp>
 #include <filesystem>
-#include <boost/regex.hpp>
-#include <boost/algorithm/string/regex.hpp>
 #include <string>
 #include "StripComments.h"
 #include <boost/optional/optional.hpp>
