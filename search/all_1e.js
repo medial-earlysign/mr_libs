@@ -558,7 +558,7 @@ var searchData=
   ['sockaddrv4_555',['SockAddrV4',['../classxgboost_1_1collective_1_1SockAddrV4.html',1,'xgboost::collective']]],
   ['sockaddrv6_556',['SockAddrV6',['../classxgboost_1_1collective_1_1SockAddrV6.html',1,'xgboost::collective']]],
   ['socket_2eh_557',['socket.h',['../rabit_2include_2rabit_2internal_2socket_8h.html',1,'']]],
-  ['softmax_558',['softmax',['../namespacexgboost_1_1common.html#a0d39ff2149306b659d281a91ed74c0e4',1,'xgboost::common::Softmax()'],['../namespacecustom__softmax.html#aa096fa2b2083bcd33df24d499bd72ce6',1,'custom_softmax.softmax(x)']]],
+  ['softmax_558',['softmax',['../namespacecustom__softmax.html#aa096fa2b2083bcd33df24d499bd72ce6',1,'custom_softmax.softmax()'],['../namespacexgboost_1_1common.html#a0d39ff2149306b659d281a91ed74c0e4',1,'xgboost::common::Softmax()']]],
   ['softprob_5fobj_559',['softprob_obj',['../namespacecustom__softmax.html#a4c3d46485dba0973a34566a2f3487932',1,'custom_softmax']]],
   ['software_560',['Integrations with 3rd party software',['../md_External_2xgboost_2demo_2README.html#autotoc_md132',1,'']]],
   ['solutioninfo_561',['SolutionInfo',['../structSolver_1_1SolutionInfo.html',1,'Solver']]],
