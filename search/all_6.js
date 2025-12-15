@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['6_0',['1.7.3 (2023 Jan 6)',['../md_External_2xgboost_2NEWS.html#autotoc_md212',1,'']]],
+  ['6_0',['6',['../md_External_2xgboost_2NEWS.html#autotoc_md212',1,'1.7.3 (2023 Jan 6)'],['../md_Internal_2MedPyExport_2README.html#autotoc_md515',1,'Relase Notes - 1.0.6']]],
   ['6_200_202022_20apr_2016_1',['v1.6.0 (2022 Apr 16)',['../md_External_2xgboost_2NEWS.html#autotoc_md236',1,'']]],
   ['6_201_202022_20may_209_2',['v1.6.1 (2022 May 9)',['../md_External_2xgboost_2NEWS.html#autotoc_md233',1,'']]],
   ['6_202016_2007_2029_3',['v0.6 (2016.07.29)',['../md_External_2xgboost_2NEWS.html#autotoc_md466',1,'']]],
