@@ -6,7 +6,7 @@
 #include <boost/foreach.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/find.hpp>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #include <boost/regex.hpp>
 #include <boost/algorithm/string/regex.hpp>
 #include <string>
@@ -140,7 +140,7 @@ void MedModel::parse_action(basic_ptree<string, string>& action, vector<vector<s
 }
 
 void MedModel::init_from_json_file_with_alterations(const string &fname, vector<string>& alterations) {
-	run_current_path = boost::filesystem::path(fname).parent_path().string();
+	run_current_path = std::filesystem::path(fname).parent_path().string();
 	string json_contents = json_file_to_string(0, fname, alterations, "", true);
 
 	if (init_from_json_string(json_contents, fname) == 1)
@@ -403,7 +403,7 @@ void MedModel::replace_predictor_with_json_predictor(string f_json)
 {
 	// open the json file, transfer it to string
 	vector<string> alternations;
-	run_current_path = boost::filesystem::path(f_json).parent_path().string();
+	run_current_path = std::filesystem::path(f_json).parent_path().string();
 	string json_contents = json_file_to_string(0, f_json, alternations, "", true);
 
 	istringstream no_comments_stream(json_contents);

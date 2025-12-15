@@ -10,7 +10,7 @@
 #include <MedProcessTools/MedProcessTools/MedModel.h>
 #include <boost/algorithm/string.hpp>
 #include <boost/math/distributions/chi_squared.hpp>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #include <omp.h>
 #include <MedMat/MedMat/MedMat.h>
 
@@ -269,7 +269,7 @@ RegistrySignalSet::RegistrySignalSet(const string &sigName, int durr_time, int b
 	outcome_value = outcome_val;
 	channel = chan;
 	repo = &rep;
-	boost::filesystem::path p(path_to_cfg_file);
+	std::filesystem::path p(path_to_cfg_file);
 	base_cfg_path = p.parent_path().string();
 	if (!sigName.empty()) {
 		int sid = rep.sigs.sid(sigName);
@@ -378,7 +378,7 @@ RegistrySignalSet::RegistrySignalSet(const string &init_string, MedRepository &r
 	repo = &rep;
 	init_from_string(init_string);
 	outcome_value = outcome_val;
-	boost::filesystem::path p(path_to_cfg_file);
+	std::filesystem::path p(path_to_cfg_file);
 	base_cfg_path = p.parent_path().string();
 	if (!sets.empty()) {
 		int section_id = rep.dict.section_id(signalName);
@@ -457,7 +457,7 @@ RegistrySignalDrug::RegistrySignalDrug(MedRepository &rep, const string &path_to
 	buffer_duration = 0;
 	take_only_first = false;
 	outcome_value = 1;
-	boost::filesystem::path p(path_to_cfg_file);
+	std::filesystem::path p(path_to_cfg_file);
 	base_path = p.parent_path().string();
 }
 

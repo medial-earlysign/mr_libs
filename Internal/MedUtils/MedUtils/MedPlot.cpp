@@ -4,8 +4,7 @@
 #include <ctime>
 #include <iostream>
 #include <algorithm>
-#include <boost/filesystem/path.hpp>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #ifdef _WIN32
 //define something for Windows
@@ -147,8 +146,8 @@ void createScatterHtmlGraph(const string &outPath, const vector<vector<pair<floa
 		y_name = "values";
 	}
 
-	boost::filesystem::path p(outPath);
-	boost::filesystem::path outDir = p.parent_path();
+	std::filesystem::path p(outPath);
+	std::filesystem::path outDir = p.parent_path();
 
 	string content = template_str;
 	if (template_str.empty())
@@ -473,7 +472,7 @@ void plotAUC(const vector<vector<float>> &all_preds, const vector<vector<float>>
 	vector<float> false_rate;
 	vector<float> ppv, pr;
 
-	boost::filesystem::create_directories(baseOut.data());
+	std::filesystem::create_directories(baseOut);
 	vector<map<float, float>> allData;
 	vector<map<float, float>> allPPV;
 	vector<map<float, float>> allSensPPV;

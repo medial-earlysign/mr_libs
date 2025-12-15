@@ -6,7 +6,7 @@
 #include <boost/foreach.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/find.hpp>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #include <boost/regex.hpp>
 #include <boost/algorithm/string/regex.hpp>
 #include <cmath>
@@ -1176,7 +1176,7 @@ void MedModel::fill_list_from_file(const string& fname, vector<string>& list) {
 
 }
 string MedModel::make_absolute_path(const string& main_file, const string& small_file, bool use_cwd) {
-	boost::filesystem::path p(main_file);
+	std::filesystem::path p(main_file);
 	string main_file_path = p.parent_path().string();
 	if (use_cwd)
 		main_file_path = run_current_path;
@@ -1309,9 +1309,9 @@ string MedModel::json_file_to_string(int recursion_level, const string& main_fil
 		}
 		out_string += orig.substr(last_char, it->position() - last_char);
 		if (add_change_path) {
-			boost::filesystem::path json_p(small_file_inc);
-			boost::filesystem::path json_par(fname);
-			string pth = boost::filesystem::absolute(json_p.parent_path(), json_par.parent_path()).string();
+			std::filesystem::path json_p(small_file_inc);
+			std::filesystem::path json_par(fname);
+			string pth = std::filesystem::absolute(json_par.parent_path() / json_p.parent_path()).string();
 			snprintf(buff, sizeof(buff), "{\"action_type\":\"change_path:%s\"},\n", pth.c_str());
 			add_path = string(buff);
 			out_string += add_path;

@@ -2,7 +2,7 @@
 #include "AlgoMarkerErr.h"
 #include <Logger/Logger/Logger.h>
 #include <boost/algorithm/string.hpp>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 
@@ -284,7 +284,7 @@ int InputSanityTester::read_config(const string &f_conf)
 
 	if (!inf)
 		return -1;
-	string base_path = boost::filesystem::path(f_conf.c_str()).parent_path().string();
+	string base_path = std::filesystem::path(f_conf).parent_path().string();
 
 	//MLOG("initializing sanity tester from file %s\n", f_conf.c_str());
 	string curr_line;

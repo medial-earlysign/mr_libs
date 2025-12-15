@@ -1,5 +1,10 @@
 # Medial Python Binding
 
+## Relase Notes - 1.0.6
+* Fix code to compile in ARM computer
+* Removed ipython dependency
+* Readme fixes
+
 ## Relase Notes - 1.0.5
 * Adjustments to compile with Alpine/Musl library
 * Bugfix issue #5

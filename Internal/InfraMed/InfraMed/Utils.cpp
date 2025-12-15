@@ -9,7 +9,7 @@
 #define _LARGE_FILE_SOURCE
 #define _FILE_OFFSET_BITS 64
 #include <cstdio>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #define LOCAL_SECTION LOG_INFRA
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
@@ -19,7 +19,7 @@ extern MedLogger global_logger;
 //-----------------------------------------------------------------------------
 bool file_exists_IM(const string &fname)
 {
-	return boost::filesystem::exists(fname);
+	return std::filesystem::exists(fname);
 }
 
 //----------------------------------------------------------------------------
@@ -91,7 +91,7 @@ int copy_file_IM(const string& in_file, const string& out_file) {
 int copy_files_IM(const string &in_path, const string &out_path, vector<string>& fnames) {
 
 	if (in_path != out_path) {
-		boost::filesystem::create_directories(out_path);
+		std::filesystem::create_directories(out_path);
 		for (unsigned int i=0; i<fnames.size(); i++) {
 			if (fnames[i].size() > 0 && fnames[i][0] == '/') {
 				MLOG("not copying [%s] as its absolute path\n", fnames[i].c_str());

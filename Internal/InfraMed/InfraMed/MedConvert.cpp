@@ -18,7 +18,7 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/algorithm/string/replace.hpp>
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 using namespace boost;
 
@@ -266,7 +266,7 @@ int MedConvert::prep_sids_to_load()
 void get_rel_filename(vector<string> &paths) {
 	for (size_t i = 0; i < paths.size(); i++)
 	{
-		boost::filesystem::path pt(paths[i]);
+		std::filesystem::path pt(paths[i]);
 		paths[i] = pt.filename().string();
 	}
 }
@@ -386,8 +386,8 @@ int MedConvert::read_all(const string &config_fname)
 	for (string d : dict_fnames)
 	{
 		add_path_to_name_IM(out_path, d);
-		boost::filesystem::path pt_dict(d);
-		boost::filesystem::create_directories(pt_dict.parent_path().string());
+		std::filesystem::path pt_dict(d);
+		std::filesystem::create_directories(pt_dict.parent_path().string());
 	}
 	if (copy_files_IM(path, out_path, dict_fnames) < 0)
 		MTHROW_AND_ERR("MedConvert : read_all() : failed copying files from in to out directory\n");
