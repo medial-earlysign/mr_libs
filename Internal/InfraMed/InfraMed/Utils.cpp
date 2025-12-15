@@ -9,6 +9,7 @@
 #define _LARGE_FILE_SOURCE
 #define _FILE_OFFSET_BITS 64
 #include <cstdio>
+#include <cstring>
 #include <filesystem>
 
 #define LOCAL_SECTION LOG_INFRA

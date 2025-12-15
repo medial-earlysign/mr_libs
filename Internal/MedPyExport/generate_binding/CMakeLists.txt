@@ -49,7 +49,6 @@ endif()
 
 set(BOOST_LIBS
     regex
-    filesystem
     system
     program_options
 ) # for certain version, you might need to add "atomic" also, in some other cases remove system
