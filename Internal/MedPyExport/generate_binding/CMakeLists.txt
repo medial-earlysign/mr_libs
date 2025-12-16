@@ -92,7 +92,8 @@ if (NOT WIN32)
     endif()
 else()
     # Windows
-    set(COMPILER_FLAGS "/openmp /EHsc /MD /permissive- /Zc:strictStrings- /Zc:__cplusplus /DMES_LIBRARY=1 /DGIT_HEAD_VERSION=\"'$(GIT_HEAD_VERSION)'\"")
+    set(COMPILER_FLAGS "/openmp /EHsc /MD /permissive- /Zc:strictStrings- /Zc:__cplusplus /DMES_LIBRARY=1")
+    add_compile_definitions(GIT_HEAD_VERSION="$ENV{GIT_HEAD_VERSION}")
 endif()
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ")
 # Filter out definition of NDEBUG from the default configuration flags for Release
