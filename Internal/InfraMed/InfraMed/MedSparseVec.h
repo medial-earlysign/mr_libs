@@ -64,7 +64,16 @@
 
 // Helper macro to use the standard GCC/Clang built-in for population count.
 // This works on both x86_64 and ARM64 (AArch64).
-#define MED_POPCOUNT(x) __builtin_popcountll(x)
+
+#if defined(__CUDA_ARCH__)
+  #define MED_POPCOUNT(x) __popcll(x)
+#elif defined(__GNUC__) || defined(__clang__)
+  #define MED_POPCOUNT(x) __builtin_popcountll(x)
+#elif defined(_MSC_VER) && defined(_M_X64)
+  #define MED_POPCOUNT(x) __popcnt64(x)
+#else
+  #define MED_POPCOUNT(x) NativePopc(x)
+#endif
 
 using namespace std;
 
