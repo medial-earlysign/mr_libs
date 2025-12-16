@@ -3,7 +3,7 @@
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 
-
+#if not(defined(MES_LIBRARY))
 // Read A matrix from csv/bin
 void readMatrix(MedFeatures& features, po::variables_map& vm) { 
 	readMatrix(features, vm, "inCsv", "inBin"); 
@@ -53,6 +53,32 @@ void writePredictions(MedFeatures& features, po::variables_map& vm)
 	}
 }
 
+// Get Folds To Take
+void get_folds(po::variables_map& vm, vector<int>& folds, int nFolds) {
+
+	if (vm.count("folds")) {
+		string folds_s = vm["folds"].as<string>();
+		vector<string> folds_v;
+		boost::split(folds_v, folds_s, boost::is_any_of(","));
+
+		set<int> _folds;
+		for (unsigned int i = 0; i < folds_v.size(); i++) {
+			int fold = stoi(folds_v[i]);
+			if (fold >= nFolds || fold < 0)
+				MTHROW_AND_ERR("Illegal fold \'%s\' in folds\n", folds_v[i].c_str());
+			if (_folds.find(fold) != _folds.end())
+				MTHROW_AND_ERR("Duplicate fold \'%s\' in folds \'%s\'\n", folds_v[i].c_str(),folds_s.c_str());
+			folds.push_back(fold);
+		}
+	}
+	else {
+		for (int i = 0; i < nFolds; i++)
+			folds.push_back(i);
+	}
+
+}
+
+#endif
 // Read List from file
 int readList(string& fname, vector<string>& list) {
 
@@ -83,31 +109,6 @@ void read_predictor_from_file(MedPredictor* &pred, string& predictorFile) {
 	memcpy(&type, blob, sizeof(MedPredictorTypes));
 	pred = MedPredictor::make_predictor(type);
 	pred->deserialize(blob + sizeof(MedPredictorTypes));
-}
-
-// Get Folds To Take
-void get_folds(po::variables_map& vm, vector<int>& folds, int nFolds) {
-
-	if (vm.count("folds")) {
-		string folds_s = vm["folds"].as<string>();
-		vector<string> folds_v;
-		boost::split(folds_v, folds_s, boost::is_any_of(","));
-
-		set<int> _folds;
-		for (unsigned int i = 0; i < folds_v.size(); i++) {
-			int fold = stoi(folds_v[i]);
-			if (fold >= nFolds || fold < 0)
-				MTHROW_AND_ERR("Illegal fold \'%s\' in folds\n", folds_v[i].c_str());
-			if (_folds.find(fold) != _folds.end())
-				MTHROW_AND_ERR("Duplicate fold \'%s\' in folds \'%s\'\n", folds_v[i].c_str(),folds_s.c_str());
-			folds.push_back(fold);
-		}
-	}
-	else {
-		for (int i = 0; i < nFolds; i++)
-			folds.push_back(i);
-	}
-
 }
 
 

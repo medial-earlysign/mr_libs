@@ -14,8 +14,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#include <boost/program_options.hpp>
-
 #include "MedStat/MedStat/MedStat.h"
 #include "MedStat/MedStat/MedPerformance.h"
 #include "MedAlgo/MedAlgo/MedAlgo.h"
@@ -43,22 +41,29 @@
 #define DEFAULT_REP "/home/Repositories/THIN/thin_final/thin.repository"
 
 using namespace std;
+
+#if not(defined(MES_LIBRARY))
+#include <boost/program_options.hpp>
 namespace po = boost::program_options; 
+
+void readMatrix(MedFeatures& features, po::variables_map& vm, string csvName, string binName);
+void readMatrix(MedFeatures& features, po::variables_map& vm);
+// Write predictions to csv/bin/samples
+void writePredictions(MedFeatures& features, po::variables_map& vm);
+void get_folds(po::variables_map& vm, vector<int>& folds, int nFolds);
+#endif
 
 // Functions
 void shuffleMatrix(MedFeatures& matrix);
 
 // Read a matrix from csv/bin
-void readMatrix(MedFeatures& features, po::variables_map& vm, string csvName, string binName);
-void readMatrix(MedFeatures& features, po::variables_map& vm);
 
-// Write predictions to csv/bin/samples
-void writePredictions(MedFeatures& features, po::variables_map& vm);
+
 // Read a list of names
 int readList(string& fname, vector<string>& list);
 // Read predictor from file
 void read_predictor_from_file(MedPredictor* &pred, string& predictorFile);
-void get_folds(po::variables_map& vm, vector<int>& folds, int nFolds);
+
 
 // Get performance
 void print_auc_performance(MedSamples& samples, int nfolds, string& outFile);

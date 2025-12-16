@@ -20,8 +20,6 @@
 #include <boost/algorithm/string/replace.hpp>
 #include <filesystem>
 
-using namespace boost;
-
 #define LOCAL_SECTION LOG_CONVERT
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 extern MedLogger global_logger;
@@ -1355,9 +1353,9 @@ int MedConvert::generate_prefix_names()
 	serial2siginfo.clear();
 	for (int i = 0; i < sigs.signals_names.size(); i++) {
 		string fixed_sig_name = sigs.signals_names[i];
-		replace_all(fixed_sig_name, "/", "_div_");
-		replace_all(fixed_sig_name, ":", "_over_");
-		replace_all(fixed_sig_name, "%", "_percent_");
+		boost::replace_all(fixed_sig_name, "/", "_div_");
+		boost::replace_all(fixed_sig_name, ":", "_over_");
+		boost::replace_all(fixed_sig_name, "%", "_percent_");
 		string name = rep_files_prefix + "_" + fixed_sig_name; //sigs.signals_names[i];
 		int sid = sigs.sid(sigs.signals_names[i]); // signals_ids[i];
 		prefix_names.push_back(name);

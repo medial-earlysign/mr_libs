@@ -42,68 +42,20 @@ set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_BINARY_DIR})
 if(DEFINED ENV{BOOST_ROOT})
     message(STATUS "BOOST_ROOT is set to: $ENV{BOOST_ROOT}")
     set(BOOST_ROOT "$ENV{BOOST_ROOT}")
+    set(Boost_INCLUDE_DIRS "${BOOST_ROOT}/include")
+    include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 else()
-    message(STATUS "BOOST_ROOT environment variable is not set. Please set it to the Boost installation path.")
-    # set(BOOST_ROOT "$ENV{HOME}/Documents/MES/Boost") #If you have compiled boost by yourself with -fPIC flag, please provide the path to folder with "/lib" with shared and static lib and "/include" for headers.
-endif()
-
-set(BOOST_LIBS
-    system
-    program_options
-) # for certain version, you might need to add "atomic" also, in some other cases remove system
-
-find_package(Boost QUIET)
-if(NOT Boost_FOUND)
-    message(FATAL_ERROR "Could not locate Boost installation to determine version.")
-endif()
-
-if(Boost_VERSION_STRING VERSION_GREATER_EQUAL "1.69") # 1.69 is represented as 106900 in CMake
-    # Remove "system" for newer versions (>= 1.69)
-    # The list(REMOVE_ITEM) command is used to remove a specific item from a list variable.
-    list(REMOVE_ITEM BOOST_LIBS "system")
-    message(STATUS "Boost version is ${Boost_VERSION_STRING} (>= 1.69), removing 'system' from BOOST_LIBS.")
-else()
-    message(STATUS "Boost version is ${Boost_VERSION_STRING} (< 1.69), keeping 'system' in BOOST_LIBS.")
-endif()
-if (WIN32)
-    list(APPEND BOOST_LIBS "serialization")
-endif()
-
-# Try to find static Boost libraries first
-if(DEFINED ENV{BOOST_DISABLE_STATIC})
-    message("BOOST_DISABLE_STATIC was found - disabling static Boost libraries")
-    set(USE_BOOST_SHARED_LIBS ON)
-    set(Boost_USE_STATIC_LIBS OFF)
-
-    find_package(Boost REQUIRED COMPONENTS ${BOOST_LIBS})
-    if (WIN32)
-        add_definitions(-DBOOST_ALL_DYN_LINK) # Dynamic
-    endif()
-else()
-    # Attempt 1: Try to use static Boost libraries first
-    set(Boost_USE_STATIC_LIBS ON)
-    message("Trying to use Boost static libraries. If not compiled with -fPIC it will fail. If it is only for your local machine. You might want to set BOOST_DISABLE_STATIC environment variable")
-
-    find_package(Boost QUIET COMPONENTS ${BOOST_LIBS})
-
-    if(NOT Boost_FOUND)
-        message(WARNING "Could not find static Boost libraries. Falling back to shared libraries.")
-
-        set(USE_BOOST_SHARED_LIBS ON)
-        set(Boost_USE_STATIC_LIBS OFF)
-        # Unset Boost variables to allow a clean re-search
-        unset(Boost_LIBRARIES CACHE)
-        unset(Boost_FOUND CACHE)
-        if (WIN32)
-            add_definitions(-DBOOST_ALL_DYN_LINK) # Dynamic
-        endif()
-        find_package(Boost REQUIRED COMPONENTS ${BOOST_LIBS})
-    else()
-        set(USE_BOOST_SHARED_LIBS OFF)
-        if (WIN32)
-            add_definitions(-DBOOST_ALL_NO_LIB) # Static
-        endif()
-        message(STATUS  "Successfully found static Boost libraries.")
+    find_package(Boost QUIET)
+    if (NOT Boost_FOUND)
+        message(STATUS "BOOST_ROOT environment variable is not set. Please set it to the Boost installation path, if you want to use a specific boost.")
+        message(STATUS "Boost not found. Downloading headers...")
+        include(FetchContent)
+        FetchContent_Declare(
+            boost_headers
+                URL      https://github.com/boostorg/boost/releases/download/boost-1.89.0/boost-1.89.0.tar.gz
+            )
+            FetchContent_MakeAvailable(boost_headers)
+            include_directories(${boost_headers_SOURCE_DIR})
     endif()
 endif()
 
@@ -113,7 +65,7 @@ set (MEDIAL_INTERNAL_LIBS InfraMed Logger MedAlgo MedEmbed MedIO MedMat MedPlotl
 set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
 if (NOT WIN32)
     # 1. Base flags common to all Unix/Linux/Mac systems
-    set(COMMON_FLAGS "-fPIC -Wno-write-strings -Wuninitialized -Wno-narrowing -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")
+    set(COMMON_FLAGS "-fPIC -Wno-write-strings -Wuninitialized -Wno-narrowing -DMES_LIBRARY=1 -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")
 
     if(APPLE)
         set(COMPILER_FLAGS "${COMMON_FLAGS} -Xpreprocessor -fopenmp")
@@ -135,7 +87,7 @@ if (NOT WIN32)
     endif()
 else()
     # Windows
-    set(COMPILER_FLAGS "/openmp /EHsc /MD /permissive- /Zc:strictStrings- /Zc:__cplusplus")
+    set(COMPILER_FLAGS "/openmp /EHsc /MD /permissive- /Zc:strictStrings- /Zc:__cplusplus /DMES_LIBRARY=1 /DGIT_HEAD_VERSION=\"'$(GIT_HEAD_VERSION)'\"")
 endif()
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ")
 # Filter out definition of NDEBUG from the default configuration flags for Release
@@ -158,11 +110,6 @@ set(CMAKE_BUILD_TYPE "Release")
 
 set(PYTHON_INCLUDE_DIR ${Python3_INCLUDE_DIRS})
 
-
-if (BOOST_ROOT)
-    set(Boost_INCLUDE_DIRS "${BOOST_ROOT}/include")
-endif()
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External)

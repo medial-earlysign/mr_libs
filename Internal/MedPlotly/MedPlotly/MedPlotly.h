@@ -19,7 +19,6 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include <boost/program_options.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <InfraMed/InfraMed/InfraMed.h>
 #include <InfraMed/InfraMed/MedPidRepository.h>
@@ -30,7 +29,6 @@
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 using namespace std;
-namespace po = boost::program_options;
 
 
 //=========================================================================================================

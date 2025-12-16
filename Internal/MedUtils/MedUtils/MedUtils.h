@@ -14,7 +14,9 @@
 #include <Logger/Logger/Logger.h>
 #include "assert.h"
 #include "MedPlot.h"
+#if not(defined(MES_LIBRARY))
 #include <boost/program_options.hpp>
+#endif
 #include <boost/spirit/home/support/detail/hold_any.hpp>
 #include <boost/algorithm/string.hpp>
 #include <unordered_map>
@@ -36,7 +38,9 @@ template <class S> int discretize(vector<S>& x, vector<int>& binned_x, int& nbin
 template <class S> int discretize(vector<S>& x, vector<int>& binned_x, int& nbins, int max_bins, MedBinningType binning);
 template <class S> int discretize(vector<S>& x, vector<int>& binned_x, int& nbins, int max_bins, float missing_value, MedBinningType binning);
 
+#if not(defined(MES_LIBRARY))
 namespace po = boost::program_options;
+#endif
 
 /**
 * \brief medial namespace for function
@@ -54,8 +58,10 @@ namespace medial {
 		void print_vec(const vector<string> &vec, const string &title, const string &delimeter = ", ");
 		/// \brief printing vector elements hist prctiles in list [] with title to MLOG
 		template<class T> void print_hist_vec(const vector<T> &vec, const string &title, const string &format, const vector<double> *prctile_samples = NULL);
+		#if not(defined(MES_LIBRARY))
 		/// \brief print boost program options object
 		string print_any(po::variable_value &a);
+		#endif
 
 		void log_with_file(ofstream &fw, const char *format_str, ...);
 	}
@@ -112,6 +118,8 @@ namespace medial {
 			return res;
 		}
 		template<class ContainerType> string get_list(const ContainerType &ls, const string &delimeter = ",");
+		
+		#if not(defined(MES_LIBRARY))
 		/**
 		* A basic class wrapper to parse command args
 		* has default "h", "help", "debug" and "base_config" for reading all arguments from file
@@ -157,8 +165,10 @@ namespace medial {
 			virtual int parse_parameters(int argc, char *argv[]);
 
 		};
+		#endif
 	}
 
+	
 	/// \brief general print to string woth format
 	string get_git_version();
 }
