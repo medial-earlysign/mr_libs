@@ -6,9 +6,9 @@
 #define __MED_ALGO_H__
 
 #if __GNUC__  >= 5 || (defined(_MSC_VER) && !defined(_DEBUG))
-#define NEW_COMPLIER false
+#define NEW_COMPLIER 0
 #else
-#define NEW_COMPLIER false
+#define NEW_COMPLIER 0
 #endif
 
 #include <Logger/Logger/Logger.h>
