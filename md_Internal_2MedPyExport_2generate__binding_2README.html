@@ -146,12 +146,28 @@ The Workflow</h2>
 Setup</h1>
 <p>You can quickly install the package using <b>pip</b>:</p>
 <div class="fragment"><div class="line">pip install medpython</div>
+</div><!-- fragment --><p>Install and compile from github source code: </p><div class="fragment"><div class="line">python -m pip install -v &quot;medpython @ git+https://github.com/Medial-EarlySign/medpython.git/#subdirectory=Internal/MedPyExport/generate_binding&quot;</div>
 </div><!-- fragment --><p><b>System Requirements</b></p>
+<p><b>Platform Support for MedPython</b></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Platform   </th><th class="markdownTableHeadLeft">x86_64 (Intel/AMD)   </th><th class="markdownTableHeadLeft">aarch64 (ARM / Apple Silicon)    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>Linux (glibc)</b>   </td><td class="markdownTableBodyLeft">✅ Pre-built (Py 3.10-3.14)   </td><td class="markdownTableBodyLeft">✅ Pre-built (Py 3.12)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>Linux (Alpine/musl)</b>   </td><td class="markdownTableBodyLeft">🛠️ Compile Required   </td><td class="markdownTableBodyLeft">🛠️ Compile Required    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>Windows</b>   </td><td class="markdownTableBodyLeft">✅ Pre-built (Py 3.10-3.13)   </td><td class="markdownTableBodyLeft">🛠️ Compile Required    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>macOS</b>   </td><td class="markdownTableBodyLeft">✅ Pre-built (Py 3.10-3.13)   </td><td class="markdownTableBodyLeft">🛠️ Compile Required   </td></tr>
+</table>
+<blockquote class="doxtable">
+<p>&zwj;<b>Note:</b> For any Compile Required or either not listed as Pre-built. Compliation is required. Compilation in Alpine was also tested, but pre-builds are not provided. </p>
+</blockquote>
 <ul>
-<li><b>Supported Systems</b>: This pre-built version is available for <b>modern Linux</b> distributions (specifically <code>manylinux2014</code> equivalents, such as CentOS &gt;= 7 or Ubuntu &gt;= 13.04). The software also compiles in <b>Windows</b>, <b>Alpine</b> and <b>Mac</b> but you will need to install Boost yourself. I hope shortly to provide windows/macos pre-compiled builds.</li>
-<li><b>Python</b>: Requires <b>Python 3.10 through 3.14</b></li>
+<li><b>Supported Systems</b>: This linux pre-built version is available for <b>modern Linux</b> distributions (specifically <code>manylinux2014</code> equivalents, such as CentOS &gt;= 7 or Ubuntu &gt;= 13.04).</li>
 </ul>
-<p><b>Compilation for Other Systems</b> If you're using an <b>older Linux</b> or a <b>different platform/Python version &gt;= 3.8</b>, or a version without a pre-build, you will need to <b>compile the package yourself</b>. More information in <a href="http://medial-earlysign.github.io/MR_Wiki/Installation/">Installation</a></p>
+<p><b>Compilation for Other Systems</b> More information in <a href="http://medial-earlysign.github.io/MR_Wiki/Installation/">Installation</a></p>
 <h1><a class="anchor" id="autotoc_md510"></a>
 Release Notes</h1>
 <p>Please refer to <a href="https://github.com/Medial-EarlySign/medpython/discussions/categories/announcements">Release Notes</a></p>
@@ -198,7 +214,7 @@ Community and Contributions</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 16 2025 07:31:15 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Dec 16 2025 10:01:04 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
