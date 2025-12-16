@@ -7,8 +7,7 @@ name = "medpython"
 version = "1.0.7"
 description = "Medial EarlySign Python"
 readme = "README.md"
-license = "MIT"
-license-files = ["LICENCE*"]
+license = {text = "MIT" }
 requires-python = ">=3.8"
 authors = [
   { name="Alon Lanyado" },
@@ -21,6 +20,7 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Software Development :: Libraries",
+    "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
     "numpy>=1.21.0",
