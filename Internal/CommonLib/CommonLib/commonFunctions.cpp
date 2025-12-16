@@ -3,7 +3,7 @@
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 
-#if not(defined(MES_LIBRARY))
+#if !defined(MES_LIBRARY)
 // Read A matrix from csv/bin
 void readMatrix(MedFeatures& features, po::variables_map& vm) { 
 	readMatrix(features, vm, "inCsv", "inBin"); 

@@ -8,7 +8,6 @@
 #include <boost/algorithm/string/find.hpp>
 #include <filesystem>
 #include <regex>
-#include <boost/algorithm/string/regex.hpp>
 #include <cmath>
 #include <string>
 #include "StripComments.h"

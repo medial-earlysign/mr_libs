@@ -332,7 +332,7 @@ template int medial::process::binary_search_index(const int *begin, const int *e
 template int medial::process::binary_search_index(const double *begin, const double *end, double val);
 template int medial::process::binary_search_index(const string *begin, const string *end, string val);
 
-#if not(defined(MES_LIBRARY))
+#if !defined(MES_LIBRARY)
 string medial::print::print_any(po::variable_value &a) {
 	if (a.value().type() == typeid(string)) {
 		return a.as<string>();

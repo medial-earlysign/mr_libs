@@ -21,10 +21,6 @@
 #include "MedProcessTools/MedProcessTools/MedModel.h"
 #include "MedProcessTools/MedProcessTools/SampleFilter.h"
 
-#include <boost/serialization/map.hpp>
-#include <boost/archive/binary_iarchive.hpp>
-#include <boost/archive/binary_oarchive.hpp>
-#include <boost/serialization/utility.hpp>
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <omp.h>
@@ -42,7 +38,7 @@
 
 using namespace std;
 
-#if not(defined(MES_LIBRARY))
+#if !defined(MES_LIBRARY)
 #include <boost/program_options.hpp>
 namespace po = boost::program_options; 
 
