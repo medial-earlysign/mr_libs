@@ -26,12 +26,13 @@ var searchData=
   ['allowed_5fmissing_5fpids_5ffrom_5fforced_5fratio_23',['allowed_missing_pids_from_forced_ratio',['../classMedConvert.html#a51a32d84f6b5a7e749bb838ca9a976d3',1,'MedConvert']]],
   ['allowed_5funknown_5fcatgory_5fcnt_24',['allowed_unknown_catgory_cnt',['../classMedConvert.html#a2e1531bf02867001b9ed94709167c93f',1,'MedConvert']]],
   ['alpha_25',['alpha',['../classbart__params.html#ae0b919904a5e99973398d310026aaaf4',1,'bart_params::alpha'],['../structMedBPParams.html#afd15459b481bbfa8379cb8eed572702e',1,'MedBPParams::alpha'],['../classTQRF__Params.html#a7200bfd81847e582bcde49c60a083573',1,'TQRF_Params::alpha']]],
-  ['approximate_26',['approximate',['../classTreeExplainer.html#a3de56c65630d63f238465bfda4ceef49',1,'TreeExplainer']]],
-  ['args_27',['args',['../classdmlc_1_1io_1_1URISpec.html#a550980cea402e98bfa9233705e181729',1,'dmlc::io::URISpec']]],
-  ['arguments_28',['arguments',['../classdmlc_1_1FunctionRegEntryBase.html#a6565edeffefa127ea939f9ff9774d09d',1,'dmlc::FunctionRegEntryBase']]],
-  ['array_5fiterator_29',['array_iterator',['../structdetail_1_1internal__iterator.html#a2ad2dc9ea8bba2b50811e34f905350bd',1,'detail::internal_iterator']]],
-  ['attr_5fname_30',['attr_name',['../classGlobalExplainerParams.html#af2f9f759e3849960ae3c0cd98f8e4ebb',1,'GlobalExplainerParams']]],
-  ['attributes_31',['attributes',['../classMedFeatures.html#a8514161e48e86e3e1014fbf1da84320d',1,'MedFeatures::attributes'],['../classMedSample.html#ab113a77e8cf4874dd6d4c9df211cc2ca',1,'MedSample::attributes'],['../classRepProcessor.html#a164ef02ce1980e6a56ad1715f979a7c1',1,'RepProcessor::attributes']]],
-  ['attributes_5fmap_32',['attributes_map',['../classRepMultiProcessor.html#aaf6a2ecbc9422ca437ef67106bc17d26',1,'RepMultiProcessor']]],
-  ['attrname_33',['attrName',['../classRepCheckReq.html#a62022a3ac92ea2b16a9e6579ef0c94b2',1,'RepCheckReq']]]
+  ['app_5flogo_26',['app_logo',['../classmedial_1_1io_1_1ProgramArgs__base.html#a198660e3367b44c657babb516de6e810',1,'medial::io::ProgramArgs_base']]],
+  ['approximate_27',['approximate',['../classTreeExplainer.html#a3de56c65630d63f238465bfda4ceef49',1,'TreeExplainer']]],
+  ['args_28',['args',['../classdmlc_1_1io_1_1URISpec.html#a550980cea402e98bfa9233705e181729',1,'dmlc::io::URISpec']]],
+  ['arguments_29',['arguments',['../classdmlc_1_1FunctionRegEntryBase.html#a6565edeffefa127ea939f9ff9774d09d',1,'dmlc::FunctionRegEntryBase']]],
+  ['array_5fiterator_30',['array_iterator',['../structdetail_1_1internal__iterator.html#a2ad2dc9ea8bba2b50811e34f905350bd',1,'detail::internal_iterator']]],
+  ['attr_5fname_31',['attr_name',['../classGlobalExplainerParams.html#af2f9f759e3849960ae3c0cd98f8e4ebb',1,'GlobalExplainerParams']]],
+  ['attributes_32',['attributes',['../classMedFeatures.html#a8514161e48e86e3e1014fbf1da84320d',1,'MedFeatures::attributes'],['../classMedSample.html#ab113a77e8cf4874dd6d4c9df211cc2ca',1,'MedSample::attributes'],['../classRepProcessor.html#a164ef02ce1980e6a56ad1715f979a7c1',1,'RepProcessor::attributes']]],
+  ['attributes_5fmap_33',['attributes_map',['../classRepMultiProcessor.html#aaf6a2ecbc9422ca437ef67106bc17d26',1,'RepMultiProcessor']]],
+  ['attrname_34',['attrName',['../classRepCheckReq.html#a62022a3ac92ea2b16a9e6579ef0c94b2',1,'RepCheckReq']]]
 ];
