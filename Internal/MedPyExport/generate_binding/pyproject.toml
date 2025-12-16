@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medpython"
-version = "1.0.6"
+version = "1.0.7"
 description = "Medial EarlySign Python"
 readme = "README.md"
 license = "MIT"
@@ -25,7 +25,8 @@ classifiers = [
 dependencies = [
     "numpy>=1.21.0",
     "pandas", 
-    "plotly", 
+    "plotly",
+    "medpython-etl>1.0.0",
 ]
 
 [project.urls]

@@ -1,5 +1,8 @@
 # Medial Python Binding
 
+## Relase Notes - 1.0.7
+* Split medpython-etl into a different package
+
 ## Relase Notes - 1.0.6
 * Fix code to compile in ARM computer
 * Removed ipython dependency
