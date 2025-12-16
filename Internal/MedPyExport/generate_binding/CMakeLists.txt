@@ -52,7 +52,7 @@ else()
         include(FetchContent)
         FetchContent_Declare(
             boost_headers
-                URL      https://github.com/boostorg/boost/releases/download/boost-1.89.0/boost-1.89.0.tar.gz
+                URL      https://github.com/boostorg/boost/archive/refs/tags/boost-1.89.0.tar.gz
             )
             FetchContent_MakeAvailable(boost_headers)
             include_directories(${boost_headers_SOURCE_DIR})
