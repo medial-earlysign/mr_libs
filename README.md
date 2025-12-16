@@ -50,7 +50,6 @@ pip install medpython
 
 Build from source:
 ```bash
-apt install libboost-all-dev
 python -m pip install -v "medpython @ git+https://github.com/Medial-EarlySign/medpython.git/#subdirectory=Internal/MedPyExport/generate_binding"
 ```
 

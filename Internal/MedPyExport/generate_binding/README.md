@@ -104,13 +104,28 @@ You can quickly install the package using **pip**:
 pip install medpython
 ```
 
+Install and compile from github source code:
+```bash
+python -m pip install -v "medpython @ git+https://github.com/Medial-EarlySign/medpython.git/#subdirectory=Internal/MedPyExport/generate_binding"
+```
+
 **System Requirements**
 
-* **Supported Systems**: This pre-built version is available for **modern Linux** distributions (specifically `manylinux2014` equivalents, such as CentOS >= 7 or Ubuntu >= 13.04). The software also compiles in **Windows**, **Alpine** and **Mac** but you will need to install Boost yourself. I hope shortly to provide windows/macos pre-compiled builds.
-* **Python**: Requires **Python 3.10 through 3.14**
+**Platform Support for MedPython** 
+
+| Platform | x86_64 (Intel/AMD) | aarch64 (ARM / Apple Silicon) |
+| :--- | :--- | :--- |
+| **Linux (glibc)** | ✅ Pre-built (Py 3.10-3.14) | ✅ Pre-built (Py 3.12) |
+| **Linux (Alpine/musl)**| 🛠️ Compile Required | 🛠️ Compile Required |
+| **Windows** | ✅ Pre-built (Py 3.10-3.13) | 🛠️ Compile Required |
+| **macOS** | ✅ Pre-built (Py 3.10-3.13) | 🛠️ Compile Required |
+
+> **Note:** For any Compile Required or either not listed as Pre-built. Compliation is required.
+> Compilation in Alpine was also tested, but pre-builds are not provided. 
+
+* **Supported Systems**: This linux pre-built version is available for **modern Linux** distributions (specifically `manylinux2014` equivalents, such as CentOS >= 7 or Ubuntu >= 13.04). 
 
 **Compilation for Other Systems**
-If you're using an **older Linux** or a **different platform/Python version >= 3.8**, or a version without a pre-build, you will need to **compile the package yourself**.
 More information in [Installation](http://medial-earlysign.github.io/MR_Wiki/Installation/)
 
 ## Release Notes

@@ -4,6 +4,7 @@
 * Fix code to compile in ARM computer
 * Removed ipython dependency
 * Readme fixes
+* Removed the Boost libraries dependency, using only headers. Simpler compile process
 
 ## Relase Notes - 1.0.5
 * Adjustments to compile with Alpine/Musl library
