@@ -28,15 +28,15 @@ dependencies = [
     "numpy>=1.21.0",
     "pandas", 
     "plotly",
-    "medpython-etl>1.0.0",
+    "medpython-etl>=1.0.2",
 ]
 keywords = [ "EMR", "EHR", "machine-learning", "medicine", "time-series", "clinical", "healthcare", "clinical-data", "medical", "clinical-data-warehouse" ]
 
 [project.urls]
 Homepage = "https://github.com/Medial-EarlySign/medpython"
+Repository = "https://github.com/Medial-EarlySign/medpython"
 Documentation = "https://medial-earlysign.github.io/MR_Wiki/"
 Changelog = "https://github.com/Medial-EarlySign/medpython/discussions/categories/announcements"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-# copy to src ETL_Infra and AlgoMarker with the shared object
