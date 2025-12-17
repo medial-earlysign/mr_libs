@@ -80,14 +80,17 @@ if (NOT WIN32)
 
         # 2. Check Architecture
         # Matches aarch64 (Linux) or arm64 (Apple Silicon)
-        if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64)")
-            message(STATUS "Target architecture: ARM64 (aarch64)")
-            # No -march=x86-64 or -msse flags here! 
-            # ARM64 implies NEON support by default, so usually no extra SIMD flags needed.
-        else()
+        if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|amd64)$")
             message(STATUS "Target architecture: x86_64")
-            # Apply Intel/AMD specific flags
             set(COMPILER_FLAGS "${COMPILER_FLAGS} -msse2 -msse3 -msse4 -march=x86-64")
+        elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(i686)$")
+            message(STATUS "Detected x86 (32-bit) architecture - i686")
+            set(COMPILER_FLAGS "${COMPILER_FLAGS} -msse2 -march=i686")
+        elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(i386|x86)$")
+            message(STATUS "Detected x86 (32-bit) architecture")
+            set(COMPILER_FLAGS "${COMPILER_FLAGS} -march=i386")
+        else()
+            message(STATUS "Using Generic Flags To Target architecture: ${CMAKE_SYSTEM_PROCESSOR}")
         endif()
     endif()
 else()
