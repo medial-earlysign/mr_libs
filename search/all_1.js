@@ -7,7 +7,7 @@ var searchData=
   ['1_200_204_4',['Relase Notes - 1.0.4',['../md_Internal_2MedPyExport_2README.html#autotoc_md518',1,'']]],
   ['1_200_205_5',['Relase Notes - 1.0.5',['../md_Internal_2MedPyExport_2README.html#autotoc_md517',1,'']]],
   ['1_200_206_6',['Relase Notes - 1.0.6',['../md_Internal_2MedPyExport_2README.html#autotoc_md516',1,'']]],
-  ['1_200_207_7',['Relase Notes - 1.0.7',['../md_Internal_2MedPyExport_2README.html#autotoc_md515',1,'']]],
+  ['1_201_200_7',['Relase Notes - 1.1.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md515',1,'']]],
   ['1_201_202020_2006_2006_8',['v1.1.1 (2020.06.06)',['../md_External_2xgboost_2NEWS.html#autotoc_md338',1,'']]],
   ['1_202014_2003_2026_9',['v0.1 (2014.03.26)',['../md_External_2xgboost_2NEWS.html#autotoc_md471',1,'']]],
   ['1_202018_2007_2008_10',['v0.72.1 (2018.07.08)',['../md_External_2xgboost_2NEWS.html#autotoc_md462',1,'']]],

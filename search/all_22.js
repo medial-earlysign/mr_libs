@@ -79,7 +79,7 @@ var searchData=
   ['write_20your_20own_20plugin_76',['Write Your Own Plugin',['../md_External_2xgboost_2plugin_2README.html#autotoc_md475',1,'']]],
   ['write_5fas_5fcsv_5fmat_77',['write_as_csv_mat',['../classMedFeatures.html#a21dfc20906bbf8ab7edf05600bffc886',1,'MedFeatures']]],
   ['write_5fbootstrap_5fresults_78',['write_bootstrap_results',['../bootstrap_8h.html#ac0aaeab4b2d8b3ba5846c55d2fda6ab1',1,'bootstrap.cpp']]],
-  ['write_5ffeature_5fmatrix_79',['write_feature_matrix',['../classMedModel.html#a0a0082825da162314fffd08dea29bbfc',1,'MedModel::write_feature_matrix()'],['../classMPModel.html#a11ef2d311a9e1f9d6163246ccb43dced',1,'MPModel::write_feature_matrix()']]],
+  ['write_5ffeature_5fmatrix_79',['write_feature_matrix',['../classMedModel.html#a0a0082825da162314fffd08dea29bbfc',1,'MedModel::write_feature_matrix()'],['../classMPModel.html#a8e8ee5ffaf62cc444911c210ae55b073',1,'MPModel::write_feature_matrix()']]],
   ['write_5fpivot_5fbootstrap_5fresults_80',['write_pivot_bootstrap_results',['../bootstrap_8h.html#a752be1f9fddf162299cab6f271a30db5',1,'bootstrap.cpp']]],
   ['write_5fresults_5fto_5ftext_5ffile_81',['write_results_to_text_file',['../classMedBootstrapResult.html#ac90ecd72aba21b64b1316ac93da4fb19',1,'MedBootstrapResult']]],
   ['write_5ftext_5ffile_82',['write_text_file',['../classMedRegistry.html#a40063c07548a07e66efe14e43c10391d',1,'MedRegistry']]],
