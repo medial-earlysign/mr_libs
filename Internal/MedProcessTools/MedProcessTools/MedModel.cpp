@@ -1198,21 +1198,21 @@ string MedModel::make_absolute_path(const string& main_file, const string& small
 	return abs;
 }
 
-void split_regex(const string &regex_str, string &alt, vector<string> &result) {
+void split_regex(const string &regex_str, const string &alt, vector<string> &result) {
 	std::regex re(regex_str);
 	std::sregex_token_iterator it(alt.begin(), alt.end(), re, -1);
 	std::sregex_token_iterator end;
 	result.assign(it, end);
 }
 
-void MedModel::alter_json(string &json_contents, vector<string>& alterations) {
+void MedModel::alter_json(string &json_contents, const vector<string>& alterations) {
 
 	if (alterations.size() == 0) return;
 
 	// Alterations strings are of the format from::to
 	vector<string> fields;
 	MLOG_D("Json : replacing ");
-	for (string& alt : alterations) {
+	for (const string& alt : alterations) {
 		split_regex("::", alt, fields);
 		if (fields.size() != 2)
 			MTHROW_AND_ERR("Cannot parse alteration string [%s] \n", alt.c_str());
@@ -1253,7 +1253,7 @@ void MedModel::insert_environment_params_to_json(string& json_content) {
 
 }
 
-string MedModel::json_file_to_string(int recursion_level, const string& main_file, vector<string>& alterations,
+string MedModel::json_file_to_string(int recursion_level, const string& main_file, const vector<string>& alterations,
 	const string& small_file, bool add_change_path) {
 	if (recursion_level > 3)
 		MTHROW_AND_ERR("main file [%s] referenced file [%s], recusion_level 3 reached", main_file.c_str(), small_file.c_str());

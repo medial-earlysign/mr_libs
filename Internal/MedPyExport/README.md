@@ -1,7 +1,8 @@
 # Medial Python Binding
 
-## Relase Notes - 1.0.7
-* Split medpython-etl into a different package
+## Relase Notes - 1.1.0
+* Split medpython-etl into a different package, medpython will set medpython-etl that it will be installed
+* Added functionality for med.Model - apply_model_changes, add_post_processors_json_string_to_model
 
 ## Relase Notes - 1.0.6
 * Fix code to compile in ARM computer
