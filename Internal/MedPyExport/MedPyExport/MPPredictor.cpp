@@ -69,3 +69,7 @@ void MPPredictor::write_predictor_to_file(string& outFile) {
 	if (write_binary_data(outFile, &(buffer[0]), predictor_size) != 0)
 		throw runtime_error(string("Error writing model to file ")+outFile);
 }
+
+void MPPredictor::export_predictor(string& outFile) {
+	o->export_predictor(outFile);
+}

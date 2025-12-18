@@ -26,7 +26,6 @@ public:
 	static const int END;
 };
 
-
 class MPModel {
 public:
 	MEDPY_IGNORE( MedModel* o );
@@ -34,7 +33,7 @@ public:
 	~MPModel();
 	void init_from_json_file(const std::string& fname);
 	std::vector<std::string> init_from_json_file_with_alterations(const std::string& fname, std::vector<std::string> json_alt);
-	void add_pre_processors_json_string_to_model(const std::string &in_json,const std::string &fname);
+	void add_pre_processors_json_string_to_model(const std::string &in_json,const std::string &fname, bool add_rep_first);
 	void add_post_processors_json_string_to_model(const std::string &in_json,const std::string &fname);
 	std::vector<std::string> get_required_signal_names();
 	int learn(MPPidRepository* rep, MPSamples* samples);
@@ -45,6 +44,9 @@ public:
 	int write_to_file(const std::string &fname);
 	int read_from_file(const std::string &fname);
 	MPFeatures MEDPY_GET_features();
+
+	MPPredictor MEDPY_GET_predictor();
+
 
 	void clear();
 	int MEDPY_GET_verbosity();
@@ -96,6 +98,20 @@ public:
 	MPSerializableObject asSerializable();
 
 	void apply_model_change(const std::string &change_json_content);
+
+	std::string get_model_weights_json();
+
+	void train_rep_processor_by_index(int index, MPPidRepository &rep, MPSamples &samples);	
+	std::string print_rep_processor_by_index(int index);	
+	void delete_rep_processor_by_index(int index);
+
+	std::string print_feature_generator_by_index(int index);
+	std::string print_feature_processor_by_index(int index);
+	void delete_feature_processor_by_index(int index);
+
+	std::string print_post_processor_by_index(int index);
+	void delete_post_processor_by_index(int index);
+	void train_post_processor_by_index(int index, MPFeatures &features);	
 };
 
 

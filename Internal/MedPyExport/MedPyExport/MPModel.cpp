@@ -27,7 +27,10 @@ MPModel::MPModel() { o = new MedModel(); };
 MPModel::~MPModel() { delete o; o = nullptr; };
 void MPModel::init_from_json_file(const std::string& fname) { o->init_from_json_file(fname); };
 std::vector<std::string> MPModel::init_from_json_file_with_alterations(const std::string& fname, std::vector<std::string> json_alt) { o->init_from_json_file_with_alterations(fname, json_alt); return json_alt; };
-void MPModel::add_pre_processors_json_string_to_model(const std::string &in_json, const std::string &fname) { o->add_pre_processors_json_string_to_model(in_json, fname); }
+void MPModel::add_pre_processors_json_string_to_model(const std::string &in_json, const std::string &fname, bool add_rep_first) {
+	std::vector<std::string> empty_alt; 
+	o->add_pre_processors_json_string_to_model(in_json, fname, empty_alt, add_rep_first); 
+}
 std::vector<std::string> MPModel::get_required_signal_names() { std::vector<std::string> ret; o->get_required_signal_names(ret); return ret; };
 int MPModel::learn(MPPidRepository* rep, MPSamples* samples) { 
 #ifdef AM_API_FOR_CLIENT
@@ -58,6 +61,11 @@ int MPModel::write_to_file(const std::string &fname) { return val_or_exception(o
 int MPModel::read_from_file(const std::string &fname) { return val_or_exception(o->read_from_file(fname),"Could not read from file"); };
 
 MPFeatures MPModel::MEDPY_GET_features() { return MPFeatures(&o->features); };
+MPPredictor MPModel::MEDPY_GET_predictor() { 
+	MPPredictor pred= MPPredictor();
+	pred.o = o->predictor;
+	return pred; 
+}
 
 void MPModel::clear() { o->clear();  };
 
@@ -127,4 +135,90 @@ void MPModel::apply_model_change(const std::string &change_json_content) {
 
 void MPModel::add_post_processors_json_string_to_model(const std::string &in_json,const std::string &fname) {
 	o->add_post_processors_json_string_to_model(in_json, fname);
+}
+
+void MPModel::train_rep_processor_by_index(int index, MPPidRepository &rep, MPSamples &samples)
+{
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->rep_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->rep_processors.size()) + " rep processors");
+	RepProcessor *repository_processor = o->rep_processors[index];
+
+	repository_processor->learn(*rep.o, *samples.o);
+}
+
+std::string MPModel::print_rep_processor_by_index(int index) 
+{
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->rep_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->rep_processors.size()) + " rep processors");
+	RepProcessor *repository_processor = o->rep_processors[index];
+	return repository_processor->object_json();
+}
+
+void MPModel::delete_rep_processor_by_index(int index) {
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->rep_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->rep_processors.size()) + " rep processors");
+	delete o->rep_processors[index];
+	o->rep_processors.erase(o->rep_processors.begin() + index);
+}
+
+std::string MPModel::print_feature_generator_by_index(int index) {
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->generators.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->generators.size()) + " generators");
+	FeatureGenerator *generator = o->generators[index];
+	return generator->object_json();
+}
+std::string MPModel::print_feature_processor_by_index(int index){
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->feature_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->feature_processors.size()) + " feature_processors");
+	FeatureProcessor *ftr_processor = o->feature_processors[index];
+	return ftr_processor->object_json();
+}
+
+void MPModel::delete_feature_processor_by_index(int index) {
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->feature_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->feature_processors.size()) + " feature_processors");
+	delete o->feature_processors[index];
+	o->feature_processors.erase(o->feature_processors.begin() + index);
+}
+
+std::string MPModel::print_post_processor_by_index(int index) {
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->post_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->post_processors.size()) + " post_processors");
+	return o->post_processors[index]->object_json();
+}
+
+std::string MPModel::get_model_weights_json() {
+	return o->object_json();
+}
+
+void MPModel::delete_post_processor_by_index(int index) {
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->post_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->post_processors.size()) + " post_processors");
+	delete o->post_processors[index];
+	o->post_processors.erase(o->post_processors.begin() + index);
+}
+
+void MPModel::train_post_processor_by_index(int index, MPFeatures &features) {
+	if (index < 0)
+		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
+	if (index >= o->post_processors.size())
+		throw runtime_error("Invalid index " + to_string(index) + ". There are only " + to_string(o->post_processors.size()) + " post_processors");
+	PostProcessor *post_processor = o->post_processors[index];
+	post_processor->Learn(*features.o);
 }

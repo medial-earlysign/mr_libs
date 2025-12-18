@@ -69,6 +69,9 @@ public:
 
 	// Write Predictor to File
 	void write_predictor_to_file(string& outFile);
+
+	//Export predictor to python format
+	void export_predictor(string& outFile);
 };
 /*
 

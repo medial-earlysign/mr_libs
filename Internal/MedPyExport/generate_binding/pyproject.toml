@@ -31,7 +31,7 @@ dependencies = [
     "plotly",
     "medpython-etl>=1.0.2",
 ]
-keywords = [ "EMR", "EHR", "machine-learning", "medicine", "time-series", "clinical", "healthcare", "clinical-data", "medical", "clinical-data-warehouse" ]
+keywords = [ "EMR", "EHR", "machine-learning", "medicine", "time-series", "clinical", "healthcare", "clinical-data", "medical", "clinical-data-warehouse", "tabular-data" ]
 
 [project.urls]
 Homepage = "https://github.com/Medial-EarlySign/medpython"
