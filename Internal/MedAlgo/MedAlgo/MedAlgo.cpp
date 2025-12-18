@@ -27,10 +27,6 @@
 #include <External/Eigen/Core>
 #include <cmath>
 
-#if NEW_COMPLIER
-#include "MedVW.h"
-#endif
-
 #include <thread>
 
 #define LOCAL_SECTION LOG_MEDALGO
@@ -111,10 +107,6 @@ void *MedPredictor::new_polymorphic(string dname)
 	CONDITIONAL_NEW_CLASS(dname, MedExternalNN);
 	CONDITIONAL_NEW_CLASS(dname, MedSimpleEnsemble);
 	CONDITIONAL_NEW_CLASS(dname, MedPredictorsByMissingValues);
-
-#if NEW_COMPLIER
-	CONDITIONAL_NEW_CLASS(dname, MedVW);
-#endif
 	MWARN("Warning in MedPredictor::new_polymorphic - Unsupported class %s\n", dname.c_str());
 	return NULL;
 }
@@ -162,10 +154,6 @@ MedPredictor * MedPredictor::make_predictor(MedPredictorTypes model_type) {
 		return new MedSimpleEnsemble;
 	else if (model_type == MODEL_BY_MISSING_VALUES_SUBSET)
 		return new MedPredictorsByMissingValues;
-#if NEW_COMPLIER
-	else if (model_type == MODEL_VW)
-		return new MedVW;
-#endif
 	else
 		return NULL;
 
@@ -207,12 +195,6 @@ int MedPredictor::init_from_string(string text) {
 		MedLightGBM *med_light = (MedLightGBM *)this;
 		return med_light->init_from_string(text);
 	}
-#if NEW_COMPLIER
-	if (classifier_type == MODEL_VW) {
-		MedVW *vw = (MedVW *)this;
-		return vw->init_from_string(text);
-	}
-#endif
 	// remove white spaces
 	text.erase(remove_if(text.begin(), text.end(), ::isspace), text.end());
 
