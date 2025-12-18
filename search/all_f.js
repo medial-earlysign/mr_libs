@@ -291,7 +291,7 @@ var searchData=
   ['dispatch_5fproxy_5fset_5fdata_288',['dispatch_proxy_set_data',['../namespacexgboost_1_1data.html#a88b64b70bb6fc454f5811afed3deebde',1,'xgboost::data']]],
   ['dispatchbintype_289',['DispatchBinType',['../namespacexgboost_1_1common.html#a1e296882977c5568b710182a8aa09926',1,'xgboost::common']]],
   ['dispatchdevice_290',['DispatchDevice',['../structxgboost_1_1Context.html#a0446aab1d25ac0fba0f58bdd75f089a5',1,'xgboost::Context']]],
-  ['dispose_291',['dispose',['../classLightGBM_1_1Network.html#adc5eb6a393ded86ad5cf3c2142ed1d2c',1,'LightGBM::Network::Dispose()'],['../classAlgoMarker_1_1AlgoMarker_1_1AlgoMarker.html#ad92425d9bd816079f6d9ec25bfda7c8d',1,'AlgoMarker.AlgoMarker.AlgoMarker.dispose()']]],
+  ['dispose_291',['dispose',['../classAlgoMarker_1_1AlgoMarker_1_1AlgoMarker.html#ad92425d9bd816079f6d9ec25bfda7c8d',1,'AlgoMarker.AlgoMarker.AlgoMarker.dispose()'],['../classLightGBM_1_1Network.html#adc5eb6a393ded86ad5cf3c2142ed1d2c',1,'LightGBM::Network::Dispose()']]],
   ['dist_5fname_292',['dist_name',['../classMulticlass__Params.html#a89f86502ed5106631e4dbf63b4bacc75',1,'Multiclass_Params']]],
   ['dist_5fweights_293',['dist_weights',['../classMulticlass__Params.html#ab0f8d707e1a0420a7f9500611c45547f',1,'Multiclass_Params']]],
   ['distance_294',['distance',['../classEigen_1_1ParametrizedLine.html#a1c038c9559f76794369bd2ae74e93b9f',1,'Eigen::ParametrizedLine']]],
