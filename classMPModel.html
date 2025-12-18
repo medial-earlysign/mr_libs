@@ -86,9 +86,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>init_from_json_file</
 <tr class="memitem:a52a5e175b9a7e375a53dcc7fbba62602" id="r_a52a5e175b9a7e375a53dcc7fbba62602"><td class="memItemLeft" align="right" valign="top"><a id="a52a5e175b9a7e375a53dcc7fbba62602" name="a52a5e175b9a7e375a53dcc7fbba62602"></a>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>init_from_json_file_with_alterations</b> (const std::string &amp;fname, std::vector&lt; std::string &gt; json_alt)</td></tr>
 <tr class="separator:a52a5e175b9a7e375a53dcc7fbba62602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd87b1ebcecf23d9e5b84f44dbc993c" id="r_a9cd87b1ebcecf23d9e5b84f44dbc993c"><td class="memItemLeft" align="right" valign="top"><a id="a9cd87b1ebcecf23d9e5b84f44dbc993c" name="a9cd87b1ebcecf23d9e5b84f44dbc993c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_pre_processors_json_string_to_model</b> (const std::string &amp;in_json, const std::string &amp;fname)</td></tr>
-<tr class="separator:a9cd87b1ebcecf23d9e5b84f44dbc993c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb2cbea5ed4efcf48f92009c5d0c2c3" id="r_aceb2cbea5ed4efcf48f92009c5d0c2c3"><td class="memItemLeft" align="right" valign="top"><a id="aceb2cbea5ed4efcf48f92009c5d0c2c3" name="aceb2cbea5ed4efcf48f92009c5d0c2c3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_pre_processors_json_string_to_model</b> (const std::string &amp;in_json, const std::string &amp;fname, bool add_rep_first)</td></tr>
+<tr class="separator:aceb2cbea5ed4efcf48f92009c5d0c2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e31e1abc70d3c863c4025467d7087b" id="r_a42e31e1abc70d3c863c4025467d7087b"><td class="memItemLeft" align="right" valign="top"><a id="a42e31e1abc70d3c863c4025467d7087b" name="a42e31e1abc70d3c863c4025467d7087b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_post_processors_json_string_to_model</b> (const std::string &amp;in_json, const std::string &amp;fname)</td></tr>
 <tr class="separator:a42e31e1abc70d3c863c4025467d7087b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +116,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>read_from_file</b> (co
 <tr class="memitem:ab34b963830c13ca82c68534a7498c738" id="r_ab34b963830c13ca82c68534a7498c738"><td class="memItemLeft" align="right" valign="top"><a id="ab34b963830c13ca82c68534a7498c738" name="ab34b963830c13ca82c68534a7498c738"></a>
 <a class="el" href="classMPFeatures.html">MPFeatures</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MEDPY_GET_features</b> ()</td></tr>
 <tr class="separator:ab34b963830c13ca82c68534a7498c738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1b6b7ffd79cf23a53245b4d8773bfc" id="r_aac1b6b7ffd79cf23a53245b4d8773bfc"><td class="memItemLeft" align="right" valign="top"><a id="aac1b6b7ffd79cf23a53245b4d8773bfc" name="aac1b6b7ffd79cf23a53245b4d8773bfc"></a>
+<a class="el" href="classMPPredictor.html">MPPredictor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MEDPY_GET_predictor</b> ()</td></tr>
+<tr class="separator:aac1b6b7ffd79cf23a53245b4d8773bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff90367e7f22a462e69b95a4e9b49abc" id="r_aff90367e7f22a462e69b95a4e9b49abc"><td class="memItemLeft" align="right" valign="top"><a id="aff90367e7f22a462e69b95a4e9b49abc" name="aff90367e7f22a462e69b95a4e9b49abc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
 <tr class="separator:aff90367e7f22a462e69b95a4e9b49abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,6 +247,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>write_feature_matrix</
 <tr class="memitem:a31b49193a3e4522c4dc34d3f47933208" id="r_a31b49193a3e4522c4dc34d3f47933208"><td class="memItemLeft" align="right" valign="top"><a id="a31b49193a3e4522c4dc34d3f47933208" name="a31b49193a3e4522c4dc34d3f47933208"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>apply_model_change</b> (const std::string &amp;change_json_content)</td></tr>
 <tr class="separator:a31b49193a3e4522c4dc34d3f47933208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7e97fc557b6490cc69ebcd7aa08e31" id="r_a7f7e97fc557b6490cc69ebcd7aa08e31"><td class="memItemLeft" align="right" valign="top"><a id="a7f7e97fc557b6490cc69ebcd7aa08e31" name="a7f7e97fc557b6490cc69ebcd7aa08e31"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>get_model_weights_json</b> ()</td></tr>
+<tr class="separator:a7f7e97fc557b6490cc69ebcd7aa08e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f9298374146023340a369768706e5c" id="r_a96f9298374146023340a369768706e5c"><td class="memItemLeft" align="right" valign="top"><a id="a96f9298374146023340a369768706e5c" name="a96f9298374146023340a369768706e5c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>train_rep_processor_by_index</b> (int index, <a class="el" href="classMPPidRepository.html">MPPidRepository</a> &amp;rep, <a class="el" href="classMPSamples.html">MPSamples</a> &amp;samples)</td></tr>
+<tr class="separator:a96f9298374146023340a369768706e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d280e3cc4a6db20ca542644e2a4b5ee" id="r_a8d280e3cc4a6db20ca542644e2a4b5ee"><td class="memItemLeft" align="right" valign="top"><a id="a8d280e3cc4a6db20ca542644e2a4b5ee" name="a8d280e3cc4a6db20ca542644e2a4b5ee"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>print_rep_processor_by_index</b> (int index)</td></tr>
+<tr class="separator:a8d280e3cc4a6db20ca542644e2a4b5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3543b4dd0296db383c6a841fbfd1fcc" id="r_ac3543b4dd0296db383c6a841fbfd1fcc"><td class="memItemLeft" align="right" valign="top"><a id="ac3543b4dd0296db383c6a841fbfd1fcc" name="ac3543b4dd0296db383c6a841fbfd1fcc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delete_rep_processor_by_index</b> (int index)</td></tr>
+<tr class="separator:ac3543b4dd0296db383c6a841fbfd1fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a4debcee2589da3a3407f4bc73f76e" id="r_a96a4debcee2589da3a3407f4bc73f76e"><td class="memItemLeft" align="right" valign="top"><a id="a96a4debcee2589da3a3407f4bc73f76e" name="a96a4debcee2589da3a3407f4bc73f76e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>print_feature_generator_by_index</b> (int index)</td></tr>
+<tr class="separator:a96a4debcee2589da3a3407f4bc73f76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8740773422e7faa0d866719875ef34e" id="r_ab8740773422e7faa0d866719875ef34e"><td class="memItemLeft" align="right" valign="top"><a id="ab8740773422e7faa0d866719875ef34e" name="ab8740773422e7faa0d866719875ef34e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>print_feature_processor_by_index</b> (int index)</td></tr>
+<tr class="separator:ab8740773422e7faa0d866719875ef34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff1491bf2254be123b1197514fbe4136" id="r_aff1491bf2254be123b1197514fbe4136"><td class="memItemLeft" align="right" valign="top"><a id="aff1491bf2254be123b1197514fbe4136" name="aff1491bf2254be123b1197514fbe4136"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delete_feature_processor_by_index</b> (int index)</td></tr>
+<tr class="separator:aff1491bf2254be123b1197514fbe4136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5ab3a8e48b8d6364cc4e83e5e08fd4" id="r_a1f5ab3a8e48b8d6364cc4e83e5e08fd4"><td class="memItemLeft" align="right" valign="top"><a id="a1f5ab3a8e48b8d6364cc4e83e5e08fd4" name="a1f5ab3a8e48b8d6364cc4e83e5e08fd4"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>print_post_processor_by_index</b> (int index)</td></tr>
+<tr class="separator:a1f5ab3a8e48b8d6364cc4e83e5e08fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4190d847567cb35387040b1e1439277" id="r_ab4190d847567cb35387040b1e1439277"><td class="memItemLeft" align="right" valign="top"><a id="ab4190d847567cb35387040b1e1439277" name="ab4190d847567cb35387040b1e1439277"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delete_post_processor_by_index</b> (int index)</td></tr>
+<tr class="separator:ab4190d847567cb35387040b1e1439277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b3e91a8318625846c7f985576f8234" id="r_ac8b3e91a8318625846c7f985576f8234"><td class="memItemLeft" align="right" valign="top"><a id="ac8b3e91a8318625846c7f985576f8234" name="ac8b3e91a8318625846c7f985576f8234"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>train_post_processor_by_index</b> (int index, <a class="el" href="classMPFeatures.html">MPFeatures</a> &amp;features)</td></tr>
+<tr class="separator:ac8b3e91a8318625846c7f985576f8234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Internal/MedPyExport/MedPyExport/<a class="el" href="MPModel_8h_source.html">MPModel.h</a></li>
@@ -252,7 +285,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>apply_model_change</b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2025 17:51:43 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Dec 18 2025 13:05:25 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
