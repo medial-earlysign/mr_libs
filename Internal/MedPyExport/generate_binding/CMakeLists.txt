@@ -75,7 +75,7 @@ if (NOT WIN32)
     set(COMMON_FLAGS "-fPIC -Wno-write-strings -Wuninitialized -Wno-narrowing -DMES_LIBRARY=1 -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")
 
     if(APPLE)
-        set(COMPILER_FLAGS "${COMMON_FLAGS} -Xpreprocessor -fopenmp")
+        set(COMPILER_FLAGS "${COMMON_FLAGS} -Xpreprocessor -fopenmp -D_LIBCPP_DISABLE_AVAILABILITY")
     else()
         # Linux specific base flags
         set(COMPILER_FLAGS "${COMMON_FLAGS} -fopenmp --param inline-unit-growth=1000000")
