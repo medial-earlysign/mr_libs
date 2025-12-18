@@ -101,6 +101,8 @@ public:
 
 	std::string get_model_weights_json();
 
+	std::string get_model_processors_info();
+
 	void train_rep_processor_by_index(int index, MPPidRepository &rep, MPSamples &samples);	
 	std::string print_rep_processor_by_index(int index);	
 	void delete_rep_processor_by_index(int index);

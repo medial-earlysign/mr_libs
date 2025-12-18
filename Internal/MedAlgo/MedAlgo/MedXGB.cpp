@@ -125,6 +125,20 @@ void MedXGB::export_predictor(const string &output_fname)
 	{
 		MTHROW_AND_ERR("MedXGB::export_predictor failed. couldn't write %s \n", output_fname.c_str());
 	}
+	const char* out_dptr;
+	xgboost::bst_ulong len;
+	string cfg_js = "{ \"format\":\"json\" }";
+	if (my_learner != NULL) {
+		if (XGBoosterSaveModelToBuffer(my_learner, cfg_js.c_str(), &len, &out_dptr) != 0)
+			throw runtime_error("failed XGBoosterGetModelRaw\n");
+		string xgb_data = string(out_dptr);
+		// Store in file:
+		ofstream output_fw(output_fname);
+		if (!output_fw.good())
+			MTHROW_AND_ERR("Can't open file %s for writing\n", output_fname.c_str());
+		output_fw << xgb_data;
+		output_fw.close();
+	}
 }
 
 int MedXGB::Learn(float *x, float *y, int nsamples, int nftrs) {

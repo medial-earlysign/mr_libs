@@ -222,3 +222,12 @@ void MPModel::train_post_processor_by_index(int index, MPFeatures &features) {
 	PostProcessor *post_processor = o->post_processors[index];
 	post_processor->Learn(*features.o);
 }
+
+std::string MPModel::get_model_processors_info() {
+	nlohmann::ordered_json js;
+	js["rep_processors"] = o->rep_processors.size();
+	js["feature_generators"] = o->generators.size();
+	js["feature_processors"] = o->feature_processors.size();
+	js["post_processors"] = o->post_processors.size();
+	return js.dump();
+}
