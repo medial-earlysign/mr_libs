@@ -67,6 +67,8 @@ public:
 	int learn(MPFeatures& features);
 	int predict(MPFeatures& features);
 
+	void calc_feature_contribs(MPFeatures& features, MPFeatures &res);
+
 	// Write Predictor to File
 	void write_predictor_to_file(string& outFile);
 

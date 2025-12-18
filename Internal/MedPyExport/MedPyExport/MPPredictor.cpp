@@ -73,3 +73,12 @@ void MPPredictor::write_predictor_to_file(string& outFile) {
 void MPPredictor::export_predictor(string& outFile) {
 	o->export_predictor(outFile);
 }
+
+void MPPredictor::calc_feature_contribs(MPFeatures& features, MPFeatures &res) {
+	MedFeatures &feats = *(features.o);
+	MedMat<float> feat_x, result_contribs;
+	feats.get_as_matrix(feat_x);
+	o->calc_feature_contribs(feat_x, result_contribs);
+
+	res.o->set_as_matrix(result_contribs);
+}
