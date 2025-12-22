@@ -1,8 +1,17 @@
 # Medial Python Binding
 
 ## Relase Notes - 1.1.0
-* Split medpython-etl into a different package, medpython will set medpython-etl that it will be installed
-* Added functionality for med.Model - apply_model_changes, add_post_processors_json_string_to_model
+* **Modularized Package Structure**
+    - **Decoupled** `medpython-etl` into a standalone package.
+    - `medpython` now acts as a **meta-package**, including `medpython-etl` as a core dependency for user convenience without introducing direct code coupling.
+* Enhanced `med.Model` **Functionality**
+    - **Runtime Model Updates**: Introduced apply_model_changes to modify models on the fly (e.g., removing explainability or lowering batch counts to save memory) without requiring retraining.
+    - **Post-Processor Integration**: Added add_post_processors_json_string_to_model to attach and train new components such as calibrators, explainers, or fairness adjustments onto existing/trained models.
+    - **Component Management**: New train/remove/print commands for rep-processors and post-processors, allowing direct execution of training functions for specific model components.
+    - **Predictor Export**: Added functionality to retrieve the core predictor in standard scikit-learn or XGBoost formats (for supported predictors)
+    - **Architecture Visualization**: Added the ability to retrieve the MedModel architecture in a human-readable, printable format.
+    - **Usage Validation**: Implemented strict state checks to prevent logical errors (e.g., ensuring apply cannot be called before the model is trained).
+    - **Signal Debugging**: Introduced `debug_rep_processor_signal` to inspect how rep-processors transform raw signals, outlier, etc.
 
 ## Relase Notes - 1.0.6
 * Fix code to compile in ARM computer
