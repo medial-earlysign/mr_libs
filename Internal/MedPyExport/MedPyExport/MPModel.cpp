@@ -7,6 +7,7 @@
 #include "MedUtils/MedUtils/MedUtils.h"
 #include "InfraMed/InfraMed/MedPidRepository.h"
 #include "MedProcessTools/MedProcessTools/MedModel.h"
+
 //#include "MedProcessTools/MedProcessTools/SampleFilter.h"
 
 const int MPModelStage::LEARN_REP_PROCESSORS = MED_MDL_LEARN_REP_PROCESSORS;
@@ -23,10 +24,10 @@ const int MPModelStage::END = MED_MDL_END;
 
 static_assert(MPModelStage::END == 10, "med model was changed");
 
-MPModel::MPModel() { o = new MedModel(); };
-MPModel::~MPModel() { delete o; o = nullptr; };
-void MPModel::init_from_json_file(const std::string& fname) { o->init_from_json_file(fname); };
-std::vector<std::string> MPModel::init_from_json_file_with_alterations(const std::string& fname, std::vector<std::string> json_alt) { o->init_from_json_file_with_alterations(fname, json_alt); return json_alt; };
+MPModel::MPModel() { o = new MedModel(); o_rec = new PidDynamicRec(); };
+MPModel::~MPModel() { delete o; o = nullptr; delete o_rec; o_rec = nullptr; };
+void MPModel::init_from_json_file(const std::string& fname) { o->init_from_json_file(fname); model_trained = false; };
+std::vector<std::string> MPModel::init_from_json_file_with_alterations(const std::string& fname, std::vector<std::string> json_alt) { o->init_from_json_file_with_alterations(fname, json_alt); model_trained = false; return json_alt; };
 void MPModel::add_pre_processors_json_string_to_model(const std::string &in_json, const std::string &fname, bool add_rep_first) {
 	std::vector<std::string> empty_alt; 
 	o->add_pre_processors_json_string_to_model(in_json, fname, empty_alt, add_rep_first); 
@@ -36,29 +37,35 @@ int MPModel::learn(MPPidRepository* rep, MPSamples* samples) {
 #ifdef AM_API_FOR_CLIENT
 	rep->finish_load_data();
 #endif
-	return o->learn(*((MedPidRepository*)(rep->o)), (MedSamples*)(samples->o)); 
+	model_trained = true;
+	return o->learn(*((MedPidRepository*)(rep->o)), (MedSamples*)(samples->o));
 };
 int MPModel::apply(MPPidRepository* rep, MPSamples* samples) { 
 #ifdef AM_API_FOR_CLIENT
 	rep->finish_load_data();
 #endif
+   if (!model_trained)
+		HMTHROW_AND_ERR("Model was not trained. Please load a trained model or call learn first");
 	return o->apply(*((MedPidRepository*)(rep->o)), *((MedSamples*)(samples->o))); 
 };
 int MPModel::learn(MPPidRepository* rep, MPSamples* samples, int start_stage, int end_stage) { 
 #ifdef AM_API_FOR_CLIENT
 	rep->finish_load_data();
 #endif
+	model_trained = true;
 	return o->learn(*((MedPidRepository*)(rep->o)), (MedSamples*)(samples->o),(MedModelStage)start_stage, (MedModelStage)end_stage);
 };
 int MPModel::apply(MPPidRepository* rep, MPSamples* samples, int start_stage, int end_stage) { 
 #ifdef AM_API_FOR_CLIENT
 	rep->finish_load_data();
 #endif
+	if (!model_trained)
+		HMTHROW_AND_ERR("Model was not trained. Please load a trained model or call learn first");
 	return o->apply(*((MedPidRepository*)(rep->o)), *((MedSamples*)(samples->o)), (MedModelStage)start_stage, (MedModelStage)end_stage);
 };
 
 int MPModel::write_to_file(const std::string &fname) { return val_or_exception(o->write_to_file(fname),"Could not write to file"); };
-int MPModel::read_from_file(const std::string &fname) { return val_or_exception(o->read_from_file(fname),"Could not read from file"); };
+int MPModel::read_from_file(const std::string &fname) { model_trained = true; return val_or_exception(o->read_from_file(fname),"Could not read from file"); };
 
 MPFeatures MPModel::MEDPY_GET_features() { return MPFeatures(&o->features); };
 MPPredictor MPModel::MEDPY_GET_predictor() { 
@@ -67,7 +74,7 @@ MPPredictor MPModel::MEDPY_GET_predictor() {
 	return pred; 
 }
 
-void MPModel::clear() { o->clear();  };
+void MPModel::clear() { o->clear(); model_trained = false;  };
 
 int MPModel::MEDPY_GET_verbosity() { return o->verbosity; };
 void MPModel::MEDPY_SET_verbosity(int new_vval) { o->verbosity = new_vval; };
@@ -96,7 +103,10 @@ void MPModel::set_predictor(MPPredictor& _predictor) { o->set_predictor(_predict
 void MPModel::make_predictor(std::string name) { o->set_predictor(name); };
 void MPModel::set_predictor(std::string name, std::string init_string) { o->set_predictor(name, init_string); };
 int MPModel::collect_and_add_virtual_signals(MPPidRepository &rep) { return o->collect_and_add_virtual_signals(*(rep.o)); };
-int MPModel::quick_learn_rep_processors(MPPidRepository& rep, MPSamples& samples) { return o->quick_learn_rep_processors(*(rep.o), *(samples.o)); };
+int MPModel::quick_learn_rep_processors(MPPidRepository& rep, MPSamples& samples) { 
+	o->init_model_for_apply(*rep.o, MedModelStage::MED_MDL_LEARN_REP_PROCESSORS, MedModelStage::MED_MDL_LEARN_FTR_PROCESSORS);
+	model_trained = true;
+	return o->quick_learn_rep_processors(*(rep.o), *(samples.o)); };
 int MPModel::learn_rep_processors(MPPidRepository& rep, MPSamples& samples) { return o->learn_rep_processors(*(rep.o), *(samples.o)); };
 void MPModel::filter_rep_processors() { o->filter_rep_processors(); };
 int MPModel::learn_feature_generators(MPPidRepository &rep, MPSamples *learn_samples) { return o->learn_feature_generators(*(rep.o), (*learn_samples).o); };
@@ -230,4 +240,39 @@ std::string MPModel::get_model_processors_info() {
 	js["feature_processors"] = o->feature_processors.size();
 	js["post_processors"] = o->post_processors.size();
 	return js.dump();
+}
+
+MPSigVectorAdaptor MPModel::debug_rep_processor_signal(MPPidRepository &rep, std::string &signal_name, int pid, int prediction_time) {
+	if (!model_trained)
+		HMTHROW_AND_ERR("Model was not trained. Please load a trained model or call learn first");
+	PidDynamicRec &rec = *o_rec;
+	int sid = rep.sig_id(signal_name);
+	if (sid < 0)
+		HMTHROW_AND_ERR("Unknown signal name %s\n", signal_name.c_str());
+	std::vector<string> sigs = {signal_name};
+	std::unordered_set<std::string> all_rep_sigs(sigs.begin(), sigs.end());
+	if (!o->rep_processors.empty()) {
+		std::vector<std::unordered_set<std::string>> current_req_signal_names(o->rep_processors.size());
+		for (unsigned int i = 0; i < o->rep_processors.size(); i++)
+			(o->rep_processors)[i]->get_required_signal_names(current_req_signal_names[i]);
+		for (size_t i = 0; i < current_req_signal_names.size(); ++i)
+			all_rep_sigs.insert(current_req_signal_names[i].begin(), current_req_signal_names[i].end());
+	}
+	std::vector<std::vector<float>> attr;
+	std::vector<std::string> final_sigs(all_rep_sigs.begin(), all_rep_sigs.end());
+	vector<int> signal_ids(final_sigs.size());
+	for (unsigned int i = 0; i < final_sigs.size(); ++i)
+		signal_ids[i] = rep.sig_id(final_sigs[i]);
+	if (rec.init_from_rep(std::addressof(*rep.o), pid, signal_ids, 1) < 0)
+		runtime_error("Unable to read repository\n");
+
+	o->init_for_apply_rec(*rep.o);
+	vector<int> time_pnt = { prediction_time };
+	for (unsigned int i = 0; i < o->rep_processors.size(); ++i)
+		o->rep_processors[i]->apply(rec, time_pnt, attr);
+
+	MPSigVectorAdaptor ret;
+	rec.uget(sid, rec.get_n_versions() - 1, *((UniversalSigVec *)(ret.o)));
+
+	return ret;
 }

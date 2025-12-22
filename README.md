@@ -55,6 +55,6 @@ python -m pip install -v "medpython @ git+https://github.com/Medial-EarlySign/me
 
 To explore the code:
 
-* `Internal/MedPython` - for the python module. The folder `generate_bindings` contains the `setup.py` to install the module.
+* `Internal/MedPyExport` - for the python module. The folder `generate_bindings` contains the `setup.py` to install the module.
 * `Internal/AlgoMarker` - the folder to compile the minimal shared library for production and running it in distroless container.
 

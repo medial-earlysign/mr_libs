@@ -8,6 +8,7 @@
 
 class MedModel;
 class MPSamples;
+class PidDynamicRec;
 
 class MPModelStage {
 
@@ -27,8 +28,11 @@ public:
 };
 
 class MPModel {
+private:
+	bool model_trained = false;
 public:
 	MEDPY_IGNORE( MedModel* o );
+	MEDPY_IGNORE( PidDynamicRec* o_rec );
 	MPModel();
 	~MPModel();
 	void init_from_json_file(const std::string& fname);
@@ -113,7 +117,9 @@ public:
 
 	std::string print_post_processor_by_index(int index);
 	void delete_post_processor_by_index(int index);
-	void train_post_processor_by_index(int index, MPFeatures &features);	
+	void train_post_processor_by_index(int index, MPFeatures &features);
+
+	MPSigVectorAdaptor debug_rep_processor_signal(MPPidRepository &rep, std::string &signal_name, int pid, int prediction_time);
 };
 
 
