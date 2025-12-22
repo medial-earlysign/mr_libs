@@ -76,8 +76,21 @@ $(function() {
 <h1><a class="anchor" id="autotoc_md515"></a>
 Relase Notes - 1.1.0</h1>
 <ul>
-<li>Split medpython-etl into a different package, medpython will set medpython-etl that it will be installed</li>
-<li>Added functionality for med.Model - apply_model_changes, add_post_processors_json_string_to_model</li>
+<li><b>Modularized Package Structure</b><ul>
+<li><b>Decoupled</b> <code>medpython-etl</code> into a standalone package.</li>
+<li><code>medpython</code> now acts as a <b>meta-package</b>, including <code>medpython-etl</code> as a core dependency for user convenience without introducing direct code coupling.</li>
+</ul>
+</li>
+<li>Enhanced <code>med.Model</code> <b>Functionality</b><ul>
+<li><b>Runtime Model Updates</b>: Introduced apply_model_changes to modify models on the fly (e.g., removing explainability or lowering batch counts to save memory) without requiring retraining.</li>
+<li><b>Post-Processor Integration</b>: Added add_post_processors_json_string_to_model to attach and train new components such as calibrators, explainers, or fairness adjustments onto existing/trained models.</li>
+<li><b>Component Management</b>: New train/remove/print commands for rep-processors and post-processors, allowing direct execution of training functions for specific model components.</li>
+<li><b>Predictor Export</b>: Added functionality to retrieve the core predictor in standard scikit-learn or XGBoost formats (for supported predictors)</li>
+<li><b>Architecture Visualization</b>: Added the ability to retrieve the <a class="el" href="classMedModel.html" title="A model = repCleaner + featureGenerator + featureProcessor + MedPredictor.">MedModel</a> architecture in a human-readable, printable format.</li>
+<li><b>Usage Validation</b>: Implemented strict state checks to prevent logical errors (e.g., ensuring apply cannot be called before the model is trained).</li>
+<li><b>Signal Debugging</b>: Introduced <code>debug_rep_processor_signal</code> to inspect how rep-processors transform raw signals, outlier, etc.</li>
+</ul>
+</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md516"></a>
 Relase Notes - 1.0.6</h1>
@@ -120,7 +133,7 @@ Release Notes - 1.0.1</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 18 2025 18:56:46 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Dec 22 2025 11:03:34 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
