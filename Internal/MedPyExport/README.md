@@ -1,5 +1,8 @@
 # Medial Python Binding
 
+## Relase Notes - 1.1.1
+* Bugfix: get_sig when using PidRepository data from json
+
 ## Relase Notes - 1.1.0
 * **Modularized Package Structure**
     - **Decoupled** `medpython-etl` into a standalone package.
@@ -12,6 +15,8 @@
     - **Architecture Visualization**: Added the ability to retrieve the MedModel architecture in a human-readable, printable format.
     - **Usage Validation**: Implemented strict state checks to prevent logical errors (e.g., ensuring apply cannot be called before the model is trained).
     - **Signal Debugging**: Introduced `debug_rep_processor_signal` to inspect how rep-processors transform raw signals, outlier, etc.
+* **Platform & Build Improvements**
+    - **macOS Compatibility**: Resolved all compilation issues for **macOS** environments using Conda, ensuring a smoother installation process for Apple Silicon and Intel-based Macs.
 
 ## Relase Notes - 1.0.6
 * Fix code to compile in ARM computer

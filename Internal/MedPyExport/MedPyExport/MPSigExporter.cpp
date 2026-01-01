@@ -108,16 +108,20 @@ string get_code_name(int codeGroup, std::regex &reg_pat, const map<int, vector<s
 MPSigExporter::MPSigExporter(MPPidRepository &rep, std::string signame_str, MEDPY_NP_INPUT(int *pids_to_take, unsigned long long num_pids_to_take), int use_all_pids, int translate_flag, int free_sig_flag, std::string filter_regex_str)
 	: o(rep.o), sig_name(signame_str), translate(translate_flag != 0), free_sig(free_sig_flag != 0), filter_regex(filter_regex_str)
 {
-	if (use_all_pids)
+	if (!o->in_mem_mode_active())
 	{
-		if (rep.loadsig(signame_str) != 0)
-			throw runtime_error("could not load signal");
+		if (use_all_pids)
+		{
+			if (rep.loadsig(signame_str) != 0)
+				throw runtime_error("could not load signal");
+		}
+		else
+		{
+			if (rep.loadsig_pids(signame_str, pids_to_take, num_pids_to_take) != 0)
+				throw runtime_error("could not load signal");
+		}
 	}
-	else
-	{
-		if (rep.loadsig_pids(signame_str, pids_to_take, num_pids_to_take) != 0)
-			throw runtime_error("could not load signal");
-	}
+
 	sig_id = rep.sig_id(sig_name);
 	if (sig_id == -1)
 		throw runtime_error("bad sig id");

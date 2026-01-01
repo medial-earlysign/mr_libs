@@ -319,6 +319,8 @@ int MPPidRepository::_load_single_json(void *_js)
 		// supporting also older style jsons that were embeded in a "body" section
 		if (j_data.find("body") != j_data.end())
 			js = j_data["body"];
+		else if (js.find("data") != js.end())
+			js = js["data"];
 
 		if (patient_id <= 0)
 		{
