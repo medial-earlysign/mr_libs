@@ -142,6 +142,7 @@ public:
 	void get_preds(MEDPY_NP_OUTPUT(float** preds_buf, unsigned long long* preds_buf_len));
 	void get_y(MEDPY_NP_OUTPUT(float** y_buf, unsigned long long* y_buf_len));
 	void get_categs(MEDPY_NP_OUTPUT(float** categs_buf, unsigned long long* categs_buf_len));
+	void filter_by_bt(const string &rep_path, const string &json_mat, const string &bt_cohort);
 	
 	MPSampleVectorAdaptor export_to_sample_vec();
 	void import_from_sample_vec(MPSampleVectorAdaptor& vec_samples, bool allow_split_inconsistency = false);

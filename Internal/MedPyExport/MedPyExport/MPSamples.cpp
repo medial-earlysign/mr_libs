@@ -10,7 +10,10 @@
 #include "MedProcessTools/MedProcessTools/MedModel.h"
 #include "MedProcessTools/MedProcessTools/SampleFilter.h"
 #include "MedProcessTools/MedProcessTools/MedSamples.h"
+#include "MedStat/MedStat/MedBootstrap.h"
 
+#define LOCAL_SECTION LOG_APP
+#define LOCAL_LEVEL LOG_DEF_LEVEL
 
 /******************** MPSample ****************/
 
@@ -451,7 +454,83 @@ void MPIdSamplesVectorAdaptor::__setitem__(int i, MPIdSamples val) { o->at(i) = 
 void MPIdSamplesVectorAdaptor::append(MPIdSamples val) { o->push_back(*(val.o)); };
 
 
+void MPSamples::filter_by_bt(const string &rep_path, const string &json_mat, const string &bt_cohort) {
+	MedPidRepository rep;
+	assert(!rep_path.empty());
+	assert(!json_mat.empty());
+	assert(!bt_cohort.empty());
 
+	MedModel mod;
+	mod.init_from_json_file(json_mat);
+	mod.verbosity = 0;
+	mod.serialize_learning_set = 0;
+	if (mod.predictor == NULL) {
+		mod.set_predictor("gdlm");
+	}
+	medial::repository::prepare_repository(*o, rep_path, mod, rep);
+
+	MedFeatures mat;
+	mod.learn(rep, o, MedModelStage::MED_MDL_LEARN_REP_PROCESSORS, MedModelStage::MED_MDL_APPLY_FTR_PROCESSORS);
+	mat = move(mod.features);
+
+	int before_size = (int)mat.samples.size();
+	string cohort_name = bt_cohort.substr(0, bt_cohort.find('\t'));
+		string cohort_definition = "";
+	if (bt_cohort.find('\t') != string::npos)
+			cohort_definition = bt_cohort.substr(bt_cohort.find('\t') + 1);
+	else
+		cohort_definition = bt_cohort;
+	
+
+	vector<string> param_use;
+	boost::split(param_use, cohort_definition, boost::is_any_of(";"));
+	for (size_t i = 0; i < param_use.size(); ++i)
+	{
+		vector<string> tokens;
+		boost::split(tokens, param_use[i], boost::is_any_of(":"));
+		param_use[i] = tokens[0];
+	}
+
+	unordered_set<string> valid_params;
+	valid_params.insert("Time-Window");
+	valid_params.insert("Label");
+	MedBootstrap bt_tmp;
+	bt_tmp.clean_feature_name_prefix(mat.data);
+	for (auto it = mat.data.begin(); it != mat.data.end(); ++it)
+		valid_params.insert(it->first);
+	vector<string> all_names_ls(valid_params.begin(), valid_params.end());
+
+	bool all_valid = true;
+	for (string param_name : param_use)
+		if (valid_params.find(param_name) == valid_params.end()) {
+			//try and fix first:
+			int fn_pos = find_in_feature_names(all_names_ls, param_name, false);
+			if (fn_pos < 0) {
+				all_valid = false;
+				MERR("ERROR:: Wrong use in \"%s\" as filter params. the parameter is missing\n", param_name.c_str());
+			}
+			else {
+				//fix name:
+				string found_nm = all_names_ls[fn_pos];
+				MLOG("Mapped %s => %s\n", param_name.c_str(), found_nm.c_str());
+				boost::replace_all(cohort_definition, param_name, found_nm);
+			}
+		}
+
+	if (!all_valid) {	
+		MLOG("Feature Names availible for cohort filtering:\n");
+		for (auto it = mat.data.begin(); it != mat.data.end(); ++it)
+			MLOG("%s\n", it->first.c_str());
+		MLOG("Time-Window\n");
+		MLOG("\n");
+		MTHROW_AND_ERR("Cohort file has wrong paramter names. look above for all avaible params\n");
+	}
+
+	MedBootstrap::filter_bootstrap_cohort(mat, cohort_definition);
+	o->import_from_sample_vec(mat.samples);
+	MLOG("Filter BT condition  before was %d after filtering %zu\n",
+			before_size, mat.samples.size());
+}
 
 
 
