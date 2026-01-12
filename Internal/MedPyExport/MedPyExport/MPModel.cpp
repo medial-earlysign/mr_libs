@@ -215,6 +215,13 @@ std::string MPModel::get_model_weights_json() {
 	return o->object_json();
 }
 
+std::string MPModel::get_model_version_info() {
+	nlohmann::ordered_json js;
+	js["code_version"] = medial::get_git_version();
+	js["model_version"] = o->version_info;
+	return js.dump();
+}
+
 void MPModel::delete_post_processor_by_index(int index) {
 	if (index < 0)
 		throw runtime_error("Invalid index " + to_string(index) + ". Must be positive index");
