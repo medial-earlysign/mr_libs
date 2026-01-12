@@ -35,6 +35,19 @@ SKIP_FOLDER_NAMES = set(
 )
 
 
+def get_version_from_pyproject() -> str:
+    with open(os.path.join(SETUP_DIR, "pyproject.toml"), "r") as f:
+        lines = f.readlines()
+    lines = list(filter(lambda x: x.strip().startswith("version"), lines))
+    if len(lines) != 1:
+        return "Unknown_version_please_define_in_pyproject"
+    lines = lines[0].split("=")
+    if len(lines) != 2:
+        return "Unknown_version_please_define_in_pyproject"
+    version = lines[1].strip().strip('"')
+    return version
+
+
 class CustomSdist(_sdist):
     """Custom sdist command to copy external C++ source into the package tree."""
 
@@ -131,6 +144,11 @@ class CMakeBuild(build_ext):
         # Parallel build
         if "CMAKE_BUILD_PARALLEL_LEVEL" not in os.environ:
             build_args += [f"-j{os.cpu_count()}"]
+
+        # Version Info
+        if "GIT_HEAD_VERSION" not in os.environ:
+            version_info = get_version_from_pyproject()
+            os.environ["GIT_HEAD_VERSION"] = "Version_" + version_info
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
