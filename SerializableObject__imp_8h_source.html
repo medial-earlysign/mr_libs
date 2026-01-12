@@ -215,7 +215,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">string</span> object_json_spec(T&amp; v, std::false_type, std::false_type) {</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="comment">// neither</span></div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        stringstream str;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        str &lt;&lt; <span class="stringliteral">&quot;UNSUPPORTED::&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(v).name();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        str &lt;&lt; <span class="stringliteral">&quot;\&quot;UNSUPPORTED::&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(v).name() &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">return</span> str.str();</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
@@ -312,7 +312,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)*v);</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            str &lt;&lt; <span class="stringliteral">&quot;NULL&quot;</span>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            str &lt;&lt; <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordflow">return</span> str.str();</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">string</span> object_json(<span class="keyword">const</span> T *&amp;v) {</div>
@@ -322,7 +322,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)*v);</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            str &lt;&lt; <span class="stringliteral">&quot;NULL&quot;</span>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            str &lt;&lt; <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordflow">return</span> str.str();</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    }</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">string</span> object_json(T * <span class="keyword">const</span> &amp;v) {</div>
@@ -332,7 +332,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)*v);</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        }</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            str &lt;&lt; <span class="stringliteral">&quot;NULL&quot;</span>;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            str &lt;&lt; <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">return</span> str.str();</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
@@ -422,7 +422,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)*v);</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        }</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            str &lt;&lt; <span class="stringliteral">&quot;NULL&quot;</span>;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            str &lt;&lt; <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="keywordflow">return</span> str.str();</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    }</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">string</span> object_json(unique_ptr&lt;const T&gt; &amp;v) {</div>
@@ -432,7 +432,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)*v);</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        }</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>            str &lt;&lt; <span class="stringliteral">&quot;NULL&quot;</span>;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>            str &lt;&lt; <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">return</span> str.str();</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    }</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
@@ -787,7 +787,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>        stringstream str;</div>
 <div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>        <span class="comment">//it&#39;s object: - TODO: print type name</span></div>
 <div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>        str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>        str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>        str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span> </div>
 <div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>        str &lt;&lt; MedSerialize::object_json(v.first);</div>
 <div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>        str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json(v.second);</div>
@@ -799,7 +799,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>        stringstream str;</div>
 <div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>        <span class="comment">//it&#39;s object: - TODO: print type name</span></div>
 <div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>        str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>        str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>        str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span> </div>
 <div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>        str &lt;&lt; MedSerialize::object_json(v.first);</div>
 <div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>        str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json(v.second);</div>
@@ -811,7 +811,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>        stringstream str;</div>
 <div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>        <span class="comment">//it&#39;s object: - TODO: print type name</span></div>
 <div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span> </div>
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        str &lt;&lt; MedSerialize::object_json(v.first);</div>
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json(v.second);</div>
@@ -883,7 +883,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>            <span class="comment">//print pair:</span></div>
 <div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span> </div>
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>            str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>            str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>            str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span> </div>
 <div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)it-&gt;first);</div>
 <div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>            str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> S &amp;)it-&gt;second);</div>
@@ -907,7 +907,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>            <span class="comment">//print pair:</span></div>
 <div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span> </div>
 <div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>            str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span> </div>
 <div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T&amp;)it-&gt;first);</div>
 <div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>            str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> S &amp;)it-&gt;second);</div>
@@ -931,7 +931,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span>            <span class="comment">//print pair:</span></div>
 <div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span> </div>
 <div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span>            str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>            str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>            str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span> </div>
 <div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>            str &lt;&lt; MedSerialize::object_json((T&amp;)it-&gt;first);</div>
 <div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>            str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json((S &amp;)it-&gt;second);</div>
@@ -1006,7 +1006,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>            <span class="comment">//print pair:</span></div>
 <div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span> </div>
 <div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>            str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>            str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>            str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span> </div>
 <div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T &amp;)it-&gt;first);</div>
 <div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span>            str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> S &amp;)it-&gt;second);</div>
@@ -1030,7 +1030,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span>            <span class="comment">//print pair:</span></div>
 <div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span> </div>
 <div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>            str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>            str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>            str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span> </div>
 <div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>            str &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> T &amp;)it-&gt;first);</div>
 <div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>            str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json((<span class="keyword">const</span> S &amp;)it-&gt;second);</div>
@@ -1054,7 +1054,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span>            <span class="comment">//print pair:</span></div>
 <div class="line"><a id="l00972" name="l00972"></a><span class="lineno">  972</span> </div>
 <div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span>            str &lt;&lt; <span class="stringliteral">&quot;{ \&quot;Object\&quot;:\&quot;pair&lt;&quot;</span> &lt;&lt; <span class="keyword">typeid</span>(T).name() &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <span class="keyword">typeid</span>(S).name() &lt;&lt; <span class="stringliteral">&quot;&gt;\&quot;, &quot;</span>;</div>
-<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>            str &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>            str &lt;&lt; <span class="stringliteral">&quot;\&quot;data\&quot;: [&quot;</span>;</div>
 <div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span> </div>
 <div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>            str &lt;&lt; MedSerialize::object_json((T &amp;)it-&gt;first);</div>
 <div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span>            str &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; MedSerialize::object_json((S &amp;)it-&gt;second);</div>
@@ -1417,279 +1417,283 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l01334" name="l01334"></a><span class="lineno"> 1334</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;long long&gt;(<span class="keywordtype">long</span> <span class="keywordtype">long</span> &amp;v) { <span class="keywordflow">return</span> to_string(v); }</div>
 <div class="line"><a id="l01335" name="l01335"></a><span class="lineno"> 1335</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;unsigned long long&gt;(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> &amp;v) { <span class="keywordflow">return</span> to_string(v); }</div>
 <div class="line"><a id="l01336" name="l01336"></a><span class="lineno"> 1336</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;bool&gt;(<span class="keywordtype">bool</span> &amp;v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01337" name="l01337"></a><span class="lineno"> 1337</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;string&gt;(<span class="keywordtype">string</span> &amp;str) { <span class="keywordflow">return</span> <span class="stringliteral">&quot;\&quot;&quot;</span> + str + <span class="stringliteral">&quot;\&quot;&quot;</span>; }</div>
-<div class="line"><a id="l01338" name="l01338"></a><span class="lineno"> 1338</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;const string&gt;(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;str) { <span class="keywordflow">return</span> <span class="stringliteral">&quot;\&quot;&quot;</span> + str + <span class="stringliteral">&quot;\&quot;&quot;</span>; }</div>
-<div class="line"><a id="l01339" name="l01339"></a><span class="lineno"> 1339</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01340" name="l01340"></a><span class="lineno"> 1340</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">float</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">double</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">char</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">long</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">long</span> <span class="keywordtype">long</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">bool</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
-<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span> </div>
-<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span> </div>
-<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span>}</div>
-<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span> </div>
-<div class="line"><a id="l01353" name="l01353"></a><span class="lineno"> 1353</span><span class="keywordtype">void</span> mes_trim(<span class="keywordtype">string</span> &amp;s);</div>
+<div class="line"><a id="l01337" name="l01337"></a><span class="lineno"> 1337</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;string&gt;(<span class="keywordtype">string</span> &amp;str) { </div>
+<div class="line"><a id="l01338" name="l01338"></a><span class="lineno"> 1338</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;\&quot;&quot;</span> + boost::replace_all_copy(str, <span class="stringliteral">&quot;\n&quot;</span>, <span class="stringliteral">&quot;\\n&quot;</span>) + <span class="stringliteral">&quot;\&quot;&quot;</span>; </div>
+<div class="line"><a id="l01339" name="l01339"></a><span class="lineno"> 1339</span>    }</div>
+<div class="line"><a id="l01340" name="l01340"></a><span class="lineno"> 1340</span>    <span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json&lt;const string&gt;(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;str) { </div>
+<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;\&quot;&quot;</span> + boost::replace_all_copy(str, <span class="stringliteral">&quot;\n&quot;</span>, <span class="stringliteral">&quot;\\n&quot;</span>) + <span class="stringliteral">&quot;\&quot;&quot;</span>; </div>
+<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>    }</div>
+<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">float</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">double</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">char</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">long</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">long</span> <span class="keywordtype">long</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span>    <span class="keyword">inline</span> <span class="keywordtype">string</span> object_json(<span class="keywordtype">bool</span> v) { <span class="keywordflow">return</span> to_string(v); }</div>
+<div class="line"><a id="l01353" name="l01353"></a><span class="lineno"> 1353</span> </div>
 <div class="line"><a id="l01354" name="l01354"></a><span class="lineno"> 1354</span> </div>
-<div class="line"><a id="l01355" name="l01355"></a><span class="lineno"> 1355</span><span class="comment">// A few IO helpers copied here in order to make SerializableObject a PURE h file implementation</span></div>
-<div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span><span class="keyword">namespace </span>MedSerialize {</div>
-<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span> </div>
-<div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> read_binary_data_alloc(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *&amp;data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> &amp;size)</div>
-<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span>    {</div>
-<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span>        ifstream inf;</div>
+<div class="line"><a id="l01355" name="l01355"></a><span class="lineno"> 1355</span>}</div>
+<div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span> </div>
+<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span><span class="keywordtype">void</span> mes_trim(<span class="keywordtype">string</span> &amp;s);</div>
+<div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span> </div>
+<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span><span class="comment">// A few IO helpers copied here in order to make SerializableObject a PURE h file implementation</span></div>
+<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span><span class="keyword">namespace </span>MedSerialize {</div>
 <div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span> </div>
-<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span>        inf.open(fname, ios::in | ios::binary | ios::ate);</div>
-<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span> </div>
-<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span>        <span class="keywordflow">if</span> (!inf) {</div>
-<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span>            SRL_ERR(<span class="stringliteral">&quot;read_binary_data_alloc(): can&#39;t open file %s for read\n&quot;</span>, fname.c_str());</div>
-<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span>        }</div>
-<div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span> </div>
-<div class="line"><a id="l01369" name="l01369"></a><span class="lineno"> 1369</span>        size = inf.tellg();</div>
-<div class="line"><a id="l01370" name="l01370"></a><span class="lineno"> 1370</span>        data = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[size];</div>
-<div class="line"><a id="l01371" name="l01371"></a><span class="lineno"> 1371</span>        inf.seekg(0, ios::beg);</div>
-<div class="line"><a id="l01372" name="l01372"></a><span class="lineno"> 1372</span>        inf.read((<span class="keywordtype">char</span> *)data, size);</div>
-<div class="line"><a id="l01373" name="l01373"></a><span class="lineno"> 1373</span> </div>
-<div class="line"><a id="l01374" name="l01374"></a><span class="lineno"> 1374</span>        boost::crc_32_type checksum_agent;</div>
-<div class="line"><a id="l01375" name="l01375"></a><span class="lineno"> 1375</span>        checksum_agent.process_bytes(data, size);</div>
-<div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span>        SRL_LOG(<span class="stringliteral">&quot;read_binary_data_alloc [%s] with crc32 [%zu]\n&quot;</span>, fname.c_str(), checksum_agent.checksum());</div>
+<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> read_binary_data_alloc(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *&amp;data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> &amp;size)</div>
+<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span>    {</div>
+<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span>        ifstream inf;</div>
+<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span> </div>
+<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span>        inf.open(fname, ios::in | ios::binary | ios::ate);</div>
+<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span> </div>
+<div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span>        <span class="keywordflow">if</span> (!inf) {</div>
+<div class="line"><a id="l01369" name="l01369"></a><span class="lineno"> 1369</span>            SRL_ERR(<span class="stringliteral">&quot;read_binary_data_alloc(): can&#39;t open file %s for read\n&quot;</span>, fname.c_str());</div>
+<div class="line"><a id="l01370" name="l01370"></a><span class="lineno"> 1370</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l01371" name="l01371"></a><span class="lineno"> 1371</span>        }</div>
+<div class="line"><a id="l01372" name="l01372"></a><span class="lineno"> 1372</span> </div>
+<div class="line"><a id="l01373" name="l01373"></a><span class="lineno"> 1373</span>        size = inf.tellg();</div>
+<div class="line"><a id="l01374" name="l01374"></a><span class="lineno"> 1374</span>        data = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[size];</div>
+<div class="line"><a id="l01375" name="l01375"></a><span class="lineno"> 1375</span>        inf.seekg(0, ios::beg);</div>
+<div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span>        inf.read((<span class="keywordtype">char</span> *)data, size);</div>
 <div class="line"><a id="l01377" name="l01377"></a><span class="lineno"> 1377</span> </div>
-<div class="line"><a id="l01378" name="l01378"></a><span class="lineno"> 1378</span>        inf.close();</div>
-<div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>    }</div>
+<div class="line"><a id="l01378" name="l01378"></a><span class="lineno"> 1378</span>        boost::crc_32_type checksum_agent;</div>
+<div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>        checksum_agent.process_bytes(data, size);</div>
+<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>        SRL_LOG(<span class="stringliteral">&quot;read_binary_data_alloc [%s] with crc32 [%zu]\n&quot;</span>, fname.c_str(), checksum_agent.checksum());</div>
 <div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span> </div>
-<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>    <span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> write_binary_data(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> size)</div>
-<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>    {</div>
-<div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span>        ofstream of;</div>
-<div class="line"><a id="l01386" name="l01386"></a><span class="lineno"> 1386</span> </div>
-<div class="line"><a id="l01387" name="l01387"></a><span class="lineno"> 1387</span>        <span class="comment">//MLOG(&quot;Writing file %s :: size %lld\n&quot;, fname.c_str(), size);</span></div>
-<div class="line"><a id="l01388" name="l01388"></a><span class="lineno"> 1388</span>        of.open(fname, ios::out | ios::binary);</div>
-<div class="line"><a id="l01389" name="l01389"></a><span class="lineno"> 1389</span> </div>
-<div class="line"><a id="l01390" name="l01390"></a><span class="lineno"> 1390</span>        <span class="keywordflow">if</span> (!of) {</div>
-<div class="line"><a id="l01391" name="l01391"></a><span class="lineno"> 1391</span>            SRL_ERR(<span class="stringliteral">&quot;write_binary_data(): can&#39;t open file %s for write\n&quot;</span>, fname.c_str());</div>
-<div class="line"><a id="l01392" name="l01392"></a><span class="lineno"> 1392</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01393" name="l01393"></a><span class="lineno"> 1393</span>        }</div>
-<div class="line"><a id="l01394" name="l01394"></a><span class="lineno"> 1394</span> </div>
-<div class="line"><a id="l01395" name="l01395"></a><span class="lineno"> 1395</span>        of.write((<span class="keywordtype">char</span> *)data, size);</div>
-<div class="line"><a id="l01396" name="l01396"></a><span class="lineno"> 1396</span> </div>
-<div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span>        of.close();</div>
+<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>        inf.close();</div>
+<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>    }</div>
+<div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span> </div>
+<div class="line"><a id="l01386" name="l01386"></a><span class="lineno"> 1386</span>    <span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l01387" name="l01387"></a><span class="lineno"> 1387</span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> write_binary_data(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> size)</div>
+<div class="line"><a id="l01388" name="l01388"></a><span class="lineno"> 1388</span>    {</div>
+<div class="line"><a id="l01389" name="l01389"></a><span class="lineno"> 1389</span>        ofstream of;</div>
+<div class="line"><a id="l01390" name="l01390"></a><span class="lineno"> 1390</span> </div>
+<div class="line"><a id="l01391" name="l01391"></a><span class="lineno"> 1391</span>        <span class="comment">//MLOG(&quot;Writing file %s :: size %lld\n&quot;, fname.c_str(), size);</span></div>
+<div class="line"><a id="l01392" name="l01392"></a><span class="lineno"> 1392</span>        of.open(fname, ios::out | ios::binary);</div>
+<div class="line"><a id="l01393" name="l01393"></a><span class="lineno"> 1393</span> </div>
+<div class="line"><a id="l01394" name="l01394"></a><span class="lineno"> 1394</span>        <span class="keywordflow">if</span> (!of) {</div>
+<div class="line"><a id="l01395" name="l01395"></a><span class="lineno"> 1395</span>            SRL_ERR(<span class="stringliteral">&quot;write_binary_data(): can&#39;t open file %s for write\n&quot;</span>, fname.c_str());</div>
+<div class="line"><a id="l01396" name="l01396"></a><span class="lineno"> 1396</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span>        }</div>
 <div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span> </div>
-<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span>    }</div>
-<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span> </div>
-<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>    <span class="comment">// Initialization Utility</span></div>
-<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> initialization_text_to_map(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text, map&lt;string, string&gt;&amp; init_map) {</div>
-<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span> </div>
-<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span>        <span class="keywordflow">if</span> (text == <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span>            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span> </div>
-<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span>        <span class="comment">//MLOG(&quot;INPUT TEXT: %s\n&quot;, text.c_str());</span></div>
-<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span>        <span class="comment">// dealing with {}</span></div>
-<div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span>        <span class="comment">// whenever there&#39;s a v={S} where S is any string (that may also include {}) we want the map to put S for v ...</span></div>
-<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span>        <span class="comment">// follows is (hence) an ugly code to parse that</span></div>
-<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span>        <span class="comment">// but this adds the ability to pass parameters for an embedded element within our current (say a model that holds parameters for other models)</span></div>
-<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>        <span class="comment">//</span></div>
-<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span> </div>
-<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span>        vector&lt;size_t&gt; start_pos;</div>
-<div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>        vector&lt;size_t&gt; end_pos;</div>
-<div class="line"><a id="l01417" name="l01417"></a><span class="lineno"> 1417</span>        vector&lt;pair&lt;size_t, size_t&gt;&gt; from_to;</div>
+<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>        of.write((<span class="keywordtype">char</span> *)data, size);</div>
+<div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span> </div>
+<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span>        of.close();</div>
+<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span> </div>
+<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span>    }</div>
+<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span> </div>
+<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span>    <span class="comment">// Initialization Utility</span></div>
+<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> initialization_text_to_map(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text, map&lt;string, string&gt;&amp; init_map) {</div>
+<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span> </div>
+<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span>        <span class="keywordflow">if</span> (text == <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span> </div>
+<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span>        <span class="comment">//MLOG(&quot;INPUT TEXT: %s\n&quot;, text.c_str());</span></div>
+<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>        <span class="comment">// dealing with {}</span></div>
+<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span>        <span class="comment">// whenever there&#39;s a v={S} where S is any string (that may also include {}) we want the map to put S for v ...</span></div>
+<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span>        <span class="comment">// follows is (hence) an ugly code to parse that</span></div>
+<div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>        <span class="comment">// but this adds the ability to pass parameters for an embedded element within our current (say a model that holds parameters for other models)</span></div>
+<div class="line"><a id="l01417" name="l01417"></a><span class="lineno"> 1417</span>        <span class="comment">//</span></div>
 <div class="line"><a id="l01418" name="l01418"></a><span class="lineno"> 1418</span> </div>
-<div class="line"><a id="l01419" name="l01419"></a><span class="lineno"> 1419</span>        <span class="comment">// find all positions of &quot;={&quot;</span></div>
-<div class="line"><a id="l01420" name="l01420"></a><span class="lineno"> 1420</span>        <span class="keywordtype">size_t</span> pos = text.find(<span class="stringliteral">&quot;={&quot;</span>, 0);</div>
-<div class="line"><a id="l01421" name="l01421"></a><span class="lineno"> 1421</span>        <span class="keywordflow">while</span> (pos != string::npos) {</div>
-<div class="line"><a id="l01422" name="l01422"></a><span class="lineno"> 1422</span>            start_pos.push_back(pos);</div>
-<div class="line"><a id="l01423" name="l01423"></a><span class="lineno"> 1423</span>            pos = text.find(<span class="stringliteral">&quot;={&quot;</span>, pos + 1);</div>
-<div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span>        }</div>
-<div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span> </div>
-<div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span>        <span class="comment">// find all positions of &quot;}&quot;</span></div>
-<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span>        pos = text.find(<span class="stringliteral">&quot;}&quot;</span>, 0);</div>
-<div class="line"><a id="l01428" name="l01428"></a><span class="lineno"> 1428</span>        <span class="keywordflow">while</span> (pos != string::npos) {</div>
-<div class="line"><a id="l01429" name="l01429"></a><span class="lineno"> 1429</span>            end_pos.push_back(pos);</div>
-<div class="line"><a id="l01430" name="l01430"></a><span class="lineno"> 1430</span>            pos = text.find(<span class="stringliteral">&quot;}&quot;</span>, pos + 1);</div>
-<div class="line"><a id="l01431" name="l01431"></a><span class="lineno"> 1431</span>        }</div>
-<div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span> </div>
-<div class="line"><a id="l01433" name="l01433"></a><span class="lineno"> 1433</span>        <span class="comment">// treating nesting </span></div>
-<div class="line"><a id="l01434" name="l01434"></a><span class="lineno"> 1434</span>        <span class="keywordflow">if</span> (start_pos.size() &gt; 0 &amp;&amp; end_pos.size() &gt; 0) {</div>
-<div class="line"><a id="l01435" name="l01435"></a><span class="lineno"> 1435</span> </div>
-<div class="line"><a id="l01436" name="l01436"></a><span class="lineno"> 1436</span>            <span class="keywordtype">int</span> i = 0, j = 0, stack = 0, stack_first = -1, stack_last = -1;</div>
-<div class="line"><a id="l01437" name="l01437"></a><span class="lineno"> 1437</span> </div>
-<div class="line"><a id="l01438" name="l01438"></a><span class="lineno"> 1438</span>            <span class="keywordflow">while</span> (j &lt; end_pos.size()) {</div>
-<div class="line"><a id="l01439" name="l01439"></a><span class="lineno"> 1439</span>                <span class="keywordflow">if</span> (i &lt; (<span class="keywordtype">int</span>)start_pos.size() &amp;&amp; start_pos[i] &lt; end_pos[j]) {</div>
-<div class="line"><a id="l01440" name="l01440"></a><span class="lineno"> 1440</span>                    <span class="keywordflow">if</span> (stack_first &lt; 0) stack_first = (int)start_pos[i];</div>
-<div class="line"><a id="l01441" name="l01441"></a><span class="lineno"> 1441</span>                    stack++;</div>
-<div class="line"><a id="l01442" name="l01442"></a><span class="lineno"> 1442</span>                    i++;</div>
-<div class="line"><a id="l01443" name="l01443"></a><span class="lineno"> 1443</span>                }</div>
-<div class="line"><a id="l01444" name="l01444"></a><span class="lineno"> 1444</span>                <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l01445" name="l01445"></a><span class="lineno"> 1445</span>                    <span class="keywordflow">if</span> (stack == 0) {</div>
-<div class="line"><a id="l01446" name="l01446"></a><span class="lineno"> 1446</span>                        SRL_ERR(<span class="stringliteral">&quot;ERROR: Unmatched {} in string %s\n&quot;</span>, text.c_str());</div>
-<div class="line"><a id="l01447" name="l01447"></a><span class="lineno"> 1447</span>                        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01448" name="l01448"></a><span class="lineno"> 1448</span>                    }</div>
-<div class="line"><a id="l01449" name="l01449"></a><span class="lineno"> 1449</span>                    stack--;</div>
-<div class="line"><a id="l01450" name="l01450"></a><span class="lineno"> 1450</span>                    <span class="keywordflow">if</span> (stack == 0) stack_last = (int)end_pos[j];</div>
-<div class="line"><a id="l01451" name="l01451"></a><span class="lineno"> 1451</span>                    j++;</div>
-<div class="line"><a id="l01452" name="l01452"></a><span class="lineno"> 1452</span>                }</div>
-<div class="line"><a id="l01453" name="l01453"></a><span class="lineno"> 1453</span> </div>
-<div class="line"><a id="l01454" name="l01454"></a><span class="lineno"> 1454</span>                <span class="keywordflow">if</span> (stack == 0) {</div>
-<div class="line"><a id="l01455" name="l01455"></a><span class="lineno"> 1455</span>                    from_to.push_back(pair&lt;size_t, size_t&gt;(stack_first, stack_last));</div>
-<div class="line"><a id="l01456" name="l01456"></a><span class="lineno"> 1456</span>                    stack_first = -1;</div>
-<div class="line"><a id="l01457" name="l01457"></a><span class="lineno"> 1457</span>                }</div>
-<div class="line"><a id="l01458" name="l01458"></a><span class="lineno"> 1458</span>            }</div>
-<div class="line"><a id="l01459" name="l01459"></a><span class="lineno"> 1459</span> </div>
-<div class="line"><a id="l01460" name="l01460"></a><span class="lineno"> 1460</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;ft : from_to) {</div>
-<div class="line"><a id="l01461" name="l01461"></a><span class="lineno"> 1461</span>                SRL_LOG_D(<span class="stringliteral">&quot;found substring: %d-%d : %s\n&quot;</span>, ft.first, ft.second, text.substr(ft.first, ft.second - ft.first + 1).c_str());</div>
+<div class="line"><a id="l01419" name="l01419"></a><span class="lineno"> 1419</span>        vector&lt;size_t&gt; start_pos;</div>
+<div class="line"><a id="l01420" name="l01420"></a><span class="lineno"> 1420</span>        vector&lt;size_t&gt; end_pos;</div>
+<div class="line"><a id="l01421" name="l01421"></a><span class="lineno"> 1421</span>        vector&lt;pair&lt;size_t, size_t&gt;&gt; from_to;</div>
+<div class="line"><a id="l01422" name="l01422"></a><span class="lineno"> 1422</span> </div>
+<div class="line"><a id="l01423" name="l01423"></a><span class="lineno"> 1423</span>        <span class="comment">// find all positions of &quot;={&quot;</span></div>
+<div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span>        <span class="keywordtype">size_t</span> pos = text.find(<span class="stringliteral">&quot;={&quot;</span>, 0);</div>
+<div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span>        <span class="keywordflow">while</span> (pos != string::npos) {</div>
+<div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span>            start_pos.push_back(pos);</div>
+<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span>            pos = text.find(<span class="stringliteral">&quot;={&quot;</span>, pos + 1);</div>
+<div class="line"><a id="l01428" name="l01428"></a><span class="lineno"> 1428</span>        }</div>
+<div class="line"><a id="l01429" name="l01429"></a><span class="lineno"> 1429</span> </div>
+<div class="line"><a id="l01430" name="l01430"></a><span class="lineno"> 1430</span>        <span class="comment">// find all positions of &quot;}&quot;</span></div>
+<div class="line"><a id="l01431" name="l01431"></a><span class="lineno"> 1431</span>        pos = text.find(<span class="stringliteral">&quot;}&quot;</span>, 0);</div>
+<div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span>        <span class="keywordflow">while</span> (pos != string::npos) {</div>
+<div class="line"><a id="l01433" name="l01433"></a><span class="lineno"> 1433</span>            end_pos.push_back(pos);</div>
+<div class="line"><a id="l01434" name="l01434"></a><span class="lineno"> 1434</span>            pos = text.find(<span class="stringliteral">&quot;}&quot;</span>, pos + 1);</div>
+<div class="line"><a id="l01435" name="l01435"></a><span class="lineno"> 1435</span>        }</div>
+<div class="line"><a id="l01436" name="l01436"></a><span class="lineno"> 1436</span> </div>
+<div class="line"><a id="l01437" name="l01437"></a><span class="lineno"> 1437</span>        <span class="comment">// treating nesting </span></div>
+<div class="line"><a id="l01438" name="l01438"></a><span class="lineno"> 1438</span>        <span class="keywordflow">if</span> (start_pos.size() &gt; 0 &amp;&amp; end_pos.size() &gt; 0) {</div>
+<div class="line"><a id="l01439" name="l01439"></a><span class="lineno"> 1439</span> </div>
+<div class="line"><a id="l01440" name="l01440"></a><span class="lineno"> 1440</span>            <span class="keywordtype">int</span> i = 0, j = 0, stack = 0, stack_first = -1, stack_last = -1;</div>
+<div class="line"><a id="l01441" name="l01441"></a><span class="lineno"> 1441</span> </div>
+<div class="line"><a id="l01442" name="l01442"></a><span class="lineno"> 1442</span>            <span class="keywordflow">while</span> (j &lt; end_pos.size()) {</div>
+<div class="line"><a id="l01443" name="l01443"></a><span class="lineno"> 1443</span>                <span class="keywordflow">if</span> (i &lt; (<span class="keywordtype">int</span>)start_pos.size() &amp;&amp; start_pos[i] &lt; end_pos[j]) {</div>
+<div class="line"><a id="l01444" name="l01444"></a><span class="lineno"> 1444</span>                    <span class="keywordflow">if</span> (stack_first &lt; 0) stack_first = (int)start_pos[i];</div>
+<div class="line"><a id="l01445" name="l01445"></a><span class="lineno"> 1445</span>                    stack++;</div>
+<div class="line"><a id="l01446" name="l01446"></a><span class="lineno"> 1446</span>                    i++;</div>
+<div class="line"><a id="l01447" name="l01447"></a><span class="lineno"> 1447</span>                }</div>
+<div class="line"><a id="l01448" name="l01448"></a><span class="lineno"> 1448</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01449" name="l01449"></a><span class="lineno"> 1449</span>                    <span class="keywordflow">if</span> (stack == 0) {</div>
+<div class="line"><a id="l01450" name="l01450"></a><span class="lineno"> 1450</span>                        SRL_ERR(<span class="stringliteral">&quot;ERROR: Unmatched {} in string %s\n&quot;</span>, text.c_str());</div>
+<div class="line"><a id="l01451" name="l01451"></a><span class="lineno"> 1451</span>                        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l01452" name="l01452"></a><span class="lineno"> 1452</span>                    }</div>
+<div class="line"><a id="l01453" name="l01453"></a><span class="lineno"> 1453</span>                    stack--;</div>
+<div class="line"><a id="l01454" name="l01454"></a><span class="lineno"> 1454</span>                    <span class="keywordflow">if</span> (stack == 0) stack_last = (int)end_pos[j];</div>
+<div class="line"><a id="l01455" name="l01455"></a><span class="lineno"> 1455</span>                    j++;</div>
+<div class="line"><a id="l01456" name="l01456"></a><span class="lineno"> 1456</span>                }</div>
+<div class="line"><a id="l01457" name="l01457"></a><span class="lineno"> 1457</span> </div>
+<div class="line"><a id="l01458" name="l01458"></a><span class="lineno"> 1458</span>                <span class="keywordflow">if</span> (stack == 0) {</div>
+<div class="line"><a id="l01459" name="l01459"></a><span class="lineno"> 1459</span>                    from_to.push_back(pair&lt;size_t, size_t&gt;(stack_first, stack_last));</div>
+<div class="line"><a id="l01460" name="l01460"></a><span class="lineno"> 1460</span>                    stack_first = -1;</div>
+<div class="line"><a id="l01461" name="l01461"></a><span class="lineno"> 1461</span>                }</div>
 <div class="line"><a id="l01462" name="l01462"></a><span class="lineno"> 1462</span>            }</div>
 <div class="line"><a id="l01463" name="l01463"></a><span class="lineno"> 1463</span> </div>
-<div class="line"><a id="l01464" name="l01464"></a><span class="lineno"> 1464</span>        }</div>
-<div class="line"><a id="l01465" name="l01465"></a><span class="lineno"> 1465</span> </div>
-<div class="line"><a id="l01466" name="l01466"></a><span class="lineno"> 1466</span> </div>
-<div class="line"><a id="l01467" name="l01467"></a><span class="lineno"> 1467</span>        <span class="comment">// replacing {} areas with other strings to allow for correct parsing, and then returning them</span></div>
-<div class="line"><a id="l01468" name="l01468"></a><span class="lineno"> 1468</span>        <span class="keywordtype">string</span> new_text = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l01469" name="l01469"></a><span class="lineno"> 1469</span>        map&lt;string, string&gt; replacers;</div>
-<div class="line"><a id="l01470" name="l01470"></a><span class="lineno"> 1470</span>        <span class="keywordflow">if</span> (from_to.size() == 0) new_text = text;</div>
-<div class="line"><a id="l01471" name="l01471"></a><span class="lineno"> 1471</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l01472" name="l01472"></a><span class="lineno"> 1472</span>            new_text = text.substr(0, from_to[0].first + 1); <span class="comment">// up to the first &#39;=&#39;</span></div>
-<div class="line"><a id="l01473" name="l01473"></a><span class="lineno"> 1473</span>            <span class="keywordtype">int</span> j;</div>
-<div class="line"><a id="l01474" name="l01474"></a><span class="lineno"> 1474</span>            <span class="keywordflow">for</span> (j = 0; j &lt; from_to.size(); j++) {</div>
-<div class="line"><a id="l01475" name="l01475"></a><span class="lineno"> 1475</span>                <span class="keywordtype">string</span> name = <span class="stringliteral">&quot;REPLACE_ME_LATER_NUMBER_&quot;</span> + to_string(j);</div>
-<div class="line"><a id="l01476" name="l01476"></a><span class="lineno"> 1476</span>                <span class="keywordtype">string</span> replacer = text.substr(from_to[j].first + 2, from_to[j].second - from_to[j].first - 2);</div>
-<div class="line"><a id="l01477" name="l01477"></a><span class="lineno"> 1477</span>                SRL_LOG_D(<span class="stringliteral">&quot;replacer %d : %s -&gt; %s\n&quot;</span>, j, name.c_str(), replacer.c_str());</div>
-<div class="line"><a id="l01478" name="l01478"></a><span class="lineno"> 1478</span>                new_text += name;</div>
-<div class="line"><a id="l01479" name="l01479"></a><span class="lineno"> 1479</span>                replacers[name] = replacer;</div>
-<div class="line"><a id="l01480" name="l01480"></a><span class="lineno"> 1480</span>                <span class="keywordflow">if</span> (j &lt; from_to.size() - 1)</div>
-<div class="line"><a id="l01481" name="l01481"></a><span class="lineno"> 1481</span>                    new_text += text.substr(from_to[j].second + 1, from_to[j + 1].first - from_to[j].second);</div>
-<div class="line"><a id="l01482" name="l01482"></a><span class="lineno"> 1482</span>            }</div>
-<div class="line"><a id="l01483" name="l01483"></a><span class="lineno"> 1483</span>            new_text += text.substr(from_to[j - 1].second + 1, text.length() - from_to[j - 1].second);</div>
-<div class="line"><a id="l01484" name="l01484"></a><span class="lineno"> 1484</span>            SRL_LOG_D(<span class="stringliteral">&quot;new_text is %s\n&quot;</span>, new_text.c_str());</div>
-<div class="line"><a id="l01485" name="l01485"></a><span class="lineno"> 1485</span> </div>
-<div class="line"><a id="l01486" name="l01486"></a><span class="lineno"> 1486</span>        }</div>
-<div class="line"><a id="l01487" name="l01487"></a><span class="lineno"> 1487</span> </div>
-<div class="line"><a id="l01488" name="l01488"></a><span class="lineno"> 1488</span>        <span class="comment">// TBD</span></div>
+<div class="line"><a id="l01464" name="l01464"></a><span class="lineno"> 1464</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;ft : from_to) {</div>
+<div class="line"><a id="l01465" name="l01465"></a><span class="lineno"> 1465</span>                SRL_LOG_D(<span class="stringliteral">&quot;found substring: %d-%d : %s\n&quot;</span>, ft.first, ft.second, text.substr(ft.first, ft.second - ft.first + 1).c_str());</div>
+<div class="line"><a id="l01466" name="l01466"></a><span class="lineno"> 1466</span>            }</div>
+<div class="line"><a id="l01467" name="l01467"></a><span class="lineno"> 1467</span> </div>
+<div class="line"><a id="l01468" name="l01468"></a><span class="lineno"> 1468</span>        }</div>
+<div class="line"><a id="l01469" name="l01469"></a><span class="lineno"> 1469</span> </div>
+<div class="line"><a id="l01470" name="l01470"></a><span class="lineno"> 1470</span> </div>
+<div class="line"><a id="l01471" name="l01471"></a><span class="lineno"> 1471</span>        <span class="comment">// replacing {} areas with other strings to allow for correct parsing, and then returning them</span></div>
+<div class="line"><a id="l01472" name="l01472"></a><span class="lineno"> 1472</span>        <span class="keywordtype">string</span> new_text = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l01473" name="l01473"></a><span class="lineno"> 1473</span>        map&lt;string, string&gt; replacers;</div>
+<div class="line"><a id="l01474" name="l01474"></a><span class="lineno"> 1474</span>        <span class="keywordflow">if</span> (from_to.size() == 0) new_text = text;</div>
+<div class="line"><a id="l01475" name="l01475"></a><span class="lineno"> 1475</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01476" name="l01476"></a><span class="lineno"> 1476</span>            new_text = text.substr(0, from_to[0].first + 1); <span class="comment">// up to the first &#39;=&#39;</span></div>
+<div class="line"><a id="l01477" name="l01477"></a><span class="lineno"> 1477</span>            <span class="keywordtype">int</span> j;</div>
+<div class="line"><a id="l01478" name="l01478"></a><span class="lineno"> 1478</span>            <span class="keywordflow">for</span> (j = 0; j &lt; from_to.size(); j++) {</div>
+<div class="line"><a id="l01479" name="l01479"></a><span class="lineno"> 1479</span>                <span class="keywordtype">string</span> name = <span class="stringliteral">&quot;REPLACE_ME_LATER_NUMBER_&quot;</span> + to_string(j);</div>
+<div class="line"><a id="l01480" name="l01480"></a><span class="lineno"> 1480</span>                <span class="keywordtype">string</span> replacer = text.substr(from_to[j].first + 2, from_to[j].second - from_to[j].first - 2);</div>
+<div class="line"><a id="l01481" name="l01481"></a><span class="lineno"> 1481</span>                SRL_LOG_D(<span class="stringliteral">&quot;replacer %d : %s -&gt; %s\n&quot;</span>, j, name.c_str(), replacer.c_str());</div>
+<div class="line"><a id="l01482" name="l01482"></a><span class="lineno"> 1482</span>                new_text += name;</div>
+<div class="line"><a id="l01483" name="l01483"></a><span class="lineno"> 1483</span>                replacers[name] = replacer;</div>
+<div class="line"><a id="l01484" name="l01484"></a><span class="lineno"> 1484</span>                <span class="keywordflow">if</span> (j &lt; from_to.size() - 1)</div>
+<div class="line"><a id="l01485" name="l01485"></a><span class="lineno"> 1485</span>                    new_text += text.substr(from_to[j].second + 1, from_to[j + 1].first - from_to[j].second);</div>
+<div class="line"><a id="l01486" name="l01486"></a><span class="lineno"> 1486</span>            }</div>
+<div class="line"><a id="l01487" name="l01487"></a><span class="lineno"> 1487</span>            new_text += text.substr(from_to[j - 1].second + 1, text.length() - from_to[j - 1].second);</div>
+<div class="line"><a id="l01488" name="l01488"></a><span class="lineno"> 1488</span>            SRL_LOG_D(<span class="stringliteral">&quot;new_text is %s\n&quot;</span>, new_text.c_str());</div>
 <div class="line"><a id="l01489" name="l01489"></a><span class="lineno"> 1489</span> </div>
-<div class="line"><a id="l01490" name="l01490"></a><span class="lineno"> 1490</span> </div>
-<div class="line"><a id="l01491" name="l01491"></a><span class="lineno"> 1491</span>        <span class="comment">// get &quot;Name = value&quot; fields</span></div>
-<div class="line"><a id="l01492" name="l01492"></a><span class="lineno"> 1492</span>        vector&lt;string&gt; fields;</div>
-<div class="line"><a id="l01493" name="l01493"></a><span class="lineno"> 1493</span>        boost::split(fields, new_text, boost::is_any_of(<span class="stringliteral">&quot;;&quot;</span>));</div>
+<div class="line"><a id="l01490" name="l01490"></a><span class="lineno"> 1490</span>        }</div>
+<div class="line"><a id="l01491" name="l01491"></a><span class="lineno"> 1491</span> </div>
+<div class="line"><a id="l01492" name="l01492"></a><span class="lineno"> 1492</span>        <span class="comment">// TBD</span></div>
+<div class="line"><a id="l01493" name="l01493"></a><span class="lineno"> 1493</span> </div>
 <div class="line"><a id="l01494" name="l01494"></a><span class="lineno"> 1494</span> </div>
-<div class="line"><a id="l01495" name="l01495"></a><span class="lineno"> 1495</span>        <span class="comment">// get name + value</span></div>
-<div class="line"><a id="l01496" name="l01496"></a><span class="lineno"> 1496</span>        vector&lt;string&gt; sub_fields;</div>
-<div class="line"><a id="l01497" name="l01497"></a><span class="lineno"> 1497</span> </div>
-<div class="line"><a id="l01498" name="l01498"></a><span class="lineno"> 1498</span>        <span class="keywordflow">for</span> (<span class="keywordtype">string</span>&amp; field : fields) {</div>
-<div class="line"><a id="l01499" name="l01499"></a><span class="lineno"> 1499</span>            <span class="keywordflow">if</span> (field.size() == 0)</div>
-<div class="line"><a id="l01500" name="l01500"></a><span class="lineno"> 1500</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l01495" name="l01495"></a><span class="lineno"> 1495</span>        <span class="comment">// get &quot;Name = value&quot; fields</span></div>
+<div class="line"><a id="l01496" name="l01496"></a><span class="lineno"> 1496</span>        vector&lt;string&gt; fields;</div>
+<div class="line"><a id="l01497" name="l01497"></a><span class="lineno"> 1497</span>        boost::split(fields, new_text, boost::is_any_of(<span class="stringliteral">&quot;;&quot;</span>));</div>
+<div class="line"><a id="l01498" name="l01498"></a><span class="lineno"> 1498</span> </div>
+<div class="line"><a id="l01499" name="l01499"></a><span class="lineno"> 1499</span>        <span class="comment">// get name + value</span></div>
+<div class="line"><a id="l01500" name="l01500"></a><span class="lineno"> 1500</span>        vector&lt;string&gt; sub_fields;</div>
 <div class="line"><a id="l01501" name="l01501"></a><span class="lineno"> 1501</span> </div>
-<div class="line"><a id="l01502" name="l01502"></a><span class="lineno"> 1502</span>            boost::split(sub_fields, field, boost::is_any_of(<span class="stringliteral">&quot;=&quot;</span>));</div>
-<div class="line"><a id="l01503" name="l01503"></a><span class="lineno"> 1503</span>            <span class="keywordflow">if</span> (sub_fields.size() != 2) {</div>
-<div class="line"><a id="l01504" name="l01504"></a><span class="lineno"> 1504</span>                SRL_ERR(<span class="stringliteral">&quot;Cannot parse \&#39;%s\&#39; from \&#39;%s\&#39;\n&quot;</span>, field.c_str(), text.c_str());</div>
-<div class="line"><a id="l01505" name="l01505"></a><span class="lineno"> 1505</span>                <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01506" name="l01506"></a><span class="lineno"> 1506</span>            }</div>
-<div class="line"><a id="l01507" name="l01507"></a><span class="lineno"> 1507</span>            mes_trim(sub_fields[0]);</div>
-<div class="line"><a id="l01508" name="l01508"></a><span class="lineno"> 1508</span>            mes_trim(sub_fields[1]);</div>
-<div class="line"><a id="l01509" name="l01509"></a><span class="lineno"> 1509</span>            init_map[sub_fields[0]] = sub_fields[1];</div>
-<div class="line"><a id="l01510" name="l01510"></a><span class="lineno"> 1510</span>        }</div>
-<div class="line"><a id="l01511" name="l01511"></a><span class="lineno"> 1511</span> </div>
-<div class="line"><a id="l01512" name="l01512"></a><span class="lineno"> 1512</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;el : init_map) {</div>
-<div class="line"><a id="l01513" name="l01513"></a><span class="lineno"> 1513</span>            <span class="keywordflow">if</span> (el.second.compare(0, 24, <span class="stringliteral">&quot;REPLACE_ME_LATER_NUMBER_&quot;</span>) == 0) {</div>
-<div class="line"><a id="l01514" name="l01514"></a><span class="lineno"> 1514</span>                init_map[el.first] = replacers[el.second];</div>
-<div class="line"><a id="l01515" name="l01515"></a><span class="lineno"> 1515</span>            }</div>
-<div class="line"><a id="l01516" name="l01516"></a><span class="lineno"> 1516</span>        }</div>
-<div class="line"><a id="l01517" name="l01517"></a><span class="lineno"> 1517</span> </div>
-<div class="line"><a id="l01518" name="l01518"></a><span class="lineno"> 1518</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01519" name="l01519"></a><span class="lineno"> 1519</span>    }</div>
-<div class="line"><a id="l01520" name="l01520"></a><span class="lineno"> 1520</span>    <span class="comment">//..............................................................................</span></div>
-<div class="line"><a id="l01521" name="l01521"></a><span class="lineno"> 1521</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> init_map_from_string(<span class="keywordtype">string</span> text, map&lt;string, string&gt;&amp; init_map) {</div>
-<div class="line"><a id="l01522" name="l01522"></a><span class="lineno"> 1522</span> </div>
-<div class="line"><a id="l01523" name="l01523"></a><span class="lineno"> 1523</span>        <span class="keywordflow">if</span> (text == <span class="stringliteral">&quot;&quot;</span>) <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01524" name="l01524"></a><span class="lineno"> 1524</span> </div>
-<div class="line"><a id="l01525" name="l01525"></a><span class="lineno"> 1525</span>        <span class="comment">// parse text of the format &quot;Name = Value ; Name = Value ; ...&quot;</span></div>
+<div class="line"><a id="l01502" name="l01502"></a><span class="lineno"> 1502</span>        <span class="keywordflow">for</span> (<span class="keywordtype">string</span>&amp; field : fields) {</div>
+<div class="line"><a id="l01503" name="l01503"></a><span class="lineno"> 1503</span>            <span class="keywordflow">if</span> (field.size() == 0)</div>
+<div class="line"><a id="l01504" name="l01504"></a><span class="lineno"> 1504</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l01505" name="l01505"></a><span class="lineno"> 1505</span> </div>
+<div class="line"><a id="l01506" name="l01506"></a><span class="lineno"> 1506</span>            boost::split(sub_fields, field, boost::is_any_of(<span class="stringliteral">&quot;=&quot;</span>));</div>
+<div class="line"><a id="l01507" name="l01507"></a><span class="lineno"> 1507</span>            <span class="keywordflow">if</span> (sub_fields.size() != 2) {</div>
+<div class="line"><a id="l01508" name="l01508"></a><span class="lineno"> 1508</span>                SRL_ERR(<span class="stringliteral">&quot;Cannot parse \&#39;%s\&#39; from \&#39;%s\&#39;\n&quot;</span>, field.c_str(), text.c_str());</div>
+<div class="line"><a id="l01509" name="l01509"></a><span class="lineno"> 1509</span>                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l01510" name="l01510"></a><span class="lineno"> 1510</span>            }</div>
+<div class="line"><a id="l01511" name="l01511"></a><span class="lineno"> 1511</span>            mes_trim(sub_fields[0]);</div>
+<div class="line"><a id="l01512" name="l01512"></a><span class="lineno"> 1512</span>            mes_trim(sub_fields[1]);</div>
+<div class="line"><a id="l01513" name="l01513"></a><span class="lineno"> 1513</span>            init_map[sub_fields[0]] = sub_fields[1];</div>
+<div class="line"><a id="l01514" name="l01514"></a><span class="lineno"> 1514</span>        }</div>
+<div class="line"><a id="l01515" name="l01515"></a><span class="lineno"> 1515</span> </div>
+<div class="line"><a id="l01516" name="l01516"></a><span class="lineno"> 1516</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;el : init_map) {</div>
+<div class="line"><a id="l01517" name="l01517"></a><span class="lineno"> 1517</span>            <span class="keywordflow">if</span> (el.second.compare(0, 24, <span class="stringliteral">&quot;REPLACE_ME_LATER_NUMBER_&quot;</span>) == 0) {</div>
+<div class="line"><a id="l01518" name="l01518"></a><span class="lineno"> 1518</span>                init_map[el.first] = replacers[el.second];</div>
+<div class="line"><a id="l01519" name="l01519"></a><span class="lineno"> 1519</span>            }</div>
+<div class="line"><a id="l01520" name="l01520"></a><span class="lineno"> 1520</span>        }</div>
+<div class="line"><a id="l01521" name="l01521"></a><span class="lineno"> 1521</span> </div>
+<div class="line"><a id="l01522" name="l01522"></a><span class="lineno"> 1522</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01523" name="l01523"></a><span class="lineno"> 1523</span>    }</div>
+<div class="line"><a id="l01524" name="l01524"></a><span class="lineno"> 1524</span>    <span class="comment">//..............................................................................</span></div>
+<div class="line"><a id="l01525" name="l01525"></a><span class="lineno"> 1525</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> init_map_from_string(<span class="keywordtype">string</span> text, map&lt;string, string&gt;&amp; init_map) {</div>
 <div class="line"><a id="l01526" name="l01526"></a><span class="lineno"> 1526</span> </div>
-<div class="line"><a id="l01527" name="l01527"></a><span class="lineno"> 1527</span>        <span class="comment">// remove white spaces</span></div>
-<div class="line"><a id="l01528" name="l01528"></a><span class="lineno"> 1528</span>        text.erase(remove_if(text.begin(), text.end(), ::isspace), text.end());</div>
-<div class="line"><a id="l01529" name="l01529"></a><span class="lineno"> 1529</span> </div>
-<div class="line"><a id="l01530" name="l01530"></a><span class="lineno"> 1530</span>        <span class="keywordflow">if</span> (MedSerialize::initialization_text_to_map(text, init_map) == -1)</div>
-<div class="line"><a id="l01531" name="l01531"></a><span class="lineno"> 1531</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01532" name="l01532"></a><span class="lineno"> 1532</span> </div>
-<div class="line"><a id="l01533" name="l01533"></a><span class="lineno"> 1533</span>        <span class="comment">//  for (auto rec : init_map)</span></div>
-<div class="line"><a id="l01534" name="l01534"></a><span class="lineno"> 1534</span>        <span class="comment">//      MLOG(&quot;Initializing with \&#39;%s\&#39; = \&#39;%s\&#39;\n&quot;, rec.first.c_str(), rec.second.c_str());</span></div>
-<div class="line"><a id="l01535" name="l01535"></a><span class="lineno"> 1535</span> </div>
+<div class="line"><a id="l01527" name="l01527"></a><span class="lineno"> 1527</span>        <span class="keywordflow">if</span> (text == <span class="stringliteral">&quot;&quot;</span>) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01528" name="l01528"></a><span class="lineno"> 1528</span> </div>
+<div class="line"><a id="l01529" name="l01529"></a><span class="lineno"> 1529</span>        <span class="comment">// parse text of the format &quot;Name = Value ; Name = Value ; ...&quot;</span></div>
+<div class="line"><a id="l01530" name="l01530"></a><span class="lineno"> 1530</span> </div>
+<div class="line"><a id="l01531" name="l01531"></a><span class="lineno"> 1531</span>        <span class="comment">// remove white spaces</span></div>
+<div class="line"><a id="l01532" name="l01532"></a><span class="lineno"> 1532</span>        text.erase(remove_if(text.begin(), text.end(), ::isspace), text.end());</div>
+<div class="line"><a id="l01533" name="l01533"></a><span class="lineno"> 1533</span> </div>
+<div class="line"><a id="l01534" name="l01534"></a><span class="lineno"> 1534</span>        <span class="keywordflow">if</span> (MedSerialize::initialization_text_to_map(text, init_map) == -1)</div>
+<div class="line"><a id="l01535" name="l01535"></a><span class="lineno"> 1535</span>            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l01536" name="l01536"></a><span class="lineno"> 1536</span> </div>
-<div class="line"><a id="l01537" name="l01537"></a><span class="lineno"> 1537</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01538" name="l01538"></a><span class="lineno"> 1538</span>    }</div>
+<div class="line"><a id="l01537" name="l01537"></a><span class="lineno"> 1537</span>        <span class="comment">//  for (auto rec : init_map)</span></div>
+<div class="line"><a id="l01538" name="l01538"></a><span class="lineno"> 1538</span>        <span class="comment">//      MLOG(&quot;Initializing with \&#39;%s\&#39; = \&#39;%s\&#39;\n&quot;, rec.first.c_str(), rec.second.c_str());</span></div>
 <div class="line"><a id="l01539" name="l01539"></a><span class="lineno"> 1539</span> </div>
-<div class="line"><a id="l01540" name="l01540"></a><span class="lineno"> 1540</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> read_file_into_string(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">string</span> &amp;data)</div>
-<div class="line"><a id="l01541" name="l01541"></a><span class="lineno"> 1541</span>    {</div>
-<div class="line"><a id="l01542" name="l01542"></a><span class="lineno"> 1542</span>        ifstream inf(fname);</div>
-<div class="line"><a id="l01543" name="l01543"></a><span class="lineno"> 1543</span>        <span class="keywordflow">if</span> (!inf) {</div>
-<div class="line"><a id="l01544" name="l01544"></a><span class="lineno"> 1544</span>            SRL_ERR(<span class="stringliteral">&quot;MedSerialize::read_file_into_string: Can&#39;t open file %s\n&quot;</span>, fname.c_str());</div>
-<div class="line"><a id="l01545" name="l01545"></a><span class="lineno"> 1545</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01546" name="l01546"></a><span class="lineno"> 1546</span>        }</div>
-<div class="line"><a id="l01547" name="l01547"></a><span class="lineno"> 1547</span> </div>
-<div class="line"><a id="l01548" name="l01548"></a><span class="lineno"> 1548</span>        data = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l01549" name="l01549"></a><span class="lineno"> 1549</span>        <span class="keywordtype">string</span> curr_line;</div>
-<div class="line"><a id="l01550" name="l01550"></a><span class="lineno"> 1550</span>        <span class="keywordflow">while</span> (getline(inf, curr_line)) {</div>
-<div class="line"><a id="l01551" name="l01551"></a><span class="lineno"> 1551</span>            <span class="keywordflow">if</span> ((curr_line.size() &gt; 1) &amp;&amp; (curr_line[0] != <span class="charliteral">&#39;#&#39;</span>)) { <span class="comment">// ignore empty lines, ignore comment lines</span></div>
-<div class="line"><a id="l01552" name="l01552"></a><span class="lineno"> 1552</span> </div>
-<div class="line"><a id="l01553" name="l01553"></a><span class="lineno"> 1553</span>                <span class="comment">// get rid of leading spaces, trailing spaced, and shrink inner spaces to a single one, get rid of tabs and end of line (win or linux)</span></div>
-<div class="line"><a id="l01554" name="l01554"></a><span class="lineno"> 1554</span>                <span class="keywordtype">string</span> fixed_spaces = std::regex_replace(curr_line, std::regex(<span class="stringliteral">&quot;^ +| +$|( ) +|\r|\n|\t+&quot;</span>), <span class="keywordtype">string</span>(<span class="stringliteral">&quot;$1&quot;</span>));</div>
-<div class="line"><a id="l01555" name="l01555"></a><span class="lineno"> 1555</span>                data += fixed_spaces;</div>
-<div class="line"><a id="l01556" name="l01556"></a><span class="lineno"> 1556</span>            }</div>
-<div class="line"><a id="l01557" name="l01557"></a><span class="lineno"> 1557</span>        }</div>
-<div class="line"><a id="l01558" name="l01558"></a><span class="lineno"> 1558</span> </div>
-<div class="line"><a id="l01559" name="l01559"></a><span class="lineno"> 1559</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01560" name="l01560"></a><span class="lineno"> 1560</span>    }</div>
-<div class="line"><a id="l01561" name="l01561"></a><span class="lineno"> 1561</span> </div>
+<div class="line"><a id="l01540" name="l01540"></a><span class="lineno"> 1540</span> </div>
+<div class="line"><a id="l01541" name="l01541"></a><span class="lineno"> 1541</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01542" name="l01542"></a><span class="lineno"> 1542</span>    }</div>
+<div class="line"><a id="l01543" name="l01543"></a><span class="lineno"> 1543</span> </div>
+<div class="line"><a id="l01544" name="l01544"></a><span class="lineno"> 1544</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> read_file_into_string(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">string</span> &amp;data)</div>
+<div class="line"><a id="l01545" name="l01545"></a><span class="lineno"> 1545</span>    {</div>
+<div class="line"><a id="l01546" name="l01546"></a><span class="lineno"> 1546</span>        ifstream inf(fname);</div>
+<div class="line"><a id="l01547" name="l01547"></a><span class="lineno"> 1547</span>        <span class="keywordflow">if</span> (!inf) {</div>
+<div class="line"><a id="l01548" name="l01548"></a><span class="lineno"> 1548</span>            SRL_ERR(<span class="stringliteral">&quot;MedSerialize::read_file_into_string: Can&#39;t open file %s\n&quot;</span>, fname.c_str());</div>
+<div class="line"><a id="l01549" name="l01549"></a><span class="lineno"> 1549</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l01550" name="l01550"></a><span class="lineno"> 1550</span>        }</div>
+<div class="line"><a id="l01551" name="l01551"></a><span class="lineno"> 1551</span> </div>
+<div class="line"><a id="l01552" name="l01552"></a><span class="lineno"> 1552</span>        data = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l01553" name="l01553"></a><span class="lineno"> 1553</span>        <span class="keywordtype">string</span> curr_line;</div>
+<div class="line"><a id="l01554" name="l01554"></a><span class="lineno"> 1554</span>        <span class="keywordflow">while</span> (getline(inf, curr_line)) {</div>
+<div class="line"><a id="l01555" name="l01555"></a><span class="lineno"> 1555</span>            <span class="keywordflow">if</span> ((curr_line.size() &gt; 1) &amp;&amp; (curr_line[0] != <span class="charliteral">&#39;#&#39;</span>)) { <span class="comment">// ignore empty lines, ignore comment lines</span></div>
+<div class="line"><a id="l01556" name="l01556"></a><span class="lineno"> 1556</span> </div>
+<div class="line"><a id="l01557" name="l01557"></a><span class="lineno"> 1557</span>                <span class="comment">// get rid of leading spaces, trailing spaced, and shrink inner spaces to a single one, get rid of tabs and end of line (win or linux)</span></div>
+<div class="line"><a id="l01558" name="l01558"></a><span class="lineno"> 1558</span>                <span class="keywordtype">string</span> fixed_spaces = std::regex_replace(curr_line, std::regex(<span class="stringliteral">&quot;^ +| +$|( ) +|\r|\n|\t+&quot;</span>), <span class="keywordtype">string</span>(<span class="stringliteral">&quot;$1&quot;</span>));</div>
+<div class="line"><a id="l01559" name="l01559"></a><span class="lineno"> 1559</span>                data += fixed_spaces;</div>
+<div class="line"><a id="l01560" name="l01560"></a><span class="lineno"> 1560</span>            }</div>
+<div class="line"><a id="l01561" name="l01561"></a><span class="lineno"> 1561</span>        }</div>
 <div class="line"><a id="l01562" name="l01562"></a><span class="lineno"> 1562</span> </div>
-<div class="line"><a id="l01563" name="l01563"></a><span class="lineno"> 1563</span>    <span class="comment">// similar in concept to read_file_into_string, but gets the strings in the file and adds a comma &quot;,&quot; between them</span></div>
-<div class="line"><a id="l01564" name="l01564"></a><span class="lineno"> 1564</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> read_list_into_string(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">string</span> &amp;data)</div>
-<div class="line"><a id="l01565" name="l01565"></a><span class="lineno"> 1565</span>    {</div>
-<div class="line"><a id="l01566" name="l01566"></a><span class="lineno"> 1566</span>        ifstream inf(fname);</div>
-<div class="line"><a id="l01567" name="l01567"></a><span class="lineno"> 1567</span>        <span class="keywordflow">if</span> (!inf) {</div>
-<div class="line"><a id="l01568" name="l01568"></a><span class="lineno"> 1568</span>            SRL_ERR(<span class="stringliteral">&quot;MedSerialize::read_file_into_string: Can&#39;t open file %s\n&quot;</span>, fname.c_str());</div>
-<div class="line"><a id="l01569" name="l01569"></a><span class="lineno"> 1569</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l01570" name="l01570"></a><span class="lineno"> 1570</span>        }</div>
-<div class="line"><a id="l01571" name="l01571"></a><span class="lineno"> 1571</span> </div>
-<div class="line"><a id="l01572" name="l01572"></a><span class="lineno"> 1572</span>        data = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l01573" name="l01573"></a><span class="lineno"> 1573</span>        <span class="keywordtype">string</span> curr_line;</div>
-<div class="line"><a id="l01574" name="l01574"></a><span class="lineno"> 1574</span>        <span class="keywordflow">while</span> (getline(inf, curr_line)) {</div>
-<div class="line"><a id="l01575" name="l01575"></a><span class="lineno"> 1575</span>            <span class="comment">//SRL_LOG(&quot;read_list: curr_line: %s\n&quot;, curr_line.c_str());</span></div>
-<div class="line"><a id="l01576" name="l01576"></a><span class="lineno"> 1576</span>            <span class="keywordflow">if</span> ((curr_line.size() &gt; 1) &amp;&amp; (curr_line[0] != <span class="charliteral">&#39;#&#39;</span>)) { <span class="comment">// ignore empty lines, ignore comment lines</span></div>
-<div class="line"><a id="l01577" name="l01577"></a><span class="lineno"> 1577</span>                <span class="comment">// move all tabs to spaces</span></div>
-<div class="line"><a id="l01578" name="l01578"></a><span class="lineno"> 1578</span>                <span class="keywordtype">string</span> fixed_spaces = std::regex_replace(fixed_spaces, std::regex(<span class="stringliteral">&quot;\t+&quot;</span>), <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a id="l01579" name="l01579"></a><span class="lineno"> 1579</span> </div>
-<div class="line"><a id="l01580" name="l01580"></a><span class="lineno"> 1580</span>                <span class="comment">// get rid of leading spaced, ending spaces, \r</span></div>
-<div class="line"><a id="l01581" name="l01581"></a><span class="lineno"> 1581</span>                fixed_spaces = std::regex_replace(curr_line, std::regex(<span class="stringliteral">&quot;^ +| +$|\r|\n&quot;</span>), <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l01582" name="l01582"></a><span class="lineno"> 1582</span> </div>
-<div class="line"><a id="l01583" name="l01583"></a><span class="lineno"> 1583</span>                fixed_spaces += <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// re-adding eol, in case it was missing</span></div>
-<div class="line"><a id="l01584" name="l01584"></a><span class="lineno"> 1584</span> </div>
-<div class="line"><a id="l01585" name="l01585"></a><span class="lineno"> 1585</span>                <span class="comment">// change all internal spaces and \n to comma</span></div>
-<div class="line"><a id="l01586" name="l01586"></a><span class="lineno"> 1586</span>                fixed_spaces = std::regex_replace(fixed_spaces, std::regex(<span class="stringliteral">&quot; +|\n&quot;</span>), <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a id="l01587" name="l01587"></a><span class="lineno"> 1587</span> </div>
-<div class="line"><a id="l01588" name="l01588"></a><span class="lineno"> 1588</span>                <span class="comment">// make sure there are no adjacent commas</span></div>
-<div class="line"><a id="l01589" name="l01589"></a><span class="lineno"> 1589</span>                fixed_spaces = std::regex_replace(fixed_spaces, std::regex(<span class="stringliteral">&quot;,,+&quot;</span>), <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a id="l01590" name="l01590"></a><span class="lineno"> 1590</span> </div>
-<div class="line"><a id="l01591" name="l01591"></a><span class="lineno"> 1591</span>                <span class="comment">// add </span></div>
-<div class="line"><a id="l01592" name="l01592"></a><span class="lineno"> 1592</span>                data += fixed_spaces;</div>
-<div class="line"><a id="l01593" name="l01593"></a><span class="lineno"> 1593</span>                <span class="comment">//SRL_LOG(&quot;read_list: data: %s\n&quot;, data.c_str());</span></div>
-<div class="line"><a id="l01594" name="l01594"></a><span class="lineno"> 1594</span>            }</div>
-<div class="line"><a id="l01595" name="l01595"></a><span class="lineno"> 1595</span>        }</div>
-<div class="line"><a id="l01596" name="l01596"></a><span class="lineno"> 1596</span>        <span class="comment">// could happen that last char is comma, we fix it.</span></div>
-<div class="line"><a id="l01597" name="l01597"></a><span class="lineno"> 1597</span>        <span class="keywordflow">if</span> (data.back() == <span class="charliteral">&#39;,&#39;</span>) data.pop_back();</div>
-<div class="line"><a id="l01598" name="l01598"></a><span class="lineno"> 1598</span> </div>
-<div class="line"><a id="l01599" name="l01599"></a><span class="lineno"> 1599</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l01600" name="l01600"></a><span class="lineno"> 1600</span>    }</div>
-<div class="line"><a id="l01601" name="l01601"></a><span class="lineno"> 1601</span>}</div>
+<div class="line"><a id="l01563" name="l01563"></a><span class="lineno"> 1563</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01564" name="l01564"></a><span class="lineno"> 1564</span>    }</div>
+<div class="line"><a id="l01565" name="l01565"></a><span class="lineno"> 1565</span> </div>
+<div class="line"><a id="l01566" name="l01566"></a><span class="lineno"> 1566</span> </div>
+<div class="line"><a id="l01567" name="l01567"></a><span class="lineno"> 1567</span>    <span class="comment">// similar in concept to read_file_into_string, but gets the strings in the file and adds a comma &quot;,&quot; between them</span></div>
+<div class="line"><a id="l01568" name="l01568"></a><span class="lineno"> 1568</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> read_list_into_string(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;fname, <span class="keywordtype">string</span> &amp;data)</div>
+<div class="line"><a id="l01569" name="l01569"></a><span class="lineno"> 1569</span>    {</div>
+<div class="line"><a id="l01570" name="l01570"></a><span class="lineno"> 1570</span>        ifstream inf(fname);</div>
+<div class="line"><a id="l01571" name="l01571"></a><span class="lineno"> 1571</span>        <span class="keywordflow">if</span> (!inf) {</div>
+<div class="line"><a id="l01572" name="l01572"></a><span class="lineno"> 1572</span>            SRL_ERR(<span class="stringliteral">&quot;MedSerialize::read_file_into_string: Can&#39;t open file %s\n&quot;</span>, fname.c_str());</div>
+<div class="line"><a id="l01573" name="l01573"></a><span class="lineno"> 1573</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l01574" name="l01574"></a><span class="lineno"> 1574</span>        }</div>
+<div class="line"><a id="l01575" name="l01575"></a><span class="lineno"> 1575</span> </div>
+<div class="line"><a id="l01576" name="l01576"></a><span class="lineno"> 1576</span>        data = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l01577" name="l01577"></a><span class="lineno"> 1577</span>        <span class="keywordtype">string</span> curr_line;</div>
+<div class="line"><a id="l01578" name="l01578"></a><span class="lineno"> 1578</span>        <span class="keywordflow">while</span> (getline(inf, curr_line)) {</div>
+<div class="line"><a id="l01579" name="l01579"></a><span class="lineno"> 1579</span>            <span class="comment">//SRL_LOG(&quot;read_list: curr_line: %s\n&quot;, curr_line.c_str());</span></div>
+<div class="line"><a id="l01580" name="l01580"></a><span class="lineno"> 1580</span>            <span class="keywordflow">if</span> ((curr_line.size() &gt; 1) &amp;&amp; (curr_line[0] != <span class="charliteral">&#39;#&#39;</span>)) { <span class="comment">// ignore empty lines, ignore comment lines</span></div>
+<div class="line"><a id="l01581" name="l01581"></a><span class="lineno"> 1581</span>                <span class="comment">// move all tabs to spaces</span></div>
+<div class="line"><a id="l01582" name="l01582"></a><span class="lineno"> 1582</span>                <span class="keywordtype">string</span> fixed_spaces = std::regex_replace(fixed_spaces, std::regex(<span class="stringliteral">&quot;\t+&quot;</span>), <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a id="l01583" name="l01583"></a><span class="lineno"> 1583</span> </div>
+<div class="line"><a id="l01584" name="l01584"></a><span class="lineno"> 1584</span>                <span class="comment">// get rid of leading spaced, ending spaces, \r</span></div>
+<div class="line"><a id="l01585" name="l01585"></a><span class="lineno"> 1585</span>                fixed_spaces = std::regex_replace(curr_line, std::regex(<span class="stringliteral">&quot;^ +| +$|\r|\n&quot;</span>), <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l01586" name="l01586"></a><span class="lineno"> 1586</span> </div>
+<div class="line"><a id="l01587" name="l01587"></a><span class="lineno"> 1587</span>                fixed_spaces += <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// re-adding eol, in case it was missing</span></div>
+<div class="line"><a id="l01588" name="l01588"></a><span class="lineno"> 1588</span> </div>
+<div class="line"><a id="l01589" name="l01589"></a><span class="lineno"> 1589</span>                <span class="comment">// change all internal spaces and \n to comma</span></div>
+<div class="line"><a id="l01590" name="l01590"></a><span class="lineno"> 1590</span>                fixed_spaces = std::regex_replace(fixed_spaces, std::regex(<span class="stringliteral">&quot; +|\n&quot;</span>), <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a id="l01591" name="l01591"></a><span class="lineno"> 1591</span> </div>
+<div class="line"><a id="l01592" name="l01592"></a><span class="lineno"> 1592</span>                <span class="comment">// make sure there are no adjacent commas</span></div>
+<div class="line"><a id="l01593" name="l01593"></a><span class="lineno"> 1593</span>                fixed_spaces = std::regex_replace(fixed_spaces, std::regex(<span class="stringliteral">&quot;,,+&quot;</span>), <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a id="l01594" name="l01594"></a><span class="lineno"> 1594</span> </div>
+<div class="line"><a id="l01595" name="l01595"></a><span class="lineno"> 1595</span>                <span class="comment">// add </span></div>
+<div class="line"><a id="l01596" name="l01596"></a><span class="lineno"> 1596</span>                data += fixed_spaces;</div>
+<div class="line"><a id="l01597" name="l01597"></a><span class="lineno"> 1597</span>                <span class="comment">//SRL_LOG(&quot;read_list: data: %s\n&quot;, data.c_str());</span></div>
+<div class="line"><a id="l01598" name="l01598"></a><span class="lineno"> 1598</span>            }</div>
+<div class="line"><a id="l01599" name="l01599"></a><span class="lineno"> 1599</span>        }</div>
+<div class="line"><a id="l01600" name="l01600"></a><span class="lineno"> 1600</span>        <span class="comment">// could happen that last char is comma, we fix it.</span></div>
+<div class="line"><a id="l01601" name="l01601"></a><span class="lineno"> 1601</span>        <span class="keywordflow">if</span> (data.back() == <span class="charliteral">&#39;,&#39;</span>) data.pop_back();</div>
 <div class="line"><a id="l01602" name="l01602"></a><span class="lineno"> 1602</span> </div>
-<div class="line"><a id="l01603" name="l01603"></a><span class="lineno"> 1603</span> </div>
-<div class="line"><a id="l01604" name="l01604"></a><span class="lineno"> 1604</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01603" name="l01603"></a><span class="lineno"> 1603</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l01604" name="l01604"></a><span class="lineno"> 1604</span>    }</div>
+<div class="line"><a id="l01605" name="l01605"></a><span class="lineno"> 1605</span>}</div>
+<div class="line"><a id="l01606" name="l01606"></a><span class="lineno"> 1606</span> </div>
+<div class="line"><a id="l01607" name="l01607"></a><span class="lineno"> 1607</span> </div>
+<div class="line"><a id="l01608" name="l01608"></a><span class="lineno"> 1608</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacelightgbm_1_1basic_html_ab6d22168cf419087659a713139271ada"><div class="ttname"><a href="namespacelightgbm_1_1basic.html#ab6d22168cf419087659a713139271ada">lightgbm.basic.c_str</a></div><div class="ttdeci">c_str(string)</div><div class="ttdef"><b>Definition</b> basic.py:110</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 1 2026 09:31:59 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jan 12 2026 10:11:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
