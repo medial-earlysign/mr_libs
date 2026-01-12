@@ -24,8 +24,8 @@ The framework was battle-tested in production across multiple healthcare sites a
 *   **High-Performance Processing:** Engineered for large-scale, sparse EMR time-series data where general-purpose libraries like pandas fall short.
 *   **Reusable Pipelines:** Save valuable engineering time by providing shareable, tested pipelines and methods.
 *   **Built-in Safeguards:** Mitigate common pitfalls like data leakage and time-series-specific overfitting.
-*   **Production-Ready:** Designed for easy deployment using Docker or minimal distroless Linux images.
-*   **State of The Art Algorithms** Developed state of the art algorithms for EMR use cases, explainablity and fairness and more.
+*   **Production-Ready:** Designed for easy deployment using Docker or minimal distroless Linux images. **FHIR Ready** with lightweight python script convert to AlgoMarker format in deployment.
+*   **Innovative Algorithms**: Access to state of the art algorithms for processing medical data, explainability, fairness, and more
     - Read My Journey on [Explainability](https://medial-earlysign.github.io/MR_Wiki/Blog/explainability.html)
 
 ## Core Components

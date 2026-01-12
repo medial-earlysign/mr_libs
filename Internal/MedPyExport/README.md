@@ -2,6 +2,8 @@
 
 ## Relase Notes - 1.1.1
 * Bugfix: get_sig when using PidRepository data from json
+* Feature: add support to retrieve model arch as json
+* Feature: filter MedSamples by bootstrap query language
 
 ## Relase Notes - 1.1.0
 * **Modularized Package Structure**
