@@ -132,7 +132,7 @@ namespace MedSerialize {
 	string object_json_spec(T& v, std::false_type, std::false_type) {
 		// neither
 		stringstream str;
-		str << "UNSUPPORTED::" << typeid(v).name();
+		str << "\"UNSUPPORTED::" << typeid(v).name() << "\"";
 		return str.str();
 	}
 
@@ -229,7 +229,7 @@ namespace MedSerialize {
 			str << MedSerialize::object_json((const T&)*v);
 		}
 		else
-			str << "NULL";
+			str << "null";
 		return str.str();
 	}
 	template <class T> string object_json(const T *&v) {
@@ -239,7 +239,7 @@ namespace MedSerialize {
 			str << MedSerialize::object_json((const T&)*v);
 		}
 		else
-			str << "NULL";
+			str << "null";
 		return str.str();
 	}
 	template <class T> string object_json(T * const &v) {
@@ -249,7 +249,7 @@ namespace MedSerialize {
 			str << MedSerialize::object_json((const T&)*v);
 		}
 		else
-			str << "NULL";
+			str << "null";
 		return str.str();
 	}
 
@@ -339,7 +339,7 @@ namespace MedSerialize {
 			str << MedSerialize::object_json((const T&)*v);
 		}
 		else
-			str << "NULL";
+			str << "null";
 		return str.str();
 	}
 	template <class T> string object_json(unique_ptr<const T> &v) {
@@ -349,7 +349,7 @@ namespace MedSerialize {
 			str << MedSerialize::object_json((const T&)*v);
 		}
 		else
-			str << "NULL";
+			str << "null";
 		return str.str();
 	}
 
@@ -704,7 +704,7 @@ namespace MedSerialize {
 		stringstream str;
 		//it's object: - TODO: print type name
 		str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-		str << "[";
+		str << "\"data\": [";
 
 		str << MedSerialize::object_json(v.first);
 		str << "," << MedSerialize::object_json(v.second);
@@ -716,7 +716,7 @@ namespace MedSerialize {
 		stringstream str;
 		//it's object: - TODO: print type name
 		str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-		str << "[";
+		str << "\"data\": [";
 
 		str << MedSerialize::object_json(v.first);
 		str << "," << MedSerialize::object_json(v.second);
@@ -728,7 +728,7 @@ namespace MedSerialize {
 		stringstream str;
 		//it's object: - TODO: print type name
 		str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-		str << "[";
+		str << "\"data\": [";
 
 		str << MedSerialize::object_json(v.first);
 		str << "," << MedSerialize::object_json(v.second);
@@ -800,7 +800,7 @@ namespace MedSerialize {
 			//print pair:
 
 			str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-			str << "[";
+			str << "\"data\": [";
 
 			str << MedSerialize::object_json((const T&)it->first);
 			str << "," << MedSerialize::object_json((const S &)it->second);
@@ -824,7 +824,7 @@ namespace MedSerialize {
 			//print pair:
 
 			str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-			str << "[";
+			str << "\"data\": [";
 
 			str << MedSerialize::object_json((const T&)it->first);
 			str << "," << MedSerialize::object_json((const S &)it->second);
@@ -848,7 +848,7 @@ namespace MedSerialize {
 			//print pair:
 
 			str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-			str << "[";
+			str << "\"data\": [";
 
 			str << MedSerialize::object_json((T&)it->first);
 			str << "," << MedSerialize::object_json((S &)it->second);
@@ -923,7 +923,7 @@ namespace MedSerialize {
 			//print pair:
 
 			str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-			str << "[";
+			str << "\"data\": [";
 
 			str << MedSerialize::object_json((const T &)it->first);
 			str << "," << MedSerialize::object_json((const S &)it->second);
@@ -947,7 +947,7 @@ namespace MedSerialize {
 			//print pair:
 
 			str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-			str << "[";
+			str << "\"data\": [";
 
 			str << MedSerialize::object_json((const T &)it->first);
 			str << "," << MedSerialize::object_json((const S &)it->second);
@@ -971,7 +971,7 @@ namespace MedSerialize {
 			//print pair:
 
 			str << "{ \"Object\":\"pair<" << typeid(T).name() << ", " << typeid(S).name() << ">\", ";
-			str << "[";
+			str << "\"data\": [";
 
 			str << MedSerialize::object_json((T &)it->first);
 			str << "," << MedSerialize::object_json((S &)it->second);
@@ -1334,8 +1334,12 @@ namespace MedSerialize {
 	template<> inline string object_json<long long>(long long &v) { return to_string(v); }
 	template<> inline string object_json<unsigned long long>(unsigned long long &v) { return to_string(v); }
 	template<> inline string object_json<bool>(bool &v) { return to_string(v); }
-	template<> inline string object_json<string>(string &str) { return "\"" + str + "\""; }
-	template<> inline string object_json<const string>(const string &str) { return "\"" + str + "\""; }
+	template<> inline string object_json<string>(string &str) { 
+		return "\"" + boost::replace_all_copy(str, "\n", "\\n") + "\""; 
+	}
+	template<> inline string object_json<const string>(const string &str) { 
+		return "\"" + boost::replace_all_copy(str, "\n", "\\n") + "\""; 
+	}
 	inline string object_json(int v) { return to_string(v); }
 	inline string object_json(unsigned int v) { return to_string(v); }
 	inline string object_json(float v) { return to_string(v); }

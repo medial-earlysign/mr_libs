@@ -103,7 +103,7 @@ public:
 
 	void apply_model_change(const std::string &change_json_content);
 
-	std::string get_model_weights_json();
+	std::string get_model_weights_info();
 
 	std::string get_model_version_info();
 

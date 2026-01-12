@@ -211,7 +211,7 @@ std::string MPModel::print_post_processor_by_index(int index) {
 	return o->post_processors[index]->object_json();
 }
 
-std::string MPModel::get_model_weights_json() {
+std::string MPModel::get_model_weights_info() {
 	return o->object_json();
 }
 

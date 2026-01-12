@@ -265,6 +265,16 @@ def __btsimple_to_df(self):
     df=pd.DataFrame(dict_obj)
     return df
 
+def __get_model_weights(self) -> str:
+    """
+    Returns the model as json
+    """
+    import re
+    js_model_outputs = self.get_model_weights_info()
+    reg_unquoted = re.compile(r'(?<=[:\[,])\s*(?![{\["\'\d])([A-Za-z]+::[0-9]+)(?=\s*[,}\]])')
+    fixed_text = reg_unquoted.sub(r'"\1"', js_model_outputs)
+    return fixed_text
+
 def __bind_external_methods():
     setattr(globals()['PidRepository'],'get_sig', __export_to_pandas)
     setattr(globals()['Features'],'to_df', __features__to_df_imp)
@@ -273,6 +283,7 @@ def __bind_external_methods():
     setattr(globals()['StringFloatMapAdaptor'],'to_df', __btsimple_to_df)
     setattr(globals()['Bootstrap'],'bootstrap', __bootstrap_wrapper)
     setattr(globals()['Bootstrap'],'bootstrap_pid', __bootstrap_pid_wrapper)
+    setattr(globals()['Model'],'get_model_arch_json', __get_model_weights)
 
 __bind_external_methods()
 
