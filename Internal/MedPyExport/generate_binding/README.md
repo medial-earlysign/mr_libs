@@ -118,7 +118,7 @@ python -m pip install -v "medpython @ git+https://github.com/Medial-EarlySign/me
 | **Linux (glibc)** | ✅ Pre-built (Py 3.10-3.14) | ✅ Pre-built (Py 3.12) |
 | **Linux (Alpine/musl)**| 🛠️ Compile Required | 🛠️ Compile Required |
 | **Windows** | ✅ Pre-built (Py 3.10-3.13) | 🛠️ Compile Required |
-| **macOS** | ✅ Pre-built (Py 3.10-3.13) | 🛠️ Compile Required |
+| **macOS** | 🛠️ Compile Required | ✅ Pre-built (Py 3.10-3.13) |
 
 > **Note:** For any Compile Required or either not listed as Pre-built. Compliation is required.
 > Compilation in Alpine was also tested, but pre-builds are not provided. 
