@@ -167,6 +167,7 @@ public:
 	//temporary solution to inability to return two string lists:
 	std::vector<string> get_attributes();
 	std::vector<string> get_str_attributes();
+	std::vector<string> get_str_attributes_by_name(const string &attr_name); 
 
 	void dilute(float prob);
 	void insertRec(int pid, int time, float outcome, int outcomeTime);

@@ -394,6 +394,20 @@ std::vector<string> MPSamples::get_str_attributes() {
 	return str_attr;
 };
 
+std::vector<string> MPSamples::get_str_attributes_by_name(const string &attr_name) {
+	std::vector<string> res;
+	for (size_t i = 0; i < o->idSamples.size(); ++i)
+	{
+		for (size_t j = 0; j < o->idSamples[i].samples.size(); ++j)
+		{
+			if (o->idSamples[i].samples[j].str_attributes.find(attr_name) != o->idSamples[i].samples[j].str_attributes.end())
+				res.push_back(o->idSamples[i].samples[j].str_attributes[attr_name]);
+			else
+				res.push_back("");
+		}
+	}
+	return res;
+}
 
 void MPSamples::dilute(float prob) { return o->dilute((float)prob); };
 int MPSamples::MEDPY_GET_time_unit() { return o->time_unit; };

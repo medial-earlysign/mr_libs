@@ -1,5 +1,8 @@
 # Medial Python Binding
 
+## Relase Notes - 1.1.2
+* Feature: Retreive string attributes from samples
+
 ## Relase Notes - 1.1.1
 * Bugfix: get_sig when using PidRepository data from json
 * Feature: add support to retrieve model arch as json
