@@ -95,10 +95,11 @@ function(add_linking_flags TARGET_NAME)
 endfunction()
 
 #Static linking
-function(add_linking_flags_static TARGET_NAME)
-    set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
-    target_link_libraries(${TARGET_NAME} ${ADDITIONAL_LINK_FLAGS} -Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} -Wl,--end-group xgboost _lightgbm_static  -Wl,-no-whole-archive -Wl,-Bdynamic)
+set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
 
+function(add_linking_flags_static TARGET_NAME)
+    target_link_libraries(${TARGET_NAME} ${ADDITIONAL_LINK_FLAGS} -Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} -Wl,--end-group xgboost _lightgbm_static  -Wl,-no-whole-archive -Wl,-Bdynamic)
 endfunction()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../)
