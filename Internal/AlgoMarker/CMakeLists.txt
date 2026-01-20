@@ -28,9 +28,34 @@ endif()
 if(DEFINED ENV{BOOST_ROOT})
     message(STATUS "BOOST_ROOT is set to: $ENV{BOOST_ROOT}")
     set(BOOST_ROOT "$ENV{BOOST_ROOT}")
+    set(Boost_INCLUDE_DIRS "${BOOST_ROOT}/include")
+    include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+    set(BUILD_EXEC ON)
 else()
     message(STATUS "BOOST_ROOT environment variable is not set. Please set it to the Boost installation path.")
     # set(BOOST_ROOT "$ENV{HOME}/Documents/MES/Boost") #If you have compiled boost by yourself with -fPIC flag, please provide the path to folder with "/lib" with shared and static lib and "/include" for headers.
+    find_package(Boost QUIET)
+    if (NOT Boost_FOUND)
+        message(STATUS "BOOST_ROOT environment variable is not set. Please set it to the Boost installation path, if you want to use a specific boost.")
+        message(STATUS "Boost not found. Downloading headers...")
+        set(BUILD_EXEC OFF)
+        include(FetchContent)
+        FetchContent_Declare(
+            boost_headers
+                URL      https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.gz
+                SOURCE_SUBDIR pathThatDoesNotExist
+                DOWNLOAD_EXTRACT_TIMESTAMP ON
+            )
+            
+            FetchContent_GetProperties(boost_headers)
+            if(NOT boost_headers_POPULATED)
+                FetchContent_MakeAvailable(boost_headers)
+            endif()
+
+            include_directories(${boost_headers_SOURCE_DIR})
+    else()
+        set(BUILD_EXEC ON)
+    endif()
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fopenmp -Wall -Wno-write-strings -Wno-sign-compare -Wno-reorder -Wno-unknown-pragmas -Wno-unused-function -ldl  --param inline-unit-growth=1000000 -msse4 -DHAVE_WORKING_ISFINITE -DSO_COMPILATION -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")
@@ -40,7 +65,7 @@ set(BOOST_LIBS
     program_options
 ) # for certain version, you might need to add "atomic"
 
-find_package(Boost REQUIRED)
+find_package(Boost QUIET)
 if(Boost_VERSION VERSION_GREATER_EQUAL "1.69") # 1.69 is represented as 106900 in CMake
     # Remove "system" for newer versions (>= 1.69)
     # The list(REMOVE_ITEM) command is used to remove a specific item from a list variable.
@@ -50,12 +75,16 @@ else()
     message(STATUS "Boost version is ${Boost_VERSION} (< 1.69), keeping 'system' in BOOST_LIBS.")
 endif()
 
+
 set (MEDIAL_INTERNAL_LIBS InfraMed Logger MedAlgo MedEmbed MedIO MedMat MedPlotly MedProcessTools MedSparseMat MedSplit MedStat MedTime MedUtils QRF SerializableObject TQRF micNet
 ) #CommonLib if needed
 
 # Dynamic linking
 function(add_linking_flags TARGET_NAME)
     set(BUILD_STATIC_LIB OFF CACHE BOOL "Build XGBoost as a dynamic library" FORCE)
+
+    find_package(Boost REQUIRED COMPONENTS ${BOOST_LIBS})  # Example components
+
     if (BOOST_ROOT)
         set(Boost_LIBRARIES "")
         foreach(lib IN LISTS BOOST_LIBS)
@@ -67,28 +96,8 @@ endfunction()
 
 #Static linking
 function(add_linking_flags_static TARGET_NAME)
-    set(BOOST_STATIC_LIB_PATHS "")
-    set(Boost_USE_STATIC_LIBS ON)
-    foreach(lib IN LISTS BOOST_LIBS)
-	    string(TOUPPER "${lib}" LIB_VAR)
-
-        if (NOT BOOST_ROOT)
-            find_library(BOOST_${LIB_VAR}_STATIC
-                NAMES "libboost_${lib}.a"
-            )
-        else()
-            set(BOOST_${LIB_VAR}_STATIC ${BOOST_ROOT}/lib/libboost_${lib}.a)
-        endif()
-
-        if(NOT BOOST_${LIB_VAR}_STATIC)
-            message(FATAL_ERROR "Could not find static Boost library: boost_${lib}.a")
-        endif()
-
-        list(APPEND BOOST_STATIC_LIB_PATHS ${BOOST_${LIB_VAR}_STATIC})
-    endforeach()
-
     set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
-    target_link_libraries(${TARGET_NAME} ${ADDITIONAL_LINK_FLAGS} -Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} -Wl,--end-group xgboost _lightgbm_static  ${BOOST_STATIC_LIB_PATHS} -Wl,-no-whole-archive -Wl,-Bdynamic)
+    target_link_libraries(${TARGET_NAME} ${ADDITIONAL_LINK_FLAGS} -Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} -Wl,--end-group xgboost _lightgbm_static  -Wl,-no-whole-archive -Wl,-Bdynamic)
 
 endfunction()
 
@@ -105,12 +114,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/LightGBM_2.2.3/Li
 # Find Boost
 find_package(OpenMP REQUIRED)
 
-find_package(Boost REQUIRED COMPONENTS ${BOOST_LIBS})  # Example components
 
-if (BOOST_ROOT)
-    set(Boost_INCLUDE_DIRS "${BOOST_ROOT}/include")
-endif()
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+
 # Add Internal libraries
 foreach(mes_lib IN LISTS MEDIAL_INTERNAL_LIBS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/${mes_lib}/${mes_lib} ${mes_lib})
@@ -122,15 +127,21 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../External/LightGBM_2.2.3/Light
 
 
 # Or add each project:
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/DllAPITester DllAPITester)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/DynAMWrapper DynAMWrapper)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/CommonTestingTools CommonTestingTools)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/AMApiTester AMApiTester)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/StressTest StressTest)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/MemroyLeak_Test MemroyLeak_Test)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/TestLibSimple TestLibSimple)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/InternalAPITester InternalAPITester)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/AlgoMarker AlgoMarker)
+
+if (BUILD_EXEC)
+    message(STATUS "BUILD Also Executables for Testing")
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/DllAPITester DllAPITester)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/DynAMWrapper DynAMWrapper)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/CommonTestingTools CommonTestingTools)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/AMApiTester AMApiTester)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/StressTest StressTest)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/MemroyLeak_Test MemroyLeak_Test)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/TestLibSimple TestLibSimple)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/InternalAPITester InternalAPITester)
+else()
+    message(STATUS "SKIP building executables, Boost is missing")
+endif()
 
 # Inside each project:
 #file(GLOB SRC_FILES

@@ -9,11 +9,12 @@ touch ${BLDDIR}/../MedUtils/MedUtils/MedGitVersion.h
 
 mkdir -p ${BLDDIR}/build/Release
 pushd ${BLDDIR}/build/Release
-cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S${BLDDIR} -B${BLDDIR}/build/Release -G "Unix Makefiles"
+cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_POLICY_VERSION_MINIMUM=3.10 -S${BLDDIR} -B${BLDDIR}/build/Release -G "Unix Makefiles"
 
 export GIT_HEAD_VERSION=$version_txt
 cmake --build ${BLDDIR}/build/Release --config Release --target all -j $(nproc) --
 popd 
+mkdir -p ${BLDDIR}/Linux/Release
 cp ${BLDDIR}/build/Release/AlgoMarker/libdyn_AlgoMarker.so ${BLDDIR}/Linux/Release/
 strip ${BLDDIR}/Linux/Release/libdyn_AlgoMarker.so
 nm -CD ${BLDDIR}/Linux/Release/libdyn_AlgoMarker.so | grep " T " > ${BLDDIR}/Linux/Release/AlgoMarker.public_symbols
