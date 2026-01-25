@@ -1,8 +1,8 @@
-Those Are used:
-1. Eigen - https://gitlab.com/libeigen/eigen/tree/master - 3.2.92 (EIGEN_WORLD_VERSION Macros.h)
+## Those Are used:
+1. Eigen - https://gitlab.com/libeigen/eigen/tree/master - 3.2.92 (src/Core/util/Macros.h EIGEN_WORLD_VERSION Macros.h) was updated to 3.4.1
 2. nlohmann/json (https://github.com/nlohmann/json) - JSON for Modern C++ - 3.11.2
-3. XGBoost - v0.82 (2019.03.03)
-4. LightGBM - 2.2.3
+3. XGBoost - v2.0.3 (2023.12.19)
+4. LightGBM - 2.2.3 (2019.02.05)
 
-Only when used in predictor:
-1. R Earth (Multivariate Adaptive Regression Splines) - https://cran.r-project.org/web/packages/earth/index.html (Used only when predictor is mars - MedMars): 
+## Additional External
+1. Boost Headers - (Tested with 1.67-1.89) - you will bring  yours/will be downloaded in CMakeLists.txt
