@@ -461,6 +461,7 @@ static <a class="el" href="classFeatureGenerator.html">FeatureGenerator</a> *&#1
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (field == <span class="stringliteral">&quot;tags&quot;</span>) { boost::split(<a class="code hl_variable" href="classFeatureGenerator.html#a5bdc31a542399968dab5a9c6b79cb651">tags</a>, entry.second, boost::is_any_of(<span class="stringliteral">&quot;,&quot;</span>)); }</div>
+<div class="line">        <span class="comment">// For example: &quot;Jan:1,Feb:2,March:3,...&quot; To give names to month in features</span></div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (field == <span class="stringliteral">&quot;time_bins&quot;</span>) time_bins_string = entry.second;</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (field != <span class="stringliteral">&quot;fg_type&quot;</span>)</div>
 <div class="line">            <a class="code hl_define" href="Logger_8h.html#a6da8ca831f02c2f430dcde5016e598bf">MLOG</a>(<span class="stringliteral">&quot;Unknown parameter \&#39;%s\&#39; for TimeFeatGenerator\n&quot;</span>, field.c_str());</div>
@@ -508,7 +509,7 @@ static <a class="el" href="classFeatureGenerator.html">FeatureGenerator</a> *&#1
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 3 2026 15:31:23 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Mar 4 2026 11:44:17 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
