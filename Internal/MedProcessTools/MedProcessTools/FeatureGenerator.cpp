@@ -2126,6 +2126,7 @@ int TimeFeatGenerator::init(map<string, string>& mapper) {
 			}
 		}
 		else if (field == "tags") { boost::split(tags, entry.second, boost::is_any_of(",")); }
+		// For example: "Jan:1,Feb:2,March:3,..." To give names to month in features
 		else if (field == "time_bins") time_bins_string = entry.second;
 		else if (field != "fg_type")
 			MLOG("Unknown parameter \'%s\' for TimeFeatGenerator\n", field.c_str());

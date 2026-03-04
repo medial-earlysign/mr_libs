@@ -798,11 +798,11 @@ private:
 typedef enum {
 	FTR_TIME_YEAR = 0, ///< Year (as is)
 	FTR_TIME_MONTH = 1, ///< Month of year (0-11)
-	FTR_TIME_DAY_IN_MONTH = 2, ///< Day of the month (0-30)
-	FTR_TIME_DAY_IN_WEEK = 3, ///< Day of the week (0-6)
+	FTR_TIME_DAY_IN_MONTH = 2, ///< "day_in_month" Day of the month (0-30)
+	FTR_TIME_DAY_IN_WEEK = 3, ///< "day_in_week" Day of the week (0-6)
 	FTR_TIME_HOUR = 4, ///< Hour of the day (0-23)
 	FTR_TIME_MINUTE = 5, ///< Minute of the hout (0-59)
-	FTR_TIME_DATE = 6, ///< Completete date (as is)
+	FTR_TIME_DATE = 6, ///< "date" Completete date (as is)
 	FTR_TIME_LAST,
 } TimeFeatTypes;
 
