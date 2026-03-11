@@ -1847,6 +1847,9 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 					}
 					if (good_sig)
 					{
+						// good - controls if to trigger warning in the end, any error/global in either signal
+						// good_sig - if to completly skip signal
+						// good_record - just to skip current record in signal
 						for (auto &d : s["data"])
 						{
 							int nt = 0;
@@ -1863,8 +1866,10 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								messages.push_back(string(buf));
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
+								good_record = false;
+								//good_sig = false;
 								good = false;
-								break;
+								continue;
 							}
 							if (d.find("value") != d.end() && !d["value"].is_array())
 							{
@@ -1878,8 +1883,10 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								messages.push_back(string(buf));
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
+								good_record = false;
+								//good_sig = false;
 								good = false;
-								break;
+								continue;
 							}
 							for (auto &t : d["timestamp"])
 							{
@@ -1904,7 +1911,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 										get_current_time(current_time);
 										MLOG("%s::%s\n", current_time.c_str(), buf);
 										good = false;
-										good_sig = false;
+										//good_sig = false;
 										good_record = false;
 										break;
 									}
@@ -1922,7 +1929,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 									get_current_time(current_time);
 									MLOG("%s::%s\n", current_time.c_str(), buf);
 									good = false;
-									good_sig = false;
+									//good_sig = false;
 									good_record = false;
 									break;
 								}
@@ -1946,12 +1953,12 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
 								good = false;
-								good_sig = false;
+								//good_sig = false;
 								good_record = false;
 								// return AM_FAIL_RC;
 							}
 							if (!good_record)
-								break;
+								continue;
 							int nv = 0;
 							for (auto &v : d["value"])
 							{
@@ -1975,7 +1982,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 										get_current_time(current_time);
 										MLOG("%s::%s\n", current_time.c_str(), buf);
 										good = false;
-										good_sig = false;
+										//good_sig = false;
 										good_record = false;
 										break;
 									}
@@ -2005,7 +2012,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 											get_current_time(current_time);
 											MLOG("%s::%s\n", current_time.c_str(), buf);
 											good = false;
-											good_sig = false;
+											//good_sig = false;
 											good_record = false;
 											break;
 										}
@@ -2023,7 +2030,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 										get_current_time(current_time);
 										MLOG("%s::%s\n", current_time.c_str(), buf);
 										good = false;
-										good_sig = false;
+										//good_sig = false;
 										good_record = false;
 										break;
 									}
@@ -2046,7 +2053,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								// MLOG("%s ", v.get<string>().c_str());
 							}
 							if (!good_record)
-								break;
+								continue;
 							// Check size of value:
 							if (nv != n_val_channels)
 							{
@@ -2061,13 +2068,13 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
 								good = false;
-								good_sig = false;
+								//good_sig = false;
 								good_record = false;
 								// return AM_FAIL_RC;
 							}
 							// MLOG("\n");
 							if (!good_record)
-								break;
+								continue;
 							n_data++;
 						}
 					}
