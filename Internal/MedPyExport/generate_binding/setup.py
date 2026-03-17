@@ -48,6 +48,33 @@ def get_version_from_pyproject() -> str:
     return version
 
 
+def get_safe_parallel_jobs() -> int:
+    """Calculates a safe number of build jobs based on CPU and RAM."""
+    GB_PER_CPU = 2
+    cores = os.cpu_count() or 1
+    # If not Linux, just use all cores (assume Mac/Windows have decent RAM)
+    if not sys.platform.startswith("linux"):
+        return cores
+    try:
+        # Read total memory safely
+        with open("/proc/meminfo", "r") as f:
+            for line in f:
+                if line.startswith("MemTotal:"):
+                    # Extract KB and convert to GB
+                    mem_kb = int(line.split()[1])
+                    mem_gb = mem_kb / (1024 * 1024)
+
+                    # Rule: Allow 1 job per ~2GB of RAM.
+                    # Max out at the number of available CPU cores.
+                    safe_jobs = max(1, int(mem_gb) // GB_PER_CPU)
+                    return min(cores, safe_jobs)
+
+    except Exception:
+        pass  # Fallback if /proc/meminfo is missing or unreadable
+
+    return cores
+
+
 class CustomSdist(_sdist):
     """Custom sdist command to copy external C++ source into the package tree."""
 
@@ -143,7 +170,9 @@ class CMakeBuild(build_ext):
 
         # Parallel build
         if "CMAKE_BUILD_PARALLEL_LEVEL" not in os.environ:
-            build_args += [f"-j{os.cpu_count()}"]
+            safe_jobs = get_safe_parallel_jobs()
+
+            build_args += [f"-j{safe_jobs}"]
 
         # Version Info
         if "GIT_HEAD_VERSION" not in os.environ:
@@ -162,7 +191,7 @@ class CMakeBuild(build_ext):
         subprocess.check_call(
             ["cmake", "--build", "."] + build_args, cwd=self.build_temp
         )
-        print("########## Done CMAKE BUILD ############3")
+        print("########## Done CMAKE BUILD #############")
 
         # 3. MANUAL COPY (If CMake doesn't put the .py file exactly where we want)
         # CMake will put _medpython.so in destination_dir (because of CMAKE_LIBRARY_OUTPUT_DIRECTORY)
