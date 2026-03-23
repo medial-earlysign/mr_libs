@@ -186,53 +186,116 @@ int MedialInfraAlgoMarker::ClearData()
 //-----------------------------------------------------------------------------------
 // AddData() - adding data for a signal with values and timestamps
 //-----------------------------------------------------------------------------------
-int MedialInfraAlgoMarker::AddData_data(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, float *Values,
-										map<pair<int, int>, pair<int, vector<char>>> *data)
+vector<pair<int, string>> MedialInfraAlgoMarker::AddData_data(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, float *Values,
+															  map<pair<int, int>, pair<int, vector<char>>> *data)
 {
 	// At the moment MedialInfraAlgoMarker only loads timestamps given as ints.
 	// This may change in the future as needed.
+	vector<pair<int, string>> ret;
 	int *i_times = NULL;
 	vector<int> times_int;
+	vector<float> values_filter;
+	vector<int> skip_e_index;
+	int time_ch_count, val_ch_count;
+	int *is_categ;
+	string sig = string(signalName);
 
 	int tu = get_time_unit();
+
 	if (TimeStamps_len > 0)
 	{
 		times_int.resize(TimeStamps_len);
+		int write_index = 0;
 
 		// currently assuming we only work with dates ... will have to change this when we'll move to other units
-		for (int i = 0; i < TimeStamps_len; i++)
+		int i = 0;
+		while (i < TimeStamps_len)
 		{
-			times_int[i] = AMPoint::auto_time_convert(TimeStamps[i], tu);
-			if (times_int[i] < 0)
+			times_int[write_index] = AMPoint::auto_time_convert(TimeStamps[i], tu);
+			if (times_int[write_index] < 0)
 			{
-				MERR("Error in AddData :: patient %d, signals %s, timestamp %lld is ilegal\n",
-					 patient_id, signalName, TimeStamps[i]);
-				return AM_ERROR_ADD_DATA_FAILED;
+				char buff[5000];
+				snprintf(buff, sizeof(buff), "Error in AddData :: patient %d, signals %s, timestamp %lld is ilegal",
+						 patient_id, signalName, TimeStamps[i]);
+				MERR("%s\n", buff);
+				ret.push_back(pair<int, string>(AM_ERROR_ADD_DATA_FAILED, string(buff)));
+				if (skip_e_index.empty())
+				{
+					get_sig_structure(sig, time_ch_count, val_ch_count, is_categ);
+					values_filter.reserve(Values_len);
+				}
+
+				// Need to skip this element index and create a complete new signal:
+				int current_element_index = int(i / time_ch_count);
+				skip_e_index.push_back(current_element_index);
+				int time_pos = i % time_ch_count;
+				write_index = current_element_index * time_ch_count;
+
+				// skip current element
+				i += time_ch_count - time_pos;
+				continue;
 			}
+			++write_index;
+			++i;
 			// MLOG("time convert %ld to %d\n", TimeStamps[i], times_int[i]);
 		}
 		i_times = &times_int[0];
 	}
+	if (!skip_e_index.empty())
+	{
+		// Rewrite values_filter from Values based on skipping skip_e_index elements. Nujm of channels is: val_ch_count
+		int i = 0, j = 0;
+		while (i < Values_len)
+		{
+			int current_element_index = int(i / val_ch_count);
+			if (j < (int)skip_e_index.size() && current_element_index == skip_e_index[j])
+			{
+				++j;
+				i += val_ch_count;
+				continue;
+			}
+			else
+			{
+				values_filter.push_back(Values[i]);
+			}
+			++i;
+		}
+		Values = &values_filter[0];
 
-	if (ma.data_load_pid_sig(patient_id, signalName, i_times, TimeStamps_len, Values, Values_len, data) < 0)
-		return AM_ERROR_ADD_DATA_FAILED;
+		TimeStamps_len -= (int)skip_e_index.size() * time_ch_count;
+		Values_len = (int)values_filter.size();
+	}
 
-	return AM_OK_RC;
+	if (TimeStamps_len > 0 || Values_len > 0)
+	{
+		if (ma.data_load_pid_sig(patient_id, signalName, i_times, TimeStamps_len, Values, Values_len, data) < 0)
+		{
+			ret.push_back(pair<int, string>(AM_ERROR_ADD_DATA_FAILED, "General error in data_load_pid_sig"));
+			return ret;
+		}
+	}
+	if (ret.empty())
+		ret.push_back(pair<int, string>(AM_OK_RC, ""));
+	return ret;
 }
 
 int MedialInfraAlgoMarker::AddData(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, float *Values)
 {
 	MedRepository &rep = ma.get_rep();
 	map<pair<int, int>, pair<int, vector<char>>> *data = &rep.in_mem_rep.data;
-	return AddData_data(patient_id, signalName, TimeStamps_len, TimeStamps, Values_len, Values, data);
+	vector<pair<int, string>> ret = AddData_data(patient_id, signalName, TimeStamps_len, TimeStamps, Values_len, Values, data);
+	if (ret.empty())
+		return AM_OK_RC;
+	return ret[0].first;
 }
 
 //-----------------------------------------------------------------------------------
 // AddDatStr() - adding data for a signal with values and timestamps
 //-----------------------------------------------------------------------------------
-int MedialInfraAlgoMarker::AddDataStr_data(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, char **Values,
-										   map<pair<int, int>, pair<int, vector<char>>> *data)
+vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, char **Values,
+																 map<pair<int, int>, pair<int, vector<char>>> *data)
 {
+	vector<pair<int, string>> ret;
 	vector<float> converted_Values;
 	vector<long long> final_tm;
 	final_tm.reserve(TimeStamps_len);
@@ -289,7 +352,21 @@ int MedialInfraAlgoMarker::AddDataStr_data(int patient_id, const char *signalNam
 				{
 					float val;
 					if (!rep.sigs.is_categorical_channel(sid, j))
-						val = stof(Values[Values_i++]);
+					{
+						try
+						{
+							val = stof(Values[Values_i++]);
+						}
+						catch (...)
+						{
+							char buff[5000];
+							snprintf(buff, sizeof(buff), "Error in AddDataStr_data :: patient %d, signal %s, value %s is non-numeric",
+									 patient_id, signalName, Values[Values_i - 1]);
+							ret.push_back(pair<int, string>(AM_FAIL_RC, string(buff)));
+							// TODO: fix to be non-fatal error. Skip and remove this element from data
+							throw;
+						}
+					}
 					else
 						val = category_map.at(Values[val_start + j]);
 					converted_Values.push_back(val);
@@ -300,19 +377,29 @@ int MedialInfraAlgoMarker::AddDataStr_data(int patient_id, const char *signalNam
 	catch (...)
 	{
 		MERR("Catched Error MedialInfraAlgoMarker::AddDataStr!!\n");
-		return AM_FAIL_RC;
+		ret.push_back(pair<int, string>(AM_FAIL_RC, "Catched Internal Error MedialInfraAlgoMarker::AddDataStr - skipped signal"));
+		return ret;
 	}
 
 	if (TimeStamps_len > 0 || Values_len > 0)
-		return AddData_data(patient_id, signalName, TimeStamps_len, final_tm.data(), Values_len, converted_Values.data(), data);
-	return AM_OK_RC;
+	{
+		vector<pair<int, string>> ret_i = AddData_data(patient_id, signalName, TimeStamps_len, final_tm.data(), Values_len, converted_Values.data(), data);
+		ret.insert(ret.end(), ret_i.begin(), ret_i.end());
+		return ret;
+	}
+	if (ret.empty())
+		ret.push_back(pair<int, string>(AM_OK_RC, ""));
+	return ret;
 }
 
 int MedialInfraAlgoMarker::AddDataStr(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, char **Values)
 {
 	MedRepository &rep = ma.get_rep();
 	map<pair<int, int>, pair<int, vector<char>>> *data = &rep.in_mem_rep.data;
-	return AddDataStr_data(patient_id, signalName, TimeStamps_len, TimeStamps, Values_len, Values, data);
+	vector<pair<int, string>> ret = AddDataStr_data(patient_id, signalName, TimeStamps_len, TimeStamps, Values_len, Values, data);
+	if (ret.empty())
+		return AM_OK_RC;
+	return ret[0].first;
 }
 
 //-----------------------------------------------------------------------------------
@@ -1866,7 +1953,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
 								good_record = false;
-								//good_sig = false;
+								// good_sig = false;
 								good = false;
 								continue;
 							}
@@ -1883,7 +1970,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
 								good_record = false;
-								//good_sig = false;
+								// good_sig = false;
 								good = false;
 								continue;
 							}
@@ -1910,7 +1997,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 										get_current_time(current_time);
 										MLOG("%s::%s\n", current_time.c_str(), buf);
 										good = false;
-										//good_sig = false;
+										// good_sig = false;
 										good_record = false;
 										break;
 									}
@@ -1928,7 +2015,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 									get_current_time(current_time);
 									MLOG("%s::%s\n", current_time.c_str(), buf);
 									good = false;
-									//good_sig = false;
+									// good_sig = false;
 									good_record = false;
 									break;
 								}
@@ -1952,7 +2039,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
 								good = false;
-								//good_sig = false;
+								// good_sig = false;
 								good_record = false;
 								// return AM_FAIL_RC;
 							}
@@ -1981,7 +2068,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 										get_current_time(current_time);
 										MLOG("%s::%s\n", current_time.c_str(), buf);
 										good = false;
-										//good_sig = false;
+										// good_sig = false;
 										good_record = false;
 										break;
 									}
@@ -2011,7 +2098,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 											get_current_time(current_time);
 											MLOG("%s::%s\n", current_time.c_str(), buf);
 											good = false;
-											//good_sig = false;
+											// good_sig = false;
 											good_record = false;
 											break;
 										}
@@ -2029,7 +2116,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 										get_current_time(current_time);
 										MLOG("%s::%s\n", current_time.c_str(), buf);
 										good = false;
-										//good_sig = false;
+										// good_sig = false;
 										good_record = false;
 										break;
 									}
@@ -2067,7 +2154,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								get_current_time(current_time);
 								MLOG("%s::%s\n", current_time.c_str(), buf);
 								good = false;
-								//good_sig = false;
+								// good_sig = false;
 								good_record = false;
 								// return AM_FAIL_RC;
 							}
@@ -2092,19 +2179,27 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 
 				if (good_sig)
 				{
-					if (AddDataStr_data(patient_id, sig.c_str(), n_times, p_times, n_vals, str_values, data) != AM_OK_RC)
+					vector<pair<int, string>> ret = AddDataStr_data(patient_id, sig.c_str(), n_times, p_times, n_vals, str_values, data);
+					if ((!ret.empty() && ret[0].first != AM_OK_RC) || ret.size() > 1)
 					{
 						char buf[5000];
-						if (patient_id != 1)
-							snprintf(buf, sizeof(buf), "(%d)General error in signal: %s for patient %d",
-									 AM_DATA_GENERAL_ERROR, sig.c_str(), patient_id);
-						else
-							snprintf(buf, sizeof(buf), "(%d)General error in signal: %s",
-									 AM_DATA_GENERAL_ERROR, sig.c_str());
-						messages.push_back(string(buf));
-						get_current_time(current_time);
-						MLOG("%s::%s\n", current_time.c_str(), buf);
-						good_sig = false;
+						for (const pair<int, string> &msg : ret)
+						{
+							if (patient_id != 1)
+							{
+								snprintf(buf, sizeof(buf), "(%d)General error in signal: %s for patient %d : %s",
+										 AM_DATA_GENERAL_ERROR, sig.c_str(), patient_id, msg.second.c_str());
+							}
+							else
+							{
+								snprintf(buf, sizeof(buf), "(%d)General error in signal: %s : %s",
+										 AM_DATA_GENERAL_ERROR, sig.c_str(), msg.second.c_str());
+							}
+							get_current_time(current_time);
+							messages.push_back(string(buf));
+							MLOG("%s::%s\n", current_time.c_str(), buf);
+						}
+						// good_sig = false;
 						good = false;
 						// return AM_FAIL_RC;
 					}
