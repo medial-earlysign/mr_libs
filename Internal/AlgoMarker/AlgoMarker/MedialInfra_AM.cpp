@@ -218,7 +218,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddData_data(int patient_id, co
 				snprintf(buff, sizeof(buff), "Error in AddData :: patient %d, signals %s, timestamp %lld is ilegal",
 						 patient_id, signalName, TimeStamps[i]);
 				MERR("%s\n", buff);
-				ret.push_back(pair<int, string>(AM_ERROR_ADD_DATA_FAILED, string(buff)));
+				ret.push_back(pair<int, string>(AM_DATA_BAD_FORMAT_NON_FATAL, string(buff)));
 				if (skip_e_index.empty())
 				{
 					get_sig_structure(sig, time_ch_count, val_ch_count, is_categ);
@@ -270,7 +270,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddData_data(int patient_id, co
 	{
 		if (ma.data_load_pid_sig(patient_id, signalName, i_times, TimeStamps_len, Values, Values_len, data) < 0)
 		{
-			ret.push_back(pair<int, string>(AM_ERROR_ADD_DATA_FAILED, "General error in data_load_pid_sig"));
+			ret.push_back(pair<int, string>(AM_GENERAL_FATAL, "General error in data_load_pid_sig"));
 			return ret;
 		}
 	}
