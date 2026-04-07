@@ -316,10 +316,10 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 			n_elem = (int)(Values_len / rep.sigs.Sid2Info[sid].n_val_channels);
 		else
 			n_elem = (int)(TimeStamps_len / rep.sigs.Sid2Info[sid].n_time_channels);
+
 		for (int i = 0; i < n_elem; i++)
 		{
 			bool skip_val = false;
-			int val_start = Values_i;
 			for (int j = 0; j < rep.sigs.Sid2Info[sid].n_val_channels; j++)
 			{
 				if (rep.sigs.is_categorical_channel(sid, j))
@@ -328,11 +328,28 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 					{
 						// MWARN("Found undefined code for signal \"%s\" and value \"%s\"\n",
 						//	sig.c_str(), Values[Values_i]);
+						// TODO: Use same simple error collection inside "ret" variable. No need to collecte inside "get_unknown_codes"
 						(*ma.get_unknown_codes(patient_id))[sig].insert(Values[Values_i]);
 						skip_val = true;
 					}
-					++Values_i;
 				}
+				else
+				{
+					// Check if valid value:
+					try
+					{
+						stof(Values[Values_i]);
+					}
+					catch (...)
+					{
+						char buff[5000];
+						snprintf(buff, sizeof(buff), "Error in AddDataStr_data :: patient %d, signal %s, index %d, channel %d, value %s is non-numeric",
+								 patient_id, signalName, i, j, Values[Values_i]);
+						ret.push_back(pair<int, string>(AM_DATA_BAD_FORMAT_NON_FATAL, string(buff)));
+						skip_val = true;
+					}
+				}
+				++Values_i;
 			}
 			if (skip_val)
 			{
@@ -351,24 +368,25 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 				for (int j = 0; j < rep.sigs.Sid2Info[sid].n_val_channels; j++)
 				{
 					float val;
+					int current_index = i * rep.sigs.Sid2Info[sid].n_val_channels + j;
 					if (!rep.sigs.is_categorical_channel(sid, j))
 					{
 						try
 						{
-							val = stof(Values[Values_i++]);
+							val = stof(Values[current_index]);
 						}
 						catch (...)
 						{
 							char buff[5000];
 							snprintf(buff, sizeof(buff), "Error in AddDataStr_data :: patient %d, signal %s, value %s is non-numeric",
-									 patient_id, signalName, Values[Values_i - 1]);
-							ret.push_back(pair<int, string>(AM_FAIL_RC, string(buff)));
-							// TODO: fix to be non-fatal error. Skip and remove this element from data
+									 patient_id, signalName, Values[current_index]);
+							ret.push_back(pair<int, string>(AM_DATA_BAD_FORMAT_FATAL, string(buff)));
+							// Not Suppose to happen - already tested before that this is valid float.
 							throw;
 						}
 					}
 					else
-						val = category_map.at(Values[val_start + j]);
+						val = category_map.at(Values[current_index]);
 					converted_Values.push_back(val);
 				}
 			}
@@ -377,14 +395,16 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 	catch (...)
 	{
 		MERR("Catched Error MedialInfraAlgoMarker::AddDataStr!!\n");
-		ret.push_back(pair<int, string>(AM_FAIL_RC, "Catched Internal Error MedialInfraAlgoMarker::AddDataStr - skipped signal"));
+		ret.push_back(pair<int, string>(AM_GENERAL_FATAL, "Catched Internal Error MedialInfraAlgoMarker::AddDataStr - skipped signal"));
 		return ret;
 	}
 
 	if (TimeStamps_len > 0 || Values_len > 0)
 	{
 		vector<pair<int, string>> ret_i = AddData_data(patient_id, signalName, TimeStamps_len, final_tm.data(), Values_len, converted_Values.data(), data);
-		ret.insert(ret.end(), ret_i.begin(), ret_i.end());
+		// Can append AM_OK_RC, even when we have previous errors:
+		if (!ret_i.empty() && (ret.empty() || (ret_i.size() > 1 || ret_i[0].first != AM_OK_RC)))
+			ret.insert(ret.end(), ret_i.begin(), ret_i.end());
 		return ret;
 	}
 	if (ret.empty())
@@ -2185,16 +2205,9 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 						char buf[5000];
 						for (const pair<int, string> &msg : ret)
 						{
-							if (patient_id != 1)
-							{
-								snprintf(buf, sizeof(buf), "(%d)General error in signal: %s for patient %d : %s",
-										 AM_DATA_GENERAL_ERROR, sig.c_str(), patient_id, msg.second.c_str());
-							}
-							else
-							{
-								snprintf(buf, sizeof(buf), "(%d)General error in signal: %s : %s",
-										 AM_DATA_GENERAL_ERROR, sig.c_str(), msg.second.c_str());
-							}
+							snprintf(buf, sizeof(buf), "(%d)%s",
+									 msg.first, msg.second.c_str());
+
 							get_current_time(current_time);
 							messages.push_back(string(buf));
 							MLOG("%s::%s\n", current_time.c_str(), buf);
