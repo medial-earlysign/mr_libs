@@ -317,6 +317,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 		else
 			n_elem = (int)(TimeStamps_len / rep.sigs.Sid2Info[sid].n_time_channels);
 
+		long long last_time = 0;
 		for (int i = 0; i < n_elem; i++)
 		{
 			bool skip_val = false;
@@ -360,6 +361,21 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 			else
 			{
 				// All done
+				if (rep.sigs.Sid2Info[sid].n_time_channels > 0)
+				{
+					if (TimeStamps[Time_i] < last_time)
+					{
+						char buff[5000];
+						snprintf(buff, sizeof(buff), "Error in AddDataStr_data :: patient %d, signal %s, data is not sorted by time. All signal data is skipped",
+								 patient_id, signalName);
+						// Mark that all signal is not loaded
+						ret.push_back(pair<int, string>(AM_DATA_GENERAL_ERROR, string(buff)));
+						TimeStamps_len = 0;
+						Values_len = 0;
+						break;
+					}
+					last_time = TimeStamps[Time_i];
+				}
 				for (int j = 0; j < rep.sigs.Sid2Info[sid].n_time_channels; j++)
 				{
 					final_tm.push_back(TimeStamps[Time_i]);
