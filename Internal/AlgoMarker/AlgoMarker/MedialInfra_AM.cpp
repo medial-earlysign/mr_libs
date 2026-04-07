@@ -1960,7 +1960,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 						{
 							int nt = 0;
 							bool good_record = true;
-							if (d.find("timestamp") != d.end() && !d["timestamp"].is_array())
+							if (d.find("timestamp") == d.end() || !d["timestamp"].is_array())
 							{
 								char buf[5000];
 								if (patient_id != 1)
@@ -1977,7 +1977,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								good = false;
 								continue;
 							}
-							if (d.find("value") != d.end() && !d["value"].is_array())
+							if (d.find("value") == d.end() || !d["value"].is_array())
 							{
 								char buf[5000];
 								if (patient_id != 1)
@@ -2044,7 +2044,11 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								++nt;
 							}
 							if (!good_record)
-								break;
+							{
+								if (nt > 0)
+									times.resize(times.size() - nt);
+								continue;
+							}
 							// Check size of timestamps:
 							if (nt != n_time_channels)
 							{
@@ -2064,8 +2068,13 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								// return AM_FAIL_RC;
 							}
 							if (!good_record)
+							{
+								if (nt > 0)
+									times.resize(times.size() - nt);
 								continue;
+							}
 							int nv = 0;
+							int total_nv = 0;
 							for (auto &v : d["value"])
 							{
 								string sv;
@@ -2154,12 +2163,23 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								sinds.push_back(curr_s);
 								curr_s += slen + 1;
 								++nv;
+								total_nv += slen + 1;
 								// char *sp = &sdata[sinds.back()];
 								// MLOG("val %d %d %s : %s len: %d curr_s %d s_data_size %d %d\n", sinds.size(), sinds.back(), sp, sv.c_str(), slen, curr_s, s_data_size, sdata.size());
 								// MLOG("%s ", v.get<string>().c_str());
 							}
 							if (!good_record)
+							{
+								if (nt > 0)
+									times.resize(times.size() - nt);
+								if (nv > 0)
+								{
+									// Update: sinds, curr_s to remove what we have added
+									sinds.resize(sinds.size() - nv);
+									curr_s -= total_nv;
+								}
 								continue;
+							}
 							// Check size of value:
 							if (nv != n_val_channels)
 							{
@@ -2180,8 +2200,18 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 							}
 							// MLOG("\n");
 							if (!good_record)
+							{
+								if (nt > 0)
+									times.resize(times.size() - nt);
+								if (nv > 0)
+								{
+									// Update: sinds, curr_s to remove what we have added
+									sinds.resize(sinds.size() - nv);
+									curr_s -= total_nv;
+								}
 								continue;
-							n_data++;
+							}
+							++n_data;
 						}
 					}
 				}
