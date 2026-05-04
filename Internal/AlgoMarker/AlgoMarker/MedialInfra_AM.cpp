@@ -212,7 +212,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddData_data(int patient_id, co
 		while (i < TimeStamps_len)
 		{
 			times_int[write_index] = AMPoint::auto_time_convert(TimeStamps[i], tu);
-			if (times_int[write_index] < 0)
+			if (times_int[write_index] < 0 || !med_time_converter.is_valid_date(times_int[write_index]))
 			{
 				char buff[5000];
 				snprintf(buff, sizeof(buff), "Error in AddData :: patient %d, signals %s, timestamp %lld is ilegal",
@@ -1362,7 +1362,7 @@ int MedialInfraAlgoMarker::CalculateByType(int CalculateType, char *request, cha
 		json_req_info &req_i = sample_reqs[i];
 		req_i.conv_time = AMPoint::auto_time_convert(req_i.sample_time, tu);
 		int ok_time = 1;
-		if (tu == MedTime::Date && (req_i.conv_time < 19500000 || req_i.conv_time > 30000000))
+		if (tu == MedTime::Date && (req_i.conv_time < 19500000 || req_i.conv_time > 30000000 || !med_time_converter.is_valid_date(req_i.sample_time)))
 			ok_time = 0;
 		if ((req_i.sample_pid <= 0) || (req_i.conv_time <= 0) || ok_time == 0)
 		{
