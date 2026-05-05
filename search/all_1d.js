@@ -58,7 +58,7 @@ var searchData=
   ['randomreplace_55',['RandomReplace',['../structxgboost_1_1tree_1_1RandomReplace.html',1,'xgboost::tree']]],
   ['randomsamplesgenerator_56',['RandomSamplesGenerator',['../classRandomSamplesGenerator.html',1,'']]],
   ['randomthreadlocalentry_57',['RandomThreadLocalEntry',['../structxgboost_1_1common_1_1RandomThreadLocalEntry.html',1,'xgboost::common']]],
-  ['range_58',['range',['../namespacexgboost_1_1linalg.html#ac9e95df44228c5cae7198265f585b1d7',1,'xgboost::linalg::Range()'],['../classxgboost_1_1common_1_1Range.html',1,'xgboost::common::Range'],['../md_External_2json_2README.html#autotoc_md15',1,'Read from iterator range']]],
+  ['range_58',['range',['../classxgboost_1_1common_1_1Range.html',1,'xgboost::common::Range'],['../namespacexgboost_1_1linalg.html#ac9e95df44228c5cae7198265f585b1d7',1,'xgboost::linalg::Range()'],['../md_External_2json_2README.html#autotoc_md15',1,'Read from iterator range']]],
   ['range1d_59',['Range1d',['../classxgboost_1_1common_1_1Range1d.html',1,'xgboost::common']]],
   ['range_5fop_5ftype_60',['range_op_type',['../RepProcess_8h.html#ac999655de275ed82fef616e88f50acbd',1,'RepProcess.h']]],
   ['range_5foperator_61',['range_operator',['../classRepBasicRangeCleaner.html#ae2ce41483167478aa973185d9ae6bd64',1,'RepBasicRangeCleaner']]],
