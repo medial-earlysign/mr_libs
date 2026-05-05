@@ -359,11 +359,11 @@ private:
 	bool is_loaded = false;
 
 	void get_jsons_locations(const char *data, vector<size_t> &j_start, vector<size_t> &j_len); // helper to split given string to jsons within it. Used in batch json mode.
-	int AddJsonData(int patient_id, json &j_data, vector<string> &messages, map<pair<int, int>, pair<int, vector<char>>> *data = NULL);
+	int AddJsonData(int patient_id, json &j_data, vector<string> &messages, map<pair<int, int>, pair<int, vector<char>>> *data = NULL, unordered_map<string, unordered_set<string>> *unknown_codes = NULL);
 	int rec_AddDataByType(int DataType, const char *data, vector<string> &messages);
 	void clear_patients_data(const vector<int> &pids);
 	vector<pair<int, string>> AddDataStr_data(int patient_id, const char *signalName, int TimeStamps_len, long long* TimeStamps, int Values_len, char** Values, 
-	map<pair<int, int>, pair<int, vector<char>>> *data);
+	map<pair<int, int>, pair<int, vector<char>>> *data, unordered_map<string, unordered_set<string>> *unknown_codes = NULL);
 	vector<pair<int, string>> AddData_data(int patient_id, const char *signalName, int TimeStamps_len, long long* TimeStamps, int Values_len, float* Values, 
 	map<pair<int, int>, pair<int, vector<char>>> *data);
 public:

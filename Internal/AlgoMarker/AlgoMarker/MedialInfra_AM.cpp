@@ -293,7 +293,7 @@ int MedialInfraAlgoMarker::AddData(int patient_id, const char *signalName, int T
 // AddDatStr() - adding data for a signal with values and timestamps
 //-----------------------------------------------------------------------------------
 vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id, const char *signalName, int TimeStamps_len, long long *TimeStamps, int Values_len, char **Values,
-																 map<pair<int, int>, pair<int, vector<char>>> *data)
+																 map<pair<int, int>, pair<int, vector<char>>> *data, unordered_map<string, unordered_set<string>> *unknown_codes)
 {
 	vector<pair<int, string>> ret;
 	vector<float> converted_Values;
@@ -301,6 +301,8 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 	final_tm.reserve(TimeStamps_len);
 	converted_Values.reserve(Values_len);
 	MedRepository &rep = ma.get_rep();
+	if (unknown_codes == NULL)
+		unknown_codes = ma.get_unknown_codes(patient_id);
 
 	try
 	{
@@ -330,7 +332,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 						// MWARN("Found undefined code for signal \"%s\" and value \"%s\"\n",
 						//	sig.c_str(), Values[Values_i]);
 						// TODO: Use same simple error collection inside "ret" variable. No need to collecte inside "get_unknown_codes"
-						(*ma.get_unknown_codes(patient_id))[sig].insert(Values[Values_i]);
+						(*unknown_codes)[sig].insert(Values[Values_i]);
 						skip_val = true;
 					}
 				}
@@ -1271,6 +1273,7 @@ int MedialInfraAlgoMarker::CalculateByType(int CalculateType, char *request, cha
 	timer.start();
 #endif
 
+	unordered_map<int, unordered_map<string, unordered_set<string>>> current_unknown_codes;
 	bool has_load_data = false;
 	MedPidRepository *rep = &ma.get_rep();
 	map<pair<int, int>, pair<int, vector<char>>> new_data;
@@ -1291,7 +1294,7 @@ int MedialInfraAlgoMarker::CalculateByType(int CalculateType, char *request, cha
 		{
 			has_load_data = true;
 			int load_status = LOAD_DATA_STATUS_SUCC;
-			if (AddJsonData(j_i.sample_pid, jreq_i["data"], vec_messages, &new_data) != AM_OK_RC)
+			if (AddJsonData(j_i.sample_pid, jreq_i["data"], vec_messages, &new_data, &current_unknown_codes[j_i.sample_pid]) != AM_OK_RC)
 			{
 				load_status = LOAD_DATA_STATUS_NON_FATAL;
 				if (is_fatal_load_message(vec_messages))
@@ -1308,6 +1311,7 @@ int MedialInfraAlgoMarker::CalculateByType(int CalculateType, char *request, cha
 		++req_id;
 	}
 	MedPidRepository rep_copy;
+
 	if (has_load_data)
 	{
 		rep_copy.sigs = rep->sigs; // Created a copy - TODO - smarter copy of all data by pointers, except data
@@ -1378,7 +1382,10 @@ int MedialInfraAlgoMarker::CalculateByType(int CalculateType, char *request, cha
 		{
 			try
 			{
-				req_i.sanity_test_rc = ist.test_if_ok(req_i.sample_pid, (long long)req_i.conv_time, *ma.get_unknown_codes(req_i.sample_pid), req_i.sanity_res);
+				unordered_map<string, unordered_set<string>> *p_unknown = ma.get_unknown_codes(req_i.sample_pid);
+				if (has_load_data)
+					p_unknown = &current_unknown_codes[req_i.sample_pid];
+				req_i.sanity_test_rc = ist.test_if_ok(req_i.sample_pid, (long long)req_i.conv_time, *p_unknown, req_i.sanity_res);
 				int rc_res = ist.test_if_ok(*rep, req_i.sample_pid, (long long)req_i.conv_time, req_i.sanity_res);
 				if (rc_res < 1)
 					req_i.sanity_test_rc = rc_res;
@@ -1804,10 +1811,9 @@ string construct_message(int code, const string &msg)
 }
 
 //-----------------------------------------------------------------------------------
-int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<string> &messages, map<pair<int, int>, pair<int, vector<char>>> *data)
+int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<string> &messages, map<pair<int, int>, pair<int, vector<char>>> *data, unordered_map<string, unordered_set<string>> *unknown_codes)
 {
 	string current_time = "";
-
 	MedRepository &rep = ma.get_rep();
 	if (data == NULL) // default pointer to global rep
 		data = &rep.in_mem_rep.data;
@@ -2245,7 +2251,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 
 				if (good_sig)
 				{
-					vector<pair<int, string>> ret = AddDataStr_data(patient_id, sig.c_str(), n_times, p_times, n_vals, str_values, data);
+					vector<pair<int, string>> ret = AddDataStr_data(patient_id, sig.c_str(), n_times, p_times, n_vals, str_values, data, unknown_codes);
 					if ((!ret.empty() && ret[0].first != AM_OK_RC) || ret.size() > 1)
 					{
 						char buf[5000];
