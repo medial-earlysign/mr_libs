@@ -341,7 +341,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 					// Check if valid value:
 					try
 					{
-						stof(Values[Values_i]);
+						med_stof(Values[Values_i]);
 					}
 					catch (...)
 					{
@@ -391,7 +391,7 @@ vector<pair<int, string>> MedialInfraAlgoMarker::AddDataStr_data(int patient_id,
 					{
 						try
 						{
-							val = stof(Values[current_index]);
+							val = med_stof(Values[current_index]);
 						}
 						catch (...)
 						{
@@ -1155,7 +1155,7 @@ int get_msg_status(const string &msg)
 	{
 		try
 		{
-			code = stoi(msg.substr(1, end_idx - 1));
+			code = med_stoi(msg.substr(1, end_idx - 1));
 		}
 		catch (...)
 		{
@@ -1690,11 +1690,11 @@ int MedialInfraAlgoMarker::read_config(const string &conf_f)
 				else if (fields[0] == "MODEL")
 					model_fname = fields[1];
 				else if (fields[0] == "ALLOW_REP_ADJUSTMENTS")
-					allow_rep_adjustments = stoi(fields[1]) > 0;
+					allow_rep_adjustments = med_stoi(fields[1]) > 0;
 				else if (fields[0] == "MODEL_END_STAGE")
 					try
 					{
-						model_end_stage = stoi(fields[1]);
+						model_end_stage = med_stoi(fields[1]);
 					}
 					catch (...)
 					{
@@ -1839,7 +1839,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 				{
 					try
 					{
-						patient_id = stoll(js["patient_id"].get<string>());
+						patient_id = med_stoll(js["patient_id"].get<string>());
 					}
 					catch (...)
 					{
@@ -1863,7 +1863,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 					{
 						try
 						{
-							patient_id = stoll(js["pid"].get<string>());
+							patient_id = med_stoll(js["pid"].get<string>());
 						}
 						catch (...)
 						{
@@ -2023,7 +2023,7 @@ int MedialInfraAlgoMarker::AddJsonData(int patient_id, json &j_data, vector<stri
 								{
 									try
 									{
-										times.push_back(stoll(t.get<string>()));
+										times.push_back(med_stoll(t.get<string>()));
 										++nt;
 										continue;
 									}
@@ -2527,7 +2527,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 			if (json_verify_key(jreq, "patient_id", 0, ""))
 			{
 				if (jreq["patient_id"].is_string())
-					req_i.sample_pid = stoi(jreq["patient_id"].get<string>());
+					req_i.sample_pid = med_stoi(jreq["patient_id"].get<string>());
 				else if (jreq["patient_id"].is_number_integer())
 					req_i.sample_pid = jreq["patient_id"].get<int>();
 				else
@@ -2539,7 +2539,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 			else
 			{
 				if (jreq["pid"].is_string())
-					req_i.sample_pid = stoi(jreq["pid"].get<string>());
+					req_i.sample_pid = med_stoi(jreq["pid"].get<string>());
 				else if (jreq["pid"].is_number_integer())
 					req_i.sample_pid = jreq["pid"].get<int>();
 				else
@@ -2555,7 +2555,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 			if (json_verify_key(jreq, "scoreOnDate", 0, ""))
 			{
 				if (jreq["scoreOnDate"].is_string())
-					req_i.sample_time = stoll(jreq["scoreOnDate"].get<string>());
+					req_i.sample_time = med_stoll(jreq["scoreOnDate"].get<string>());
 				else if (jreq["scoreOnDate"].is_number_integer())
 					req_i.sample_time = jreq["scoreOnDate"].get<long long>();
 				else
@@ -2567,7 +2567,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 			else
 			{
 				if (jreq["time"].is_string())
-					req_i.sample_time = stoll(jreq["time"].get<string>());
+					req_i.sample_time = med_stoll(jreq["time"].get<string>());
 				else if (jreq["time"].is_number_integer())
 					req_i.sample_time = jreq["time"].get<long long>();
 				else
@@ -2581,7 +2581,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 		if (json_verify_key(jreq, "load", 0, ""))
 		{
 			if (jreq["load"].is_string())
-				req_i.load_data = stoi(jreq["load"].get<string>());
+				req_i.load_data = med_stoi(jreq["load"].get<string>());
 			else if (jreq["load"].is_number_integer())
 				req_i.load_data = jreq["load"].get<int>();
 			else
@@ -2633,7 +2633,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 				if ((type == PREDICTION_SOURCE_UNKNOWN || type == PREDICTION_SOURCE_PREDICTIONS) && (field.length() > 5) && (field.substr(0, 5) == "pred_"))
 				{
 					type = PREDICTION_SOURCE_PREDICTIONS;
-					pred_channel = stoi(field.substr(5));
+					pred_channel = med_stoi(field.substr(5));
 				}
 
 				if (type == PREDICTION_SOURCE_UNKNOWN)
@@ -2667,7 +2667,7 @@ int json_parse_request(json &jreq, json_req_info &defaults, json_req_info &req_i
 			{
 				try
 				{
-					req_i.flag_threshold_numeric = stof(jreq["flag_threshold_numeric"].get<string>());
+					req_i.flag_threshold_numeric = med_stof(jreq["flag_threshold_numeric"].get<string>());
 				}
 				catch (...)
 				{

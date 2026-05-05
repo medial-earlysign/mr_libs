@@ -63,7 +63,7 @@ int InputTesterAttr::init(map<string, string>& mapper)
 	for (auto entry : mapper) {
 		string field = entry.first;
 		if (field == "attr_name" || field == "name") { attr_name = entry.second; }
-		else if (field == "max") attr_max_val = stof(entry.second);
+		else if (field == "max") attr_max_val = med_stof(entry.second);
 	}
 
 	return 0;
@@ -338,11 +338,11 @@ int InputSanityTester::read_config(const string &f_conf)
 						else
 							i_test->max_outliers_flag = 0; // default is having format problems;
 					}
-					if (fields.size() >= 6) i_test->externl_rc = stoi(fields[5]);
-					if (fields.size() >= 7) i_test->internal_rc = stoi(fields[6]);
+					if (fields.size() >= 6) i_test->externl_rc = med_stoi(fields[5]);
+					if (fields.size() >= 7) i_test->internal_rc = med_stoi(fields[6]);
 					if (fields.size() >= 8) i_test->err_msg = fields[7];
 					if (fields.size() >= 9) i_test->cant_evel_msg = fields[8];
-					if (fields.size() >= 10) i_test->stop_processing_more_errors = stoi(fields[9]) > 0;
+					if (fields.size() >= 10) i_test->stop_processing_more_errors = med_stoi(fields[9]) > 0;
 
 					i_test->input_from_string("base_path=" + base_path + ";" + i_test->tester_params);
 
@@ -358,7 +358,7 @@ int InputSanityTester::read_config(const string &f_conf)
 
 			}
 			else if (fields[0] == "TESTER_NAME") name = fields[1];
-			else if (fields[0] == "MAX_OVERLALL_OUTLIERS") max_overall_outliers = stoi(fields[1]);
+			else if (fields[0] == "MAX_OVERLALL_OUTLIERS") max_overall_outliers = med_stoi(fields[1]);
 		}
 	}
 

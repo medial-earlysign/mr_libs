@@ -19,6 +19,7 @@
 #include <regex>
 
 using namespace std;
+#define LOCAL_SECTION LOG_INFRA
 
 #define SRL_LOG(...)	global_logger.log(LOG_SRL, LOG_DEF_LEVEL, __VA_ARGS__)
 #define SRL_LOG_D(...)	global_logger.log(LOG_SRL, DEBUG_LOG_LEVEL, __VA_ARGS__)
@@ -95,8 +96,41 @@ template <class T> void copy_serializable_object(T &source, T& dst) {
 
 
 // generalized safe stoi/stof
-float med_stof(const string& _Str);
-int med_stoi(const string& _Str);
+inline float med_stof(const string &_Str)
+{
+	try
+	{
+		return stof(_Str);
+	}
+	catch (exception &e)
+	{
+		HMTHROW_AND_ERR("invalid stof argument [%s]\n", _Str.c_str());
+	}
+}
+
+inline int med_stoi(const string &_Str)
+{
+	try
+	{
+		return stoi(_Str);
+	}
+	catch (exception &e)
+	{
+		HMTHROW_AND_ERR("invalid stoi argument [%s]\n", _Str.c_str());
+	}
+}
+
+inline long long med_stoll(const string &_Str)
+{
+	try
+	{
+		return stoll(_Str);
+	}
+	catch (exception &e)
+	{
+		HMTHROW_AND_ERR("invalid stoll argument [%s]\n", _Str.c_str());
+	}
+}
 
 /*! @def MEDSERIALIZE_SUPPORT(Type)
 * To Join the MedSerialize Wagon :\n
