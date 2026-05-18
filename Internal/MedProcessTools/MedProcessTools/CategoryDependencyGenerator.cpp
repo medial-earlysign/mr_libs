@@ -711,7 +711,7 @@ int CategoryDependencyGenerator::_learn(MedPidRepository& rep, const MedSamples&
 				for (size_t jj = 0; jj < age_bin_cnt; ++jj)
 					if (!it->second[ii][jj].empty())
 						print_or_log(fw_verbose, use_file, "Gender_idx=%zu,Age=[%d-%d]\tctrls:%d\tcases:%d\ttot_ctrls:%d\ttot_cases:%d\n",
-							ii, min_age + jj * age_bin, min_age + (jj + 1) * age_bin, it->second[ii][jj][2], it->second[ii][jj][3],
+							ii, int(min_age + jj * age_bin), int(min_age + (jj + 1) * age_bin), it->second[ii][jj][2], it->second[ii][jj][3],
 							total_stats[ii][jj][0], total_stats[ii][jj][1]);
 		}
 	}

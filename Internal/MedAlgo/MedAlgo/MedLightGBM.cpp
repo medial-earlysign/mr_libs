@@ -129,7 +129,7 @@ namespace LightGBM {
 		// create training metric
 		Log::Info("training eval bit %d", config_.is_provide_training_metric);
 		if (config_.is_provide_training_metric) {
-			Log::Info("Creating training metrics: types %d [%s]", 
+			Log::Info("Creating training metrics: types %zu [%s]", 
 				config_.metric.size(), medial::io::get_list(config_.metric, ", ").c_str());
 			for (auto metric_type : config_.metric) {
 				auto metric = std::unique_ptr<Metric>(Metric::CreateMetric(metric_type, config_));
@@ -208,11 +208,11 @@ namespace LightGBM {
 					}
 
 					Log::Info("%f seconds elapsed, finished iteration %d. [%s]",
-						std::chrono::duration<double, std::milli>(end_time - start_time) * 1e-3, iter + 1,
+						(std::chrono::duration<double, std::milli>(end_time - start_time) * 1e-3).count(), iter + 1,
 						eval_str.str().c_str());
 				}
 				else
-					Log::Info("%f seconds elapsed, finished iteration %d", std::chrono::duration<double, std::milli>(end_time - start_time) * 1e-3, iter + 1);
+					Log::Info("%f seconds elapsed, finished iteration %d", (std::chrono::duration<double, std::milli>(end_time - start_time) * 1e-3).count(), iter + 1);
 			}
 		}
 		Log::Info("Finished training");
