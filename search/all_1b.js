@@ -124,7 +124,7 @@ var searchData=
   ['pardisollt_121',['PardisoLLT',['../classEigen_1_1PardisoLLT.html',1,'Eigen']]],
   ['pardisolu_122',['PardisoLU',['../classEigen_1_1PardisoLU.html',1,'Eigen']]],
   ['pardisoparameterarray_123',['pardisoParameterArray',['../classEigen_1_1PardisoImpl.html#a7125c32e9cd2f25dfd74f9df9f183697',1,'Eigen::PardisoImpl']]],
-  ['parent_124',['parent',['../classxgboost_1_1RegTree_1_1Node.html#a0e35e2c95ad437dfd46aad57ced6199c',1,'xgboost::RegTree::Node::Parent()'],['../classjson__parser_1_1Tree.html#af0ac38a600cd59c8effd9698c23a6534',1,'json_parser.Tree.parent()'],['../classbart__node.html#a46cd5918135daf5f42d1e3ba573b6b48',1,'bart_node::parent']]],
+  ['parent_124',['parent',['../classjson__parser_1_1Tree.html#af0ac38a600cd59c8effd9698c23a6534',1,'json_parser.Tree.parent()'],['../classbart__node.html#a46cd5918135daf5f42d1e3ba573b6b48',1,'bart_node::parent'],['../classxgboost_1_1RegTree_1_1Node.html#a0e35e2c95ad437dfd46aad57ced6199c',1,'xgboost::RegTree::Node::Parent()']]],
   ['parent_5fleaf_5fhistogram_5farray_5f_125',['parent_leaf_histogram_array_',['../classLightGBM_1_1SerialTreeLearner.html#a1e629fb1395179fb1713fae2d77ccf59',1,'LightGBM::SerialTreeLearner']]],
   ['parent_5fpointer_126',['parent_pointer',['../classjson__pointer.html#aa03c0c1206e171342d27a4583258858b',1,'json_pointer']]],
   ['parquet_5fparser_2eh_127',['parquet_parser.h',['../parquet__parser_8h.html',1,'']]],
