@@ -400,15 +400,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 <div class="line">            <span class="keywordflow">for</span> (<span class="keyword">auto</span> ti = tree_args.begin(); ti != tree_args.end(); ++ti)</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;k&quot;</span>)</div>
-<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a6df80fec0463d6cc57fa2f00779bccba">k</a> = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(ti-&gt;second);</div>
+<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a6df80fec0463d6cc57fa2f00779bccba">k</a> = stof(ti-&gt;second);</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;alpha&quot;</span>)</div>
-<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#ae0b919904a5e99973398d310026aaaf4">alpha</a> = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(ti-&gt;second);</div>
+<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#ae0b919904a5e99973398d310026aaaf4">alpha</a> = stof(ti-&gt;second);</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;beta&quot;</span>)</div>
-<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a8a5aaf61586d741d40f9eb4dbade250f">beta</a> = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(ti-&gt;second);</div>
+<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a8a5aaf61586d741d40f9eb4dbade250f">beta</a> = stof(ti-&gt;second);</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;lambda&quot;</span>)</div>
-<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a5e950fb0d25aa61543dd7fb3bc0df292">lambda</a> = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(ti-&gt;second);</div>
+<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a5e950fb0d25aa61543dd7fb3bc0df292">lambda</a> = stof(ti-&gt;second);</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;nu&quot;</span>)</div>
-<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a17174a6c99c5a5afc3b2da4dd0f2b75c">nu</a> = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(ti-&gt;second);</div>
+<div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#a17174a6c99c5a5afc3b2da4dd0f2b75c">nu</a> = stof(ti-&gt;second);</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;min_obs_in_node&quot;</span>)</div>
 <div class="line">                    tree_params.<a class="code hl_variable" href="classbart__params.html#aa8814ebd2faa2ed9e8b51559a153b2ab">min_obs_in_node</a> = stoi(ti-&gt;second);</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ti-&gt;first == <span class="stringliteral">&quot;data_prior_type&quot;</span>) {</div>
@@ -437,7 +437,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 <div class="ttc" id="aclassbart__params_html_aa8814ebd2faa2ed9e8b51559a153b2ab"><div class="ttname"><a href="classbart__params.html#aa8814ebd2faa2ed9e8b51559a153b2ab">bart_params::min_obs_in_node</a></div><div class="ttdeci">int min_obs_in_node</div><div class="ttdoc">minimal allowed observations in node</div><div class="ttdef"><b>Definition</b> BART.h:113</div></div>
 <div class="ttc" id="aclassbart__params_html_ac8b3b9759e0a9aaa698109afef0cd412"><div class="ttname"><a href="classbart__params.html#ac8b3b9759e0a9aaa698109afef0cd412">bart_params::set_classification</a></div><div class="ttdeci">void set_classification(int num_trees)</div><div class="ttdoc">an initializer for classification problems</div><div class="ttdef"><b>Definition</b> BART.h:144</div></div>
 <div class="ttc" id="aclassbart__params_html_ae0b919904a5e99973398d310026aaaf4"><div class="ttname"><a href="classbart__params.html#ae0b919904a5e99973398d310026aaaf4">bart_params::alpha</a></div><div class="ttdeci">float alpha</div><div class="ttdoc">prior for tree structure: alpha * (1 + depth(node)) ^ -beta</div><div class="ttdef"><b>Definition</b> BART.h:115</div></div>
-<div class="ttc" id="anamespacedmlc_html_a43a149fb880b527d393975a884255341"><div class="ttname"><a href="namespacedmlc.html#a43a149fb880b527d393975a884255341">dmlc::stof</a></div><div class="ttdeci">float stof(const std::string &amp;value, size_t *pos=nullptr)</div><div class="ttdoc">A faster implementation of stof(). See documentation of std::stof() for more information....</div><div class="ttdef"><b>Definition</b> strtonum.h:467</div></div>
 </div><!-- fragment --> 
 <p>Reimplemented from <a class="el" href="classMedPredictor.html">MedPredictor</a>.</p>
 
@@ -608,7 +607,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:34 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:26 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

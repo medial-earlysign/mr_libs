@@ -2,7 +2,7 @@ var searchData=
 [
   ['val_5fidx_0',['val_idx',['../structval__idx.html',1,'']]],
   ['valind_1',['ValInd',['../structValInd.html',1,'']]],
-  ['value_2',['value',['../classjson11_1_1Value.html',1,'json11::Value&lt; tag, T &gt;'],['../classxgboost_1_1Value.html',1,'xgboost::Value']]],
+  ['value_2',['Value',['../classjson11_1_1Value.html',1,'json11']]],
   ['value_3c_20json_3a_3aarray_2c_20json_3a_3aarray_20_3e_3',['Value&lt; Json::ARRAY, Json::array &gt;',['../classjson11_1_1Value.html',1,'json11']]],
   ['value_3c_20json_3a_3abool_2c_20bool_20_3e_4',['Value&lt; Json::BOOL, bool &gt;',['../classjson11_1_1Value.html',1,'json11']]],
   ['value_3c_20json_3a_3anul_2c_20nullstruct_20_3e_5',['Value&lt; Json::NUL, NullStruct &gt;',['../classjson11_1_1Value.html',1,'json11']]],
@@ -13,9 +13,8 @@ var searchData=
   ['valuecleanerparams_10',['ValueCleanerParams',['../classValueCleanerParams.html',1,'']]],
   ['vecmoments_11',['VecMoments',['../classVecMoments.html',1,'']]],
   ['vector_5fser_12',['VECTOR_SER',['../structVECTOR__SER.html',1,'']]],
-  ['version_13',['Version',['../structxgboost_1_1Version.html',1,'xgboost']]],
-  ['versioniterator_14',['versionIterator',['../classversionIterator.html',1,'']]],
-  ['virtualfilereader_15',['VirtualFileReader',['../structLightGBM_1_1VirtualFileReader.html',1,'LightGBM']]],
-  ['virtualfilewriter_16',['VirtualFileWriter',['../structLightGBM_1_1VirtualFileWriter.html',1,'LightGBM']]],
-  ['votingparalleltreelearner_17',['VotingParallelTreeLearner',['../classLightGBM_1_1VotingParallelTreeLearner.html',1,'LightGBM']]]
+  ['versioniterator_13',['versionIterator',['../classversionIterator.html',1,'']]],
+  ['virtualfilereader_14',['VirtualFileReader',['../structLightGBM_1_1VirtualFileReader.html',1,'LightGBM']]],
+  ['virtualfilewriter_15',['VirtualFileWriter',['../structLightGBM_1_1VirtualFileWriter.html',1,'LightGBM']]],
+  ['votingparalleltreelearner_16',['VotingParallelTreeLearner',['../classLightGBM_1_1VotingParallelTreeLearner.html',1,'LightGBM']]]
 ];

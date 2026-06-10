@@ -93,7 +93,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;assert.h&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="math_8h.html">math.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;math.h&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;map&gt;</span></div>
@@ -109,7 +109,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define MED_DEFAULT_MIN_TRIM            -1e9</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define MED_DEFAULT_MAX_TRIM             1e9</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// general useful routines for various statistics given two vectors (usually score + labels)</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
@@ -176,13 +176,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">double</span> mean(<span class="keyword">const</span> vector&lt;T&gt; &amp;v1, T missing_value, <span class="keywordtype">int</span>&amp; n, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL);</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">double</span> std_without_cleaning(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T mean, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">double</span> <a class="code hl_namespace" href="namespacestd.html">std</a>(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T mean, T missing_value, <span class="keywordtype">int</span>&amp; n, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">double</span> std(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T mean, T missing_value, <span class="keywordtype">int</span>&amp; n, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL);</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> get_mean_and_std_without_cleaning(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T&amp; mean, T&amp; <a class="code hl_namespace" href="namespacestd.html">std</a>, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL) {</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            mean = medial::stats::mean_without_cleaning(v, weights); <a class="code hl_namespace" href="namespacestd.html">std</a> = medial::stats::std_without_cleaning(v, mean, weights);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> get_mean_and_std_without_cleaning(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T&amp; mean, T&amp; std, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL) {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            mean = medial::stats::mean_without_cleaning(v, weights); std = medial::stats::std_without_cleaning(v, mean, weights);</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        }</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> get_mean_and_std(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T missing_value, <span class="keywordtype">int</span>&amp; n, T&amp; mean, T&amp; <a class="code hl_namespace" href="namespacestd.html">std</a>, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL) {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            mean = medial::stats::mean(v, missing_value, n, weights); <a class="code hl_namespace" href="namespacestd.html">std</a> = medial::stats::std(v, mean, missing_value, n, weights);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> get_mean_and_std(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T missing_value, <span class="keywordtype">int</span>&amp; n, T&amp; mean, T&amp; std, <span class="keyword">const</span> vector&lt;float&gt; *weights = NULL) {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            mean = medial::stats::mean(v, missing_value, n, weights); std = medial::stats::std(v, mean, missing_value, n, weights);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> get_z_transform(<span class="keyword">const</span> vector&lt;T&gt; &amp;v, T missing_value_in_v, T missing_value_z, vector&lt;T&gt; &amp;z);</div>
@@ -219,13 +219,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassMedMat_html"><div class="ttname"><a href="classMedMat.html">MedMat</a></div><div class="ttdef"><b>Definition</b> MedMat.h:63</div></div>
-<div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div><div class="ttdoc">Copyright 2015-2023 by XGBoost Contributors.</div></div>
 <div class="ttc" id="anamespacemedial_html"><div class="ttname"><a href="namespacemedial.html">medial</a></div><div class="ttdoc">medial namespace for function</div><div class="ttdef"><b>Definition</b> InfraMed.h:667</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> optional.h:396</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:26 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

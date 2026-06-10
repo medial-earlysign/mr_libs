@@ -525,7 +525,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 <div class="line">            vector&lt;string&gt; f;</div>
 <div class="line">            boost::split(f, s, boost::is_any_of(<span class="stringliteral">&quot;-/#&quot;</span>));</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; f.size(); j++)</div>
-<div class="line">                dropout_in_probs.push_back(<a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(f[j]));</div>
+<div class="line">                dropout_in_probs.push_back(stof(f[j]));</div>
 <div class="line">        }</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">if</span> (fields[i] == <span class="stringliteral">&quot;samp_ratio&quot;</span>) {</div>
@@ -533,10 +533,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 <div class="line">            vector&lt;string&gt; f;</div>
 <div class="line">            boost::split(f, s, boost::is_any_of(<span class="stringliteral">&quot;-/#&quot;</span>));</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; f.size(); j++)</div>
-<div class="line">                samp_ratio.push_back(<a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(f[j]));</div>
+<div class="line">                samp_ratio.push_back(stof(f[j]));</div>
 <div class="line">        }</div>
 <div class="ttc" id="aclassMedMicNet_html_ac78dd051013b01d702e5c34df4445cc2"><div class="ttname"><a href="classMedMicNet.html#ac78dd051013b01d702e5c34df4445cc2">MedMicNet::n_preds_per_sample</a></div><div class="ttdeci">int n_preds_per_sample() const</div><div class="ttdoc">Number of predictions per sample. typically 1 - but some models return several per sample (for exampl...</div><div class="ttdef"><b>Definition</b> MedMicNet.h:77</div></div>
-<div class="ttc" id="anamespacedmlc_html_a43a149fb880b527d393975a884255341"><div class="ttname"><a href="namespacedmlc.html#a43a149fb880b527d393975a884255341">dmlc::stof</a></div><div class="ttdeci">float stof(const std::string &amp;value, size_t *pos=nullptr)</div><div class="ttdoc">A faster implementation of stof(). See documentation of std::stof() for more information....</div><div class="ttdef"><b>Definition</b> strtonum.h:467</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -819,7 +818,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:34 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:26 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

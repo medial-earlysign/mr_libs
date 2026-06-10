@@ -742,22 +742,22 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
 <div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>  <span class="keywordtype">void</span> DynamicChangeSize(<span class="keyword">const</span> <a class="code hl_class" href="classLightGBM_1_1Dataset.html">Dataset</a>* train_data, <span class="keyword">const</span> <a class="code hl_struct" href="structLightGBM_1_1Config.html">Config</a>* config, <span class="keywordtype">int</span> cache_size, <span class="keywordtype">int</span> total_size) {</div>
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>    <span class="keywordflow">if</span> (feature_metas_.empty()) {</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>      <span class="keywordtype">int</span> num_feature = train_data-&gt;num_features();</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>      <span class="keywordtype">int</span> num_feature = train_data-&gt;<a class="code hl_function" href="classLightGBM_1_1Dataset.html#ad43fc97d594df791bb0ca713c8805089">num_features</a>();</div>
 <div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>      feature_metas_.resize(num_feature);</div>
 <div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span><span class="preprocessor">      #pragma omp parallel for schedule(static, 512) if (num_feature &gt;= 1024)</span></div>
 <div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_feature; ++i) {</div>
 <div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>        feature_metas_[i].num_bin = train_data-&gt;FeatureNumBin(i);</div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        feature_metas_[i].default_bin = train_data-&gt;FeatureBinMapper(i)-&gt;GetDefaultBin();</div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>        feature_metas_[i].missing_type = train_data-&gt;FeatureBinMapper(i)-&gt;missing_type();</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        feature_metas_[i].default_bin = train_data-&gt;FeatureBinMapper(i)-&gt;<a class="code hl_function" href="classLightGBM_1_1BinMapper.html#ad08ee4663dff6fe8afb5241acc253abd">GetDefaultBin</a>();</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>        feature_metas_[i].missing_type = train_data-&gt;FeatureBinMapper(i)-&gt;<a class="code hl_function" href="classLightGBM_1_1BinMapper.html#a183c5c4ec26674d4ad3cda55a7e5abc3">missing_type</a>();</div>
 <div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>        feature_metas_[i].monotone_type = train_data-&gt;FeatureMonotone(i);</div>
 <div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>        feature_metas_[i].penalty = train_data-&gt;FeaturePenalte(i);</div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>        <span class="keywordflow">if</span> (train_data-&gt;FeatureBinMapper(i)-&gt;GetDefaultBin() == 0) {</div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>        <span class="keywordflow">if</span> (train_data-&gt;FeatureBinMapper(i)-&gt;<a class="code hl_function" href="classLightGBM_1_1BinMapper.html#ad08ee4663dff6fe8afb5241acc253abd">GetDefaultBin</a>() == 0) {</div>
 <div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>          feature_metas_[i].bias = 1;</div>
 <div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>          feature_metas_[i].bias = 0;</div>
 <div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>        }</div>
 <div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>        feature_metas_[i].config = config;</div>
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>        feature_metas_[i].bin_type = train_data-&gt;FeatureBinMapper(i)-&gt;bin_type();</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>        feature_metas_[i].bin_type = train_data-&gt;FeatureBinMapper(i)-&gt;<a class="code hl_function" href="classLightGBM_1_1BinMapper.html#a08266bc3561721a290e017c1d5ab3387">bin_type</a>();</div>
 <div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>      }</div>
 <div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>    }</div>
 <div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>    uint64_t num_total_bin = train_data-&gt;NumTotalBin();</div>
@@ -774,14 +774,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span><span class="preprocessor">    #pragma omp parallel for schedule(static)</span></div>
 <div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = old_cache_size; i &lt; cache_size; ++i) {</div>
 <div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>      OMP_LOOP_EX_BEGIN();</div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>      pool_[i].reset(<span class="keyword">new</span> FeatureHistogram[train_data-&gt;num_features()]);</div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>      pool_[i].reset(<span class="keyword">new</span> FeatureHistogram[train_data-&gt;<a class="code hl_function" href="classLightGBM_1_1Dataset.html#ad43fc97d594df791bb0ca713c8805089">num_features</a>()]);</div>
 <div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>      data_[i].resize(num_total_bin);</div>
 <div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>      uint64_t offset = 0;</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; train_data-&gt;num_features(); ++j) {</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; train_data-&gt;<a class="code hl_function" href="classLightGBM_1_1Dataset.html#ad43fc97d594df791bb0ca713c8805089">num_features</a>(); ++j) {</div>
 <div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        offset += <span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(train_data-&gt;SubFeatureBinOffset(j));</div>
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>        pool_[i][j].Init(data_[i].data() + offset, &amp;feature_metas_[j]);</div>
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        <span class="keyword">auto</span> num_bin = train_data-&gt;FeatureNumBin(j);</div>
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        <span class="keywordflow">if</span> (train_data-&gt;FeatureBinMapper(j)-&gt;GetDefaultBin() == 0) {</div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        <span class="keywordflow">if</span> (train_data-&gt;FeatureBinMapper(j)-&gt;<a class="code hl_function" href="classLightGBM_1_1BinMapper.html#ad08ee4663dff6fe8afb5241acc253abd">GetDefaultBin</a>() == 0) {</div>
 <div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>          num_bin -= 1;</div>
 <div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        }</div>
 <div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>        offset += <span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(num_bin);</div>
@@ -864,7 +864,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>}  <span class="comment">// namespace LightGBM</span></div>
 <div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span><span class="preprocessor">#endif   </span><span class="comment">// LightGBM_TREELEARNER_FEATURE_HISTOGRAM_HPP_</span></div>
 <div class="ttc" id="aclassLightGBM_1_1ArrayArgs_html"><div class="ttname"><a href="classLightGBM_1_1ArrayArgs.html">LightGBM::ArrayArgs</a></div><div class="ttdoc">Contains some operation for a array, e.g. ArgMax, TopK.</div><div class="ttdef"><b>Definition</b> array_args.h:14</div></div>
+<div class="ttc" id="aclassLightGBM_1_1BinMapper_html_a08266bc3561721a290e017c1d5ab3387"><div class="ttname"><a href="classLightGBM_1_1BinMapper.html#a08266bc3561721a290e017c1d5ab3387">LightGBM::BinMapper::bin_type</a></div><div class="ttdeci">BinType bin_type() const</div><div class="ttdoc">Get bin types.</div><div class="ttdef"><b>Definition</b> bin.h:171</div></div>
+<div class="ttc" id="aclassLightGBM_1_1BinMapper_html_a183c5c4ec26674d4ad3cda55a7e5abc3"><div class="ttname"><a href="classLightGBM_1_1BinMapper.html#a183c5c4ec26674d4ad3cda55a7e5abc3">LightGBM::BinMapper::missing_type</a></div><div class="ttdeci">MissingType missing_type() const</div><div class="ttdoc">Missing Type.</div><div class="ttdef"><b>Definition</b> bin.h:94</div></div>
+<div class="ttc" id="aclassLightGBM_1_1BinMapper_html_ad08ee4663dff6fe8afb5241acc253abd"><div class="ttname"><a href="classLightGBM_1_1BinMapper.html#ad08ee4663dff6fe8afb5241acc253abd">LightGBM::BinMapper::GetDefaultBin</a></div><div class="ttdeci">uint32_t GetDefaultBin() const</div><div class="ttdoc">Get the default bin when value is 0.</div><div class="ttdef"><b>Definition</b> bin.h:131</div></div>
 <div class="ttc" id="aclassLightGBM_1_1Dataset_html"><div class="ttname"><a href="classLightGBM_1_1Dataset.html">LightGBM::Dataset</a></div><div class="ttdoc">The main class of data set, which are used to traning or validation.</div><div class="ttdef"><b>Definition</b> dataset.h:278</div></div>
+<div class="ttc" id="aclassLightGBM_1_1Dataset_html_ad43fc97d594df791bb0ca713c8805089"><div class="ttname"><a href="classLightGBM_1_1Dataset.html#ad43fc97d594df791bb0ca713c8805089">LightGBM::Dataset::num_features</a></div><div class="ttdeci">int num_features() const</div><div class="ttdoc">Get Number of used features.</div><div class="ttdef"><b>Definition</b> dataset.h:528</div></div>
 <div class="ttc" id="aclassLightGBM_1_1FeatureHistogram_html"><div class="ttname"><a href="classLightGBM_1_1FeatureHistogram.html">LightGBM::FeatureHistogram</a></div><div class="ttdoc">FeatureHistogram is used to construct and store a histogram for a feature.</div><div class="ttdef"><b>Definition</b> feature_histogram.hpp:29</div></div>
 <div class="ttc" id="aclassLightGBM_1_1FeatureHistogram_html_a18e88384f4a1748bb19bfd181c5db428"><div class="ttname"><a href="classLightGBM_1_1FeatureHistogram.html#a18e88384f4a1748bb19bfd181c5db428">LightGBM::FeatureHistogram::is_splittable</a></div><div class="ttdeci">bool is_splittable()</div><div class="ttdoc">True if this histogram can be splitted.</div><div class="ttdef"><b>Definition</b> feature_histogram.hpp:431</div></div>
 <div class="ttc" id="aclassLightGBM_1_1FeatureHistogram_html_a19122ddd166d60f747d48df8caa87eab"><div class="ttname"><a href="classLightGBM_1_1FeatureHistogram.html#a19122ddd166d60f747d48df8caa87eab">LightGBM::FeatureHistogram::SizeOfHistgram</a></div><div class="ttdeci">int SizeOfHistgram() const</div><div class="ttdoc">Binary size of this histogram.</div><div class="ttdef"><b>Definition</b> feature_histogram.hpp:417</div></div>
@@ -894,7 +898,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:25 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

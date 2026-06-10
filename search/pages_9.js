@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['images_20logo_20xgboost_20logo_20svg_20width_20135_20extreme_20gradient_20boosting_0',['&lt;img src=&quot;https://xgboost.ai/images/logo/xgboost-logo.svg&quot; width=135/&gt;  eXtreme Gradient Boosting',['../md_External_2xgboost_2README.html',1,'']]],
-  ['img_20src_20https_3a_20xgboost_20ai_20images_20logo_20xgboost_20logo_20svg_20width_20135_20extreme_20gradient_20boosting_1',['&lt;img src=&quot;https://xgboost.ai/images/logo/xgboost-logo.svg&quot; width=135/&gt;  eXtreme Gradient Boosting',['../md_External_2xgboost_2README.html',1,'']]],
-  ['iterator_20to_20load_20data_20from_20external_20memory_2',['Defining a Custom Data Iterator to Load Data from External Memory',['../md_External_2xgboost_2demo_2c-api_2external-memory_2README.html',1,'']]]
+  ['machine_0',['LightGBM, Light Gradient Boosting Machine',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2README.html',1,'']]],
+  ['medial_20earlysign_20libraries_1',['Medial EarlySign Libraries',['../md_README.html',1,'']]],
+  ['medial_20earlysign_20python_20library_2',['Medial EarlySign Python Library',['../md_Internal_2MedPyExport_2generate__binding_2README.html',1,'']]],
+  ['medial_20libs_20documentation_3',['Welcome To Medial Libs Documentation',['../index.html',1,'']]],
+  ['medial_20python_20binding_4',['Medial Python Binding',['../md_Internal_2MedPyExport_2README.html',1,'']]],
+  ['microsoft_20open_20source_20code_20of_20conduct_5',['Microsoft Open Source Code of Conduct',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2CODE__OF__CONDUCT.html',1,'']]],
+  ['modifications_20of_20lightgbm_6',['Table/List of Key Modifications of LightGBM',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2docs_2Key-Events.html',1,'']]],
+  ['multiclass_20classification_20example_7',['Multiclass Classification Example',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2examples_2multiclass__classification_2README.html',1,'']]]
 ];

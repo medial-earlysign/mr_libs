@@ -1,21 +1,14 @@
 var searchData=
 [
-  ['json_0',['json',['../classxgboost_1_1Json.html',1,'xgboost::Json'],['../classjson11_1_1Json.html',1,'json11::Json']]],
+  ['json_0',['Json',['../classjson11_1_1Json.html',1,'json11']]],
   ['json_5freq_5fexport_1',['json_req_export',['../classjson__req__export.html',1,'']]],
   ['json_5freq_5finfo_2',['json_req_info',['../classjson__req__info.html',1,'']]],
-  ['jsonarray_3',['jsonarray',['../classjson11_1_1JsonArray.html',1,'json11::JsonArray'],['../classxgboost_1_1JsonArray.html',1,'xgboost::JsonArray']]],
-  ['jsonboolean_4',['jsonboolean',['../classjson11_1_1JsonBoolean.html',1,'json11::JsonBoolean'],['../classxgboost_1_1JsonBoolean.html',1,'xgboost::JsonBoolean']]],
+  ['jsonarray_3',['JsonArray',['../classjson11_1_1JsonArray.html',1,'json11']]],
+  ['jsonboolean_4',['JsonBoolean',['../classjson11_1_1JsonBoolean.html',1,'json11']]],
   ['jsondouble_5',['JsonDouble',['../classjson11_1_1JsonDouble.html',1,'json11']]],
-  ['jsongenerator_6',['JsonGenerator',['../classxgboost_1_1JsonGenerator.html',1,'xgboost']]],
-  ['jsonint_7',['JsonInt',['../classjson11_1_1JsonInt.html',1,'json11']]],
-  ['jsoninteger_8',['JsonInteger',['../classxgboost_1_1JsonInteger.html',1,'xgboost']]],
-  ['jsonnull_9',['jsonnull',['../classxgboost_1_1JsonNull.html',1,'xgboost::JsonNull'],['../classjson11_1_1JsonNull.html',1,'json11::JsonNull']]],
-  ['jsonnumber_10',['JsonNumber',['../classxgboost_1_1JsonNumber.html',1,'xgboost']]],
-  ['jsonobject_11',['jsonobject',['../classjson11_1_1JsonObject.html',1,'json11::JsonObject'],['../classxgboost_1_1JsonObject.html',1,'xgboost::JsonObject']]],
-  ['jsonobjectreadhelper_12',['JSONObjectReadHelper',['../classdmlc_1_1JSONObjectReadHelper.html',1,'dmlc']]],
-  ['jsonreader_13',['jsonreader',['../classdmlc_1_1JSONReader.html',1,'dmlc::JSONReader'],['../classxgboost_1_1JsonReader.html',1,'xgboost::JsonReader']]],
-  ['jsonstring_14',['jsonstring',['../classjson11_1_1JsonString.html',1,'json11::JsonString'],['../classxgboost_1_1JsonString.html',1,'xgboost::JsonString']]],
-  ['jsontypedarray_15',['JsonTypedArray',['../classxgboost_1_1JsonTypedArray.html',1,'xgboost']]],
-  ['jsonvalue_16',['JsonValue',['../classjson11_1_1JsonValue.html',1,'json11']]],
-  ['jsonwriter_17',['jsonwriter',['../classdmlc_1_1JSONWriter.html',1,'dmlc::JSONWriter'],['../classxgboost_1_1JsonWriter.html',1,'xgboost::JsonWriter']]]
+  ['jsonint_6',['JsonInt',['../classjson11_1_1JsonInt.html',1,'json11']]],
+  ['jsonnull_7',['JsonNull',['../classjson11_1_1JsonNull.html',1,'json11']]],
+  ['jsonobject_8',['JsonObject',['../classjson11_1_1JsonObject.html',1,'json11']]],
+  ['jsonstring_9',['JsonString',['../classjson11_1_1JsonString.html',1,'json11']]],
+  ['jsonvalue_10',['JsonValue',['../classjson11_1_1JsonValue.html',1,'json11']]]
 ];

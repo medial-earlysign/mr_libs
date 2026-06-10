@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['configentry_0',['ConfigEntry',['../classdmlc_1_1Config.html#afc2e054db64f1ece11f3bac84d775d12',1,'dmlc::Config']]],
-  ['const_5fptr_1',['const_ptr',['../classdmlc_1_1ThreadlocalAllocator.html#a88554f6659530504ff7201c7091e7bd2',1,'dmlc::ThreadlocalAllocator']]]
+  ['filtercohortfunc_0',['FilterCohortFunc',['../bootstrap_8h.html#ac8b4faa5c45e18d9fc95c231a5cad096',1,'bootstrap.h']]],
+  ['functiontype_1',['FunctionType',['../structLightGBM_1_1PredictionEarlyStopInstance.html#ad86b7ce4e6cc8cd8f16748294ffd8fbb',1,'LightGBM::PredictionEarlyStopInstance']]]
 ];

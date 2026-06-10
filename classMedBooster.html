@@ -566,7 +566,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 <div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;booster_type&quot;</span>)   { booster_type = f[++j]; }</div>
 <div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;loss_func&quot;</span>)      { loss_func = f[++j]; }</div>
 <div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;nrounds&quot;</span>)        { nrounds = stoi(f[++j]); }</div>
-<div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;shrinkage&quot;</span>)      { shrinkage = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(f[++j]); }</div>
+<div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;shrinkage&quot;</span>)      { shrinkage = stof(f[++j]); }</div>
 <div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;internal_model&quot;</span>) { internal_booster_model = f[++j]; }</div>
 <div class="line">                <span class="keywordflow">if</span> (f[j]==<span class="stringliteral">&quot;print&quot;</span>)          { print_flag = 1; }</div>
 <div class="line">            }</div>
@@ -575,7 +575,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 <div class="line">        <span class="keywordflow">if</span> (fields[i] == <span class="stringliteral">&quot;internal_params&quot;</span>) {</div>
 <div class="line">            internal_booster_params = fields[++i];</div>
 <div class="line">        }</div>
-<div class="ttc" id="anamespacedmlc_html_a43a149fb880b527d393975a884255341"><div class="ttname"><a href="namespacedmlc.html#a43a149fb880b527d393975a884255341">dmlc::stof</a></div><div class="ttdeci">float stof(const std::string &amp;value, size_t *pos=nullptr)</div><div class="ttdoc">A faster implementation of stof(). See documentation of std::stof() for more information....</div><div class="ttdef"><b>Definition</b> strtonum.h:467</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -794,7 +793,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>predict_thread</b> (v
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:34 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:26 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

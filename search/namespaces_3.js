@@ -1,21 +1,4 @@
 var searchData=
 [
-  ['dask_5fcallbacks_0',['dask_callbacks',['../namespacedask__callbacks.html',1,'']]],
-  ['dmlc_1',['dmlc',['../namespacedmlc.html',1,'']]],
-  ['dmlc_3a_3adata_2',['data',['../namespacedmlc_1_1data.html',1,'dmlc']]],
-  ['dmlc_3a_3aio_3a_3as3_3',['s3',['../namespacedmlc_1_1io_1_1s3.html',1,'dmlc::io']]],
-  ['dmlc_3a_3aserializer_4',['serializer',['../namespacedmlc_1_1serializer.html',1,'dmlc']]],
-  ['dmlc_5ftracker_5',['dmlc_tracker',['../namespacedmlc__tracker.html',1,'']]],
-  ['dmlc_5ftracker_3a_3akubernetes_6',['kubernetes',['../namespacedmlc__tracker_1_1kubernetes.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3alauncher_7',['launcher',['../namespacedmlc__tracker_1_1launcher.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3alocal_8',['local',['../namespacedmlc__tracker_1_1local.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3amesos_9',['mesos',['../namespacedmlc__tracker_1_1mesos.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3ampi_10',['mpi',['../namespacedmlc__tracker_1_1mpi.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3aopts_11',['opts',['../namespacedmlc__tracker_1_1opts.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3asge_12',['sge',['../namespacedmlc__tracker_1_1sge.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3aslurm_13',['slurm',['../namespacedmlc__tracker_1_1slurm.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3assh_14',['ssh',['../namespacedmlc__tracker_1_1ssh.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3asubmit_15',['submit',['../namespacedmlc__tracker_1_1submit.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3atracker_16',['tracker',['../namespacedmlc__tracker_1_1tracker.html',1,'dmlc_tracker']]],
-  ['dmlc_5ftracker_3a_3ayarn_17',['yarn',['../namespacedmlc__tracker_1_1yarn.html',1,'dmlc_tracker']]]
+  ['parameter_5fgenerator_0',['parameter_generator',['../namespaceparameter__generator.html',1,'']]]
 ];

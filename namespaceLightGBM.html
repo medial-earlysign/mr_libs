@@ -140,7 +140,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classLightGBM_1_1DART.html" title="DART algorithm implementation. including Training, prediction, bagging.">DART</a> algorithm implementation. including Training, prediction, bagging.  <a href="classLightGBM_1_1DART.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightGBM_1_1DataParallelTreeLearner.html">DataParallelTreeLearner</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data parallel learning algorithm. Workers use local data to construct histograms locally, then sync up global histograms. It is recommonded used when data is large or #feature is small.  <a href="classLightGBM_1_1DataParallelTreeLearner.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data parallel learning algorithm. Workers use local data to construct histograms locally, then sync up global histograms. It is recommonded used when #data is large or #feature is small.  <a href="classLightGBM_1_1DataParallelTreeLearner.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightGBM_1_1DataPartition.html">DataPartition</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classLightGBM_1_1DataPartition.html" title="DataPartition is used to store the the partition of data on tree.">DataPartition</a> is used to store the the partition of data on tree.  <a href="classLightGBM_1_1DataPartition.html#details">More...</a><br /></td></tr>
@@ -174,7 +174,7 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightGBM_1_1FeatureMetainfo.html">FeatureMetainfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightGBM_1_1FeatureParallelTreeLearner.html">FeatureParallelTreeLearner</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feature parallel learning algorithm. Different machine will find best split on different features, then sync global best split It is recommonded used when data is small or #feature is large.  <a href="classLightGBM_1_1FeatureParallelTreeLearner.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feature parallel learning algorithm. Different machine will find best split on different features, then sync global best split It is recommonded used when #data is small or #feature is large.  <a href="classLightGBM_1_1FeatureParallelTreeLearner.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightGBM_1_1GammaDevianceMetric.html">GammaDevianceMetric</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -363,7 +363,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for writing files from buffers.  <a href="structLightGBM_1_1VirtualFileWriter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightGBM_1_1VotingParallelTreeLearner.html">VotingParallelTreeLearner</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voting based data parallel learning algorithm. Like data parallel, but not aggregate histograms for all features. Here using voting to reduce features, and only aggregate histograms for selected features. When data is large and #feature is large, you can use this to have better speed-up.  <a href="classLightGBM_1_1VotingParallelTreeLearner.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voting based data parallel learning algorithm. Like data parallel, but not aggregate histograms for all features. Here using voting to reduce features, and only aggregate histograms for selected features. When #data is large and #feature is large, you can use this to have better speed-up.  <a href="classLightGBM_1_1VotingParallelTreeLearner.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -551,7 +551,7 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kNumFastIndex
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:35 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:27 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -1,22 +1,12 @@
 var searchData=
 [
-  ['ubjreader_0',['UBJReader',['../classxgboost_1_1UBJReader.html',1,'xgboost']]],
-  ['ubjwriter_1',['UBJWriter',['../classxgboost_1_1UBJWriter.html',1,'xgboost']]],
-  ['unifiedsig_2',['UnifiedSig',['../classUnifiedSig.html',1,'']]],
-  ['unifiedsignalsapis_3',['UnifiedSignalsAPIs',['../classUnifiedSignalsAPIs.html',1,'']]],
-  ['unifiedsmokinggenerator_4',['UnifiedSmokingGenerator',['../classUnifiedSmokingGenerator.html',1,'']]],
-  ['univariatefeatureselector_5',['UnivariateFeatureSelector',['../classUnivariateFeatureSelector.html',1,'']]],
-  ['univariatesamplesgenerator_6',['UnivariateSamplesGenerator',['../classUnivariateSamplesGenerator.html',1,'']]],
-  ['univariateselectionparams_7',['univariateSelectionParams',['../classunivariateSelectionParams.html',1,'']]],
-  ['universalsigvec_5flegacy_8',['UniversalSigVec_legacy',['../classUniversalSigVec__legacy.html',1,'']]],
-  ['universalsigvec_5fmem_5flegacy_9',['UniversalSigVec_mem_legacy',['../classUniversalSigVec__mem__legacy.html',1,'']]],
-  ['unsignedfloatbase10_10',['UnsignedFloatBase10',['../structxgboost_1_1detail_1_1UnsignedFloatBase10.html',1,'xgboost::detail']]],
-  ['unsignedfloatbase2_11',['UnsignedFloatBase2',['../structxgboost_1_1detail_1_1UnsignedFloatBase2.html',1,'xgboost::detail']]],
-  ['updatableparam_12',['UpdatableParam',['../structUpdatableParam.html',1,'']]],
-  ['updateretatest_13',['UpdaterEtaTest',['../classxgboost_1_1UpdaterEtaTest.html',1,'xgboost']]],
-  ['updatertreestattest_14',['UpdaterTreeStatTest',['../classxgboost_1_1UpdaterTreeStatTest.html',1,'xgboost']]],
-  ['urispec_15',['URISpec',['../classdmlc_1_1io_1_1URISpec.html',1,'dmlc::io']]],
-  ['usvsiterator_16',['UsvsIterator',['../classUsvsIterator.html',1,'']]],
-  ['utilstest_17',['UtilsTest',['../classtest__distributed_1_1test__with__spark_1_1utils_1_1UtilsTest.html',1,'test_distributed::test_with_spark::utils']]],
-  ['utilunsafe_18',['UtilUnsafe',['../classml_1_1dmlc_1_1xgboost4j_1_1java_1_1util_1_1UtilUnsafe.html',1,'ml::dmlc::xgboost4j::java::util']]]
+  ['unifiedsig_0',['UnifiedSig',['../classUnifiedSig.html',1,'']]],
+  ['unifiedsignalsapis_1',['UnifiedSignalsAPIs',['../classUnifiedSignalsAPIs.html',1,'']]],
+  ['unifiedsmokinggenerator_2',['UnifiedSmokingGenerator',['../classUnifiedSmokingGenerator.html',1,'']]],
+  ['univariatefeatureselector_3',['UnivariateFeatureSelector',['../classUnivariateFeatureSelector.html',1,'']]],
+  ['univariatesamplesgenerator_4',['UnivariateSamplesGenerator',['../classUnivariateSamplesGenerator.html',1,'']]],
+  ['univariateselectionparams_5',['univariateSelectionParams',['../classunivariateSelectionParams.html',1,'']]],
+  ['universalsigvec_5flegacy_6',['UniversalSigVec_legacy',['../classUniversalSigVec__legacy.html',1,'']]],
+  ['universalsigvec_5fmem_5flegacy_7',['UniversalSigVec_mem_legacy',['../classUniversalSigVec__mem__legacy.html',1,'']]],
+  ['usvsiterator_8',['UsvsIterator',['../classUsvsIterator.html',1,'']]]
 ];

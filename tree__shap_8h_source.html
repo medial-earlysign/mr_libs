@@ -104,7 +104,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="MedAlgo_8h.html">MedAlgo/MedAlgo/MedAlgo.h</a>&gt;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;SamplesGenerator.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">typedef</span> <span class="keywordtype">double</span> tfloat;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
@@ -182,7 +182,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
 </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_namespace" href="namespacetree__shap.html">tree_shap</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTreeEnsemble.html">TreeEnsemble</a>&amp; tree, <span class="keyword">const</span> <a class="code hl_struct" href="structExplanationDataset.html">ExplanationDataset</a> &amp;data, tfloat *out_contribs, <span class="keywordtype">int</span> condition, <span class="keywordtype">unsigned</span> condition_feature, <span class="keywordtype">unsigned</span> *feature_sets);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">inline</span> <span class="keywordtype">void</span> tree_shap(<span class="keyword">const</span> <a class="code hl_struct" href="structTreeEnsemble.html">TreeEnsemble</a>&amp; tree, <span class="keyword">const</span> <a class="code hl_struct" href="structExplanationDataset.html">ExplanationDataset</a> &amp;data, tfloat *out_contribs, <span class="keywordtype">int</span> condition, <span class="keywordtype">unsigned</span> condition_feature, <span class="keywordtype">unsigned</span> *feature_sets);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">// data we keep about our decision path</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">// note that pweight is included for convenience and is not tied with the other attributes</span></div>
@@ -312,8 +312,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassMedPredictor_html"><div class="ttname"><a href="classMedPredictor.html">MedPredictor</a></div><div class="ttdoc">Base Interface for predictor.</div><div class="ttdef"><b>Definition</b> MedAlgo.h:72</div></div>
 <div class="ttc" id="aclassSamplesGenerator_html"><div class="ttname"><a href="classSamplesGenerator.html">SamplesGenerator</a></div><div class="ttdoc">Abstract Random Samples generator.</div><div class="ttdef"><b>Definition</b> SamplesGenerator.h:34</div></div>
 <div class="ttc" id="anamespacemedial_html"><div class="ttname"><a href="namespacemedial.html">medial</a></div><div class="ttdoc">medial namespace for function</div><div class="ttdef"><b>Definition</b> InfraMed.h:667</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> optional.h:396</div></div>
-<div class="ttc" id="anamespacetree__shap_html"><div class="ttname"><a href="namespacetree__shap.html">tree_shap</a></div><div class="ttdef"><b>Definition</b> tree_shap.py:1</div></div>
 <div class="ttc" id="astructExplanationDataset_html"><div class="ttname"><a href="structExplanationDataset.html">ExplanationDataset</a></div><div class="ttdef"><b>Definition</b> tree_shap.h:50</div></div>
 <div class="ttc" id="astructExplanationDataset_html_a50bf6e4ca10a9ce30271ae6439ffb343"><div class="ttname"><a href="structExplanationDataset.html#a50bf6e4ca10a9ce30271ae6439ffb343">ExplanationDataset::X</a></div><div class="ttdeci">tfloat * X</div><div class="ttdoc">vector of all data. each row is sample of all features for that sample. cols(2nd dim) are features</div><div class="ttdef"><b>Definition</b> tree_shap.h:51</div></div>
 <div class="ttc" id="astructExplanationDataset_html_a8a1cbf7f9dffde2593555442d16f7fe4"><div class="ttname"><a href="structExplanationDataset.html#a8a1cbf7f9dffde2593555442d16f7fe4">ExplanationDataset::M</a></div><div class="ttdeci">unsigned M</div><div class="ttdoc">Features count.</div><div class="ttdef"><b>Definition</b> tree_shap.h:57</div></div>
@@ -327,7 +325,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:25 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

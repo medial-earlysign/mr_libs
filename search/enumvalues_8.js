@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['time_5frange_5fbefore_0',['TIME_RANGE_BEFORE',['../FeatureGenerator_8h.html#abacbb5bd086c4a41f5de6f953e395e11ac1e80a577e3c5a6759bb468eb546c71f',1,'FeatureGenerator.h']]],
-  ['time_5frange_5fcurrent_1',['TIME_RANGE_CURRENT',['../FeatureGenerator_8h.html#abacbb5bd086c4a41f5de6f953e395e11ab8a8499e8d62010dc11eabdbd17b297a',1,'FeatureGenerator.h']]]
+  ['val_5fclnr_5fiterative_0',['VAL_CLNR_ITERATIVE',['../MedValueCleaner_8h.html#ab80309a5e1135550d9f74fb3523677daae315b4f132684d6e8988f2520f5855de',1,'MedValueCleaner.h']]],
+  ['val_5fclnr_5fquantile_1',['VAL_CLNR_QUANTILE',['../MedValueCleaner_8h.html#ab80309a5e1135550d9f74fb3523677daa33470fceac313d804972dc4b3de38d66',1,'MedValueCleaner.h']]]
 ];

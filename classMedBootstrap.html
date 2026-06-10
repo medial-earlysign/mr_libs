@@ -967,7 +967,7 @@ Please refer to parse_cohort_file for full spec. </p>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (param_name == <span class="stringliteral">&quot;simtimewindow&quot;</span>)</div>
 <div class="line">            <a class="code hl_variable" href="classMedBootstrap.html#a86c8045c79dc08fcfc5d24543d4e8ee6">simTimeWindow</a> = stoi(param_value) &gt; 0;</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (param_name == <span class="stringliteral">&quot;censor_time_factor&quot;</span>)</div>
-<div class="line">            censor_time_factor = <a class="code hl_function" href="namespacedmlc.html#a43a149fb880b527d393975a884255341">stof</a>(param_value);</div>
+<div class="line">            censor_time_factor = stof(param_value);</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (param_name == <span class="stringliteral">&quot;is_binary_outcome&quot;</span>)</div>
 <div class="line">            <a class="code hl_variable" href="classMedBootstrap.html#a6c34430b4eccd84daac019f875125db9">is_binary_outcome</a> = stoi(param_value) &gt; 0;</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (param_name == <span class="stringliteral">&quot;use_time_control_as_case&quot;</span>)</div>
@@ -1046,7 +1046,6 @@ Please refer to parse_cohort_file for full spec. </p>
 <div class="ttc" id="aclassMedBootstrap_html_ad617bec9548837cfc3fac29eb80fb37a"><div class="ttname"><a href="classMedBootstrap.html#ad617bec9548837cfc3fac29eb80fb37a">MedBootstrap::roc_Params</a></div><div class="ttdeci">ROC_Params roc_Params</div><div class="ttdoc">Controling the roc parameters: sensitivity, specificity...</div><div class="ttdef"><b>Definition</b> MedBootstrap.h:52</div></div>
 <div class="ttc" id="aclassROC__Params_html"><div class="ttname"><a href="classROC__Params.html">ROC_Params</a></div><div class="ttdoc">Parameter object for calc_roc_measures functions.</div><div class="ttdef"><b>Definition</b> bootstrap.h:294</div></div>
 <div class="ttc" id="aclassSerializableObject_html_a21abb36f80fd484aa2e620432087ea05"><div class="ttname"><a href="classSerializableObject.html#a21abb36f80fd484aa2e620432087ea05">SerializableObject::init_from_string</a></div><div class="ttdeci">int init_from_string(string init_string)</div><div class="ttdoc">Init from string.</div><div class="ttdef"><b>Definition</b> SerializableObject.cpp:111</div></div>
-<div class="ttc" id="anamespacedmlc_html_a43a149fb880b527d393975a884255341"><div class="ttname"><a href="namespacedmlc.html#a43a149fb880b527d393975a884255341">dmlc::stof</a></div><div class="ttdeci">float stof(const std::string &amp;value, size_t *pos=nullptr)</div><div class="ttdoc">A faster implementation of stof(). See documentation of std::stof() for more information....</div><div class="ttdef"><b>Definition</b> strtonum.h:467</div></div>
 </div><!-- fragment --> <p>[<a class="el" href="classMedBootstrap.html#acb1995a76c59778636a9c5799ab1234b" title="Initialization string with format &quot;parameter_name=value;...&quot; each paramter_name is same as the class ...">MedBootstrap::init</a>]</p>
 <p>[<a class="el" href="classMedBootstrap.html#acb1995a76c59778636a9c5799ab1234b" title="Initialization string with format &quot;parameter_name=value;...&quot; each paramter_name is same as the class ...">MedBootstrap::init</a>]</p>
 
@@ -1297,7 +1296,7 @@ Please refer to parse_cohort_file for full spec. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:34 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:26 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

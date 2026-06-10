@@ -86,9 +86,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="MedAlgo_8h.html">MedAlgo/MedAlgo/MedAlgo.h</a>&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;MedProcessTools/MedProcessTools/MedProcessUtils.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="learner_8h.html">xgboost/learner.h</a>&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="include_2xgboost_2data_8h.html">xgboost/data.h</a>&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="xgboost_2include_2xgboost_2c__api_8h.html">xgboost/c_api.h</a>&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;xgboost/learner.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;xgboost/data.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;xgboost/c_api.h&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;MedProcessTools/MedProcessTools/MedSamples.h&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
@@ -140,9 +140,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classXGBBooster.html">XGBBooster</a>(<span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;xgboost::DMatrix&gt; &gt;&amp; cache_mats)</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        : configured_(<span class="keyword">false</span>),</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        initialized_(<span class="keyword">false</span>),</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        learner_(<a class="code hl_function" href="classxgboost_1_1Learner.html#a65b4488f6dc57acd55002dcd439dfc55">xgboost::Learner::Create</a>(cache_mats)) {}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        learner_(xgboost::Learner::Create(cache_mats)) {}</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">inline</span> <a class="code hl_class" href="classxgboost_1_1Learner.html">xgboost::Learner</a>* learner() {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">inline</span> xgboost::Learner* learner() {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> learner_.get();</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
@@ -178,7 +178,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> LoadModel(<a class="code hl_class" href="classdmlc_1_1Stream.html">dmlc::Stream</a>* fi) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> LoadModel(dmlc::Stream* fi) {</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        learner_-&gt;Load(fi);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        initialized_ = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
@@ -195,7 +195,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classMedXGB.html">  107</a></span><span class="keyword">class </span><a class="code hl_class" href="classMedXGB.html">MedXGB</a> : <span class="keyword">public</span> <a class="code hl_class" href="classMedPredictor.html">MedPredictor</a> {</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    BoosterHandle my_learner = NULL;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_class" href="classxgboost_1_1DMatrix.html">xgboost::DMatrix</a>* dvalidate = NULL;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    xgboost::DMatrix* dvalidate = NULL;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_struct" href="structMedXGBParams.html">MedXGBParams</a> params;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> init_defaults();</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">int</span> feat_contrib_flags = 0;</div>
@@ -209,7 +209,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMedXGB.html#af39165fcf4f80f623aed23b8b0b49d0c">Learn</a>(<span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *y, <span class="keyword">const</span> <span class="keywordtype">float</span> *w, <span class="keywordtype">int</span> nsamples, <span class="keywordtype">int</span> nftrs);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMedXGB.html#af39165fcf4f80f623aed23b8b0b49d0c">Learn</a>(<span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *y, <span class="keywordtype">int</span> nsamples, <span class="keywordtype">int</span> nftrs);</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classMedXGB.html#aca23ba05d909c2c2107a3eed5417b562">Predict</a>(<span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *&amp;preds, <span class="keywordtype">int</span> nsamples, <span class="keywordtype">int</span> nftrs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> prepare_mat_handle(<span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *y, <span class="keyword">const</span> <span class="keywordtype">float</span> *w, <span class="keywordtype">int</span> nsamples, <span class="keywordtype">int</span> nftrs, <a class="code hl_typedef" href="group__Library.html#ga79787d32dbf589626a850cd9cd34dbe6">DMatrixHandle</a> &amp;matrix_handle);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> prepare_mat_handle(<span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *y, <span class="keyword">const</span> <span class="keywordtype">float</span> *w, <span class="keywordtype">int</span> nsamples, <span class="keywordtype">int</span> nftrs, DMatrixHandle &amp;matrix_handle);</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> print(FILE *fp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; prefix, <span class="keywordtype">int</span> level = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
@@ -227,10 +227,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">void</span> pre_serialization() {</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* out_dptr;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <a class="code hl_typedef" href="namespacexgboost.html#aa90608d24714034e3824898fbed9361b">xgboost::bst_ulong</a> len;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        xgboost::bst_ulong len;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordtype">string</span> cfg_js = <span class="stringliteral">&quot;{ \&quot;format\&quot;:\&quot;json\&quot; }&quot;</span>;</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">if</span> (my_learner != NULL) {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="group__Serialization.html#ga9d517565b568ab9a397576417d19ee52">XGBoosterSaveModelToBuffer</a>(my_learner, cfg_js.c_str(), &amp;len, &amp;out_dptr) != 0)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">if</span> (XGBoosterSaveModelToBuffer(my_learner, cfg_js.c_str(), &amp;len, &amp;out_dptr) != 0)</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;failed XGBoosterGetModelRaw\n&quot;</span>);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            serial_xgb.resize(len);</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            memcpy(&amp;serial_xgb[0], out_dptr, len);</div>
@@ -241,12 +241,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> post_deserialization() {</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordflow">if</span> (this-&gt;my_learner != NULL)</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <a class="code hl_function" href="group__Booster.html#ga5d816936b005a103f0deabf287a6a5da">XGBoosterFree</a>(this-&gt;my_learner);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            XGBoosterFree(this-&gt;my_learner);</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span> (!serial_xgb.empty()) {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <a class="code hl_typedef" href="group__Library.html#ga79787d32dbf589626a850cd9cd34dbe6">DMatrixHandle</a> h_train_empty[1];</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="group__Booster.html#gad9fe6f8c8c4901db1c7581a96a21f9ae">XGBoosterCreate</a>(h_train_empty, 0, &amp;my_learner) != 0)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            DMatrixHandle h_train_empty[1];</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">if</span> (XGBoosterCreate(h_train_empty, 0, &amp;my_learner) != 0)</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;failed XGBoosterCreate\n&quot;</span>);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="group__Serialization.html#ga7dd5bc1ae79d76cd6f14b48e5fc38ad7">XGBoosterLoadModelFromBuffer</a>(my_learner, &amp;serial_xgb[0], serial_xgb.size()) != 0)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordflow">if</span> (XGBoosterLoadModelFromBuffer(my_learner, &amp;serial_xgb[0], serial_xgb.size()) != 0)</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;failed XGBoosterLoadModelFromBuffer\n&quot;</span>);</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            serial_xgb.clear();</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        }</div>
@@ -258,8 +258,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">void</span> get_json(<span class="keyword">const</span> <span class="keywordtype">char</span> ***json, <span class="keywordtype">int</span>&amp; len, <span class="keywordtype">string</span> type) {</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span> (my_learner != NULL) {</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keywordtype">string</span> no_fmap = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <a class="code hl_typedef" href="namespacexgboost.html#aa90608d24714034e3824898fbed9361b">xgboost::bst_ulong</a> _len;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordtype">int</span> succ = <a class="code hl_function" href="group__Booster.html#gac907db6f877984eaaaf2a2b783059288">XGBoosterDumpModelEx</a>(my_learner, no_fmap.c_str(), 1, type.c_str(), &amp;_len, json);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            xgboost::bst_ulong _len;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordtype">int</span> succ = XGBoosterDumpModelEx(my_learner, no_fmap.c_str(), 1, type.c_str(), &amp;_len, json);</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">if</span> (succ &lt; 0)</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                HMTHROW_AND_ERR(<span class="stringliteral">&quot;Error MedXGB::get_json - can&#39;t get model\n&quot;</span>);</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            len = (int)_len;</div>
@@ -308,25 +308,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassMedXGB_html_af39165fcf4f80f623aed23b8b0b49d0c"><div class="ttname"><a href="classMedXGB.html#af39165fcf4f80f623aed23b8b0b49d0c">MedXGB::Learn</a></div><div class="ttdeci">int Learn(float *x, float *y, const float *w, int nsamples, int nftrs)</div><div class="ttdoc">Learn should be implemented for each model.</div><div class="ttdef"><b>Definition</b> MedXGB.cpp:166</div></div>
 <div class="ttc" id="aclassSerializableObject_html"><div class="ttname"><a href="classSerializableObject.html">SerializableObject</a></div><div class="ttdef"><b>Definition</b> SerializableObject.h:32</div></div>
 <div class="ttc" id="aclassXGBBooster_html"><div class="ttname"><a href="classXGBBooster.html">XGBBooster</a></div><div class="ttdef"><b>Definition</b> MedXGB.h:52</div></div>
-<div class="ttc" id="aclassdmlc_1_1Stream_html"><div class="ttname"><a href="classdmlc_1_1Stream.html">dmlc::Stream</a></div><div class="ttdoc">interface of stream I/O for serialization</div><div class="ttdef"><b>Definition</b> io.h:30</div></div>
-<div class="ttc" id="aclassxgboost_1_1DMatrix_html"><div class="ttname"><a href="classxgboost_1_1DMatrix.html">xgboost::DMatrix</a></div><div class="ttdoc">Internal data structured used by XGBoost during training.</div><div class="ttdef"><b>Definition</b> data.h:509</div></div>
-<div class="ttc" id="aclassxgboost_1_1Learner_html"><div class="ttname"><a href="classxgboost_1_1Learner.html">xgboost::Learner</a></div><div class="ttdoc">Learner class that does training and prediction. This is the user facing module of xgboost training....</div><div class="ttdef"><b>Definition</b> learner.h:65</div></div>
-<div class="ttc" id="aclassxgboost_1_1Learner_html_a65b4488f6dc57acd55002dcd439dfc55"><div class="ttname"><a href="classxgboost_1_1Learner.html#a65b4488f6dc57acd55002dcd439dfc55">xgboost::Learner::Create</a></div><div class="ttdeci">static Learner * Create(const std::vector&lt; std::shared_ptr&lt; DMatrix &gt; &gt; &amp;cache_data)</div><div class="ttdoc">Create a new instance of learner.</div><div class="ttdef"><b>Definition</b> learner.cc:1485</div></div>
-<div class="ttc" id="agroup__Booster_html_ga5d816936b005a103f0deabf287a6a5da"><div class="ttname"><a href="group__Booster.html#ga5d816936b005a103f0deabf287a6a5da">XGBoosterFree</a></div><div class="ttdeci">XGB_DLL int XGBoosterFree(BoosterHandle handle)</div><div class="ttdoc">free obj in handle</div><div class="ttdef"><b>Definition</b> c_api.cc:896</div></div>
-<div class="ttc" id="agroup__Booster_html_gac907db6f877984eaaaf2a2b783059288"><div class="ttname"><a href="group__Booster.html#gac907db6f877984eaaaf2a2b783059288">XGBoosterDumpModelEx</a></div><div class="ttdeci">XGB_DLL int XGBoosterDumpModelEx(BoosterHandle handle, const char *fmap, int with_stats, const char *format, bst_ulong *out_len, const char ***out_dump_array)</div><div class="ttdoc">dump model, return array of strings representing model dump</div><div class="ttdef"><b>Definition</b> c_api.cc:1464</div></div>
-<div class="ttc" id="agroup__Booster_html_gad9fe6f8c8c4901db1c7581a96a21f9ae"><div class="ttname"><a href="group__Booster.html#gad9fe6f8c8c4901db1c7581a96a21f9ae">XGBoosterCreate</a></div><div class="ttdeci">XGB_DLL int XGBoosterCreate(const DMatrixHandle dmats[], bst_ulong len, BoosterHandle *out)</div><div class="ttdoc">create xgboost learner</div><div class="ttdef"><b>Definition</b> c_api.cc:882</div></div>
-<div class="ttc" id="agroup__Library_html_ga79787d32dbf589626a850cd9cd34dbe6"><div class="ttname"><a href="group__Library.html#ga79787d32dbf589626a850cd9cd34dbe6">DMatrixHandle</a></div><div class="ttdeci">void * DMatrixHandle</div><div class="ttdoc">handle to DMatrix</div><div class="ttdef"><b>Definition</b> c_api.h:49</div></div>
-<div class="ttc" id="agroup__Serialization_html_ga7dd5bc1ae79d76cd6f14b48e5fc38ad7"><div class="ttname"><a href="group__Serialization.html#ga7dd5bc1ae79d76cd6f14b48e5fc38ad7">XGBoosterLoadModelFromBuffer</a></div><div class="ttdeci">XGB_DLL int XGBoosterLoadModelFromBuffer(BoosterHandle handle, const void *buf, bst_ulong len)</div><div class="ttdoc">load model from in memory buffer</div><div class="ttdef"><b>Definition</b> c_api.cc:1277</div></div>
-<div class="ttc" id="agroup__Serialization_html_ga9d517565b568ab9a397576417d19ee52"><div class="ttname"><a href="group__Serialization.html#ga9d517565b568ab9a397576417d19ee52">XGBoosterSaveModelToBuffer</a></div><div class="ttdeci">XGB_DLL int XGBoosterSaveModelToBuffer(BoosterHandle handle, char const *config, bst_ulong *out_len, char const **out_dptr)</div><div class="ttdoc">Save model into raw bytes, return header of the array. User must copy the result out,...</div><div class="ttdef"><b>Definition</b> c_api.cc:1288</div></div>
-<div class="ttc" id="ainclude_2xgboost_2data_8h_html"><div class="ttname"><a href="include_2xgboost_2data_8h.html">data.h</a></div><div class="ttdoc">Copyright 2015-2023 by XGBoost Contributors.</div></div>
-<div class="ttc" id="alearner_8h_html"><div class="ttname"><a href="learner_8h.html">learner.h</a></div><div class="ttdoc">Copyright 2015-2023 by XGBoost Contributors.</div></div>
-<div class="ttc" id="anamespacexgboost_html_aa90608d24714034e3824898fbed9361b"><div class="ttname"><a href="namespacexgboost.html#aa90608d24714034e3824898fbed9361b">xgboost::bst_ulong</a></div><div class="ttdeci">uint64_t bst_ulong</div><div class="ttdoc">unsigned long integers</div><div class="ttdef"><b>Definition</b> base.h:95</div></div>
 <div class="ttc" id="astructMedXGBParams_html"><div class="ttname"><a href="structMedXGBParams.html">MedXGBParams</a></div><div class="ttdef"><b>Definition</b> MedXGB.h:11</div></div>
-<div class="ttc" id="axgboost_2include_2xgboost_2c__api_8h_html"><div class="ttname"><a href="xgboost_2include_2xgboost_2c__api_8h.html">c_api.h</a></div><div class="ttdoc">Copyright 2015~2023 by XGBoost Contributors.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 14:07:25 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
