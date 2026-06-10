@@ -123,6 +123,20 @@ include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)
 include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
 include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/dmlc-core/include)
 
+# LightGBM
+FetchContent_Declare(
+    lightgbm
+    URL      https://github.com/lightgbm-org/LightGBM/releases/download/v4.6.0/lightgbm-4.6.0.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
+)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(BUILD_CLI OFF CACHE INTERNAL "")
+FetchContent_MakeAvailable(lightgbm)
+
+include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/include)     
+include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fast_double_parser/include) 
+include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fmt/include) 
+
 set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
 set(VIRTUAL_EXT_DIR "${VIRTUAL_INC_ROOT}/External")
 
@@ -200,10 +214,8 @@ set(PYTHON_INCLUDE_DIR ${Python3_INCLUDE_DIRS})
 
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../Internal)
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/LightGBM_2.2.3/LightGBM-2.2.3/include)
 
 if(POLICY CMP0091)
     cmake_policy(SET CMP0091 NEW)
@@ -216,9 +228,5 @@ foreach(mes_lib IN LISTS MEDIAL_INTERNAL_LIBS)
 endforeach()
 
 include_directories(../MedPyExport)
-
-# External Libraries
-# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost xgboost)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/LightGBM_2.2.3/LightGBM-2.2.3 _lightgbm)
 
 add_subdirectory(MedPython)

@@ -115,6 +115,20 @@ include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)
 include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
 include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/dmlc-core/include)
 
+# LightGBM
+FetchContent_Declare(
+    lightgbm
+    URL      https://github.com/lightgbm-org/LightGBM/releases/download/v4.6.0/lightgbm-4.6.0.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
+)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(BUILD_CLI OFF CACHE INTERNAL "")
+FetchContent_MakeAvailable(lightgbm)
+
+include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/include)     
+include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fast_double_parser/include) 
+include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fmt/include) 
+
 
 set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
 set(VIRTUAL_EXT_DIR "${VIRTUAL_INC_ROOT}/External")
@@ -177,14 +191,12 @@ set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
 
 function(add_linking_flags_static TARGET_NAME)
-    target_link_libraries(${TARGET_NAME} ${ADDITIONAL_LINK_FLAGS} -Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} -Wl,--end-group xgboost _lightgbm_static  -Wl,-no-whole-archive -Wl,-Bdynamic)
+    target_link_libraries(${TARGET_NAME} ${ADDITIONAL_LINK_FLAGS} -Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} -Wl,--end-group xgboost _lightgbm  -Wl,-no-whole-archive -Wl,-Bdynamic)
 endfunction()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal)
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/LightGBM_2.2.3/LightGBM-2.2.3/include)
 
 # Find Boost
 find_package(OpenMP REQUIRED)
@@ -195,11 +207,6 @@ find_package(OpenMP REQUIRED)
 foreach(mes_lib IN LISTS MEDIAL_INTERNAL_LIBS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/${mes_lib}/${mes_lib} ${mes_lib})
 endforeach()
-
-# External Libraries
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../External/xgboost xgboost)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../External/LightGBM_2.2.3/LightGBM-2.2.3 _lightgbm)
-
 
 # Or add each project:
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal/AlgoMarker/AlgoMarker AlgoMarker)
