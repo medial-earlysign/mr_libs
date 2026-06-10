@@ -9,6 +9,8 @@
 #include <unordered_set>
 #include <json/json.hpp>
 
+using json = nlohmann::json;
+
 class MedFeatures;
 
 //.......................................................................................

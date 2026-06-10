@@ -5,6 +5,8 @@
 #include <json/json.hpp>
 #include "AlgoMarkerErr.h"
 
+using json = nlohmann::json;
+
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 

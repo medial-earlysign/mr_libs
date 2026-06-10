@@ -24,6 +24,7 @@
 #include <json/json.hpp>
 #include <AlgoMarker/DynAMWrapper/DynAMWrapper.h>
 
+using json = nlohmann::json;
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 using namespace std;

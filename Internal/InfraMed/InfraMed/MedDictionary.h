@@ -11,6 +11,7 @@
 #include <json/json.hpp>
 
 using namespace std;
+using json = nlohmann::json;
 
 //#define	MAX_DICT_ID_NUM	10000000
 

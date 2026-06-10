@@ -82,6 +82,20 @@ else()
     #include_directories(SYSTEM ${eigen_headers_SOURCE_DIR})
     set(EIGEN_RAW_PATH "${eigen_headers_SOURCE_DIR}")
 endif()
+# Json:
+# https://github.com/nlohmann/json/releases/download/v3.11.2/json.hpp include.zip
+include(FetchContent)
+FetchContent_Declare(
+    json_headers
+    URL      https://github.com/nlohmann/json/releases/download/v3.11.2/include.zip
+    SOURCE_SUBDIR pathThatDoesNotExist
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
+)
+FetchContent_GetProperties(json_headers)
+if(NOT json_headers_POPULATED)
+    FetchContent_MakeAvailable(json_headers)
+endif()
+set(JSON_RAW_PATH "${json_headers_SOURCE_DIR}/single_include")
 
 
 set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
@@ -93,7 +107,15 @@ if(NOT EXISTS "${VIRTUAL_EXT_DIR}/Eigen")
     # Copy the raw Eigen folder into our virtual External folder
     file(COPY "${EIGEN_RAW_PATH}/Eigen" DESTINATION "${VIRTUAL_EXT_DIR}")
 endif()
+if(NOT EXISTS "${VIRTUAL_EXT_DIR}/json")
+    message(STATUS "Structuring nlohmann_json for <External/json/...> includes...")
+    file(MAKE_DIRECTORY "${VIRTUAL_EXT_DIR}/json")
+    # Copy the json.hpp header (and any internal files) into VirtualIncludes/External/json/
+    file(COPY "${JSON_RAW_PATH}/nlohmann/json.hpp" DESTINATION "${VIRTUAL_EXT_DIR}/json")
+endif()
+
 include_directories(SYSTEM "${VIRTUAL_INC_ROOT}")
+include_directories(SYSTEM "${VIRTUAL_INC_ROOT}/External")
 ## End
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fopenmp -DMES_LIBRARY=1 -Wall -Wno-write-strings -Wno-sign-compare -Wno-reorder -Wno-unknown-pragmas -Wno-unused-function -ldl  --param inline-unit-growth=1000000 -msse4 -DHAVE_WORKING_ISFINITE -DSO_COMPILATION -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")

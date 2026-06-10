@@ -19,7 +19,7 @@
 #include <vector>
 #include "DataLoader.h"
 
-
+using json = nlohmann::json;
 #ifdef __linux__ 
 #include <wordexp.h>
 #elif _WIN32
