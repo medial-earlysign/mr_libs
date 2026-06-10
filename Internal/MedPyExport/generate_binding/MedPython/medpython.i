@@ -35,7 +35,7 @@ typedef std::vector vector;
 
 %exception {
   try {
-    $function;
+    $action;
   } catch(StopIterator) {
     PyErr_SetString(PyExc_StopIteration, "End of iterator");
     return NULL;

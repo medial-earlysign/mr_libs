@@ -58,6 +58,44 @@ else()
     endif()
 endif()
 
+## Eigen
+find_package(Eigen3 QUIET)
+
+if(Eigen3_FOUND)
+    message(STATUS "Eigen3 found. Using system headers at: ${EIGEN3_INCLUDE_DIR}")
+    include_directories(SYSTEM ${EIGEN3_INCLUDE_DIR})
+else()
+    message(STATUS "Eigen3 not found. Downloading headers from source...")
+    include(FetchContent)
+    FetchContent_Declare(
+        eigen_headers
+        URL      https://gitlab.com/libeigen/eigen/-/archive/3.4.1/eigen-3.4.1.tar.gz
+        SOURCE_SUBDIR pathThatDoesNotExist
+        DOWNLOAD_EXTRACT_TIMESTAMP ON
+    )
+    
+    FetchContent_GetProperties(eigen_headers)
+    if(NOT eigen_headers_POPULATED)
+        FetchContent_MakeAvailable(eigen_headers)
+    endif()
+
+    #include_directories(SYSTEM ${eigen_headers_SOURCE_DIR})
+    set(EIGEN_RAW_PATH "${eigen_headers_SOURCE_DIR}")
+endif()
+
+
+set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
+set(VIRTUAL_EXT_DIR "${VIRTUAL_INC_ROOT}/External")
+
+if(NOT EXISTS "${VIRTUAL_EXT_DIR}/Eigen")
+    message(STATUS "Structuring Eigen for <External/Eigen/...> includes...")
+    file(MAKE_DIRECTORY "${VIRTUAL_EXT_DIR}")
+    # Copy the raw Eigen folder into our virtual External folder
+    file(COPY "${EIGEN_RAW_PATH}/Eigen" DESTINATION "${VIRTUAL_EXT_DIR}")
+endif()
+include_directories(SYSTEM "${VIRTUAL_INC_ROOT}")
+## End
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fopenmp -DMES_LIBRARY=1 -Wall -Wno-write-strings -Wno-sign-compare -Wno-reorder -Wno-unknown-pragmas -Wno-unused-function -ldl  --param inline-unit-growth=1000000 -msse4 -DHAVE_WORKING_ISFINITE -DSO_COMPILATION -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")
 
 set(BOOST_LIBS

@@ -17,7 +17,7 @@ echo "(II) Compiling Python distribution: '${DIST_NAME}'"
 
 mkdir -p ${CURRENT_DIR}/CMakeBuild/Linux/Release
 pushd ${CURRENT_DIR}/CMakeBuild/Linux/Release 
-cmake ../../../
+cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.10 ../../../
 
 set +e
 GIT_COMMIT_HASH=$(git rev-parse HEAD)
