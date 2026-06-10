@@ -105,6 +105,23 @@ if(NOT json_headers_POPULATED)
     FetchContent_MakeAvailable(json_headers)
 endif()
 set(JSON_RAW_PATH "${json_headers_SOURCE_DIR}/single_include")
+# XGboost
+FetchContent_Declare(
+    xgboost
+    URL      https://github.com/dmlc/xgboost/releases/download/v2.0.3/xgboost-2.0.3.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
+    SOURCE_SUBDIR cpp_src
+)
+
+set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
+set(XGBOOST_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(xgboost)
+
+include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)          
+include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
+include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/dmlc-core/include)
 
 set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
 set(VIRTUAL_EXT_DIR "${VIRTUAL_INC_ROOT}/External")
@@ -129,7 +146,6 @@ include_directories(SYSTEM "${VIRTUAL_INC_ROOT}/External")
 set (MEDIAL_INTERNAL_LIBS InfraMed Logger MedAlgo MedEmbed MedIO MedMat MedPlotly MedProcessTools MedSparseMat MedSplit MedStat MedTime MedUtils QRF SerializableObject TQRF micNet CommonLib
 )
 
-set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
 if (NOT WIN32)
     # 1. Base flags common to all Unix/Linux/Mac systems
     set(COMMON_FLAGS "-fPIC -Wno-write-strings -Wuninitialized -Wno-narrowing -DMES_LIBRARY=1 -DGIT_HEAD_VERSION='\"'$(GIT_HEAD_VERSION)'\"'")
@@ -187,13 +203,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../Internal)
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost/src)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost/rabit/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost/dmlc-core/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/LightGBM_2.2.3/LightGBM-2.2.3/include)
 
-set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
 if(POLICY CMP0091)
     cmake_policy(SET CMP0091 NEW)
 endif()
@@ -207,7 +218,7 @@ endforeach()
 include_directories(../MedPyExport)
 
 # External Libraries
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost xgboost)
+# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/xgboost xgboost)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../External/LightGBM_2.2.3/LightGBM-2.2.3 _lightgbm)
 
 add_subdirectory(MedPython)

@@ -97,6 +97,23 @@ if(NOT json_headers_POPULATED)
 endif()
 set(JSON_RAW_PATH "${json_headers_SOURCE_DIR}/single_include")
 
+# XGboost
+FetchContent_Declare(
+    xgboost
+    URL      https://github.com/dmlc/xgboost/releases/download/v2.0.3/xgboost-2.0.3.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
+)
+
+set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
+set(XGBOOST_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(xgboost)
+
+include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)          
+include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
+include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/dmlc-core/include)
+
 
 set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
 set(VIRTUAL_EXT_DIR "${VIRTUAL_INC_ROOT}/External")
@@ -166,10 +183,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../Internal)
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/xgboost/src)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/xgboost/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/xgboost/rabit/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/xgboost/dmlc-core/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../External/LightGBM_2.2.3/LightGBM-2.2.3/include)
 
 # Find Boost
