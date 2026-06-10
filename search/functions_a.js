@@ -4,9 +4,6 @@ var searchData=
   ['join_5fall_1',['join_all',['../classdmlc_1_1ThreadGroup.html#a286490cd78a1b60c85051bd9cb3e15d8',1,'dmlc::ThreadGroup']]],
   ['joinable_2',['joinable',['../classdmlc_1_1ThreadGroup_1_1Thread.html#abff81204caa69efd85052b6be5af5281',1,'dmlc::ThreadGroup::Thread']]],
   ['json_5fdefault_5fwith_5fnumpy_3',['json_default_with_numpy',['../namespacelightgbm_1_1compat.html#ae14b0e5a32b3fc39958af59d6ff23f59',1,'lightgbm::compat']]],
-  ['json_5fpointer_4',['json_pointer',['../classjson__pointer.html#a5288b8f5d6ff6faca37f664b98a16ecd',1,'json_pointer']]],
-  ['json_5freverse_5fiterator_5',['json_reverse_iterator',['../classdetail_1_1json__reverse__iterator.html#ad0012dca9469c2d5669ca2e446c8957d',1,'detail::json_reverse_iterator::json_reverse_iterator(const typename base_iterator::iterator_type &amp;it) noexcept'],['../classdetail_1_1json__reverse__iterator.html#a95ef832171f9aba019f284125bed75ca',1,'detail::json_reverse_iterator::json_reverse_iterator(const base_iterator &amp;it) noexcept']]],
-  ['json_5fsax_5fdom_5fparser_6',['json_sax_dom_parser',['../classdetail_1_1json__sax__dom__parser.html#a3ee72f78d1ebdd8f8573ccf2b8e3ea6f',1,'detail::json_sax_dom_parser']]],
-  ['jsonreader_7',['JSONReader',['../classdmlc_1_1JSONReader.html#a722e2c409ccac6e1b4b8a06c145dd40f',1,'dmlc::JSONReader']]],
-  ['jsonwriter_8',['JSONWriter',['../classdmlc_1_1JSONWriter.html#a284b5de129774cdcdc887a8bfb3d648c',1,'dmlc::JSONWriter']]]
+  ['jsonreader_4',['JSONReader',['../classdmlc_1_1JSONReader.html#a722e2c409ccac6e1b4b8a06c145dd40f',1,'dmlc::JSONReader']]],
+  ['jsonwriter_5',['JSONWriter',['../classdmlc_1_1JSONWriter.html#a284b5de129774cdcdc887a8bfb3d648c',1,'dmlc::JSONWriter']]]
 ];

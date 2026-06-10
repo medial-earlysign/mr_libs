@@ -132,7 +132,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      <span class="comment">// wait for read thread</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      read_worker.join();</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <span class="comment">// exchange the buffer</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(buffer_process, buffer_read);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      std::swap(buffer_process, buffer_read);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>      read_cnt = last_read_cnt;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">return</span> cnt;</div>
@@ -147,12 +147,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassLightGBM_1_1PipelineReader_html"><div class="ttname"><a href="classLightGBM_1_1PipelineReader.html">LightGBM::PipelineReader</a></div><div class="ttdoc">A pipeline file reader, use 2 threads, one read block from file, the other process the block.</div><div class="ttdef"><b>Definition</b> pipeline_reader.h:20</div></div>
 <div class="ttc" id="aclassLightGBM_1_1PipelineReader_html_a0c875ab22d3b2d6658c40da5931aa9a8"><div class="ttname"><a href="classLightGBM_1_1PipelineReader.html#a0c875ab22d3b2d6658c40da5931aa9a8">LightGBM::PipelineReader::Read</a></div><div class="ttdeci">static size_t Read(const char *filename, int skip_bytes, const std::function&lt; size_t(const char *, size_t)&gt; &amp;process_fun)</div><div class="ttdoc">Read data from a file, use pipeline methods.</div><div class="ttdef"><b>Definition</b> pipeline_reader.h:27</div></div>
 <div class="ttc" id="anamespaceLightGBM_html"><div class="ttname"><a href="namespaceLightGBM.html">LightGBM</a></div><div class="ttdoc">desc and descl2 fields must be written in reStructuredText format</div><div class="ttdef"><b>Definition</b> application.h:10</div></div>
-<div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
 <div class="ttc" id="astructLightGBM_1_1VirtualFileReader_html_a21965fbb2c9b1961698b1bf113c5d005"><div class="ttname"><a href="structLightGBM_1_1VirtualFileReader.html#a21965fbb2c9b1961698b1bf113c5d005">LightGBM::VirtualFileReader::Make</a></div><div class="ttdeci">static std::unique_ptr&lt; VirtualFileReader &gt; Make(const std::string &amp;filename)</div><div class="ttdoc">Create appropriate reader for filename.</div><div class="ttdef"><b>Definition</b> file_io.cpp:153</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:32 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

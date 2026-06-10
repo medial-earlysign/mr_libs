@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['json_5fpointer_0',['json_pointer',['../classbasic__json.html#afe66720a34c11920f359394a4430a16e',1,'basic_json']]],
-  ['json_5fsax_5ft_1',['json_sax_t',['../classbasic__json.html#acefb05e1022be791038db86c9963cec7',1,'basic_json']]]
+  ['matrixview_0',['MatrixView',['../namespacexgboost_1_1linalg.html#a94e42701efe1fe24075231a862567495',1,'xgboost::linalg']]],
+  ['measurementfunctions_1',['MeasurementFunctions',['../bootstrap_8h.html#a56de3493e58e56897976b74558929ed0',1,'bootstrap.h']]]
 ];

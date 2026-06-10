@@ -155,7 +155,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T1<span class="keyword">&gt;</span>(std::ceil(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(a) / b));</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedetail.html">detail</a> {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">namespace </span>detail {</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">template</span> &lt;<span class="keyword">class </span>T, std::size_t <a class="code hl_variable" href="namespacelogistic__regression.html#a95c480d50b25da5de78f160ff3e734fa">N</a>, std::size_t... Idx&gt;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">constexpr</span> <span class="keyword">auto</span> UnpackArr(std::array&lt;T, N&gt; &amp;&amp;arr, std::index_sequence&lt;Idx...&gt;) {</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">return</span> std::make_tuple(std::forward&lt;std::array&lt;T, N&gt;&gt;(arr)[Idx]...);</div>
@@ -274,7 +274,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="ainclude_2xgboost_2base_8h_html"><div class="ttname"><a href="include_2xgboost_2base_8h.html">base.h</a></div><div class="ttdoc">Copyright 2015-2023 by XGBoost Contributors.</div></div>
 <div class="ttc" id="ainclude_2xgboost_2base_8h_html_aa33073da721ea3d200c808d1bf4b6099"><div class="ttname"><a href="include_2xgboost_2base_8h.html#aa33073da721ea3d200c808d1bf4b6099">XGBOOST_DEVICE</a></div><div class="ttdeci">#define XGBOOST_DEVICE</div><div class="ttdoc">Tag function as usable by device.</div><div class="ttdef"><b>Definition</b> base.h:64</div></div>
 <div class="ttc" id="ainclude_2xgboost_2logging_8h_html"><div class="ttname"><a href="include_2xgboost_2logging_8h.html">logging.h</a></div><div class="ttdoc">defines console logging options for xgboost. Use to enforce unified print behavior.</div></div>
-<div class="ttc" id="anamespacedetail_html"><div class="ttname"><a href="namespacedetail.html">detail</a></div><div class="ttdoc">detail namespace with internal helper functions</div><div class="ttdef"><b>Definition</b> json.hpp:249</div></div>
 <div class="ttc" id="anamespacelogistic__regression_html_a95c480d50b25da5de78f160ff3e734fa"><div class="ttname"><a href="namespacelogistic__regression.html#a95c480d50b25da5de78f160ff3e734fa">logistic_regression.N</a></div><div class="ttdeci">int N</div><div class="ttdoc">Simulate some binary data with a single categorical and single continuous predictor.</div><div class="ttdef"><b>Definition</b> logistic_regression.py:26</div></div>
 <div class="ttc" id="anamespacexgboost_1_1common_html"><div class="ttname"><a href="namespacexgboost_1_1common.html">xgboost::common</a></div><div class="ttdoc">Copyright 2017-2023, XGBoost Contributors.</div><div class="ttdef"><b>Definition</b> span.h:77</div></div>
 <div class="ttc" id="anamespacexgboost_1_1common_html_a219f22da75ce2a32dd952391936995cb"><div class="ttname"><a href="namespacexgboost_1_1common.html#a219f22da75ce2a32dd952391936995cb">xgboost::common::LastOf</a></div><div class="ttdeci">XGBOOST_DEVICE size_t LastOf(size_t group, Indexable const &amp;indptr)</div><div class="ttdoc">Last index of a group in a CSR style of index pointer.</div><div class="ttdef"><b>Definition</b> common.h:187</div></div>
@@ -282,7 +281,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:32 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

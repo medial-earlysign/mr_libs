@@ -40,6 +40,5 @@ var searchData=
   ['buffer_5ffirst_37',['buffer_first',['../classRepAggregateSignal.html#a5d87d565fe24e326ea5c616ffe0c8e9b',1,'RepAggregateSignal']]],
   ['buffer_5fsize_5f_38',['buffer_size_',['../classdmlc_1_1io_1_1InputSplitBase.html#ae0aa4fc648921de53146b484058380c5',1,'dmlc::io::InputSplitBase::buffer_size_'],['../structrabit_1_1utils_1_1MemoryFixSizeBuffer.html#a16d4a7536502678a4b086c7b8a92d6f6',1,'rabit::utils::MemoryFixSizeBuffer::buffer_size_']]],
   ['burn_5fcount_39',['burn_count',['../classBART.html#ac38d303ac22db07aaeec339dcf8ad502',1,'BART']]],
-  ['burn_5fin_5fcount_40',['burn_in_count',['../classGibbsSamplingParams.html#a3e4b7acbb719f901174710dc9d990690',1,'GibbsSamplingParams']]],
-  ['byte_41',['byte',['../classdetail_1_1parse__error.html#a5bce7d135aa3a38d1d3f4ed7bf8615e1',1,'detail::parse_error']]]
+  ['burn_5fin_5fcount_40',['burn_in_count',['../classGibbsSamplingParams.html#a3e4b7acbb719f901174710dc9d990690',1,'GibbsSamplingParams']]]
 ];

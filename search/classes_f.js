@@ -16,12 +16,9 @@ var searchData=
   ['optionalparamint_13',['OptionalParamInt',['../structOptionalParamInt.html',1,'']]],
   ['optionalweights_14',['OptionalWeights',['../structxgboost_1_1common_1_1OptionalWeights.html',1,'xgboost::common']]],
   ['optype_15',['OpType',['../enumml_1_1dmlc_1_1xgboost4j_1_1java_1_1Communicator_1_1OpType.html',1,'ml::dmlc::xgboost4j::java::Communicator']]],
-  ['ordered_5fmap_16',['ordered_map',['../structordered__map.html',1,'']]],
-  ['orderedbin_17',['OrderedBin',['../classLightGBM_1_1OrderedBin.html',1,'LightGBM']]],
-  ['orderedsparsebin_18',['OrderedSparseBin',['../classLightGBM_1_1OrderedSparseBin.html',1,'LightGBM']]],
-  ['osdetectiontest_19',['OsDetectionTest',['../classml_1_1dmlc_1_1xgboost4j_1_1java_1_1OsDetectionTest.html',1,'ml::dmlc::xgboost4j::java']]],
-  ['ostream_20',['ostream',['../classdmlc_1_1ostream.html',1,'dmlc']]],
-  ['other_5ferror_21',['other_error',['../classdetail_1_1other__error.html',1,'detail']]],
-  ['out_5fof_5frange_22',['out_of_range',['../classdetail_1_1out__of__range.html',1,'detail']]],
-  ['outliersamplefilter_23',['OutlierSampleFilter',['../classOutlierSampleFilter.html',1,'']]]
+  ['orderedbin_16',['OrderedBin',['../classLightGBM_1_1OrderedBin.html',1,'LightGBM']]],
+  ['orderedsparsebin_17',['OrderedSparseBin',['../classLightGBM_1_1OrderedSparseBin.html',1,'LightGBM']]],
+  ['osdetectiontest_18',['OsDetectionTest',['../classml_1_1dmlc_1_1xgboost4j_1_1java_1_1OsDetectionTest.html',1,'ml::dmlc::xgboost4j::java']]],
+  ['ostream_19',['ostream',['../classdmlc_1_1ostream.html',1,'dmlc']]],
+  ['outliersamplefilter_20',['OutlierSampleFilter',['../classOutlierSampleFilter.html',1,'']]]
 ];

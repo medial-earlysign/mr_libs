@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['randomengine_0',['RandomEngine',['../namespacexgboost_1_1common.html#a1ef7132c7d8ccd98fb74625d8c3434d3',1,'xgboost::common']]],
-  ['rbt_5fulong_1',['rbt_ulong',['../xgboost_2rabit_2include_2rabit_2c__api_8h.html#a58ee6073c37ae299cbc8c947ef241e64',1,'c_api.h']]],
-  ['readlock_2',['ReadLock',['../namespacedmlc.html#a591cc4d1980f6074fbc450bcf9d40876',1,'dmlc']]],
-  ['real_5ft_3',['real_t',['../namespacedmlc.html#ab23d78846b42ebd3a436e3bc295b73f4',1,'dmlc']]],
-  ['reducefunction_4',['ReduceFunction',['../classrabit_1_1engine_1_1IEngine.html#a8f8113cd6e05949b68fb7b1d23b4e9cf',1,'rabit::engine::IEngine']]],
-  ['reference_5',['reference',['../classdetail_1_1iter__impl.html#aef4718cdd15a8743df34c4861c375144',1,'detail::iter_impl::reference'],['../classdetail_1_1json__reverse__iterator.html#a81a4d0a61246d4ece37fd14eacfadda0',1,'detail::json_reverse_iterator::reference'],['../classbasic__json.html#a6ca7bfb35987ce7cb8d27447cda5b80a',1,'basic_json::reference']]],
-  ['rel_5fdegree_5ft_6',['rel_degree_t',['../namespacexgboost_1_1ltr.html#a603f95dbec4886744796cebe64f5a044',1,'xgboost::ltr']]],
-  ['reverse_5fiterator_7',['reverse_iterator',['../classbasic__json.html#aedc059cdae078322bb0d434b2127d1cf',1,'basic_json']]]
+  ['u8array_0',['U8Array',['../namespacexgboost.html#a6c0d923ceb28fe181c4cd3a98717c8c0',1,'xgboost']]]
 ];

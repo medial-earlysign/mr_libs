@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ghistindexrow_0',['GHistIndexRow',['../namespacexgboost_1_1common.html#aa218acbb6bdda464c59667fa7264e949',1,'xgboost::common']]],
-  ['globalrandomengine_1',['GlobalRandomEngine',['../namespacexgboost_1_1common.html#ade426e4f6038945da05721bfb5394232',1,'xgboost::common']]],
-  ['gradientpair_2',['GradientPair',['../namespacexgboost.html#ac50c0fcafa07ba8258d195d19ae9454d',1,'xgboost']]],
-  ['gradientpairprecise_3',['GradientPairPrecise',['../namespacexgboost.html#a1dd968269140476ceffd3d5f8ad4a942',1,'xgboost']]]
+  ['i32array_0',['I32Array',['../namespacexgboost.html#a2c0fb8152bb18da88e9e2149b1f3e324',1,'xgboost']]],
+  ['i64array_1',['I64Array',['../namespacexgboost.html#a341bf67f351356aacdfbe6611674dddb',1,'xgboost']]],
+  ['index_5ft_2',['index_t',['../namespacedmlc.html#a7a89c6e0909617034aa818dafe83a361',1,'dmlc']]],
+  ['inst_3',['Inst',['../classxgboost_1_1SparsePage.html#abab98be7e31f501f15638aea03020010',1,'xgboost::SparsePage']]]
 ];

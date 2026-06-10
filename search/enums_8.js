@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['panelcompletertypes_0',['PanelCompleterTypes',['../RepProcess_8h.html#ab2e258ab69c7e69db8e94aa979a3a651',1,'RepProcess.h']]],
-  ['postprocessortypes_1',['PostProcessorTypes',['../PostProcessor_8h.html#a1dab070b8206be89206ff19f321a1cfc',1,'PostProcessor.h']]],
-  ['probabilitydistributiontype_2',['ProbabilityDistributionType',['../namespacexgboost_1_1common.html#a11e87e7e4b0c0e8dcf9e4222ec0a5d94',1,'xgboost::common']]]
+  ['range_5fop_5ftype_0',['range_op_type',['../RepProcess_8h.html#ac999655de275ed82fef616e88f50acbd',1,'RepProcess.h']]],
+  ['rangefeaturetypes_1',['RangeFeatureTypes',['../FeatureGenerator_8h.html#a0d4462358a3ab257e89b22f5532c8b98',1,'FeatureGenerator.h']]],
+  ['recursivehalvingnodetype_2',['RecursiveHalvingNodeType',['../namespaceLightGBM.html#abd9dedb167051ec63883d20a305e8ef6',1,'LightGBM']]],
+  ['repprocessortypes_3',['RepProcessorTypes',['../RepProcess_8h.html#a2772b5cb2b32efafbbd8ba9440b9576a',1,'RepProcess.h']]],
+  ['returntypeenum_4',['ReturnTypeEnum',['../classrabit_1_1engine_1_1AllreduceBase.html#af3d38ae375d83c5eadd2ec948374ead1',1,'rabit::engine::AllreduceBase']]]
 ];

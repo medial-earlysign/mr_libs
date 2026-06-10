@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['tasktype_0',['TaskType',['../namespaceLightGBM.html#a6be08e1623418299e34282d71c1f2333',1,'LightGBM']]],
-  ['timefeattypes_1',['TimeFeatTypes',['../FeatureGenerator_8h.html#af582df9b977efdc0cc570e490ca7ae80',1,'FeatureGenerator.h']]],
-  ['timerangetypes_2',['TimeRangeTypes',['../FeatureGenerator_8h.html#abacbb5bd086c4a41f5de6f953e395e11',1,'FeatureGenerator.h']]],
-  ['timewindowmode_3',['TimeWindowMode',['../MedEnums_8h.html#a69fd9194ed57f77bdd0bcc8fe9769441',1,'MedEnums.h']]],
-  ['token_5ftype_4',['token_type',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540',1,'detail::lexer_base']]],
-  ['type_5',['Type',['../classxgboost_1_1FeatureMap.html#a3b531c2db313055b34a3ddd40d8a35f3',1,'xgboost::FeatureMap']]]
+  ['valuecleanertype_0',['ValueCleanerType',['../MedValueCleaner_8h.html#ab80309a5e1135550d9f74fb3523677da',1,'MedValueCleaner.h']]],
+  ['valuekind_1',['ValueKind',['../classxgboost_1_1Value.html#a8a1fc71a7b992d18e084a18eb3af6a9a',1,'xgboost::Value']]]
 ];

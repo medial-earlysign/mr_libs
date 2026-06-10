@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['medmodelstage_0',['MedModelStage',['../MedModel_8h.html#a6b9a07d0cd58d61ff4aa424e4b4a2306',1,'MedModel.h']]],
-  ['medpredictortypes_1',['MedPredictorTypes',['../MedAlgo_8h.html#ab3f9aacffd8e29e833677299133ac4f0',1,'MedAlgo.h']]],
-  ['multistrategy_2',['MultiStrategy',['../namespacexgboost.html#ae506a0784c5d1860940bda5136acb760',1,'xgboost']]]
+  ['operation_0',['Operation',['../namespacexgboost_1_1collective.html#a0aaf1f5c793a2db28f939dd44d7f088d',1,'xgboost::collective']]],
+  ['option_1',['Option',['../classdmlc_1_1LuaState.html#a00653ef79293ad2e4797326295028ce7',1,'dmlc::LuaState']]],
+  ['optype_2',['OpType',['../namespacerabit_1_1engine_1_1mpi.html#aeb1bf35331242272d044bf7c85490208',1,'rabit::engine::mpi']]]
 ];

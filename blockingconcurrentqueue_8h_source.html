@@ -582,7 +582,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    <span class="comment">// the tokens that were created for one queue must be used with</span></div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    <span class="comment">// only the swapped queue (i.e. the tokens are tied to the</span></div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>    <span class="comment">// queue&#39;s movable state, not the object itself).</span></div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(BlockingConcurrentQueue&amp; other) MOODYCAMEL_NOEXCEPT</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> swap(BlockingConcurrentQueue&amp; other) MOODYCAMEL_NOEXCEPT</div>
 <div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    {</div>
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>        swap_internal(other);</div>
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>    }</div>
@@ -1062,7 +1062,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00979" name="l00979"></a><span class="lineno">  979</span> </div>
 <div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span> </div>
 <div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Traits&gt;</div>
-<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(BlockingConcurrentQueue&lt;T, Traits&gt;&amp; a, BlockingConcurrentQueue&lt;T, Traits&gt;&amp; b) MOODYCAMEL_NOEXCEPT</div>
+<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(BlockingConcurrentQueue&lt;T, Traits&gt;&amp; a, BlockingConcurrentQueue&lt;T, Traits&gt;&amp; b) MOODYCAMEL_NOEXCEPT</div>
 <div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>{</div>
 <div class="line"><a id="l00984" name="l00984"></a><span class="lineno">  984</span>    a.swap(b);</div>
 <div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>}</div>
@@ -1073,11 +1073,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00990" name="l00990"></a><span class="lineno">  990</span><span class="preprocessor">#endif  </span><span class="comment">// DMLC_BLOCKINGCONCURRENTQUEUE_H_</span></div>
 <div class="ttc" id="anamespacedmlc_html"><div class="ttname"><a href="namespacedmlc.html">dmlc</a></div><div class="ttdoc">namespace for dmlc</div><div class="ttdef"><b>Definition</b> array_view.h:12</div></div>
 <div class="ttc" id="anamespacedmlc_html_a7a89c6e0909617034aa818dafe83a361"><div class="ttname"><a href="namespacedmlc.html#a7a89c6e0909617034aa818dafe83a361">dmlc::index_t</a></div><div class="ttdeci">unsigned index_t</div><div class="ttdoc">this defines the unsigned integer type that can normally be used to store feature index</div><div class="ttdef"><b>Definition</b> data.h:32</div></div>
-<div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['cbor_5ftag_5fhandler_5ft_0',['cbor_tag_handler_t',['../classbasic__json.html#a067b4f0e63e55055272fec0a26b5b991',1,'basic_json']]],
-  ['configentry_1',['ConfigEntry',['../classdmlc_1_1Config.html#afc2e054db64f1ece11f3bac84d775d12',1,'dmlc::Config']]],
-  ['const_5fiterator_2',['const_iterator',['../classbasic__json.html#a1f5af3d9d06d43b91fefe1767794b1e8',1,'basic_json']]],
-  ['const_5fpointer_3',['const_pointer',['../classbasic__json.html#a2862fa42527f5c14d9f737411e0facd4',1,'basic_json']]],
-  ['const_5fptr_4',['const_ptr',['../classdmlc_1_1ThreadlocalAllocator.html#a88554f6659530504ff7201c7091e7bd2',1,'dmlc::ThreadlocalAllocator']]],
-  ['const_5freference_5',['const_reference',['../classbasic__json.html#a31370bb451b78198d42c86dd31955deb',1,'basic_json']]],
-  ['const_5freverse_5fiterator_6',['const_reverse_iterator',['../classbasic__json.html#a240f61567d8acffe831532f4f9b379cb',1,'basic_json']]]
+  ['data_5fsize_5ft_0',['data_size_t',['../namespaceLightGBM.html#afd76be3a9063eee6e29988ae655e47f8',1,'LightGBM']]],
+  ['dataholderhandle_1',['DataHolderHandle',['../group__Streaming.html#ga00583918fb7159927ccebbb41844f6e1',1,'c_api.h']]],
+  ['dataiterhandle_2',['DataIterHandle',['../group__Streaming.html#gabce84fe05f55709d643bcfd0a4e4620b',1,'c_api.h']]],
+  ['decay_5ft_3',['decay_t',['../namespacedmlc.html#a74a0a94dbddd4d45858d7a53c1f63ea4',1,'dmlc']]],
+  ['dmatrixhandle_4',['DMatrixHandle',['../group__Library.html#ga79787d32dbf589626a850cd9cd34dbe6',1,'c_api.h']]]
 ];

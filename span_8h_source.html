@@ -164,7 +164,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#define SPAN_LT(lhs, rhs) SPAN_CHECK((lhs) &lt; (rhs))</span></div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedetail.html">detail</a> {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">namespace </span>detail {</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keyword">using </span>ptrdiff_t = <span class="keyword">typename</span> std::conditional&lt;  <span class="comment">// NOLINT</span></div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    std::is_same&lt;std::ptrdiff_t, std::int64_t&gt;::value,</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    std::ptrdiff_t, std::int64_t&gt;::type;</div>
@@ -182,7 +182,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> ElementType, std::<span class="keywordtype">size_t</span> Extent&gt;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">class </span><a class="code hl_class" href="classxgboost_1_1common_1_1Span.html">Span</a>;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedetail.html">detail</a> {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">namespace </span>detail {</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> SpanType, <span class="keywordtype">bool</span> IsConst&gt;</div>
 <div class="foldopen" id="foldopen00154" data-start="{" data-end="};">
@@ -563,7 +563,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00596" data-start="{" data-end="}">
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno"><a class="line" href="classxgboost_1_1common_1_1Span.html#a5fe3b719dbc2f4cb3331b47511847764">  596</a></span>  <a class="code hl_define" href="include_2xgboost_2base_8h.html#aa33073da721ea3d200c808d1bf4b6099">XGBOOST_DEVICE</a> <span class="keyword">auto</span> <a class="code hl_function" href="classxgboost_1_1common_1_1Span.html#a5fe3b719dbc2f4cb3331b47511847764">subspan</a>() const -&gt;                   <span class="comment">// NOLINT</span></div>
 <div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>      <a class="code hl_class" href="classxgboost_1_1common_1_1Span.html">Span</a>&lt;element_type,</div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>           <a class="code hl_namespace" href="namespacedetail.html">detail</a>::ExtentValue&lt;Extent, Offset, Count&gt;::value&gt; {</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>           detail::ExtentValue&lt;Extent, Offset, Count&gt;::value&gt; {</div>
 <div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    SPAN_CHECK((Count == dynamic_extent) ?</div>
 <div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>               (Offset &lt;= size()) : (Offset + Count &lt;= size()));</div>
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>    <span class="keywordflow">return</span> {data() + Offset, Count == dynamic_extent ? size() - Offset : Count};</div>
@@ -605,7 +605,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>}</div>
 <div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
 <div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> X, <span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> Y&gt;</div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span><a class="code hl_define" href="include_2xgboost_2base_8h.html#aa33073da721ea3d200c808d1bf4b6099">XGBOOST_DEVICE</a> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(Span&lt;T, X&gt; l, Span&lt;U, Y&gt; r) {</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span><a class="code hl_define" href="include_2xgboost_2base_8h.html#aa33073da721ea3d200c808d1bf4b6099">XGBOOST_DEVICE</a> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> operator&lt;(Span&lt;T, X&gt; l, Span&lt;U, Y&gt; r) {</div>
 <div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>  <span class="keywordflow">return</span> detail::LexicographicalCompare(l.begin(), l.end(),</div>
 <div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>                                         r.begin(), r.end());</div>
 <div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>}</div>
@@ -694,8 +694,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="ainclude_2xgboost_2base_8h_html"><div class="ttname"><a href="include_2xgboost_2base_8h.html">base.h</a></div><div class="ttdoc">Copyright 2015-2023 by XGBoost Contributors.</div></div>
 <div class="ttc" id="ainclude_2xgboost_2base_8h_html_aa33073da721ea3d200c808d1bf4b6099"><div class="ttname"><a href="include_2xgboost_2base_8h.html#aa33073da721ea3d200c808d1bf4b6099">XGBOOST_DEVICE</a></div><div class="ttdeci">#define XGBOOST_DEVICE</div><div class="ttdoc">Tag function as usable by device.</div><div class="ttdef"><b>Definition</b> base.h:64</div></div>
 <div class="ttc" id="ainclude_2xgboost_2logging_8h_html"><div class="ttname"><a href="include_2xgboost_2logging_8h.html">logging.h</a></div><div class="ttdoc">defines console logging options for xgboost. Use to enforce unified print behavior.</div></div>
-<div class="ttc" id="anamespacedetail_html"><div class="ttname"><a href="namespacedetail.html">detail</a></div><div class="ttdoc">detail namespace with internal helper functions</div><div class="ttdef"><b>Definition</b> json.hpp:249</div></div>
-<div class="ttc" id="anamespacedetail_html_aac7ca91589afb0bad68baec5949daaa2"><div class="ttname"><a href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">detail::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const value_t lhs, const value_t rhs) noexcept</div><div class="ttdoc">comparison operator for JSON types</div><div class="ttdef"><b>Definition</b> json.hpp:2889</div></div>
 <div class="ttc" id="anamespacexgboost_html"><div class="ttname"><a href="namespacexgboost.html">xgboost</a></div><div class="ttdoc">namespace of xgboost</div><div class="ttdef"><b>Definition</b> base.h:90</div></div>
 <div class="ttc" id="astructxgboost_1_1common_1_1detail_1_1ExtentAsBytesValue_html"><div class="ttname"><a href="structxgboost_1_1common_1_1detail_1_1ExtentAsBytesValue.html">xgboost::common::detail::ExtentAsBytesValue</a></div><div class="ttdef"><b>Definition</b> span.h:301</div></div>
 <div class="ttc" id="astructxgboost_1_1common_1_1detail_1_1ExtentValue_html"><div class="ttname"><a href="structxgboost_1_1common_1_1detail_1_1ExtentValue.html">xgboost::common::detail::ExtentValue</a></div><div class="ttdef"><b>Definition</b> span.h:291</div></div>
@@ -708,7 +706,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

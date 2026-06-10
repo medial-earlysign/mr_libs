@@ -156,7 +156,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    vector&lt;T&gt; m_orig = m;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">size_t</span> ncols_orig = ncols;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ncols,nrows);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    swap(ncols,nrows);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;nrows; i++)</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=0; j&lt;ncols; j++)</div>
@@ -728,7 +728,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; recordsMetadata[i].outcomeTime &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; recordsMetadata[i].split &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; </div>
 <div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>                recordsMetadata[i].weight &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; ncols; j++) {</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>            of &lt;&lt; get(i, j) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>            of &lt;&lt; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(i, j) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        }</div>
 <div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>        <span class="keywordflow">if</span> (with_records)</div>
 <div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>            of &lt;&lt; recordsMetadata[i].label &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; recordsMetadata[i].pred;</div>
@@ -777,7 +777,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>            num = 0 ;</div>
 <div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span> </div>
 <div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nrows; i++) {</div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                val = (float)get(i,j);</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                val = (float)<a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(i,j);</div>
 <div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>                <span class="keywordflow">if</span> (val != missing_value) {</div>
 <div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>                    <span class="keywordflow">if</span> (wgts != NULL) val *= wgts[i];</div>
 <div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>                    num ++ ;</div>
@@ -802,7 +802,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>            num = 0 ;</div>
 <div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span> </div>
 <div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;ncols; j++) {</div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>                val = (float)get(i,j);</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>                val = (float)<a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(i,j);</div>
 <div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>                <span class="keywordflow">if</span> (val != missing_value) {</div>
 <div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>                    <span class="keywordflow">if</span> (wgts != NULL) val *= wgts[i];</div>
 <div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>                    num ++ ;</div>
@@ -833,7 +833,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        <span class="keywordtype">int</span> _num = 0;</div>
 <div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span> </div>
 <div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nrows; i++) {</div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>            <span class="keywordtype">float</span> val = (float)get(i, j);</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>            <span class="keywordtype">float</span> val = (float)<a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(i, j);</div>
 <div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>            <span class="keywordflow">if</span> (val != missing_value) {</div>
 <div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>                _num++;</div>
 <div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>                _sum += val;</div>
@@ -848,7 +848,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span> </div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>        _num = 0;</div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nrows; i++) {</div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>            T val = get(i, j);</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>            T val = <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(i, j);</div>
 <div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>            <span class="keywordflow">if</span> (val != missing_value) {</div>
 <div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>                _num++;</div>
 <div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>                _sum2 += (double)(val - _avg[j])*(val - _avg[j]);</div>
@@ -903,7 +903,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>{</div>
 <div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>    fprintf(fout, <span class="stringliteral">&quot;%s :: [%d,:] :&quot;</span>, prefix.c_str(),i_row);</div>
 <div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;ncols; i++)</div>
-<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>        fprintf(fout, format.c_str(), get(i_row, i));</div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>        fprintf(fout, format.c_str(), <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(i_row, i));</div>
 <div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>    fprintf(fout, <span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>}</div>
 <div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span> </div>
@@ -985,12 +985,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassMedTime_html_a3f55e8a7608296179aa18401d453cbd9"><div class="ttname"><a href="classMedTime.html#a3f55e8a7608296179aa18401d453cbd9">MedTime::DateTimeString</a></div><div class="ttdeci">static const int DateTimeString</div><div class="ttdoc">string only format &quot;YYYYMMDDHHMI&quot;</div><div class="ttdef"><b>Definition</b> MedTime.h:31</div></div>
 <div class="ttc" id="aclassRecordData_html"><div class="ttname"><a href="classRecordData.html">RecordData</a></div><div class="ttdoc">TODO: this class should be refactored and merged with MedSample.</div><div class="ttdef"><b>Definition</b> MedMat.h:30</div></div>
 <div class="ttc" id="anamespacedmlc_html_a43a149fb880b527d393975a884255341"><div class="ttname"><a href="namespacedmlc.html#a43a149fb880b527d393975a884255341">dmlc::stof</a></div><div class="ttdeci">float stof(const std::string &amp;value, size_t *pos=nullptr)</div><div class="ttdoc">A faster implementation of stof(). See documentation of std::stof() for more information....</div><div class="ttdef"><b>Definition</b> strtonum.h:467</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> json.hpp:5296</div></div>
-<div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> optional.h:396</div></div>
+<div class="ttc" id="anamespacexgboost_html_a22ad10d05e657d6d18e3fe5720ebe3da"><div class="ttname"><a href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">xgboost::get</a></div><div class="ttdeci">auto get(U &amp;json) -&gt; decltype(detail::GetImpl(*Cast&lt; T &gt;(&amp;json.GetValue())))&amp;</div><div class="ttdoc">Get Json value.</div><div class="ttdef"><b>Definition</b> json.h:585</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:10 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

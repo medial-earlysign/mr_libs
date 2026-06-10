@@ -100,10 +100,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span>any;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">inline</span> T&amp; get(any&amp; src);  <span class="comment">// NOLINT(*)</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">inline</span> T&amp; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(any&amp; src);  <span class="comment">// NOLINT(*)</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; get(<span class="keyword">const</span> any&amp; src);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(<span class="keyword">const</span> any&amp; src);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; unsafe_get(<span class="keyword">const</span> any&amp; src);</div>
@@ -125,7 +125,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <span class="keyword">inline</span> any&amp; operator=(T&amp;&amp; other);</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keyword">inline</span> <span class="keywordtype">bool</span> empty() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> clear();</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(any&amp; other); <span class="comment">// NOLINT(*)</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> swap(any&amp; other); <span class="comment">// NOLINT(*)</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  <span class="keyword">inline</span> <span class="keyword">const</span> std::type_info&amp; type() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> construct(Args&amp;&amp;... args);</div>
@@ -164,9 +164,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  };</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  <span class="comment">// declare friend with</span></div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  <span class="keyword">friend</span> T&amp; get(any&amp; src);  <span class="comment">// NOLINT(*)</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  <span class="keyword">friend</span> T&amp; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(any&amp; src);  <span class="comment">// NOLINT(*)</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  <span class="keyword">friend</span> <span class="keyword">const</span> T&amp; get(<span class="keyword">const</span> any&amp; src);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  <span class="keyword">friend</span> <span class="keyword">const</span> T&amp; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(<span class="keyword">const</span> any&amp; src);</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <span class="keyword">friend</span> T&amp; unsafe_get(any&amp; src);  <span class="comment">// NOLINT(*)</span></div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
@@ -267,8 +267,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>}</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="keyword">inline</span> <span class="keywordtype">void</span> any::swap(any&amp; other) { <span class="comment">// NOLINT(*)</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(type_, other.type_);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(data_, other.data_);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  std::swap(type_, other.type_);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  std::swap(data_, other.data_);</div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>}</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="keyword">inline</span> <span class="keywordtype">void</span> any::clear() {</div>
@@ -315,13 +315,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>}</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; get(<span class="keyword">const</span> any&amp; src) {</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(<span class="keyword">const</span> any&amp; src) {</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>  src.check_type&lt;T&gt;();</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>  <span class="keywordflow">return</span> *any::TypeInfo&lt;T&gt;::get_ptr(&amp;(src.data_));</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>}</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="keyword">inline</span> T&amp; get(any&amp; src) { <span class="comment">// NOLINT(*)</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="keyword">inline</span> T&amp; <a class="code hl_function" href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">get</a>(any&amp; src) { <span class="comment">// NOLINT(*)</span></div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>  src.check_type&lt;T&gt;();</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  <span class="keywordflow">return</span> *any::TypeInfo&lt;T&gt;::get_ptr(&amp;(src.data_));</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>}</div>
@@ -404,12 +404,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span><span class="preprocessor">#endif  </span><span class="comment">// DMLC_ANY_H_</span></div>
 <div class="ttc" id="ainclude_2xgboost_2logging_8h_html"><div class="ttname"><a href="include_2xgboost_2logging_8h.html">logging.h</a></div><div class="ttdoc">defines console logging options for xgboost. Use to enforce unified print behavior.</div></div>
 <div class="ttc" id="anamespacedmlc_html"><div class="ttname"><a href="namespacedmlc.html">dmlc</a></div><div class="ttdoc">namespace for dmlc</div><div class="ttdef"><b>Definition</b> array_view.h:12</div></div>
-<div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
+<div class="ttc" id="anamespacexgboost_html_a22ad10d05e657d6d18e3fe5720ebe3da"><div class="ttname"><a href="namespacexgboost.html#a22ad10d05e657d6d18e3fe5720ebe3da">xgboost::get</a></div><div class="ttdeci">auto get(U &amp;json) -&gt; decltype(detail::GetImpl(*Cast&lt; T &gt;(&amp;json.GetValue())))&amp;</div><div class="ttdoc">Get Json value.</div><div class="ttdef"><b>Definition</b> json.h:585</div></div>
 <div class="ttc" id="arabit_2include_2rabit_2base_8h_html"><div class="ttname"><a href="rabit_2include_2rabit_2base_8h.html">base.h</a></div><div class="ttdoc">Macros common to all headers.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

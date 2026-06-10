@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['parse_5fevent_5ft_0',['parse_event_t',['../classbasic__json.html#a53b6bf8ee18c48f4609c8bdd4bb95107',1,'basic_json']]],
-  ['parser_5fcallback_5ft_1',['parser_callback_t',['../classbasic__json.html#a50644d655c9283aaf0e2a0f3a5428867',1,'basic_json']]],
-  ['pointer_2',['pointer',['../classdetail_1_1iter__impl.html#aa8dd63c75410c2526f14481b2647e829',1,'detail::iter_impl::pointer'],['../classbasic__json.html#a84279673ab13fb6360cf17173a29a1f1',1,'basic_json::pointer'],['../classdmlc_1_1ThreadlocalAllocator.html#aa9509829a2b96a97eca105cfc918f8ee',1,'dmlc::ThreadlocalAllocator::pointer']]],
-  ['position_5ft_3',['position_t',['../namespacexgboost_1_1ltr.html#ad5e395ea7f1d993b33f779d9ef5e686d',1,'xgboost::ltr']]],
-  ['preprocessscoresfunc_4',['PreprocessScoresFunc',['../bootstrap_8h.html#ac2d44c9600eff599a14602c273fb9416',1,'bootstrap.h']]],
-  ['preprocfunction_5',['PreprocFunction',['../classrabit_1_1engine_1_1IEngine.html#a81d49a1de53963a70c38e5ebf1025d8b',1,'rabit::engine::IEngine']]],
-  ['processmeasurementparamfunc_6',['ProcessMeasurementParamFunc',['../bootstrap_8h.html#a172ef1a65bc921e1492d9da891ef5a0b',1,'bootstrap.h']]]
+  ['treesonegroup_0',['TreesOneGroup',['../namespacexgboost_1_1gbm.html#a560a5e2d3e3e3e8252723d7d7ddc25e0',1,'xgboost::gbm']]],
+  ['treesoneiter_1',['TreesOneIter',['../namespacexgboost_1_1gbm.html#a1e179d549e1348e1609c549680a929b1',1,'xgboost::gbm']]]
 ];

@@ -829,7 +829,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00788" data-start="{" data-end="}">
 <div class="line"><a id="l00788" name="l00788"></a><span class="lineno"><a class="line" href="classLightGBM_1_1HistogramPool.html#a435b849426cbad16071a1afb023f259e">  788</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classLightGBM_1_1HistogramPool.html#a435b849426cbad16071a1afb023f259e">Move</a>(<span class="keywordtype">int</span> src_idx, <span class="keywordtype">int</span> dst_idx) {</div>
 <div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>    <span class="keywordflow">if</span> (is_enough_) {</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>      <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(pool_[src_idx], pool_[dst_idx]);</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>      std::swap(pool_[src_idx], pool_[dst_idx]);</div>
 <div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>      <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>    }</div>
 <div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>    <span class="keywordflow">if</span> (mapper_[src_idx] &lt; 0) {</div>
@@ -885,7 +885,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassLightGBM_1_1HistogramPool_html_adb69aeb96c5d68f94b74b5335b38efd6"><div class="ttname"><a href="classLightGBM_1_1HistogramPool.html#adb69aeb96c5d68f94b74b5335b38efd6">LightGBM::HistogramPool::HistogramPool</a></div><div class="ttdeci">HistogramPool()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> feature_histogram.hpp:651</div></div>
 <div class="ttc" id="anamespaceLightGBM_html"><div class="ttname"><a href="namespaceLightGBM.html">LightGBM</a></div><div class="ttdoc">desc and descl2 fields must be written in reStructuredText format</div><div class="ttdef"><b>Definition</b> application.h:10</div></div>
 <div class="ttc" id="anamespaceLightGBM_html_afd76be3a9063eee6e29988ae655e47f8"><div class="ttname"><a href="namespaceLightGBM.html#afd76be3a9063eee6e29988ae655e47f8">LightGBM::data_size_t</a></div><div class="ttdeci">int32_t data_size_t</div><div class="ttdoc">Type of data size, it is better to use signed type.</div><div class="ttdef"><b>Definition</b> meta.h:14</div></div>
-<div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
 <div class="ttc" id="astructLightGBM_1_1Config_html"><div class="ttname"><a href="structLightGBM_1_1Config.html">LightGBM::Config</a></div><div class="ttdef"><b>Definition</b> config.h:27</div></div>
 <div class="ttc" id="astructLightGBM_1_1HistogramBinEntry_html"><div class="ttname"><a href="structLightGBM_1_1HistogramBinEntry.html">LightGBM::HistogramBinEntry</a></div><div class="ttdoc">Store data for one histogram bin.</div><div class="ttdef"><b>Definition</b> bin.h:29</div></div>
 <div class="ttc" id="astructLightGBM_1_1HistogramBinEntry_html_a25c4d41a1199e4bbd9c68844d7f6851e"><div class="ttname"><a href="structLightGBM_1_1HistogramBinEntry.html#a25c4d41a1199e4bbd9c68844d7f6851e">LightGBM::HistogramBinEntry::cnt</a></div><div class="ttdeci">data_size_t cnt</div><div class="ttdoc">Number of data on this bin.</div><div class="ttdef"><b>Definition</b> bin.h:36</div></div>
@@ -895,7 +894,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 12:59:33 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

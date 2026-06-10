@@ -77,10 +77,9 @@ var searchData=
   ['num_5ftree_5fper_5fiteration_5f_74',['num_tree_per_iteration_',['../classLightGBM_1_1GBDT.html#aa3f78eb9ab064105a2f39b6add956090',1,'LightGBM::GBDT']]],
   ['num_5ftrees_75',['num_trees',['../structxgboost_1_1gbm_1_1GBTreeModelParam.html#a8306d5e839131fd694aef3aea5a5a062',1,'xgboost::gbm::GBTreeModelParam']]],
   ['num_5fx_76',['num_X',['../structExplanationDataset.html#aa9d074504762c58248dc165f3f95afcb',1,'ExplanationDataset']]],
-  ['number_5fbuffer_77',['number_buffer',['../classdetail_1_1serializer.html#ace18a55b8304310fee309d31e54a3e27',1,'detail::serializer']]],
-  ['numclusters_78',['numClusters',['../classKNN__Explainer.html#ac4fcf9fba7544044483e9802223dfd34',1,'KNN_Explainer']]],
-  ['numtoselect_79',['numToSelect',['../classFeatureSelector.html#a7b4e958b05a8d096f7b38dc74d627e8c',1,'FeatureSelector']]],
-  ['numtoselectdelta_80',['numToSelectDelta',['../classFeatureSelector.html#a2e58db6489eb54023ba8b16329e704bc',1,'FeatureSelector']]],
-  ['nvalchannels_81',['nValChannels',['../classRepSimValHandler.html#a5a689f4df7f9bbca96bf75f1c8f4727e',1,'RepSimValHandler']]],
-  ['nvals_5ffor_5fcategorial_82',['nvals_for_categorial',['../classTQRF__Params.html#a6bb9eb0d28f9fdd12782263a01dbb699',1,'TQRF_Params']]]
+  ['numclusters_77',['numClusters',['../classKNN__Explainer.html#ac4fcf9fba7544044483e9802223dfd34',1,'KNN_Explainer']]],
+  ['numtoselect_78',['numToSelect',['../classFeatureSelector.html#a7b4e958b05a8d096f7b38dc74d627e8c',1,'FeatureSelector']]],
+  ['numtoselectdelta_79',['numToSelectDelta',['../classFeatureSelector.html#a2e58db6489eb54023ba8b16329e704bc',1,'FeatureSelector']]],
+  ['nvalchannels_80',['nValChannels',['../classRepSimValHandler.html#a5a689f4df7f9bbca96bf75f1c8f4727e',1,'RepSimValHandler']]],
+  ['nvals_5ffor_5fcategorial_81',['nvals_for_categorial',['../classTQRF__Params.html#a6bb9eb0d28f9fdd12782263a01dbb699',1,'TQRF_Params']]]
 ];
