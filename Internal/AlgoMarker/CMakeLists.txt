@@ -102,6 +102,7 @@ FetchContent_Declare(
     xgboost
     URL      https://github.com/dmlc/xgboost/releases/download/v2.0.3/xgboost-2.0.3.tar.gz
     DOWNLOAD_EXTRACT_TIMESTAMP ON
+    SOURCE_SUBDIR cpp_src
 )
 
 set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
