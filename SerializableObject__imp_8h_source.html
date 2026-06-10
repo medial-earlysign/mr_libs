@@ -1338,7 +1338,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span> </div>
 <div class="line"><a id="l01256" name="l01256"></a><span class="lineno"> 1256</span><span class="preprocessor">#if 0</span></div>
 <div class="line"><a id="l01257" name="l01257"></a><span class="lineno"> 1257</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;e : name2pos)</div>
-<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span>            SRL_LOG(<span class="stringliteral">&quot;dtop(5.5) name2pos [ %s ]  =  %d\n&quot;</span>, e.first.<a class="code hl_function" href="namespacelightgbm_1_1basic.html#ab6d22168cf419087659a713139271ada">c_str</a>(), e.second);</div>
+<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span>            SRL_LOG(<span class="stringliteral">&quot;dtop(5.5) name2pos [ %s ]  =  %d\n&quot;</span>, e.first.c_str(), e.second);</div>
 <div class="line"><a id="l01259" name="l01259"></a><span class="lineno"> 1259</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l01260" name="l01260"></a><span class="lineno"> 1260</span>        <span class="comment">// ready for deserializer (note that all name2pos addresses are relative to the original blob)</span></div>
 <div class="line"><a id="l01261" name="l01261"></a><span class="lineno"> 1261</span>        MedSerialize::deserializer(blob, 0, names, name2pos, args...);</div>
@@ -1689,11 +1689,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l01606" name="l01606"></a><span class="lineno"> 1606</span> </div>
 <div class="line"><a id="l01607" name="l01607"></a><span class="lineno"> 1607</span> </div>
 <div class="line"><a id="l01608" name="l01608"></a><span class="lineno"> 1608</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacelightgbm_1_1basic_html_ab6d22168cf419087659a713139271ada"><div class="ttname"><a href="namespacelightgbm_1_1basic.html#ab6d22168cf419087659a713139271ada">lightgbm.basic.c_str</a></div><div class="ttdeci">c_str(string)</div><div class="ttdef"><b>Definition</b> basic.py:110</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2026 14:08:34 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 19:58:52 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

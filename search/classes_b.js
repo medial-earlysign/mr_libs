@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['keraslayer_0',['KerasLayer',['../classKerasLayer.html',1,'']]],
-  ['kernel_1',['Kernel',['../classKernel.html',1,'']]],
-  ['keyrule_2',['KeyRule',['../classKeyRule.html',1,'']]],
-  ['kfrecalculator_3',['KfreCalculator',['../classKfreCalculator.html',1,'']]],
-  ['knn_5fexplainer_4',['KNN_Explainer',['../classKNN__Explainer.html',1,'']]],
-  ['kpsmokinggenerator_5',['KpSmokingGenerator',['../classKpSmokingGenerator.html',1,'']]],
-  ['kullbackleiblerdivergence_6',['KullbackLeiblerDivergence',['../classLightGBM_1_1KullbackLeiblerDivergence.html',1,'LightGBM']]]
+  ['labelparams_0',['LabelParams',['../classLabelParams.html',1,'']]],
+  ['lassoselector_1',['LassoSelector',['../classLassoSelector.html',1,'']]],
+  ['lazy_5fiterator_2',['Lazy_Iterator',['../classLazy__Iterator.html',1,'']]],
+  ['limeexplainer_3',['LimeExplainer',['../classLimeExplainer.html',1,'']]],
+  ['linearexplainer_4',['LinearExplainer',['../classLinearExplainer.html',1,'']]],
+  ['localviewsparams_5',['LocalViewsParams',['../classLocalViewsParams.html',1,'']]],
+  ['logcalculator_6',['logCalculator',['../classlogCalculator.html',1,'']]],
+  ['logdata_7',['LogData',['../classLogData.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_5fsize_5ft_0',['data_size_t',['../namespaceLightGBM.html#afd76be3a9063eee6e29988ae655e47f8',1,'LightGBM']]]
+  ['filtercohortfunc_0',['FilterCohortFunc',['../bootstrap_8h.html#ac8b4faa5c45e18d9fc95c231a5cad096',1,'bootstrap.h']]]
 ];

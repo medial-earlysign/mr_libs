@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['сontainer_0',['Running the Python-package Сontainer',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2docker_2README.html#autotoc_md16',1,'']]]
+  ['“json_20for_20modern_20c_20”_20strong_0',['3. &lt;strong&gt;nlohmann/json (“JSON for Modern C++”)&lt;/strong&gt;',['../md_THIRD__PARTY__LICENSES.html#autotoc_md38',1,'']]]
 ];

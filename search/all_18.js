@@ -12,11 +12,7 @@ var searchData=
   ['qrf_5ftree_9',['QRF_Tree',['../classQRF__Tree.html',1,'']]],
   ['qrfglobalrng_10',['QRFglobalRNG',['../classQRFglobalRNG.html',1,'']]],
   ['quantilelearn_11',['quantilelearn',['../classOutlierSampleFilter.html#a486ff30ee6b8ae423874b674773f4a15',1,'OutlierSampleFilter::quantileLearn()'],['../classRepBasicOutlierCleaner.html#a54d95b66833e089cebfe541774842624',1,'RepBasicOutlierCleaner::quantileLearn()'],['../classRepNbrsOutlierCleaner.html#a41b42a80303b3c6b8e2934bbde43740a',1,'RepNbrsOutlierCleaner::quantileLearn()']]],
-  ['quantilemetric_12',['QuantileMetric',['../classLightGBM_1_1QuantileMetric.html',1,'LightGBM']]],
-  ['quantiles_13',['quantiles',['../structMedQRFParams.html#af4e2954cebd1851c973be3db67a0d052',1,'MedQRFParams']]],
-  ['quantized_5ffeat_14',['Quantized_Feat',['../classQuantized__Feat.html',1,'']]],
-  ['quantizedrf_15',['QuantizedRF',['../classQuantizedRF.html',1,'']]],
-  ['query_5fboundaries_16',['query_boundaries',['../classLightGBM_1_1Metadata.html#a93afffc2073d5aa697b70fb0f7c38960',1,'LightGBM::Metadata']]],
-  ['query_5fweights_17',['query_weights',['../classLightGBM_1_1Metadata.html#a46bab1c879c6310b92e22c5a77f951f5',1,'LightGBM::Metadata']]],
-  ['quickstart_18',['Quickstart',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2docker_2gpu_2README.html#autotoc_md8',1,'']]]
+  ['quantiles_12',['quantiles',['../structMedQRFParams.html#af4e2954cebd1851c973be3db67a0d052',1,'MedQRFParams']]],
+  ['quantized_5ffeat_13',['Quantized_Feat',['../classQuantized__Feat.html',1,'']]],
+  ['quantizedrf_14',['QuantizedRF',['../classQuantizedRF.html',1,'']]]
 ];

@@ -1,22 +1,5 @@
 var searchData=
 [
-  ['importancefeatureselector_0',['ImportanceFeatureSelector',['../classImportanceFeatureSelector.html',1,'']]],
-  ['incidenceparams_1',['IncidenceParams',['../structIncidenceParams.html',1,'']]],
-  ['incident_5fstats_2',['Incident_Stats',['../classIncident__Stats.html',1,'']]],
-  ['index_5ftimes_3',['index_times',['../structindex__times.html',1,'']]],
-  ['indexelem_4',['IndexElem',['../classIndexElem.html',1,'']]],
-  ['indextable_5',['IndexTable',['../classIndexTable.html',1,'']]],
-  ['inmemrepdata_6',['InMemRepData',['../classInMemRepData.html',1,'']]],
-  ['inputrules_7',['InputRules',['../classInputRules.html',1,'']]],
-  ['inputsanitytester_8',['InputSanityTester',['../classInputSanityTester.html',1,'']]],
-  ['inputsanitytesterresult_9',['InputSanityTesterResult',['../structInputSanityTesterResult.html',1,'']]],
-  ['inputtester_10',['InputTester',['../classInputTester.html',1,'']]],
-  ['inputtesterattr_11',['InputTesterAttr',['../classInputTesterAttr.html',1,'']]],
-  ['inputtesterjsonfeature_12',['InputTesterJsonFeature',['../classInputTesterJsonFeature.html',1,'']]],
-  ['inputtestersimple_13',['InputTesterSimple',['../classInputTesterSimple.html',1,'']]],
-  ['iterativefeatureselector_14',['IterativeFeatureSelector',['../classIterativeFeatureSelector.html',1,'']]],
-  ['iterativeimputer_15',['IterativeImputer',['../classIterativeImputer.html',1,'']]],
-  ['iterativeimputerparams_16',['IterativeImputerParams',['../classIterativeImputerParams.html',1,'']]],
-  ['iterativesetexplainer_17',['IterativeSetExplainer',['../classIterativeSetExplainer.html',1,'']]],
-  ['iteratorwrapper_18',['IteratorWrapper',['../classIteratorWrapper.html',1,'']]]
+  ['json_5freq_5fexport_0',['json_req_export',['../classjson__req__export.html',1,'']]],
+  ['json_5freq_5finfo_1',['json_req_info',['../classjson__req__info.html',1,'']]]
 ];

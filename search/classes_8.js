@@ -1,11 +1,22 @@
 var searchData=
 [
-  ['handleseprecord_0',['handleSepRecord',['../structhandleSepRecord.html',1,'']]],
-  ['handleseprecord_3c_20tuple_2c_200_20_3e_1',['handleSepRecord&lt; Tuple, 0 &gt;',['../structhandleSepRecord_3_01Tuple_00_010_01_4.html',1,'']]],
-  ['handlesinglepos_2',['handleSinglePos',['../structhandleSinglePos.html',1,'']]],
-  ['hashfunction_3',['hashfunction',['../structEffected__Field_1_1HashFunction.html',1,'Effected_Field::HashFunction'],['../structjson__req__export_1_1HashFunction.html',1,'json_req_export::HashFunction']]],
-  ['heap_5felem_4',['heap_elem',['../structheap__elem.html',1,'']]],
-  ['histogrambinentry_5',['HistogramBinEntry',['../structLightGBM_1_1HistogramBinEntry.html',1,'LightGBM']]],
-  ['histogrampool_6',['HistogramPool',['../classLightGBM_1_1HistogramPool.html',1,'LightGBM']]],
-  ['huberlossmetric_7',['HuberLossMetric',['../classLightGBM_1_1HuberLossMetric.html',1,'LightGBM']]]
+  ['importancefeatureselector_0',['ImportanceFeatureSelector',['../classImportanceFeatureSelector.html',1,'']]],
+  ['incidenceparams_1',['IncidenceParams',['../structIncidenceParams.html',1,'']]],
+  ['incident_5fstats_2',['Incident_Stats',['../classIncident__Stats.html',1,'']]],
+  ['index_5ftimes_3',['index_times',['../structindex__times.html',1,'']]],
+  ['indexelem_4',['IndexElem',['../classIndexElem.html',1,'']]],
+  ['indextable_5',['IndexTable',['../classIndexTable.html',1,'']]],
+  ['inmemrepdata_6',['InMemRepData',['../classInMemRepData.html',1,'']]],
+  ['inputrules_7',['InputRules',['../classInputRules.html',1,'']]],
+  ['inputsanitytester_8',['InputSanityTester',['../classInputSanityTester.html',1,'']]],
+  ['inputsanitytesterresult_9',['InputSanityTesterResult',['../structInputSanityTesterResult.html',1,'']]],
+  ['inputtester_10',['InputTester',['../classInputTester.html',1,'']]],
+  ['inputtesterattr_11',['InputTesterAttr',['../classInputTesterAttr.html',1,'']]],
+  ['inputtesterjsonfeature_12',['InputTesterJsonFeature',['../classInputTesterJsonFeature.html',1,'']]],
+  ['inputtestersimple_13',['InputTesterSimple',['../classInputTesterSimple.html',1,'']]],
+  ['iterativefeatureselector_14',['IterativeFeatureSelector',['../classIterativeFeatureSelector.html',1,'']]],
+  ['iterativeimputer_15',['IterativeImputer',['../classIterativeImputer.html',1,'']]],
+  ['iterativeimputerparams_16',['IterativeImputerParams',['../classIterativeImputerParams.html',1,'']]],
+  ['iterativesetexplainer_17',['IterativeSetExplainer',['../classIterativeSetExplainer.html',1,'']]],
+  ['iteratorwrapper_18',['IteratorWrapper',['../classIteratorWrapper.html',1,'']]]
 ];
