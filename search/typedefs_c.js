@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['number_5ffloat_5ft_0',['number_float_t',['../classbasic__json.html#a80a229dbc84c1334171ce9c49c873c56',1,'basic_json']]],
-  ['number_5finteger_5ft_1',['number_integer_t',['../classbasic__json.html#aba48b0bdee31228a4e19b7c040b6d2a5',1,'basic_json']]],
-  ['number_5funsigned_5ft_2',['number_unsigned_t',['../classbasic__json.html#ae8505b599e706768a1e0bd6718cc7117',1,'basic_json']]]
+  ['object_5fcomparator_5ft_0',['object_comparator_t',['../classbasic__json.html#af12040e0663db54840d73d363979643a',1,'basic_json']]],
+  ['object_5ft_1',['object_t',['../classbasic__json.html#ac90f70623dc1ad761ea1c5013b2fee47',1,'basic_json']]],
+  ['omp_5fulong_2',['omp_ulong',['../namespacexgboost.html#a3d09e19ecd9f0b14d629d50b16f51ada',1,'xgboost']]]
 ];

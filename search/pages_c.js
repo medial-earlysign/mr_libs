@@ -17,7 +17,7 @@ var searchData=
   ['lightgbm_20light_20gradient_20boosting_20machine_14',['LightGBM, Light Gradient Boosting Machine',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2README.html',1,'']]],
   ['lightgbm_20r_20package_15',['LightGBM R-package',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2R-package_2README.html',1,'']]],
   ['lightgbm_20via_20docker_16',['Using LightGBM via Docker',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2docker_2README.html',1,'']]],
-  ['list_17',['list',['../deprecated.html',1,'Deprecated List'],['../todo.html',1,'Todo List']]],
+  ['list_17',['Deprecated List',['../deprecated.html',1,'']]],
   ['list_20of_20key_20modifications_20of_20lightgbm_18',['Table/List of Key Modifications of LightGBM',['../md_External_2LightGBM__2_82_83_2LightGBM-2_82_83_2docs_2Key-Events.html',1,'']]],
   ['load_20data_20from_20external_20memory_19',['Defining a Custom Data Iterator to Load Data from External Memory',['../md_External_2xgboost_2demo_2c-api_2external-memory_2README.html',1,'']]],
   ['log_20',['XGBoost Change Log',['../md_External_2xgboost_2NEWS.html',1,'']]],

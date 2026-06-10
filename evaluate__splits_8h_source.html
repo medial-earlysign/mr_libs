@@ -544,7 +544,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00489" data-start="{" data-end="};">
 <div class="line"><a id="l00489" name="l00489"></a><span class="lineno"><a class="line" href="classxgboost_1_1tree_1_1HistMultiEvaluator.html">  489</a></span><span class="keyword">class </span><a class="code hl_class" href="classxgboost_1_1tree_1_1HistMultiEvaluator.html">HistMultiEvaluator</a> {</div>
 <div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>  std::vector&lt;double&gt; gain_;</div>
-<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>  <a class="code hl_class" href="classxgboost_1_1linalg_1_1Tensor.html">linalg::Matrix&lt;GradientPairPrecise&gt;</a> stats_;</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>  linalg::Matrix&lt;GradientPairPrecise&gt; stats_;</div>
 <div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>  <a class="code hl_struct" href="structxgboost_1_1tree_1_1TrainParam.html">TrainParam</a> <span class="keyword">const</span> *param_;</div>
 <div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>  <a class="code hl_class" href="classxgboost_1_1FeatureInteractionConstraintHost.html">FeatureInteractionConstraintHost</a> interaction_constraints_;</div>
 <div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>  std::shared_ptr&lt;common::ColumnSampler&gt; column_sampler_;</div>
@@ -702,7 +702,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>      <span class="keyword">auto</span> tidx = omp_get_thread_num();</div>
 <div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>      <span class="keyword">auto</span> entry = &amp;tloc_candidates[n_threads * nidx_in_set + tidx];</div>
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>      <span class="keyword">auto</span> best = &amp;entry-&gt;split;</div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>      <span class="keyword">auto</span> parent_sum = stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1Tensor.html#a21ded3b65474fa6f0b9905df734e6c67">Slice</a>(entry-&gt;nid, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>      <span class="keyword">auto</span> parent_sum = stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1TensorView.html#a9c0b5320c90c36889713ac4701fb114a">Slice</a>(entry-&gt;nid, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
 <div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>      std::vector&lt;common::ConstGHistRow&gt; node_hist;</div>
 <div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> t_hist : hist) {</div>
 <div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>        node_hist.emplace_back((*t_hist)[entry-&gt;nid]);</div>
@@ -760,7 +760,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span> </div>
 <div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>  <span class="keywordtype">void</span> ApplyTreeSplit(<a class="code hl_struct" href="structxgboost_1_1tree_1_1MultiExpandEntry.html">MultiExpandEntry</a> <span class="keyword">const</span> &amp;candidate, <a class="code hl_class" href="classxgboost_1_1RegTree.html">RegTree</a> *p_tree) {</div>
 <div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>    <span class="keyword">auto</span> n_targets = p_tree-&gt;<a class="code hl_function" href="classxgboost_1_1RegTree.html#a0dd25e6f3c1578442f4ef3caf6cb0c09">NumTargets</a>();</div>
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>    <span class="keyword">auto</span> parent_sum = stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1Tensor.html#a21ded3b65474fa6f0b9905df734e6c67">Slice</a>(candidate.nid, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>    <span class="keyword">auto</span> parent_sum = stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1TensorView.html#a9c0b5320c90c36889713ac4701fb114a">Slice</a>(candidate.nid, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
 <div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span> </div>
 <div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>    <span class="keyword">auto</span> weight = linalg::Empty&lt;float&gt;(ctx_, 3, n_targets);</div>
 <div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>    <span class="keyword">auto</span> base_weight = weight.Slice(0, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
@@ -790,13 +790,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>    gain_[right_child] = CalcGainGivenWeight(*param_, right_sum, right_weight);</div>
 <div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span> </div>
 <div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>    <span class="keywordflow">if</span> (n_nodes &gt;= stats_.Shape(0)) {</div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>      stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1Tensor.html#ade5070459f9db9f8366ceac8e3dc124a">Reshape</a>(n_nodes * 2, stats_.Shape(1));</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>      stats_.Reshape(n_nodes * 2, stats_.Shape(1));</div>
 <div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>    }</div>
 <div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>    CHECK_EQ(stats_.Shape(1), n_targets);</div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>    <span class="keyword">auto</span> left_sum_stat = stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1Tensor.html#a21ded3b65474fa6f0b9905df734e6c67">Slice</a>(left_child, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>    <span class="keyword">auto</span> left_sum_stat = stats_.Slice(left_child, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
 <div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>    std::copy(candidate.split.left_sum.cbegin(), candidate.split.left_sum.cend(),</div>
 <div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>              linalg::begin(left_sum_stat));</div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>    <span class="keyword">auto</span> right_sum_stat = stats_.<a class="code hl_function" href="classxgboost_1_1linalg_1_1Tensor.html#a21ded3b65474fa6f0b9905df734e6c67">Slice</a>(right_child, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>    <span class="keyword">auto</span> right_sum_stat = stats_.Slice(right_child, <a class="code hl_function" href="namespacexgboost_1_1linalg.html#ad2795f04421e612ef62f2c8bb1cea811">linalg::All</a>());</div>
 <div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>    std::copy(candidate.split.right_sum.cbegin(), candidate.split.right_sum.cend(),</div>
 <div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>              linalg::begin(right_sum_stat));</div>
 <div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>  }</div>
@@ -900,8 +900,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassxgboost_1_1linalg_1_1TensorView_html_a20c7dcf125766cfab789548da99b1f2e"><div class="ttname"><a href="classxgboost_1_1linalg_1_1TensorView.html#a20c7dcf125766cfab789548da99b1f2e">xgboost::linalg::TensorView::Size</a></div><div class="ttdeci">LINALG_HD std::size_t Size() const</div><div class="ttdoc">Number of items in the tensor.</div><div class="ttdef"><b>Definition</b> linalg.h:533</div></div>
 <div class="ttc" id="aclassxgboost_1_1linalg_1_1TensorView_html_a9c0b5320c90c36889713ac4701fb114a"><div class="ttname"><a href="classxgboost_1_1linalg_1_1TensorView.html#a9c0b5320c90c36889713ac4701fb114a">xgboost::linalg::TensorView::Slice</a></div><div class="ttdeci">LINALG_HD auto Slice(S &amp;&amp;...slices) const</div><div class="ttdoc">Slice the tensor.</div><div class="ttdef"><b>Definition</b> linalg.h:506</div></div>
 <div class="ttc" id="aclassxgboost_1_1linalg_1_1Tensor_html"><div class="ttname"><a href="classxgboost_1_1linalg_1_1Tensor.html">xgboost::linalg::Tensor</a></div><div class="ttdoc">A tensor storage.</div><div class="ttdef"><b>Definition</b> linalg.h:742</div></div>
-<div class="ttc" id="aclassxgboost_1_1linalg_1_1Tensor_html_a21ded3b65474fa6f0b9905df734e6c67"><div class="ttname"><a href="classxgboost_1_1linalg_1_1Tensor.html#a21ded3b65474fa6f0b9905df734e6c67">xgboost::linalg::Tensor::Slice</a></div><div class="ttdeci">auto Slice(S &amp;&amp;...slices) const</div><div class="ttdoc">Get a host view on the slice.</div><div class="ttdef"><b>Definition</b> linalg.h:919</div></div>
-<div class="ttc" id="aclassxgboost_1_1linalg_1_1Tensor_html_ade5070459f9db9f8366ceac8e3dc124a"><div class="ttname"><a href="classxgboost_1_1linalg_1_1Tensor.html#ade5070459f9db9f8366ceac8e3dc124a">xgboost::linalg::Tensor::Reshape</a></div><div class="ttdeci">void Reshape(S &amp;&amp;...s)</div><div class="ttdoc">Reshape the tensor.</div><div class="ttdef"><b>Definition</b> linalg.h:887</div></div>
 <div class="ttc" id="aclassxgboost_1_1tree_1_1BoundedHistCollection_html"><div class="ttname"><a href="classxgboost_1_1tree_1_1BoundedHistCollection.html">xgboost::tree::BoundedHistCollection</a></div><div class="ttdoc">A persistent cache for CPU histogram.</div><div class="ttdef"><b>Definition</b> hist_cache.h:30</div></div>
 <div class="ttc" id="aclassxgboost_1_1tree_1_1HistEvaluator_html"><div class="ttname"><a href="classxgboost_1_1tree_1_1HistEvaluator.html">xgboost::tree::HistEvaluator</a></div><div class="ttdef"><b>Definition</b> evaluate_splits.h:29</div></div>
 <div class="ttc" id="aclassxgboost_1_1tree_1_1HistMultiEvaluator_html"><div class="ttname"><a href="classxgboost_1_1tree_1_1HistMultiEvaluator.html">xgboost::tree::HistMultiEvaluator</a></div><div class="ttdef"><b>Definition</b> evaluate_splits.h:489</div></div>
@@ -939,7 +937,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2026 15:45:12 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

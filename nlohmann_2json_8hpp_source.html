@@ -3141,7 +3141,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03121" name="l03121"></a><span class="lineno"> 3121</span><span class="comment">// `absl::index_sequence` is designed to be a drop-in replacement for C++14&#39;s</span></div>
 <div class="line"><a id="l03122" name="l03122"></a><span class="lineno"> 3122</span><span class="comment">// `std::index_sequence`.</span></div>
 <div class="line"><a id="l03123" name="l03123"></a><span class="lineno"> 3123</span><span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span>... Ints&gt;</div>
-<div class="line"><a id="l03124" name="l03124"></a><span class="lineno"> 3124</span><span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1integer__sequence.html">index_sequence</a> = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a>&lt;size_t, Ints...&gt;;</div>
+<div class="line"><a id="l03124" name="l03124"></a><span class="lineno"> 3124</span><span class="keyword">using </span>index_sequence = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a>&lt;size_t, Ints...&gt;;</div>
 <div class="line"><a id="l03125" name="l03125"></a><span class="lineno"> 3125</span> </div>
 <div class="line"><a id="l03126" name="l03126"></a><span class="lineno"> 3126</span><span class="keyword">namespace </span>utility_internal</div>
 <div class="line"><a id="l03127" name="l03127"></a><span class="lineno"> 3127</span>{</div>
@@ -3154,7 +3154,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen03134" data-start="{" data-end="};">
 <div class="line"><a id="l03134" name="l03134"></a><span class="lineno"><a class="line" href="structdetail_1_1utility__internal_1_1Extend_3_01integer__sequence_3_01T_00_01Ints_8_8_8_01_4_00_01SeqSize_00_010_01_4.html"> 3134</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdetail_1_1utility__internal_1_1Extend.html">Extend</a>&lt;<a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a>&lt;T, Ints...&gt;, SeqSize, 0&gt;</div>
 <div class="line"><a id="l03135" name="l03135"></a><span class="lineno"> 3135</span>{</div>
-<div class="line"><a id="l03136" name="l03136"></a><span class="lineno"> 3136</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1integer__sequence.html">type</a> = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a> &lt; T, Ints..., (Ints + SeqSize)... &gt;;</div>
+<div class="line"><a id="l03136" name="l03136"></a><span class="lineno"> 3136</span>    <span class="keyword">using </span>type = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a> &lt; T, Ints..., (Ints + SeqSize)... &gt;;</div>
 <div class="line"><a id="l03137" name="l03137"></a><span class="lineno"> 3137</span>};</div>
 </div>
 <div class="line"><a id="l03138" name="l03138"></a><span class="lineno"> 3138</span> </div>
@@ -3162,7 +3162,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen03140" data-start="{" data-end="};">
 <div class="line"><a id="l03140" name="l03140"></a><span class="lineno"><a class="line" href="structdetail_1_1utility__internal_1_1Extend_3_01integer__sequence_3_01T_00_01Ints_8_8_8_01_4_00_01SeqSize_00_011_01_4.html"> 3140</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdetail_1_1utility__internal_1_1Extend.html">Extend</a>&lt;<a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a>&lt;T, Ints...&gt;, SeqSize, 1&gt;</div>
 <div class="line"><a id="l03141" name="l03141"></a><span class="lineno"> 3141</span>{</div>
-<div class="line"><a id="l03142" name="l03142"></a><span class="lineno"> 3142</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1integer__sequence.html">type</a> = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a> &lt; T, Ints..., (Ints + SeqSize)..., 2 * SeqSize &gt;;</div>
+<div class="line"><a id="l03142" name="l03142"></a><span class="lineno"> 3142</span>    <span class="keyword">using </span>type = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence</a> &lt; T, Ints..., (Ints + SeqSize)..., 2 * SeqSize &gt;;</div>
 <div class="line"><a id="l03143" name="l03143"></a><span class="lineno"> 3143</span>};</div>
 </div>
 <div class="line"><a id="l03144" name="l03144"></a><span class="lineno"> 3144</span> </div>
@@ -3181,7 +3181,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen03155" data-start="{" data-end="};">
 <div class="line"><a id="l03155" name="l03155"></a><span class="lineno"><a class="line" href="structdetail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4.html"> 3155</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdetail_1_1utility__internal_1_1Gen.html">Gen</a>&lt;T, 0&gt;</div>
 <div class="line"><a id="l03156" name="l03156"></a><span class="lineno"> 3156</span>{</div>
-<div class="line"><a id="l03157" name="l03157"></a><span class="lineno"> 3157</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1integer__sequence.html">type</a> = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence&lt;T&gt;</a>;</div>
+<div class="line"><a id="l03157" name="l03157"></a><span class="lineno"> 3157</span>    <span class="keyword">using </span>type = <a class="code hl_struct" href="structdetail_1_1integer__sequence.html">integer_sequence&lt;T&gt;</a>;</div>
 <div class="line"><a id="l03158" name="l03158"></a><span class="lineno"> 3158</span>};</div>
 </div>
 <div class="line"><a id="l03159" name="l03159"></a><span class="lineno"> 3159</span> </div>
@@ -3427,7 +3427,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03412" name="l03412"></a><span class="lineno"> 3412</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Key, <span class="keyword">class</span> T, <span class="keyword">class</span> IgnoredLess, <span class="keyword">class</span> Allocator&gt;</div>
 <div class="line"><a id="l03413" name="l03413"></a><span class="lineno"> 3413</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structordered__map.html">ordered_map</a>;</div>
 <div class="line"><a id="l03414" name="l03414"></a><span class="lineno"> 3414</span> </div>
-<div class="line"><a id="l03417" name="l03417"></a><span class="lineno"> 3417</span>    <span class="keyword">using </span><a class="code hl_class" href="classbasic__json.html">ordered_json</a> = <a class="code hl_class" href="classbasic__json.html">basic_json&lt;nlohmann::ordered_map&gt;</a>;</div>
+<div class="line"><a id="l03417" name="l03417"></a><span class="lineno"> 3417</span>    <span class="keyword">using </span>ordered_json = <a class="code hl_class" href="classbasic__json.html">basic_json&lt;nlohmann::ordered_map&gt;</a>;</div>
 <div class="line"><a id="l03418" name="l03418"></a><span class="lineno"> 3418</span> </div>
 <div class="line"><a id="l03419" name="l03419"></a><span class="lineno"> 3419</span>    NLOHMANN_JSON_NAMESPACE_END</div>
 <div class="line"><a id="l03420" name="l03420"></a><span class="lineno"> 3420</span> </div>
@@ -3661,7 +3661,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03641" name="l03641"></a><span class="lineno"><a class="line" href="structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4.html"> 3641</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdetail_1_1is__iterator__traits.html">is_iterator_traits</a>&lt;<a class="code hl_struct" href="structdetail_1_1iterator__traits.html">iterator_traits</a>&lt;T&gt;&gt;</div>
 <div class="line"><a id="l03642" name="l03642"></a><span class="lineno"> 3642</span>{</div>
 <div class="line"><a id="l03643" name="l03643"></a><span class="lineno"> 3643</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l03644" name="l03644"></a><span class="lineno"> 3644</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1iterator__traits.html">traits</a> = <a class="code hl_struct" href="structdetail_1_1iterator__traits.html">iterator_traits&lt;T&gt;</a>;</div>
+<div class="line"><a id="l03644" name="l03644"></a><span class="lineno"> 3644</span>    <span class="keyword">using </span>traits = <a class="code hl_struct" href="structdetail_1_1iterator__traits.html">iterator_traits&lt;T&gt;</a>;</div>
 <div class="line"><a id="l03645" name="l03645"></a><span class="lineno"> 3645</span> </div>
 <div class="line"><a id="l03646" name="l03646"></a><span class="lineno"> 3646</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l03647" name="l03647"></a><span class="lineno"> 3647</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> value =</div>
@@ -3956,7 +3956,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03901" name="l03901"></a><span class="lineno"><a class="line" href="structdetail_1_1is__specialization__of_3_01Primary_00_01Primary_3_01Args_8_8_8_01_4_01_4.html"> 3901</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">is_specialization_of</a>&lt;Primary, Primary&lt;Args...&gt;&gt; : std::true_type {};</div>
 <div class="line"><a id="l03902" name="l03902"></a><span class="lineno"> 3902</span> </div>
 <div class="line"><a id="l03903" name="l03903"></a><span class="lineno"> 3903</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l03904" name="l03904"></a><span class="lineno"> 3904</span><span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">is_json_pointer</a> = <a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">is_specialization_of&lt;::nlohmann::json_pointer, uncvref_t&lt;T&gt;</a>&gt;;</div>
+<div class="line"><a id="l03904" name="l03904"></a><span class="lineno"> 3904</span><span class="keyword">using </span>is_json_pointer = <a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">is_specialization_of&lt;::nlohmann::json_pointer, uncvref_t&lt;T&gt;</a>&gt;;</div>
 <div class="line"><a id="l03905" name="l03905"></a><span class="lineno"> 3905</span> </div>
 <div class="line"><a id="l03906" name="l03906"></a><span class="lineno"> 3906</span><span class="comment">// checks if A and B are comparable using Compare functor</span></div>
 <div class="line"><a id="l03907" name="l03907"></a><span class="lineno"> 3907</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Compare, <span class="keyword">typename</span> A, <span class="keyword">typename</span> B, <span class="keyword">typename</span> = <span class="keywordtype">void</span>&gt;</div>
@@ -3983,7 +3983,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03926" name="l03926"></a><span class="lineno"> 3926</span>                                   ObjectKeyType&gt;::value)</div>
 <div class="line"><a id="l03927" name="l03927"></a><span class="lineno"> 3927</span>                              &amp;&amp; (!RequireTransparentComparator</div>
 <div class="line"><a id="l03928" name="l03928"></a><span class="lineno"> 3928</span>                                  || is_detected &lt;detect_is_transparent, Comparator&gt;::value)</div>
-<div class="line"><a id="l03929" name="l03929"></a><span class="lineno"> 3929</span>                              &amp;&amp; !<a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">is_json_pointer&lt;KeyType&gt;::value</a>,</div>
+<div class="line"><a id="l03929" name="l03929"></a><span class="lineno"> 3929</span>                              &amp;&amp; !is_json_pointer&lt;KeyType&gt;::value,</div>
 <div class="line"><a id="l03930" name="l03930"></a><span class="lineno"> 3930</span>                              std::true_type,</div>
 <div class="line"><a id="l03931" name="l03931"></a><span class="lineno"> 3931</span>                              std::false_type &gt;::type;</div>
 <div class="line"><a id="l03932" name="l03932"></a><span class="lineno"> 3932</span> </div>
@@ -4184,7 +4184,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l04113" name="l04113"></a><span class="lineno"><a class="line" href="structdetail_1_1is__c__string.html"> 4113</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdetail_1_1is__c__string.html">is_c_string</a> : bool_constant&lt;impl::is_c_string&lt;T&gt;()&gt; {};</div>
 <div class="line"><a id="l04114" name="l04114"></a><span class="lineno"> 4114</span> </div>
 <div class="line"><a id="l04115" name="l04115"></a><span class="lineno"> 4115</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l04116" name="l04116"></a><span class="lineno"> 4116</span><span class="keyword">using </span><a class="code hl_struct" href="structdetail_1_1is__c__string.html">is_c_string_uncvref</a> = <a class="code hl_struct" href="structdetail_1_1is__c__string.html">is_c_string&lt;uncvref_t&lt;T&gt;</a>&gt;;</div>
+<div class="line"><a id="l04116" name="l04116"></a><span class="lineno"> 4116</span><span class="keyword">using </span>is_c_string_uncvref = <a class="code hl_struct" href="structdetail_1_1is__c__string.html">is_c_string&lt;uncvref_t&lt;T&gt;</a>&gt;;</div>
 <div class="line"><a id="l04117" name="l04117"></a><span class="lineno"> 4117</span> </div>
 <div class="line"><a id="l04119" name="l04119"></a><span class="lineno"> 4119</span><span class="comment">// is_transparent</span></div>
 <div class="line"><a id="l04121" name="l04121"></a><span class="lineno"> 4121</span> </div>
@@ -5344,7 +5344,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l05292" name="l05292"></a><span class="lineno"> 5292</span><span class="comment">// Structured Bindings Support to the iteration_proxy_value class</span></div>
 <div class="line"><a id="l05293" name="l05293"></a><span class="lineno"> 5293</span><span class="comment">// For further reference see https://blog.tartanllama.xyz/structured-bindings/</span></div>
 <div class="line"><a id="l05294" name="l05294"></a><span class="lineno"> 5294</span><span class="comment">// And see https://github.com/nlohmann/json/pull/1391</span></div>
-<div class="line"><a id="l05295" name="l05295"></a><span class="lineno"> 5295</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a></div>
+<div class="foldopen" id="foldopen05295" data-start="{" data-end="}">
+<div class="line"><a id="l05295" name="l05295"></a><span class="lineno"><a class="line" href="namespacestd.html"> 5295</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a></div>
 <div class="line"><a id="l05296" name="l05296"></a><span class="lineno"> 5296</span>{</div>
 <div class="line"><a id="l05297" name="l05297"></a><span class="lineno"> 5297</span> </div>
 <div class="line"><a id="l05298" name="l05298"></a><span class="lineno"> 5298</span><span class="preprocessor">#if defined(__clang__)</span></div>
@@ -5373,6 +5374,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l05317" name="l05317"></a><span class="lineno"> 5317</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l05318" name="l05318"></a><span class="lineno"> 5318</span> </div>
 <div class="line"><a id="l05319" name="l05319"></a><span class="lineno"> 5319</span>}  <span class="comment">// namespace std</span></div>
+</div>
 <div class="line"><a id="l05320" name="l05320"></a><span class="lineno"> 5320</span> </div>
 <div class="line"><a id="l05321" name="l05321"></a><span class="lineno"> 5321</span><span class="preprocessor">#if JSON_HAS_RANGES</span></div>
 <div class="line"><a id="l05322" name="l05322"></a><span class="lineno"> 5322</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> IteratorType&gt;</div>
@@ -12180,7 +12182,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l12697" name="l12697"></a><span class="lineno">12697</span>        <span class="keywordflow">return</span> lhs.m_it == rhs.m_it;</div>
 <div class="line"><a id="l12698" name="l12698"></a><span class="lineno">12698</span>    }</div>
 <div class="line"><a id="l12699" name="l12699"></a><span class="lineno">12699</span> </div>
-<div class="line"><a id="l12700" name="l12700"></a><span class="lineno">12700</span>    <span class="keyword">friend</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> operator&lt;(primitive_iterator_t lhs, primitive_iterator_t rhs) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l12700" name="l12700"></a><span class="lineno">12700</span>    <span class="keyword">friend</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(primitive_iterator_t lhs, primitive_iterator_t rhs) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l12701" name="l12701"></a><span class="lineno">12701</span>    {</div>
 <div class="line"><a id="l12702" name="l12702"></a><span class="lineno">12702</span>        <span class="keywordflow">return</span> lhs.m_it &lt; rhs.m_it;</div>
 <div class="line"><a id="l12703" name="l12703"></a><span class="lineno">12703</span>    }</div>
@@ -12297,8 +12299,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen12837" data-start="{" data-end="};">
 <div class="line"><a id="l12837" name="l12837"></a><span class="lineno"><a class="line" href="classdetail_1_1iter__impl.html">12837</a></span><span class="keyword">class </span><a class="code hl_class" href="classdetail_1_1iter__impl.html">iter_impl</a> <span class="comment">// NOLINT(cppcoreguidelines-special-member-functions,hicpp-special-member-functions)</span></div>
 <div class="line"><a id="l12838" name="l12838"></a><span class="lineno">12838</span>{</div>
-<div class="line"><a id="l12840" name="l12840"></a><span class="lineno">12840</span>    <span class="keyword">using </span><a class="code hl_class" href="classdetail_1_1iter__impl.html">other_iter_impl</a> = <a class="code hl_class" href="classdetail_1_1iter__impl.html">iter_impl&lt;typename std::conditional&lt;std::is_const&lt;BasicJsonType&gt;::value</a>, <span class="keyword">typename</span> std::remove_const&lt;BasicJsonType&gt;::type, <span class="keyword">const</span> BasicJsonType&gt;::type&gt;;</div>
-<div class="line"><a id="l12842" name="l12842"></a><span class="lineno">12842</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classdetail_1_1iter__impl.html">other_iter_impl</a>;</div>
+<div class="line"><a id="l12840" name="l12840"></a><span class="lineno">12840</span>    <span class="keyword">using </span>other_iter_impl = <a class="code hl_class" href="classdetail_1_1iter__impl.html">iter_impl&lt;typename std::conditional&lt;std::is_const&lt;BasicJsonType&gt;::value</a>, <span class="keyword">typename</span> std::remove_const&lt;BasicJsonType&gt;::type, <span class="keyword">const</span> BasicJsonType&gt;::type&gt;;</div>
+<div class="line"><a id="l12842" name="l12842"></a><span class="lineno">12842</span>    <span class="keyword">friend</span> other_iter_impl;</div>
 <div class="line"><a id="l12843" name="l12843"></a><span class="lineno">12843</span>    <span class="keyword">friend</span> BasicJsonType;</div>
 <div class="line"><a id="l12844" name="l12844"></a><span class="lineno">12844</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classdetail_1_1iteration__proxy.html">iteration_proxy&lt;iter_impl&gt;</a>;</div>
 <div class="line"><a id="l12845" name="l12845"></a><span class="lineno">12845</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classdetail_1_1iteration__proxy__value.html">iteration_proxy_value&lt;iter_impl&gt;</a>;</div>
@@ -12746,7 +12748,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen13357" data-start="{" data-end="}">
 <div class="line"><a id="l13357" name="l13357"></a><span class="lineno"><a class="line" href="classdetail_1_1iter__impl.html#a25a3a8e85eb37727487f210f5304a48e">13357</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdetail_1_1iter__impl.html#a25a3a8e85eb37727487f210f5304a48e">operator&gt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdetail_1_1iter__impl.html">iter_impl</a>&amp; other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l13358" name="l13358"></a><span class="lineno">13358</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l13359" name="l13359"></a><span class="lineno">13359</span>        <span class="keywordflow">return</span> !operator&lt;(other);</div>
+<div class="line"><a id="l13359" name="l13359"></a><span class="lineno">13359</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(other);</div>
 <div class="line"><a id="l13360" name="l13360"></a><span class="lineno">13360</span>    }</div>
 </div>
 <div class="line"><a id="l13361" name="l13361"></a><span class="lineno">13361</span> </div>
@@ -13877,7 +13879,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l14634" name="l14634"></a><span class="lineno">14634</span> </div>
 <div class="line"><a id="l14636" name="l14636"></a><span class="lineno">14636</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RefStringTypeLhs, <span class="keyword">typename</span> RefStringTypeRhs&gt;</div>
 <div class="line"><a id="l14637" name="l14637"></a><span class="lineno">14637</span>    <span class="comment">// NOLINTNEXTLINE(readability-redundant-declaration)</span></div>
-<div class="line"><a id="l14638" name="l14638"></a><span class="lineno">14638</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="classjson__pointer.html">json_pointer&lt;RefStringTypeLhs&gt;</a>&amp; lhs,</div>
+<div class="line"><a id="l14638" name="l14638"></a><span class="lineno">14638</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classjson__pointer.html">json_pointer&lt;RefStringTypeLhs&gt;</a>&amp; lhs,</div>
 <div class="line"><a id="l14639" name="l14639"></a><span class="lineno">14639</span>                          <span class="keyword">const</span> <a class="code hl_class" href="classjson__pointer.html">json_pointer&lt;RefStringTypeRhs&gt;</a>&amp; rhs) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l14640" name="l14640"></a><span class="lineno">14640</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l14641" name="l14641"></a><span class="lineno">14641</span> </div>
@@ -18316,7 +18318,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l19388" name="l19388"></a><span class="lineno"><a class="line" href="classbasic__json.html#a21f7c93f896d302ed0b62d983aac53c0">19388</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classbasic__json.html#a21f7c93f896d302ed0b62d983aac53c0">initializer_list_t</a> = std::initializer_list&lt;detail::json_ref&lt;basic_json&gt;&gt;;</div>
 <div class="line"><a id="l19389" name="l19389"></a><span class="lineno">19389</span> </div>
 <div class="line"><a id="l19390" name="l19390"></a><span class="lineno">19390</span>    <span class="keyword">using </span>input_format_t = detail::input_format_t;</div>
-<div class="line"><a id="l19392" name="l19392"></a><span class="lineno"><a class="line" href="classbasic__json.html#acefb05e1022be791038db86c9963cec7">19392</a></span>    <span class="keyword">using </span><a class="code hl_struct" href="structjson__sax.html">json_sax_t</a> = <a class="code hl_struct" href="structjson__sax.html">json_sax&lt;basic_json&gt;</a>;</div>
+<div class="line"><a id="l19392" name="l19392"></a><span class="lineno"><a class="line" href="classbasic__json.html#acefb05e1022be791038db86c9963cec7">19392</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classbasic__json.html#acefb05e1022be791038db86c9963cec7">json_sax_t</a> = <a class="code hl_struct" href="structjson__sax.html">json_sax&lt;basic_json&gt;</a>;</div>
 <div class="line"><a id="l19393" name="l19393"></a><span class="lineno">19393</span> </div>
 <div class="line"><a id="l19395" name="l19395"></a><span class="lineno">19395</span>    <span class="comment">// exceptions //</span></div>
 <div class="line"><a id="l19397" name="l19397"></a><span class="lineno">19397</span> </div>
@@ -19992,7 +19994,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l21423" name="l21423"></a><span class="lineno">21423</span> </div>
 <div class="line"><a id="l21424" name="l21424"></a><span class="lineno">21424</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ValueType&gt;</div>
 <div class="line"><a id="l21425" name="l21425"></a><span class="lineno">21425</span>    <span class="keyword">using </span>value_return_type = std::conditional &lt;</div>
-<div class="line"><a id="l21426" name="l21426"></a><span class="lineno">21426</span>        <a class="code hl_struct" href="structdetail_1_1is__c__string.html">detail::is_c_string_uncvref&lt;ValueType&gt;::value</a>,</div>
+<div class="line"><a id="l21426" name="l21426"></a><span class="lineno">21426</span>        detail::is_c_string_uncvref&lt;ValueType&gt;::value,</div>
 <div class="line"><a id="l21427" name="l21427"></a><span class="lineno">21427</span>        string_t, <span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type &gt;;</div>
 <div class="line"><a id="l21428" name="l21428"></a><span class="lineno">21428</span> </div>
 <div class="line"><a id="l21429" name="l21429"></a><span class="lineno">21429</span>  <span class="keyword">public</span>:</div>
@@ -20047,7 +20049,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l21478" name="l21478"></a><span class="lineno">21478</span> </div>
 <div class="line"><a id="l21481" name="l21481"></a><span class="lineno">21481</span>    <span class="keyword">template</span> &lt; <span class="keyword">class </span>ValueType, <span class="keyword">class </span>KeyType, detail::enable_if_t &lt;</div>
 <div class="line"><a id="l21482" name="l21482"></a><span class="lineno">21482</span>                   <a class="code hl_struct" href="structdetail_1_1is__transparent.html">detail::is_transparent&lt;object_comparator_t&gt;::value</a></div>
-<div class="line"><a id="l21483" name="l21483"></a><span class="lineno">21483</span>                   &amp;&amp; !<a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">detail::is_json_pointer&lt;KeyType&gt;::value</a></div>
+<div class="line"><a id="l21483" name="l21483"></a><span class="lineno">21483</span>                   &amp;&amp; !detail::is_json_pointer&lt;KeyType&gt;::value</div>
 <div class="line"><a id="l21484" name="l21484"></a><span class="lineno">21484</span>                   &amp;&amp; is_comparable_with_object_key&lt;KeyType&gt;::value</div>
 <div class="line"><a id="l21485" name="l21485"></a><span class="lineno">21485</span>                   &amp;&amp; <a class="code hl_struct" href="structdetail_1_1is__getable.html">detail::is_getable&lt;basic_json_t, ValueType&gt;::value</a></div>
 <div class="line"><a id="l21486" name="l21486"></a><span class="lineno">21486</span>                   &amp;&amp; !std::is_same&lt;value_t, detail::uncvref_t&lt;ValueType&gt;&gt;::value, <span class="keywordtype">int</span> &gt; = 0 &gt;</div>
@@ -20074,7 +20076,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l21507" name="l21507"></a><span class="lineno">21507</span>    template &lt; class ValueType, class KeyType, class ReturnType = typename value_return_type&lt;ValueType&gt;::type,</div>
 <div class="line"><a id="l21508" name="l21508"></a><span class="lineno">21508</span>               detail::enable_if_t &lt;</div>
 <div class="line"><a id="l21509" name="l21509"></a><span class="lineno">21509</span>                   <a class="code hl_struct" href="structdetail_1_1is__transparent.html">detail::is_transparent&lt;object_comparator_t&gt;::value</a></div>
-<div class="line"><a id="l21510" name="l21510"></a><span class="lineno">21510</span>                   &amp;&amp; !<a class="code hl_struct" href="structdetail_1_1is__specialization__of.html">detail::is_json_pointer&lt;KeyType&gt;::value</a></div>
+<div class="line"><a id="l21510" name="l21510"></a><span class="lineno">21510</span>                   &amp;&amp; !detail::is_json_pointer&lt;KeyType&gt;::value</div>
 <div class="line"><a id="l21511" name="l21511"></a><span class="lineno">21511</span>                   &amp;&amp; is_comparable_with_object_key&lt;KeyType&gt;::value</div>
 <div class="line"><a id="l21512" name="l21512"></a><span class="lineno">21512</span>                   &amp;&amp; <a class="code hl_struct" href="structdetail_1_1is__getable.html">detail::is_getable&lt;basic_json_t, ReturnType&gt;::value</a></div>
 <div class="line"><a id="l21513" name="l21513"></a><span class="lineno">21513</span>                   &amp;&amp; !std::is_same&lt;value_t, detail::uncvref_t&lt;ValueType&gt;&gt;::value, <span class="keywordtype">int</span> &gt; = 0 &gt;</div>
@@ -21563,7 +21565,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l23056" name="l23056"></a><span class="lineno">23056</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classbasic__json.html">basic_json</a>(lhs) != rhs;</div>
 <div class="line"><a id="l23057" name="l23057"></a><span class="lineno">23057</span>    }</div>
 <div class="line"><a id="l23058" name="l23058"></a><span class="lineno">23058</span> </div>
-<div class="line"><a id="l23061" name="l23061"></a><span class="lineno">23061</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;(const_reference lhs, const_reference rhs) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l23061" name="l23061"></a><span class="lineno">23061</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(const_reference lhs, const_reference rhs) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l23062" name="l23062"></a><span class="lineno">23062</span>    {</div>
 <div class="line"><a id="l23063" name="l23063"></a><span class="lineno">23063</span>        <span class="comment">// default_result is used if we cannot compare values. In that case,</span></div>
 <div class="line"><a id="l23064" name="l23064"></a><span class="lineno">23064</span>        <span class="comment">// we compare types. Note we have to call the operator explicitly,</span></div>
@@ -21573,14 +21575,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l23068" name="l23068"></a><span class="lineno">23068</span> </div>
 <div class="line"><a id="l23071" name="l23071"></a><span class="lineno">23071</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ScalarType, <span class="keyword">typename</span> std::enable_if&lt;</div>
 <div class="line"><a id="l23072" name="l23072"></a><span class="lineno">23072</span>                 std::is_scalar&lt;ScalarType&gt;::value, <span class="keywordtype">int</span>&gt;::type = 0&gt;</div>
-<div class="line"><a id="l23073" name="l23073"></a><span class="lineno">23073</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;(const_reference lhs, ScalarType rhs) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l23073" name="l23073"></a><span class="lineno">23073</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(const_reference lhs, ScalarType rhs) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l23074" name="l23074"></a><span class="lineno">23074</span>    {</div>
 <div class="line"><a id="l23075" name="l23075"></a><span class="lineno">23075</span>        <span class="keywordflow">return</span> lhs &lt; <a class="code hl_class" href="classbasic__json.html">basic_json</a>(rhs);</div>
 <div class="line"><a id="l23076" name="l23076"></a><span class="lineno">23076</span>    }</div>
 <div class="line"><a id="l23077" name="l23077"></a><span class="lineno">23077</span> </div>
 <div class="line"><a id="l23080" name="l23080"></a><span class="lineno">23080</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ScalarType, <span class="keyword">typename</span> std::enable_if&lt;</div>
 <div class="line"><a id="l23081" name="l23081"></a><span class="lineno">23081</span>                 std::is_scalar&lt;ScalarType&gt;::value, <span class="keywordtype">int</span>&gt;::type = 0&gt;</div>
-<div class="line"><a id="l23082" name="l23082"></a><span class="lineno">23082</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;(ScalarType lhs, const_reference rhs) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l23082" name="l23082"></a><span class="lineno">23082</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedetail.html#aac7ca91589afb0bad68baec5949daaa2">operator&lt;</a>(ScalarType lhs, const_reference rhs) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l23083" name="l23083"></a><span class="lineno">23083</span>    {</div>
 <div class="line"><a id="l23084" name="l23084"></a><span class="lineno">23084</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classbasic__json.html">basic_json</a>(lhs) &lt; rhs;</div>
 <div class="line"><a id="l23085" name="l23085"></a><span class="lineno">23085</span>    }</div>
@@ -21662,7 +21664,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l23181" name="l23181"></a><span class="lineno">23181</span>    <span class="comment">// serialization //</span></div>
 <div class="line"><a id="l23183" name="l23183"></a><span class="lineno">23183</span> </div>
 <div class="line"><a id="l23186" name="l23186"></a><span class="lineno">23186</span><span class="preprocessor">#ifndef JSON_NO_IO</span></div>
-<div class="line"><a id="l23189" name="l23189"></a><span class="lineno">23189</span>    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o, <span class="keyword">const</span> <a class="code hl_class" href="classbasic__json.html">basic_json</a>&amp; j)</div>
+<div class="line"><a id="l23189" name="l23189"></a><span class="lineno">23189</span>    <span class="keyword">friend</span> std::ostream&amp; <a class="code hl_function" href="namespacedmlc.html#a77a6131e0453b827073b39eeef55b98d">operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> <a class="code hl_class" href="classbasic__json.html">basic_json</a>&amp; j)</div>
 <div class="line"><a id="l23190" name="l23190"></a><span class="lineno">23190</span>    {</div>
 <div class="line"><a id="l23191" name="l23191"></a><span class="lineno">23191</span>        <span class="comment">// read width member and use it as indentation parameter if nonzero</span></div>
 <div class="line"><a id="l23192" name="l23192"></a><span class="lineno">23192</span>        <span class="keyword">const</span> <span class="keywordtype">bool</span> pretty_print = o.width() &gt; 0;</div>
@@ -21764,7 +21766,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l23311" name="l23311"></a><span class="lineno">23311</span>    JSON_HEDLEY_NON_NULL(3)</div>
 <div class="foldopen" id="foldopen23312" data-start="{" data-end="}">
 <div class="line"><a id="l23312" name="l23312"></a><span class="lineno"><a class="line" href="classbasic__json.html#a94cbf1844fef86e9301282ad8ca0f822">23312</a></span>    static <span class="keywordtype">bool</span> sax_parse(IteratorType first, IteratorType last, SAX* sax,</div>
-<div class="line"><a id="l23313" name="l23313"></a><span class="lineno">23313</span>                          input_format_t format = input_format_t::<a class="code hl_class" href="classbasic__json.html">json</a>,</div>
+<div class="line"><a id="l23313" name="l23313"></a><span class="lineno">23313</span>                          input_format_t format = input_format_t::json,</div>
 <div class="line"><a id="l23314" name="l23314"></a><span class="lineno">23314</span>                          const <span class="keywordtype">bool</span> strict = true,</div>
 <div class="line"><a id="l23315" name="l23315"></a><span class="lineno">23315</span>                          const <span class="keywordtype">bool</span> ignore_comments = false)</div>
 <div class="line"><a id="l23316" name="l23316"></a><span class="lineno">23316</span>    {</div>
@@ -21780,7 +21782,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l23330" name="l23330"></a><span class="lineno">23330</span>    JSON_HEDLEY_NON_NULL(2)</div>
 <div class="foldopen" id="foldopen23331" data-start="{" data-end="}">
 <div class="line"><a id="l23331" name="l23331"></a><span class="lineno"><a class="line" href="classbasic__json.html#ad018e709338c810c56eaad606186a77e">23331</a></span>    static <span class="keywordtype">bool</span> sax_parse(<a class="code hl_namespace" href="namespacedetail.html">detail</a>::span_input_adapter&amp;&amp; i, SAX* sax,</div>
-<div class="line"><a id="l23332" name="l23332"></a><span class="lineno">23332</span>                          input_format_t format = input_format_t::<a class="code hl_class" href="classbasic__json.html">json</a>,</div>
+<div class="line"><a id="l23332" name="l23332"></a><span class="lineno">23332</span>                          input_format_t format = input_format_t::json,</div>
 <div class="line"><a id="l23333" name="l23333"></a><span class="lineno">23333</span>                          const <span class="keywordtype">bool</span> strict = true,</div>
 <div class="line"><a id="l23334" name="l23334"></a><span class="lineno">23334</span>                          const <span class="keywordtype">bool</span> ignore_comments = false)</div>
 <div class="line"><a id="l23335" name="l23335"></a><span class="lineno">23335</span>    {</div>
@@ -22827,11 +22829,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l24414" name="l24414"></a><span class="lineno">24414</span> </div>
 <div class="line"><a id="l24417" name="l24417"></a><span class="lineno">24417</span>NLOHMANN_BASIC_JSON_TPL_DECLARATION</div>
 <div class="foldopen" id="foldopen24418" data-start="{" data-end="}">
-<div class="line"><a id="l24418" name="l24418"></a><span class="lineno"><a class="line" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">24418</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(nlohmann::NLOHMANN_BASIC_JSON_TPL&amp; j1, nlohmann::NLOHMANN_BASIC_JSON_TPL&amp; j2) <span class="keyword">noexcept</span>(  <span class="comment">// NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp)</span></div>
+<div class="line"><a id="l24418" name="l24418"></a><span class="lineno"><a class="line" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">24418</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(nlohmann::NLOHMANN_BASIC_JSON_TPL&amp; j1, nlohmann::NLOHMANN_BASIC_JSON_TPL&amp; j2) <span class="keyword">noexcept</span>(  <span class="comment">// NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp)</span></div>
 <div class="line"><a id="l24419" name="l24419"></a><span class="lineno">24419</span>    is_nothrow_move_constructible&lt;nlohmann::NLOHMANN_BASIC_JSON_TPL&gt;::value&amp;&amp;                          <span class="comment">// NOLINT(misc-redundant-expression)</span></div>
 <div class="line"><a id="l24420" name="l24420"></a><span class="lineno">24420</span>    is_nothrow_move_assignable&lt;nlohmann::NLOHMANN_BASIC_JSON_TPL&gt;::value)</div>
 <div class="line"><a id="l24421" name="l24421"></a><span class="lineno">24421</span>{</div>
-<div class="line"><a id="l24422" name="l24422"></a><span class="lineno">24422</span>    j1.<a class="code hl_function" href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">swap</a>(j2);</div>
+<div class="line"><a id="l24422" name="l24422"></a><span class="lineno">24422</span>    j1.swap(j2);</div>
 <div class="line"><a id="l24423" name="l24423"></a><span class="lineno">24423</span>}</div>
 </div>
 <div class="line"><a id="l24424" name="l24424"></a><span class="lineno">24424</span> </div>
@@ -23051,7 +23053,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l24638" name="l24638"></a><span class="lineno">24638</span> </div>
 <div class="line"><a id="l24639" name="l24639"></a><span class="lineno">24639</span> </div>
 <div class="line"><a id="l24640" name="l24640"></a><span class="lineno">24640</span><span class="preprocessor">#endif  </span><span class="comment">// INCLUDE_NLOHMANN_JSON_HPP_</span></div>
-<div class="ttc" id="aclassEigen_1_1DenseBase_html_a40aa938e7e7fecafb3178ef37dc977ec"><div class="ttname"><a href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">Eigen::DenseBase::swap</a></div><div class="ttdeci">EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE void swap(const DenseBase&lt; OtherDerived &gt; &amp;other)</div><div class="ttdoc">swaps *this with the expression other.</div><div class="ttdef"><b>Definition</b> DenseBase.h:420</div></div>
 <div class="ttc" id="aclassbasic__json_html"><div class="ttname"><a href="classbasic__json.html">basic_json</a></div><div class="ttdoc">a class to store JSON values</div><div class="ttdef"><b>Definition</b> json.hpp:19313</div></div>
 <div class="ttc" id="aclassbasic__json_html_a007ecebde9a7d40714e300ce0ff52908"><div class="ttname"><a href="classbasic__json.html#a007ecebde9a7d40714e300ce0ff52908">basic_json::is_string</a></div><div class="ttdeci">constexpr bool is_string() const noexcept</div><div class="ttdoc">return whether value is a string</div><div class="ttdef"><b>Definition</b> json.hpp:20580</div></div>
 <div class="ttc" id="aclassbasic__json_html_a05da3b93f2d4a7164589abffaa9acb33"><div class="ttname"><a href="classbasic__json.html#a05da3b93f2d4a7164589abffaa9acb33">basic_json::erase</a></div><div class="ttdeci">size_type erase(const typename object_t::key_type &amp;key)</div><div class="ttdoc">remove element from a JSON object given a key</div><div class="ttdef"><b>Definition</b> json.hpp:21814</div></div>
@@ -23200,6 +23201,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassbasic__json_html_accf7ae6f9b2fee171484c5ef54f08d1e"><div class="ttname"><a href="classbasic__json.html#accf7ae6f9b2fee171484c5ef54f08d1e">basic_json::from_bjdata</a></div><div class="ttdeci">static JSON_HEDLEY_WARN_UNUSED_RESULT basic_json from_bjdata(IteratorType first, IteratorType last, const bool strict=true, const bool allow_exceptions=true)</div><div class="ttdoc">create a JSON value from an input in BJData format</div><div class="ttdef"><b>Definition</b> json.hpp:23734</div></div>
 <div class="ttc" id="aclassbasic__json_html_acd0f167153f047a246b51858d7c921b8"><div class="ttname"><a href="classbasic__json.html#acd0f167153f047a246b51858d7c921b8">basic_json::m_value</a></div><div class="ttdeci">json_value m_value</div><div class="ttdoc">the value of the current element</div><div class="ttdef"><b>Definition</b> json.hpp:23409</div></div>
 <div class="ttc" id="aclassbasic__json_html_acdde2a6628e43b3e3f7f27c6af6998f8"><div class="ttname"><a href="classbasic__json.html#acdde2a6628e43b3e3f7f27c6af6998f8">basic_json::crbegin</a></div><div class="ttdeci">const_reverse_iterator crbegin() const noexcept</div><div class="ttdoc">returns a const reverse iterator to the last element</div><div class="ttdef"><b>Definition</b> json.hpp:22058</div></div>
+<div class="ttc" id="aclassbasic__json_html_acefb05e1022be791038db86c9963cec7"><div class="ttname"><a href="classbasic__json.html#acefb05e1022be791038db86c9963cec7">basic_json::json_sax_t</a></div><div class="ttdeci">json_sax&lt; basic_json &gt; json_sax_t</div><div class="ttdoc">SAX interface type, see nlohmann::json_sax.</div><div class="ttdef"><b>Definition</b> json.hpp:19392</div></div>
 <div class="ttc" id="aclassbasic__json_html_acfe2e3c359b545f8edbb72f6bd78718c"><div class="ttname"><a href="classbasic__json.html#acfe2e3c359b545f8edbb72f6bd78718c">basic_json::is_boolean</a></div><div class="ttdeci">constexpr bool is_boolean() const noexcept</div><div class="ttdoc">return whether value is a boolean</div><div class="ttdef"><b>Definition</b> json.hpp:20531</div></div>
 <div class="ttc" id="aclassbasic__json_html_ad1e1eff03a320299e6a8639a7579ca46"><div class="ttname"><a href="classbasic__json.html#ad1e1eff03a320299e6a8639a7579ca46">basic_json::count</a></div><div class="ttdeci">size_type count(const typename object_t::key_type &amp;key) const</div><div class="ttdoc">returns the number of occurrences of a key in a JSON object</div><div class="ttdef"><b>Definition</b> json.hpp:21922</div></div>
 <div class="ttc" id="aclassbasic__json_html_ad4dd162b4990cfb69925193797415f7e"><div class="ttname"><a href="classbasic__json.html#ad4dd162b4990cfb69925193797415f7e">basic_json::front</a></div><div class="ttdeci">reference front()</div><div class="ttdoc">access the first element</div><div class="ttdef"><b>Definition</b> json.hpp:21604</div></div>
@@ -23380,9 +23382,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="anamespacedetail_html_abe7cfa1fd8fa706ff4392bff9d1a8298a2133fd717402a7966ee88d06f9e0b792"><div class="ttname"><a href="namespacedetail.html#abe7cfa1fd8fa706ff4392bff9d1a8298a2133fd717402a7966ee88d06f9e0b792">detail::error_handler_t::strict</a></div><div class="ttdeci">@ strict</div><div class="ttdoc">throw a type_error exception in case of invalid UTF-8</div></div>
 <div class="ttc" id="anamespacedetail_html_af2a9ce4740e0b45d33129e2c8e53a0a8"><div class="ttname"><a href="namespacedetail.html#af2a9ce4740e0b45d33129e2c8e53a0a8">detail::escape</a></div><div class="ttdeci">StringType escape(StringType s)</div><div class="ttdoc">string escaping as described in RFC 6901 (Sect. 4)</div><div class="ttdef"><b>Definition</b> json.hpp:2977</div></div>
 <div class="ttc" id="anamespacedmlc_html_a1e731f276d3a3efa8e17f46ccf35f828"><div class="ttname"><a href="namespacedmlc.html#a1e731f276d3a3efa8e17f46ccf35f828">dmlc::type_name</a></div><div class="ttdeci">std::string type_name()</div><div class="ttdoc">the string representation of type name</div><div class="ttdef"><b>Definition</b> type_traits.h:101</div></div>
+<div class="ttc" id="anamespacedmlc_html_a77a6131e0453b827073b39eeef55b98d"><div class="ttname"><a href="namespacedmlc.html#a77a6131e0453b827073b39eeef55b98d">dmlc::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const optional&lt; T &gt; &amp;t)</div><div class="ttdoc">serialize an optional object to string.</div><div class="ttdef"><b>Definition</b> optional.h:296</div></div>
 <div class="ttc" id="anamespacedmlc_html_aff849eb74b4604e70e042dc681819e3d"><div class="ttname"><a href="namespacedmlc.html#aff849eb74b4604e70e042dc681819e3d">dmlc::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;is, optional&lt; T &gt; &amp;t)</div><div class="ttdoc">parse a string object into optional&lt;T&gt;</div><div class="ttdef"><b>Definition</b> optional.h:323</div></div>
 <div class="ttc" id="anamespacelogistic__regression_html_a95c480d50b25da5de78f160ff3e734fa"><div class="ttname"><a href="namespacelogistic__regression.html#a95c480d50b25da5de78f160ff3e734fa">logistic_regression.N</a></div><div class="ttdeci">int N</div><div class="ttdoc">Simulate some binary data with a single categorical and single continuous predictor.</div><div class="ttdef"><b>Definition</b> logistic_regression.py:26</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> BFloat16.h:88</div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> json.hpp:5296</div></div>
 <div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
 <div class="ttc" id="anamespacexgboost_1_1ltr_html_ad5e395ea7f1d993b33f779d9ef5e686d"><div class="ttname"><a href="namespacexgboost_1_1ltr.html#ad5e395ea7f1d993b33f779d9ef5e686d">xgboost::ltr::position_t</a></div><div class="ttdeci">std::uint32_t position_t</div><div class="ttdoc">top-k position</div><div class="ttdef"><b>Definition</b> ranking_utils.h:34</div></div>
 <div class="ttc" id="astructadl__serializer_html"><div class="ttname"><a href="structadl__serializer.html">adl_serializer</a></div><div class="ttdoc">namespace for Niels Lohmann</div><div class="ttdef"><b>Definition</b> json.hpp:5766</div></div>
@@ -23470,7 +23473,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2026 15:45:10 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

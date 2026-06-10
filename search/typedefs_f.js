@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['quaterniond_0',['Quaterniond',['../group__Geometry__Module.html#ga5daab8e66aa480465000308455578830',1,'Eigen']]],
-  ['quaternionf_1',['Quaternionf',['../group__Geometry__Module.html#ga66aa915a26d698c60ed206818c3e4c9b',1,'Eigen']]],
-  ['quaternionmapalignedd_2',['QuaternionMapAlignedd',['../group__Geometry__Module.html#ga4289f38cc6ecf302e07d2365abc6a902',1,'Eigen']]],
-  ['quaternionmapalignedf_3',['QuaternionMapAlignedf',['../group__Geometry__Module.html#gadaf7f3ee984d9828ca94d66355f0b226',1,'Eigen']]],
-  ['quaternionmapd_4',['QuaternionMapd',['../group__Geometry__Module.html#ga89412d1dcf23537e5990dfb3089ace76',1,'Eigen']]],
-  ['quaternionmapf_5',['QuaternionMapf',['../group__Geometry__Module.html#ga867ff508ac860bdf7cab3b8a8fc1048d',1,'Eigen']]]
+  ['score_5ft_0',['score_t',['../namespaceLightGBM.html#ad64a33a4e00f604c080483caf7b219bf',1,'LightGBM']]],
+  ['seekstream_1',['SeekStream',['../namespacerabit_1_1utils.html#ad1576ca8d7672b656063cddf778ade77',1,'rabit::utils']]],
+  ['serializable_2',['Serializable',['../namespacerabit.html#aaaf94010af9fd0691b604bc9a4391ade',1,'rabit']]],
+  ['sharedmutex_3',['SharedMutex',['../namespacedmlc.html#a34fec5df74dfed6c51540a1fcf5bae54',1,'dmlc']]],
+  ['sharedptr_4',['SharedPtr',['../classdmlc_1_1ThreadGroup_1_1Thread.html#a15a7156eee217ef17010947a83632150',1,'dmlc::ThreadGroup::Thread']]],
+  ['size_5ftype_5',['size_type',['../classbasic__json.html#a2c086af43cf06b1b7118f5351cab3ec9',1,'basic_json']]],
+  ['stream_6',['Stream',['../namespacerabit.html#ad4fe75295b20a9ee24235bac44389803',1,'rabit']]],
+  ['string_5ft_7',['string_t',['../classbasic__json.html#ac8c9cde32146e6c343e1960aefc11fba',1,'basic_json']]],
+  ['summary_8',['Summary',['../classxgboost_1_1common_1_1QuantileSketchTemplate.html#a169884c7f5a55a26bbcef5458c505439',1,'xgboost::common::QuantileSketchTemplate']]]
 ];

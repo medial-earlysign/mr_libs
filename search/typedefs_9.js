@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['json_5fpointer_0',['json_pointer',['../classbasic__json.html#afe66720a34c11920f359394a4430a16e',1,'basic_json']]],
-  ['json_5fsax_5ft_1',['json_sax_t',['../classbasic__json.html#acefb05e1022be791038db86c9963cec7',1,'basic_json']]]
+  ['label_5ft_0',['label_t',['../namespaceLightGBM.html#af311447cc6f103c5921f423363aa5821',1,'LightGBM']]]
 ];

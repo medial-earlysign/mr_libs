@@ -7,9 +7,8 @@ var searchData=
   ['to_20load_20data_20from_20external_20memory_4',['Defining a Custom Data Iterator to Load Data from External Memory',['../md_External_2xgboost_2demo_2c-api_2external-memory_2README.html',1,'']]],
   ['to_20medial_20libs_20documentation_5',['Welcome To Medial Libs Documentation',['../index.html',1,'']]],
   ['to_20rank_6',['Learning to rank',['../md_External_2xgboost_2demo_2rank_2README.html',1,'']]],
-  ['todo_20list_7',['Todo List',['../todo.html',1,'']]],
-  ['tracker_8',['DMLC Tracker',['../md_External_2xgboost_2dmlc-core_2tracker_2README.html',1,'']]],
-  ['training_9',['Distributed XGBoost Training',['../md_External_2xgboost_2demo_2CLI_2distributed-training_2README.html',1,'']]],
-  ['tree_20construction_10',['DPC++-based Algorithm for Tree Construction',['../md_External_2xgboost_2plugin_2updater__oneapi_2README.html',1,'']]],
-  ['tutorial_11',['XGBoost R Tutorial',['../md_External_2xgboost_2doc_2R-package_2xgboostPresentation.html',1,'']]]
+  ['tracker_7',['DMLC Tracker',['../md_External_2xgboost_2dmlc-core_2tracker_2README.html',1,'']]],
+  ['training_8',['Distributed XGBoost Training',['../md_External_2xgboost_2demo_2CLI_2distributed-training_2README.html',1,'']]],
+  ['tree_20construction_9',['DPC++-based Algorithm for Tree Construction',['../md_External_2xgboost_2plugin_2updater__oneapi_2README.html',1,'']]],
+  ['tutorial_10',['XGBoost R Tutorial',['../md_External_2xgboost_2doc_2R-package_2xgboostPresentation.html',1,'']]]
 ];

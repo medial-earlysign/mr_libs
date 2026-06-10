@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['u8array_0',['U8Array',['../namespacexgboost.html#a6c0d923ceb28fe181c4cd3a98717c8c0',1,'xgboost']]]
+  ['writelock_0',['WriteLock',['../namespacedmlc.html#aad58a9dfecc6e970348c217de29bb916',1,'dmlc']]]
 ];

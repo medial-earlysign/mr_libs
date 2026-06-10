@@ -673,11 +673,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span> </div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>  <span class="keyword">inline</span> ProducerToken&amp; operator=(ProducerToken&amp;&amp; other) MOODYCAMEL_NOEXCEPT</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>  {</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    swap(other);</div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(other);</div>
 <div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>  }</div>
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>  <span class="keywordtype">void</span> swap(ProducerToken&amp; other) MOODYCAMEL_NOEXCEPT</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ProducerToken&amp; other) MOODYCAMEL_NOEXCEPT</div>
 <div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>  {</div>
 <div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(producer, other.producer);</div>
 <div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>    <span class="keywordflow">if</span> (producer != <span class="keyword">nullptr</span>) {</div>
@@ -734,11 +734,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span> </div>
 <div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>  <span class="keyword">inline</span> ConsumerToken&amp; operator=(ConsumerToken&amp;&amp; other) MOODYCAMEL_NOEXCEPT</div>
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>  {</div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>    swap(other);</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>    <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(other);</div>
 <div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>  }</div>
 <div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span> </div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>  <span class="keywordtype">void</span> swap(ConsumerToken&amp; other) MOODYCAMEL_NOEXCEPT</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ConsumerToken&amp; other) MOODYCAMEL_NOEXCEPT</div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>  {</div>
 <div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(initialOffset, other.initialOffset);</div>
 <div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>    <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(lastKnownGlobalOffset, other.lastKnownGlobalOffset);</div>
@@ -766,7 +766,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span><span class="comment">// Need to forward-declare this swap because it&#39;s in a namespace.</span></div>
 <div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span><span class="comment">// See http://stackoverflow.com/questions/4492062/why-does-a-c-friend-class-need-a-forward-declaration-only-in-other-namespaces</span></div>
 <div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Traits&gt;</div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(<span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP&amp; a, <span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP&amp; b) MOODYCAMEL_NOEXCEPT;</div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(<span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP&amp; a, <span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP&amp; b) MOODYCAMEL_NOEXCEPT;</div>
 <div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
 <div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span> </div>
 <div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Traits = ConcurrentQueueDefaultTraits&gt;</div>
@@ -970,7 +970,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>  <span class="comment">// the tokens that were created for one queue must be used with</span></div>
 <div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>  <span class="comment">// only the swapped queue (i.e. the tokens are tied to the</span></div>
 <div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>  <span class="comment">// queue&#39;s movable state, not the object itself).</span></div>
-<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> swap(ConcurrentQueue &amp;other) MOODYCAMEL_NOEXCEPT {</div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ConcurrentQueue &amp;other) MOODYCAMEL_NOEXCEPT {</div>
 <div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    swap_internal(other);</div>
 <div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>  }</div>
 <div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span> </div>
@@ -1458,7 +1458,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>      other.freeListHead.store(<span class="keyword">nullptr</span>, std::memory_order_relaxed);</div>
 <div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>    }</div>
 <div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span> </div>
-<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>    <span class="keywordtype">void</span> swap(FreeList &amp;other) { details::swap_relaxed(freeListHead, other.freeListHead); }</div>
+<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(FreeList &amp;other) { details::swap_relaxed(freeListHead, other.freeListHead); }</div>
 <div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span> </div>
 <div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>    FreeList(FreeList <span class="keyword">const</span> &amp;) MOODYCAMEL_DELETE_FUNCTION;</div>
 <div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span> </div>
@@ -3363,11 +3363,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03298" name="l03298"></a><span class="lineno"> 3298</span>    }</div>
 <div class="line"><a id="l03299" name="l03299"></a><span class="lineno"> 3299</span> </div>
 <div class="line"><a id="l03300" name="l03300"></a><span class="lineno"> 3300</span>    <span class="keyword">inline</span> ImplicitProducerKVP &amp;operator=(ImplicitProducerKVP &amp;&amp;other) MOODYCAMEL_NOEXCEPT {</div>
-<div class="line"><a id="l03301" name="l03301"></a><span class="lineno"> 3301</span>      swap(other);</div>
+<div class="line"><a id="l03301" name="l03301"></a><span class="lineno"> 3301</span>      <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(other);</div>
 <div class="line"><a id="l03302" name="l03302"></a><span class="lineno"> 3302</span>      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l03303" name="l03303"></a><span class="lineno"> 3303</span>    }</div>
 <div class="line"><a id="l03304" name="l03304"></a><span class="lineno"> 3304</span> </div>
-<div class="line"><a id="l03305" name="l03305"></a><span class="lineno"> 3305</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> swap(ImplicitProducerKVP &amp;other) MOODYCAMEL_NOEXCEPT {</div>
+<div class="line"><a id="l03305" name="l03305"></a><span class="lineno"> 3305</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ImplicitProducerKVP &amp;other) MOODYCAMEL_NOEXCEPT {</div>
 <div class="line"><a id="l03306" name="l03306"></a><span class="lineno"> 3306</span>      <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;other) {</div>
 <div class="line"><a id="l03307" name="l03307"></a><span class="lineno"> 3307</span>        details::swap_relaxed(key, other.key);</div>
 <div class="line"><a id="l03308" name="l03308"></a><span class="lineno"> 3308</span>        <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a>(value, other.value);</div>
@@ -3752,22 +3752,22 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03689" name="l03689"></a><span class="lineno"> 3689</span>}</div>
 <div class="line"><a id="l03690" name="l03690"></a><span class="lineno"> 3690</span> </div>
 <div class="line"><a id="l03691" name="l03691"></a><span class="lineno"> 3691</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Traits&gt;</div>
-<div class="line"><a id="l03692" name="l03692"></a><span class="lineno"> 3692</span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(ConcurrentQueue&lt;T, Traits&gt; &amp;a, ConcurrentQueue&lt;T, Traits&gt; &amp;b) MOODYCAMEL_NOEXCEPT {</div>
-<div class="line"><a id="l03693" name="l03693"></a><span class="lineno"> 3693</span>  a.<a class="code hl_function" href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">swap</a>(b);</div>
+<div class="line"><a id="l03692" name="l03692"></a><span class="lineno"> 3692</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ConcurrentQueue&lt;T, Traits&gt; &amp;a, ConcurrentQueue&lt;T, Traits&gt; &amp;b) MOODYCAMEL_NOEXCEPT {</div>
+<div class="line"><a id="l03693" name="l03693"></a><span class="lineno"> 3693</span>  a.swap(b);</div>
 <div class="line"><a id="l03694" name="l03694"></a><span class="lineno"> 3694</span>}</div>
 <div class="line"><a id="l03695" name="l03695"></a><span class="lineno"> 3695</span> </div>
-<div class="line"><a id="l03696" name="l03696"></a><span class="lineno"> 3696</span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(ProducerToken &amp;a, ProducerToken &amp;b) MOODYCAMEL_NOEXCEPT {</div>
-<div class="line"><a id="l03697" name="l03697"></a><span class="lineno"> 3697</span>  a.<a class="code hl_function" href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">swap</a>(b);</div>
+<div class="line"><a id="l03696" name="l03696"></a><span class="lineno"> 3696</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ProducerToken &amp;a, ProducerToken &amp;b) MOODYCAMEL_NOEXCEPT {</div>
+<div class="line"><a id="l03697" name="l03697"></a><span class="lineno"> 3697</span>  a.swap(b);</div>
 <div class="line"><a id="l03698" name="l03698"></a><span class="lineno"> 3698</span>}</div>
 <div class="line"><a id="l03699" name="l03699"></a><span class="lineno"> 3699</span> </div>
-<div class="line"><a id="l03700" name="l03700"></a><span class="lineno"> 3700</span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(ConsumerToken &amp;a, ConsumerToken &amp;b) MOODYCAMEL_NOEXCEPT {</div>
-<div class="line"><a id="l03701" name="l03701"></a><span class="lineno"> 3701</span>  a.<a class="code hl_function" href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">swap</a>(b);</div>
+<div class="line"><a id="l03700" name="l03700"></a><span class="lineno"> 3700</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(ConsumerToken &amp;a, ConsumerToken &amp;b) MOODYCAMEL_NOEXCEPT {</div>
+<div class="line"><a id="l03701" name="l03701"></a><span class="lineno"> 3701</span>  a.swap(b);</div>
 <div class="line"><a id="l03702" name="l03702"></a><span class="lineno"> 3702</span>}</div>
 <div class="line"><a id="l03703" name="l03703"></a><span class="lineno"> 3703</span> </div>
 <div class="line"><a id="l03704" name="l03704"></a><span class="lineno"> 3704</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Traits&gt;</div>
-<div class="line"><a id="l03705" name="l03705"></a><span class="lineno"> 3705</span><span class="keyword">inline</span> <span class="keywordtype">void</span> swap(<span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP &amp;a,</div>
+<div class="line"><a id="l03705" name="l03705"></a><span class="lineno"> 3705</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">swap</a>(<span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP &amp;a,</div>
 <div class="line"><a id="l03706" name="l03706"></a><span class="lineno"> 3706</span>                 <span class="keyword">typename</span> ConcurrentQueue&lt;T, Traits&gt;::ImplicitProducerKVP &amp;b) MOODYCAMEL_NOEXCEPT {</div>
-<div class="line"><a id="l03707" name="l03707"></a><span class="lineno"> 3707</span>  a.<a class="code hl_function" href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">swap</a>(b);</div>
+<div class="line"><a id="l03707" name="l03707"></a><span class="lineno"> 3707</span>  a.swap(b);</div>
 <div class="line"><a id="l03708" name="l03708"></a><span class="lineno"> 3708</span>}</div>
 <div class="line"><a id="l03709" name="l03709"></a><span class="lineno"> 3709</span> </div>
 <div class="line"><a id="l03710" name="l03710"></a><span class="lineno"> 3710</span>}</div>
@@ -3779,16 +3779,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03716" name="l03716"></a><span class="lineno"> 3716</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l03717" name="l03717"></a><span class="lineno"> 3717</span> </div>
 <div class="line"><a id="l03718" name="l03718"></a><span class="lineno"> 3718</span><span class="preprocessor">#endif  </span><span class="comment">// DMLC_CONCURRENTQUEUE_H_</span></div>
-<div class="ttc" id="aclassEigen_1_1DenseBase_html_a40aa938e7e7fecafb3178ef37dc977ec"><div class="ttname"><a href="classEigen_1_1DenseBase.html#a40aa938e7e7fecafb3178ef37dc977ec">Eigen::DenseBase::swap</a></div><div class="ttdeci">EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE void swap(const DenseBase&lt; OtherDerived &gt; &amp;other)</div><div class="ttdoc">swaps *this with the expression other.</div><div class="ttdef"><b>Definition</b> DenseBase.h:420</div></div>
 <div class="ttc" id="anamespacedmlc_html"><div class="ttname"><a href="namespacedmlc.html">dmlc</a></div><div class="ttdoc">namespace for dmlc</div><div class="ttdef"><b>Definition</b> array_view.h:12</div></div>
 <div class="ttc" id="anamespacedmlc_html_a7a89c6e0909617034aa818dafe83a361"><div class="ttname"><a href="namespacedmlc.html#a7a89c6e0909617034aa818dafe83a361">dmlc::index_t</a></div><div class="ttdeci">unsigned index_t</div><div class="ttdoc">this defines the unsigned integer type that can normally be used to store feature index</div><div class="ttdef"><b>Definition</b> data.h:32</div></div>
 <div class="ttc" id="anamespacelogistic__regression_html_a95c480d50b25da5de78f160ff3e734fa"><div class="ttname"><a href="namespacelogistic__regression.html#a95c480d50b25da5de78f160ff3e734fa">logistic_regression.N</a></div><div class="ttdeci">int N</div><div class="ttdoc">Simulate some binary data with a single categorical and single continuous predictor.</div><div class="ttdef"><b>Definition</b> logistic_regression.py:26</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> BFloat16.h:88</div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> json.hpp:5296</div></div>
 <div class="ttc" id="anamespacestd_html_ab5fa3119ddc434392ecca8849e2e08e1"><div class="ttname"><a href="namespacestd.html#ab5fa3119ddc434392ecca8849e2e08e1">std::swap</a></div><div class="ttdeci">NLOHMANN_BASIC_JSON_TPL_DECLARATION void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j1, nlohmann::NLOHMANN_BASIC_JSON_TPL &amp;j2) noexcept(//NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp) is_nothrow_move_constructible&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value &amp;&amp;//NOLINT(misc-redundant-expression) is_nothrow_move_assignable&lt; nlohmann::NLOHMANN_BASIC_JSON_TPL &gt;::value)</div><div class="ttdoc">exchanges the values of two JSON objects</div><div class="ttdef"><b>Definition</b> json.hpp:24418</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2026 15:45:10 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

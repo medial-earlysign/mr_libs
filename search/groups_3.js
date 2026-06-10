@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dmatrix_0',['DMatrix',['../group__DMatrix.html',1,'']]]
+  ['library_0',['Library',['../group__Library.html',1,'']]]
 ];

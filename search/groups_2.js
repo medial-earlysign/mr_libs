@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['collective_0',['Collective',['../group__Collective.html',1,'']]]
+  ['dmatrix_0',['DMatrix',['../group__DMatrix.html',1,'']]]
 ];

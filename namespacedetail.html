@@ -464,7 +464,7 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:add6a1fa89738d39f7f123db6bad96101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d80ed747c2ea999c378519a7a6d6d31" id="r_a9d80ed747c2ea999c378519a7a6d6d31"><td class="memTemplParams" colspan="2"><a id="a9d80ed747c2ea999c378519a7a6d6d31" name="a9d80ed747c2ea999c378519a7a6d6d31"></a>
 template&lt;typename Comparator , typename ObjectKeyType , typename KeyTypeCVRef , bool RequireTransparentComparator = true, bool ExcludeObjectKeyType = RequireTransparentComparator, typename KeyType  = uncvref_t&lt;KeyTypeCVRef&gt;&gt; </td></tr>
-<tr class="memitem:a9d80ed747c2ea999c378519a7a6d6d31"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>is_usable_as_key_type</b> = typename std::conditional&lt; <a class="el" href="structdetail_1_1is__comparable.html">is_comparable</a>&lt; Comparator, ObjectKeyType, KeyTypeCVRef &gt;::value &amp;&amp;!(ExcludeObjectKeyType &amp;&amp;std::is_same&lt; KeyType, ObjectKeyType &gt;::value) &amp;&amp;(!RequireTransparentComparator||is_detected&lt; detect_is_transparent, Comparator &gt;::value) &amp;&amp;!<a class="el" href="structdetail_1_1is__specialization__of.html">is_json_pointer</a>&lt; KeyType &gt;::value, std::true_type, std::false_type &gt;::type</td></tr>
+<tr class="memitem:a9d80ed747c2ea999c378519a7a6d6d31"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>is_usable_as_key_type</b> = typename std::conditional&lt; <a class="el" href="structdetail_1_1is__comparable.html">is_comparable</a>&lt; Comparator, ObjectKeyType, KeyTypeCVRef &gt;::value &amp;&amp;!(ExcludeObjectKeyType &amp;&amp;std::is_same&lt; KeyType, ObjectKeyType &gt;::value) &amp;&amp;(!RequireTransparentComparator||is_detected&lt; detect_is_transparent, Comparator &gt;::value) &amp;&amp;!is_json_pointer&lt; KeyType &gt;::value, std::true_type, std::false_type &gt;::type</td></tr>
 <tr class="separator:a9d80ed747c2ea999c378519a7a6d6d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a394f5970957ff03ced71ce77b9417b00" id="r_a394f5970957ff03ced71ce77b9417b00"><td class="memTemplParams" colspan="2"><a id="a394f5970957ff03ced71ce77b9417b00" name="a394f5970957ff03ced71ce77b9417b00"></a>
 template&lt;typename BasicJsonType , typename KeyTypeCVRef , bool RequireTransparentComparator = true, bool ExcludeObjectKeyType = RequireTransparentComparator, typename KeyType  = uncvref_t&lt;KeyTypeCVRef&gt;&gt; </td></tr>
@@ -492,7 +492,7 @@ template&lt;typename... Types&gt; </td></tr>
 <tr class="separator:a804e13d43be14f983b738e18f0bb8eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91e73e1b9fba3c45b9ad1b0b7f4f1c9b" id="r_a91e73e1b9fba3c45b9ad1b0b7f4f1c9b"><td class="memTemplParams" colspan="2"><a id="a91e73e1b9fba3c45b9ad1b0b7f4f1c9b" name="a91e73e1b9fba3c45b9ad1b0b7f4f1c9b"></a>
 template&lt;typename... Types&gt; </td></tr>
-<tr class="memitem:a91e73e1b9fba3c45b9ad1b0b7f4f1c9b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>same_sign</b> = std::integral_constant&lt; bool, <a class="el" href="structdetail_1_1conjunction.html">all_signed</a>&lt; Types... &gt;::value||<a class="el" href="structdetail_1_1conjunction.html">all_unsigned</a>&lt; Types... &gt;::value &gt;</td></tr>
+<tr class="memitem:a91e73e1b9fba3c45b9ad1b0b7f4f1c9b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>same_sign</b> = std::integral_constant&lt; bool, all_signed&lt; Types... &gt;::value||all_unsigned&lt; Types... &gt;::value &gt;</td></tr>
 <tr class="separator:a91e73e1b9fba3c45b9ad1b0b7f4f1c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af80e4e59be493e62842fb40354351e8b" id="r_af80e4e59be493e62842fb40354351e8b"><td class="memTemplParams" colspan="2"><a id="af80e4e59be493e62842fb40354351e8b" name="af80e4e59be493e62842fb40354351e8b"></a>
 template&lt;typename OfType , typename T &gt; </td></tr>
@@ -713,7 +713,7 @@ template&lt;typename BasicJsonType , typename T , enable_if_t&lt; std::is_same&l
 <tr class="separator:a3f5949a32eedf94fb0b98fd189fda0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4851287a8b8b21ca8605d31ca446ea" id="r_a0d4851287a8b8b21ca8605d31ca446ea"><td class="memTemplParams" colspan="2"><a id="a0d4851287a8b8b21ca8605d31ca446ea" name="a0d4851287a8b8b21ca8605d31ca446ea"></a>
 template&lt;typename BasicJsonType , typename Tuple , std::size_t... Idx&gt; </td></tr>
-<tr class="memitem:a0d4851287a8b8b21ca8605d31ca446ea"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>to_json_tuple_impl</b> (BasicJsonType &amp;j, const Tuple &amp;t, <a class="el" href="structdetail_1_1integer__sequence.html">index_sequence</a>&lt; Idx... &gt;)</td></tr>
+<tr class="memitem:a0d4851287a8b8b21ca8605d31ca446ea"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>to_json_tuple_impl</b> (BasicJsonType &amp;j, const Tuple &amp;t, index_sequence&lt; Idx... &gt;)</td></tr>
 <tr class="separator:a0d4851287a8b8b21ca8605d31ca446ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -978,7 +978,7 @@ template&lt;typename StringType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2026 15:45:16 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 11:58:11 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

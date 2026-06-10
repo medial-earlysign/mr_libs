@@ -288,8 +288,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> VT, <span class="keywordtype">bool</span> IsConst = false&gt;</div>
 <div class="foldopen" id="foldopen00217" data-start="{" data-end="};">
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="structxgboost_1_1LBitsPolicy.html">  217</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structxgboost_1_1LBitsPolicy.html">LBitsPolicy</a> : <span class="keyword">public</span> <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer</a>&lt;VT, LBitsPolicy&lt;VT, IsConst&gt;, IsConst&gt; {</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <span class="keyword">using </span><a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">Container</a> = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;VT, LBitsPolicy&lt;VT, IsConst&gt;</a>, IsConst&gt;;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  <span class="keyword">using </span>Pos = <span class="keyword">typename</span> <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer_1_1Pos.html">Container::Pos</a>;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <span class="keyword">using </span>Container = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;VT, LBitsPolicy&lt;VT, IsConst&gt;</a>, IsConst&gt;;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  <span class="keyword">using </span>Pos = <span class="keyword">typename</span> Container::Pos;</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  <span class="keyword">using </span>value_type = <span class="keyword">typename</span> Container::value_type;  <span class="comment">// NOLINT</span></div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>  <a class="code hl_define" href="include_2xgboost_2base_8h.html#aa33073da721ea3d200c808d1bf4b6099">XGBOOST_DEVICE</a> <span class="keyword">static</span> Pos Shift(Pos pos) {</div>
@@ -316,11 +316,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">// Format: &lt;Const&gt;&lt;Direction&gt;BitField&lt;size of underlying type in bits&gt;, underlying type</span></div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">// must be unsigned.</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keyword">using </span><a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">LBitField64</a> = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;uint64_t, LBitsPolicy&lt;uint64_t&gt;</a>&gt;;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keyword">using </span>LBitField64 = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;uint64_t, LBitsPolicy&lt;uint64_t&gt;</a>&gt;;</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keyword">using </span><a class="code hl_class" href="structxgboost_1_1BitFieldContainer.html">RBitField8</a> = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;uint8_t, RBitsPolicy&lt;unsigned char&gt;</a>&gt;;</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="keyword">using </span><a class="code hl_class" href="structxgboost_1_1BitFieldContainer.html">LBitField32</a> = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;uint32_t, LBitsPolicy&lt;uint32_t&gt;</a>&gt;;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="keyword">using </span><a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">CLBitField32</a> = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;uint32_t, LBitsPolicy&lt;uint32_t, true&gt;</a>, <span class="keyword">true</span>&gt;;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="keyword">using </span>CLBitField32 = <a class="code hl_struct" href="structxgboost_1_1BitFieldContainer.html">BitFieldContainer&lt;uint32_t, LBitsPolicy&lt;uint32_t, true&gt;</a>, <span class="keyword">true</span>&gt;;</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}       <span class="comment">// namespace xgboost</span></div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="preprocessor">#endif  </span><span class="comment">// XGBOOST_COMMON_BITFIELD_H_</span></div>
@@ -336,7 +336,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 1 2026 15:45:11 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jun 10 2026 11:58:09 for Medial Code Documentation by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
