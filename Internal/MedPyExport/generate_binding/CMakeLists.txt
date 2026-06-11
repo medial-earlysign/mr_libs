@@ -122,19 +122,12 @@ set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
 set(XGBOOST_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 
-FetchContent_MakeAvailable(xgboost)
-# --- FORCE XGBOOST & DMLC TO USE /MD ---
 if(WIN32)
-    foreach(tgt xgboost objxgboost dmlc)
-        if(TARGET ${tgt})
-            # 1. Force the modern MSVC property
-            set_property(TARGET ${tgt} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
-            
-            # 2. Append /MD to the compiler options to overwrite XGBoost's hardcoded /MT
-            target_compile_options(${tgt} PRIVATE "/MD")
-        endif()
-    endforeach()
+    # --- FORCE XGBOOST & DMLC TO USE /MD ---
+    set(FORCE_SHARED_CRT ON CACHE BOOL "Disable XGBoost CLI executable" FORCE)
 endif()
+FetchContent_MakeAvailable(xgboost)
+
 
 include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)          
 include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
