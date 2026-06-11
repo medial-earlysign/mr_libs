@@ -72,23 +72,34 @@ swig_add_library(medpython LANGUAGE python SOURCES medpython.i ${CppFiles})
 
 if(WIN32)
     TARGET_LINK_LIBRARIES(medpython PRIVATE 
-        xgboost 
-        _lightgbm 
+        ${XGBOOST_TARGET} 
+        ${LIGHTGBM_TARGET}
         ${MEDIAL_INTERNAL_LIBS} 
         ${Python3_LIBRARIES}
     )
 
     # 2. Force Whole Archive
     # We append the linker flag specifically for the libraries you want to embed.
-    set_target_properties(medpython PROPERTIES 
-        LINK_FLAGS "/WHOLEARCHIVE:xgboost /WHOLEARCHIVE:lib_lightgbm /FORCE:MULTIPLE /NODEFAULTLIB:libcmt.lib"
-    )
+    if(XGBOOST_STATIC_FALLBACK)
+        target_link_options(medpython PRIVATE "/WHOLEARCHIVE:xgboost.lib")
+    endif()
+    
+    if(LIGHTGBM_STATIC_FALLBACK)
+        target_link_options(medpython PRIVATE "/WHOLEARCHIVE:lib_lightgbm.lib")
+    endif()
+
+    if(XGBOOST_STATIC_FALLBACK OR LIGHTGBM_STATIC_FALLBACK)
+        target_link_options(medpython PRIVATE 
+            "/FORCE:MULTIPLE" 
+            "/NODEFAULTLIB:libcmt.lib"
+        )
+    endif()
 elseif(APPLE)
     # --- MACOS ---
     target_link_libraries(medpython PRIVATE
         ${MEDIAL_INTERNAL_LIBS}
-        xgboost
-        _lightgbm
+        ${XGBOOST_TARGET} 
+        ${LIGHTGBM_TARGET}
         OpenMP::OpenMP_CXX
     )
 
@@ -96,6 +107,26 @@ elseif(APPLE)
         LINK_FLAGS "-undefined dynamic_lookup"
     )
 else()
+    set(LINUX_STATIC_WHOLE_ARCHIVES ${MEDIAL_INTERNAL_LIBS})
+    set(LINUX_DYNAMIC_LIBS "")
+
+    if(XGBOOST_STATIC_FALLBACK)
+        list(APPEND LINUX_STATIC_WHOLE_ARCHIVES ${XGBOOST_TARGET})
+    else()
+        list(APPEND LINUX_DYNAMIC_LIBS ${XGBOOST_TARGET})
+    endif()
+
+    if(LIGHTGBM_STATIC_FALLBACK)
+        list(APPEND LINUX_STATIC_WHOLE_ARCHIVES ${LIGHTGBM_TARGET})
+    else()
+        list(APPEND LINUX_DYNAMIC_LIBS ${LIGHTGBM_TARGET})
+    endif()
+
     # --- LINUX ---
-        target_link_libraries(medpython PRIVATE -Wl,-Bstatic,--whole-archive -Wl,--start-group ${MEDIAL_INTERNAL_LIBS} xgboost _lightgbm -Wl,--end-group -Wl,-no-whole-archive -Wl,-Bdynamic)
+    target_link_libraries(medpython PRIVATE 
+        -Wl,-Bstatic,--whole-archive -Wl,--start-group 
+        ${LINUX_STATIC_WHOLE_ARCHIVES} 
+        -Wl,--end-group -Wl,-no-whole-archive -Wl,-Bdynamic
+        ${LINUX_DYNAMIC_LIBS}
+    )
 endif()

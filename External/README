@@ -1,8 +1,7 @@
 ## Those Are used:
-1. Eigen - https://gitlab.com/libeigen/eigen/tree/master - 3.2.92 (src/Core/util/Macros.h EIGEN_WORLD_VERSION Macros.h) was updated to 3.4.1
-2. nlohmann/json (https://github.com/nlohmann/json) - JSON for Modern C++ - 3.11.2
-3. XGBoost - v2.0.3 (2023.12.19)
-4. LightGBM - 2.2.3 (2019.02.05)
+1. Eigen - https://gitlab.com/libeigen/eigen/tree/master - 3.2.92 (src/Core/util/Macros.h EIGEN_WORLD_VERSION Macros.h) was updated to 3.4.1 - will be downloaded in CMakeLists.txt if not exists
+2. nlohmann/json (https://github.com/nlohmann/json) - JSON for Modern C++ - 3.11.2 - will be downloaded in CMakeLists.txt if not exists
+3. Boost Headers - (Tested with 1.67-1.90) - will be downloaded in CMakeLists.txt if not exists
+4. XGBoost - v2.0.3 (2023.12.19) - will be downloaded in CMakeLists.txt if not exists
+5. LightGBM - 4.6.0 (2025.02.15) - will be downloaded in CMakeLists.txt if not exists
 
-## Additional External
-1. Boost Headers - (Tested with 1.67-1.89) - you will bring  yours/will be downloaded in CMakeLists.txt

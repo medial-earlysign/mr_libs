@@ -63,6 +63,9 @@ else()
             endif()
 
             include_directories(${boost_headers_SOURCE_DIR})
+    else()
+        message(STATUS "Boost found. Using system headers at: ${Boost_INCLUDE_DIRS}")
+        include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
     endif()
 endif()
 
@@ -117,43 +120,66 @@ else ()
 endif()
 # XGboost
 
-set(MEDPYTHON_STATIC_FALLBACK OFF)
+set(XGBOOST_STATIC_FALLBACK OFF)
+find_package(xgboost QUIET)
 
-FetchContent_Declare(
-    xgboost
-    URL      https://github.com/dmlc/xgboost/releases/download/v2.0.3/xgboost-2.0.3.tar.gz
-    DOWNLOAD_EXTRACT_TIMESTAMP ON
-    SOURCE_SUBDIR cpp_src
-)
+if(xgboost_FOUND)
+    message(STATUS "XGBoost found via find_package. Using shared library.")
+    set(XGBOOST_TARGET xgboost::xgboost)
+else()
+    message(STATUS "XGBoost not found. Falling back to static FetchContent...")
+    set(XGBOOST_STATIC_FALLBACK ON)
+    FetchContent_Declare(
+        xgboost
+        URL      https://github.com/dmlc/xgboost/releases/download/v2.0.3/xgboost-2.0.3.tar.gz
+        DOWNLOAD_EXTRACT_TIMESTAMP ON
+        SOURCE_SUBDIR cpp_src
+    )
 
-set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
-set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
-set(XGBOOST_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+    set(BUILD_STATIC_LIB ON CACHE BOOL "Build XGBoost as a static library" FORCE)
+    set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libs" FORCE)
 
-if(WIN32)
-    # --- FORCE XGBOOST & DMLC TO USE /MD ---
-    set(FORCE_SHARED_CRT ON CACHE BOOL "Disable XGBoost CLI executable" FORCE)
+    if(WIN32)
+        # --- FORCE XGBOOST & DMLC TO USE /MD ---
+        set(FORCE_SHARED_CRT ON CACHE BOOL "Disable XGBoost CLI executable" FORCE)
+    endif()
+    FetchContent_MakeAvailable(xgboost)
+
+    include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)          
+    include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
+    include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/dmlc-core/include)
+
+    set(XGBOOST_TARGET xgboost)
 endif()
-FetchContent_MakeAvailable(xgboost)
-
-
-include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/include)          
-include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/rabit/include)
-include_directories(SYSTEM ${xgboost_SOURCE_DIR}/cpp_src/dmlc-core/include)
 
 # LightGBM
-FetchContent_Declare(
-    lightgbm
-    URL      https://github.com/lightgbm-org/LightGBM/releases/download/v4.6.0/lightgbm-4.6.0.tar.gz
-    DOWNLOAD_EXTRACT_TIMESTAMP ON
-)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(BUILD_CLI OFF CACHE INTERNAL "")
-FetchContent_MakeAvailable(lightgbm)
+set(LIGHTGBM_STATIC_FALLBACK OFF)
+find_package(LightGBM QUIET)
+if(LightGBM_FOUND)
+    message(STATUS "LightGBM found via find_package. Using shared library.")
+    set(LIGHTGBM_TARGET LightGBM::lightgbm)
+else()
+    message(STATUS "LightGBM not found. Falling back to static FetchContent...")
+    set(LIGHTGBM_STATIC_FALLBACK ON)
+    FetchContent_Declare(
+        lightgbm
+        URL      https://github.com/lightgbm-org/LightGBM/releases/download/v4.6.0/lightgbm-4.6.0.tar.gz
+        DOWNLOAD_EXTRACT_TIMESTAMP ON
+    )
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+    set(BUILD_CLI OFF CACHE INTERNAL "")
+    FetchContent_MakeAvailable(lightgbm)
 
-include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/include)     
-include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fast_double_parser/include) 
-include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fmt/include) 
+    include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/include)     
+    include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fast_double_parser/include) 
+    include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fmt/include) 
+    
+    if(WIN32)
+         set(LIGHTGBM_TARGET lib_lightgbm)  
+    else()
+        set(LIGHTGBM_TARGET _lightgbm)
+    endif()
+endif()
 
 ## End
 
