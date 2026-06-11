@@ -66,6 +66,11 @@ else()
     endif()
 endif()
 
+if(POLICY CMP0091)
+    cmake_policy(SET CMP0091 NEW)
+endif()
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL" CACHE STRING "Runtime library" FORCE)
+
 ## Eigen
 find_package(Eigen3 QUIET)
 
@@ -216,11 +221,6 @@ set(PYTHON_INCLUDE_DIR ${Python3_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../Internal)
 include_directories(${PROJECT_SOURCE_DIR})
-
-if(POLICY CMP0091)
-    cmake_policy(SET CMP0091 NEW)
-endif()
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL" CACHE STRING "Runtime library" FORCE)
 
 # Add Internal libraries
 foreach(mes_lib IN LISTS MEDIAL_INTERNAL_LIBS)
