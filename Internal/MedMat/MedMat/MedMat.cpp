@@ -1,5 +1,5 @@
 #include "MedMat.h"
-#include <External/Eigen/Core>
+#include <Eigen/Core>
 #include <MedTime/MedTime/MedTime.h>
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 #include <Logger/Logger/Logger.h>

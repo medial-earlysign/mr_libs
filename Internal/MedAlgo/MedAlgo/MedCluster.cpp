@@ -6,9 +6,9 @@
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 #include <MedUtils/MedUtils/MedGenUtils.h>
 #include <MedMat/MedMat/MedMat.h>
-#include <External/Eigen/Core>
-#include <External/Eigen/SVD>
-#include <External/Eigen/Jacobi>
+#include <Eigen/Core>
+#include <Eigen/SVD>
+#include <Eigen/Jacobi>
 
 
 #define LOCAL_SECTION LOG_MEDALGO

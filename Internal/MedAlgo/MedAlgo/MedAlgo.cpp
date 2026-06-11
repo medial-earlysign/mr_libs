@@ -24,7 +24,7 @@
 #include <MedAlgo/MedAlgo/MedMultiClass.h>
 #include <MedUtils/MedUtils/MedGenUtils.h>
 #include <MedAlgo/MedAlgo/MedPredictorsByMissingValues.h>
-#include <External/Eigen/Core>
+#include <Eigen/Core>
 #include <cmath>
 
 #include <thread>

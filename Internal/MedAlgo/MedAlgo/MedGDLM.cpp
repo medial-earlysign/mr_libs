@@ -3,8 +3,8 @@
 #include <thread>
 #include <MedAlgo/MedAlgo/MedAlgo.h>
 #include <MedAlgo/MedAlgo/MedGDLM.h>
-#include <External/Eigen/Core>
-#include <External/Eigen/Dense>
+#include <Eigen/Core>
+#include <Eigen/Dense>
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 
 #define LOCAL_SECTION LOG_MEDALGO

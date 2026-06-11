@@ -21,7 +21,7 @@
 #include <MedIO/MedIO/MedIO.h>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
-#include <json/json.hpp>
+#include <nlohmann/json.hpp>
 #include <AlgoMarker/DynAMWrapper/DynAMWrapper.h>
 
 using json = nlohmann::json;

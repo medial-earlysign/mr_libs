@@ -8,7 +8,7 @@
 #include <MedProcessTools/MedProcessTools/MedModel.h>
 #include <MedProcessTools/MedProcessTools/MedSamples.h>
 #include <MedIO/MedIO/MedIO.h>
-#include <json/json.hpp>
+#include <nlohmann/json.hpp>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>

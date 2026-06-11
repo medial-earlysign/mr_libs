@@ -3,7 +3,7 @@
 #include <thread>
 #include <MedAlgo/MedAlgo/MedAlgo.h>
 #include <MedAlgo/MedAlgo/MedLM.h>
-#include <External/Eigen/Core>
+#include <Eigen/Core>
 
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL	LOG_DEF_LEVEL

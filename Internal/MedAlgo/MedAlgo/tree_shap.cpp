@@ -2,7 +2,7 @@
 #include <omp.h>
 #include "medial_utilities/medial_utilities/globalRNG.h"
 #include <MedAlgo/MedAlgo/MedLM.h>
-#include <External/Eigen/Core>
+#include <Eigen/Core>
 
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL LOG_DEF_LEVEL

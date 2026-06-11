@@ -92,25 +92,33 @@ else()
         FetchContent_MakeAvailable(eigen_headers)
     endif()
 
-    #include_directories(SYSTEM ${eigen_headers_SOURCE_DIR})
-    set(EIGEN_RAW_PATH "${eigen_headers_SOURCE_DIR}")
+    include_directories(SYSTEM ${eigen_headers_SOURCE_DIR})
 endif()
 
 # Json:
-# https://github.com/nlohmann/json/releases/download/v3.11.2/json.hpp include.zip
-include(FetchContent)
-FetchContent_Declare(
-    json_headers
-    URL      https://github.com/nlohmann/json/releases/download/v3.11.2/include.zip
-    SOURCE_SUBDIR pathThatDoesNotExist
-    DOWNLOAD_EXTRACT_TIMESTAMP ON
-)
-FetchContent_GetProperties(json_headers)
-if(NOT json_headers_POPULATED)
-    FetchContent_MakeAvailable(json_headers)
+find_package(nlohmann_json QUIET)
+if (nlohmann_json_FOUND)
+    message(STATUS "nlohmann_json found. Using system headers at: ${nlohmann_json_INCLUDE_DIR}")
+    include_directories(SYSTEM ${nlohmann_json_INCLUDE_DIR})
+else ()
+    # https://github.com/nlohmann/json/releases/download/v3.11.2/json.hpp include.zip
+    include(FetchContent)
+    FetchContent_Declare(
+        json_headers
+        URL      https://github.com/nlohmann/json/releases/download/v3.11.2/include.zip
+        SOURCE_SUBDIR pathThatDoesNotExist
+        DOWNLOAD_EXTRACT_TIMESTAMP ON
+    )
+    FetchContent_GetProperties(json_headers)
+    if(NOT json_headers_POPULATED)
+        FetchContent_MakeAvailable(json_headers)
+    endif()
+    include_directories(SYSTEM "${json_headers_SOURCE_DIR}/single_include")
 endif()
-set(JSON_RAW_PATH "${json_headers_SOURCE_DIR}/single_include")
 # XGboost
+
+set(MEDPYTHON_STATIC_FALLBACK OFF)
+
 FetchContent_Declare(
     xgboost
     URL      https://github.com/dmlc/xgboost/releases/download/v2.0.3/xgboost-2.0.3.tar.gz
@@ -147,24 +155,6 @@ include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/include)
 include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fast_double_parser/include) 
 include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fmt/include) 
 
-set(VIRTUAL_INC_ROOT "${CMAKE_CURRENT_BINARY_DIR}/VirtualIncludes")
-set(VIRTUAL_EXT_DIR "${VIRTUAL_INC_ROOT}/External")
-
-if(NOT EXISTS "${VIRTUAL_EXT_DIR}/Eigen")
-    message(STATUS "Structuring Eigen for <External/Eigen/...> includes...")
-    file(MAKE_DIRECTORY "${VIRTUAL_EXT_DIR}")
-    # Copy the raw Eigen folder into our virtual External folder
-    file(COPY "${EIGEN_RAW_PATH}/Eigen" DESTINATION "${VIRTUAL_EXT_DIR}")
-endif()
-if(NOT EXISTS "${VIRTUAL_EXT_DIR}/json")
-    message(STATUS "Structuring nlohmann_json for <External/json/...> includes...")
-    file(MAKE_DIRECTORY "${VIRTUAL_EXT_DIR}/json")
-    # Copy the json.hpp header (and any internal files) into VirtualIncludes/External/json/
-    file(COPY "${JSON_RAW_PATH}/nlohmann/json.hpp" DESTINATION "${VIRTUAL_EXT_DIR}/json")
-endif()
-
-include_directories(SYSTEM "${VIRTUAL_INC_ROOT}")
-include_directories(SYSTEM "${VIRTUAL_INC_ROOT}/External")
 ## End
 
 set (MEDIAL_INTERNAL_LIBS InfraMed Logger MedAlgo MedEmbed MedIO MedMat MedPlotly MedProcessTools MedSparseMat MedSplit MedStat MedTime MedUtils QRF SerializableObject TQRF micNet CommonLib

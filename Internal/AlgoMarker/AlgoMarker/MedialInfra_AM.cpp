@@ -2,7 +2,7 @@
 
 #include <Logger/Logger/Logger.h>
 #include <MedTime/MedTime/MedTime.h>
-#include <json/json.hpp>
+#include <nlohmann/json.hpp>
 #include "AlgoMarkerErr.h"
 
 using json = nlohmann::json;

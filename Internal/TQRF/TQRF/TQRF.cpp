@@ -7,8 +7,8 @@
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 
-#include <External/Eigen/Core>
-#include <External/Eigen/Dense>
+#include <Eigen/Core>
+#include <Eigen/Dense>
 using namespace Eigen;
 
 

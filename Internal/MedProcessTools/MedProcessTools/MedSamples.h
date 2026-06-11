@@ -7,7 +7,7 @@
 #include <SerializableObject/SerializableObject/SerializableObject.h>
 #include <MedTime/MedTime/MedTime.h>
 #include <unordered_set>
-#include <json/json.hpp>
+#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 

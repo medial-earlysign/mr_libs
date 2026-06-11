@@ -17,7 +17,7 @@
 #include <SerializableObject/SerializableObject/SerializableObject.h>
 #include <MedSparseMat/MedSparseMat/MedSparseMat.h>
 #include <MedMat/MedMat/MedMat.h>
-#include <External/Eigen/Core>
+#include <Eigen/Core>
 
 //===================================================================================================
 

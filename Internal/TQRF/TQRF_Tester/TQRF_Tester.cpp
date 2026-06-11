@@ -19,8 +19,8 @@
 using namespace std;
 namespace po = boost::program_options;
 
-#include <External/Eigen/Core>
-#include <External/Eigen/Dense>
+#include <Eigen/Core>
+#include <Eigen/Dense>
 using namespace Eigen;
 
 

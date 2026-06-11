@@ -2,7 +2,7 @@
 
 #include <MedProcessTools/MedProcessTools/FeatureGenerator.h>
 #include <SerializableObject/SerializableObject/SerializableObject.h>
-#include <json/json.hpp>
+#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 /**
