@@ -78,6 +78,9 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL" CACHE STRING "Runtime library"
 find_package(Eigen3 QUIET)
 
 if(Eigen3_FOUND)
+    if(NOT EIGEN3_INCLUDE_DIR AND TARGET Eigen3::Eigen)
+        get_target_property(EIGEN3_INCLUDE_DIR Eigen3::Eigen INTERFACE_INCLUDE_DIRECTORIES)
+    endif()
     message(STATUS "Eigen3 found. Using system headers at: ${EIGEN3_INCLUDE_DIR}")
     include_directories(SYSTEM ${EIGEN3_INCLUDE_DIR})
 else()
@@ -101,6 +104,9 @@ endif()
 # Json:
 find_package(nlohmann_json QUIET)
 if (nlohmann_json_FOUND)
+    if(NOT nlohmann_json_INCLUDE_DIR AND TARGET nlohmann_json::nlohmann_json)
+        get_target_property(nlohmann_json_INCLUDE_DIR nlohmann_json::nlohmann_json INTERFACE_INCLUDE_DIRECTORIES)
+    endif()
     message(STATUS "nlohmann_json found. Using system headers at: ${nlohmann_json_INCLUDE_DIR}")
     include_directories(SYSTEM ${nlohmann_json_INCLUDE_DIR})
 else ()
@@ -122,6 +128,21 @@ endif()
 
 set(XGBOOST_STATIC_FALLBACK OFF)
 find_package(xgboost QUIET)
+
+if(NOT xgboost_FOUND)
+    find_path(XGBOOST_INCLUDE_DIR NAMES xgboost/c_api.h)
+    find_library(XGBOOST_LIB NAMES xgboost libxgboost)
+
+    if(XGBOOST_INCLUDE_DIR AND XGBOOST_LIB)
+        message(STATUS "XGBoost CMake config missing, but raw binaries found!")
+        add_library(xgboost::xgboost UNKNOWN IMPORTED)
+        set_target_properties(xgboost::xgboost PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "${XGBOOST_INCLUDE_DIR}"
+            IMPORTED_LOCATION "${XGBOOST_LIB}"
+        )
+        set(xgboost_FOUND TRUE)
+    endif()
+endif()
 
 if(xgboost_FOUND)
     message(STATUS "XGBoost found via find_package. Using shared library.")
@@ -155,6 +176,22 @@ endif()
 # LightGBM
 set(LIGHTGBM_STATIC_FALLBACK OFF)
 find_package(LightGBM QUIET)
+
+if(NOT LightGBM_FOUND)
+    find_path(LIGHTGBM_INCLUDE_DIR NAMES LightGBM/c_api.h)
+    find_library(LIGHTGBM_LIB NAMES lightgbm)
+
+    if(LIGHTGBM_INCLUDE_DIR AND LIGHTGBM_LIB)
+        message(STATUS "LightGBM CMake config missing, but raw binaries found!")
+        add_library(LightGBM::lightgbm UNKNOWN IMPORTED)
+        set_target_properties(LightGBM::lightgbm PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "${LIGHTGBM_INCLUDE_DIR}"
+            IMPORTED_LOCATION "${LIGHTGBM_LIB}"
+        )
+        set(LightGBM_FOUND TRUE)
+    endif()
+endif()
+
 if(LightGBM_FOUND)
     message(STATUS "LightGBM found via find_package. Using shared library.")
     set(LIGHTGBM_TARGET LightGBM::lightgbm)
