@@ -174,11 +174,8 @@ else()
     include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fast_double_parser/include) 
     include_directories(SYSTEM ${lightgbm_SOURCE_DIR}/external_libs/fmt/include) 
     
-    if(WIN32)
-         set(LIGHTGBM_TARGET lib_lightgbm)  
-    else()
-        set(LIGHTGBM_TARGET _lightgbm)
-    endif()
+    
+    set(LIGHTGBM_TARGET _lightgbm)
 endif()
 
 ## End
