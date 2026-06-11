@@ -81,7 +81,7 @@ if(WIN32)
     # 2. Force Whole Archive
     # We append the linker flag specifically for the libraries you want to embed.
     set_target_properties(medpython PROPERTIES 
-        LINK_FLAGS "/WHOLEARCHIVE:xgboost /WHOLEARCHIVE:lib_lightgbm /FORCE:MULTIPLE"
+        LINK_FLAGS "/WHOLEARCHIVE:xgboost /WHOLEARCHIVE:lib_lightgbm /FORCE:MULTIPLE /NODEFAULTLIB:libcmt.lib"
     )
 elseif(APPLE)
     # --- MACOS ---
