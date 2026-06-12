@@ -1200,7 +1200,7 @@ bool TreeExplainer::convert_lightgbm_trees() {
 
 	// Export to string
 	string trees;
-	static_cast<MedLightGBM *>(original_predictor)->mem_app.serialize_to_string(trees);
+	trees = static_cast<MedLightGBM *>(original_predictor)->get_model_str();
 
 	// Parse string
 	vector<string> lines, fields, values;
