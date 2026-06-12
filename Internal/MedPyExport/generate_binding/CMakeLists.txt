@@ -35,6 +35,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(OpenMP REQUIRED)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
+include(FetchContent)
 
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/Linux/${CMAKE_BUILD_TYPE}")
 set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_BINARY_DIR})
@@ -49,7 +50,7 @@ else()
     if (NOT Boost_FOUND)
         message(STATUS "BOOST_ROOT environment variable is not set. Please set it to the Boost installation path, if you want to use a specific boost.")
         message(STATUS "Boost not found. Downloading headers...")
-        include(FetchContent)
+        
         FetchContent_Declare(
             boost_headers
                 URL      https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.gz
@@ -88,7 +89,6 @@ if(Eigen3_FOUND)
     include_directories(SYSTEM ${EIGEN3_INCLUDE_DIR})
 else()
     message(STATUS "Eigen3 not found. Downloading headers from source...")
-    include(FetchContent)
     FetchContent_Declare(
         eigen_headers
         URL      https://gitlab.com/libeigen/eigen/-/archive/3.4.1/eigen-3.4.1.tar.gz
@@ -114,7 +114,6 @@ if (nlohmann_json_FOUND)
     include_directories(SYSTEM ${nlohmann_json_INCLUDE_DIR})
 else ()
     # https://github.com/nlohmann/json/releases/download/v3.11.2/json.hpp include.zip
-    include(FetchContent)
     FetchContent_Declare(
         json_headers
         URL      https://github.com/nlohmann/json/releases/download/v3.11.2/include.zip
