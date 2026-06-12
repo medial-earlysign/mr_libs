@@ -179,7 +179,7 @@ find_package(LightGBM QUIET)
 
 if(NOT LightGBM_FOUND)
     find_path(LIGHTGBM_INCLUDE_DIR NAMES LightGBM/c_api.h)
-    find_library(LIGHTGBM_LIB NAMES lightgbm)
+    find_library(LIGHTGBM_LIB NAMES lightgbm lib_lightgbm _lightgbm)
 
     if(LIGHTGBM_INCLUDE_DIR AND LIGHTGBM_LIB)
         message(STATUS "LightGBM CMake config missing, but raw binaries found!")
