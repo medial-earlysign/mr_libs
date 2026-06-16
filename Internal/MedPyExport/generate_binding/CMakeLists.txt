@@ -230,7 +230,13 @@ if (NOT WIN32)
         set(COMPILER_FLAGS "${COMMON_FLAGS} -Xpreprocessor -fopenmp -D_LIBCPP_DISABLE_AVAILABILITY")
     else()
         # Linux specific base flags
-        set(COMPILER_FLAGS "${COMMON_FLAGS} -fopenmp --param inline-unit-growth=1000000")
+        if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+            message(STATUS "32-bit architecture detected. Restricting compiler memory usage...")
+            set(COMPILER_FLAGS "${COMMON_FLAGS} -g0 -ftrack-macro-expansion=0 -fopenmp")
+        else()
+            set(COMPILER_FLAGS "${COMMON_FLAGS} -fopenmp --param inline-unit-growth=1000000")
+        endif()
+
 
         # 2. Check Architecture
         # Matches aarch64 (Linux) or arm64 (Apple Silicon)
