@@ -1,5 +1,12 @@
 # Medial Python Binding
 
+## Relase Notes - 1.1.3
+* Bugfix: Compile in low memory system
+* Feature: Update LightGBM to 4.6.0
+* Feature: Support compilation with newer SWIG >= 4.3
+* Feature: Removed all external libraries from source code and using FetchContent or using system library if exists. Important to support conda
+* Feature: provide pre-compiled binaries for python 3.14 to windows and mac instead python 3.10
+
 ## Relase Notes - 1.1.2
 * Feature: Retreive string attributes from samples
 

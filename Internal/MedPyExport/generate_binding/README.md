@@ -6,6 +6,9 @@
 ![GitHub contributors](https://img.shields.io/github/contributors-anon/Medial-EarlySign/medpython)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Medial-EarlySign/medpython)
 
+![Conda Version](https://anaconda.org/conda-forge/medpython/badges/version.svg)
+![Conda Downloads](https://anaconda.org/conda-forge/medpython/badges/downloads.svg)
+
 [![GitHub Repo](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/Medial-EarlySign/medpython)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Medial-EarlySign/medpython)
 
@@ -104,6 +107,11 @@ You can quickly install the package using **pip**:
 pip install medpython
 ```
 
+or Through conda
+```bash
+conda install -c conda-forge medpython
+```
+
 Install and compile from github source code:
 ```bash
 python -m pip install -v "medpython @ git+https://github.com/Medial-EarlySign/medpython.git/#subdirectory=Internal/MedPyExport/generate_binding"
@@ -115,10 +123,10 @@ python -m pip install -v "medpython @ git+https://github.com/Medial-EarlySign/me
 
 | Platform | x86_64 (Intel/AMD) | aarch64 (ARM / Apple Silicon) |
 | :--- | :--- | :--- |
-| **Linux (glibc)** | ✅ Pre-built (Py 3.10-3.14) | ✅ Pre-built (Py 3.12) |
+| **Linux (glibc)** | ✅ Pre-built (Py 3.10-3.14) | ✅ Pre-built (Py 3.13) |
 | **Linux (Alpine/musl)**| 🛠️ Compile Required | 🛠️ Compile Required |
-| **Windows** | ✅ Pre-built (Py 3.10-3.13) | 🛠️ Compile Required |
-| **macOS** | 🛠️ Compile Required | ✅ Pre-built (Py 3.10-3.13) |
+| **Windows** | ✅ Pre-built (Py 3.11-3.14) | 🛠️ Compile Required |
+| **macOS** | 🛠️ Compile Required | ✅ Pre-built (Py 3.11-3.14) |
 
 > **Note:** For any Compile Required or either not listed as Pre-built. Compliation is required.
 > Compilation in Alpine was also tested, but pre-builds are not provided. 
