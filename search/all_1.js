@@ -9,6 +9,6 @@ var searchData=
   ['1_201_200_6',['Relase Notes - 1.1.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md16',1,'']]],
   ['1_201_201_7',['Relase Notes - 1.1.1',['../md_Internal_2MedPyExport_2README.html#autotoc_md15',1,'']]],
   ['1_201_202_8',['Relase Notes - 1.1.2',['../md_Internal_2MedPyExport_2README.html#autotoc_md14',1,'']]],
-  ['1_201_203_9',['Relase Notes - 1.1.3',['../md_Internal_2MedPyExport_2README.html#autotoc_md13',1,'']]],
+  ['1_202_200_9',['Relase Notes - 1.2.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md13',1,'']]],
   ['1_20strong_20xgboost_20strong_10',['1. &lt;strong&gt;XGBoost&lt;/strong&gt;',['../md_THIRD__PARTY__LICENSES.html#autotoc_md35',1,'']]]
 ];

@@ -64,7 +64,7 @@ var searchData=
   ['relase_20notes_201_201_200_61',['Relase Notes - 1.1.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md16',1,'']]],
   ['relase_20notes_201_201_201_62',['Relase Notes - 1.1.1',['../md_Internal_2MedPyExport_2README.html#autotoc_md15',1,'']]],
   ['relase_20notes_201_201_202_63',['Relase Notes - 1.1.2',['../md_Internal_2MedPyExport_2README.html#autotoc_md14',1,'']]],
-  ['relase_20notes_201_201_203_64',['Relase Notes - 1.1.3',['../md_Internal_2MedPyExport_2README.html#autotoc_md13',1,'']]],
+  ['relase_20notes_201_202_200_64',['Relase Notes - 1.2.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md13',1,'']]],
   ['release_20notes_65',['Release Notes',['../md_Internal_2MedPyExport_2generate__binding_2README.html#autotoc_md8',1,'']]],
   ['release_20notes_201_200_201_66',['Release Notes - 1.0.1',['../md_Internal_2MedPyExport_2README.html#autotoc_md22',1,'']]],
   ['release_20notes_201_200_202_67',['Release Notes - 1.0.2',['../md_Internal_2MedPyExport_2README.html#autotoc_md21',1,'']]],

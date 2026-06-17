@@ -54,7 +54,7 @@ var searchData=
   ['notes_201_201_200_51',['Relase Notes - 1.1.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md16',1,'']]],
   ['notes_201_201_201_52',['Relase Notes - 1.1.1',['../md_Internal_2MedPyExport_2README.html#autotoc_md15',1,'']]],
   ['notes_201_201_202_53',['Relase Notes - 1.1.2',['../md_Internal_2MedPyExport_2README.html#autotoc_md14',1,'']]],
-  ['notes_201_201_203_54',['Relase Notes - 1.1.3',['../md_Internal_2MedPyExport_2README.html#autotoc_md13',1,'']]],
+  ['notes_201_202_200_54',['Relase Notes - 1.2.0',['../md_Internal_2MedPyExport_2README.html#autotoc_md13',1,'']]],
   ['nrem_5fattr_55',['nrem_attr',['../classRepRuleBasedOutlierCleaner.html#a47ac3a06d393901e3ea667ac59a21411',1,'RepRuleBasedOutlierCleaner::nRem_attr'],['../classRepBasicOutlierCleaner.html#ab2c01c2b1711302fe11b89bd468b3bd7',1,'RepBasicOutlierCleaner::nRem_attr'],['../classRepNbrsOutlierCleaner.html#afd48a64e01f68650fa682552032ff5fd',1,'RepNbrsOutlierCleaner::nRem_attr']]],
   ['nrem_5fattr_5fsuffix_56',['nrem_attr_suffix',['../classRepBasicOutlierCleaner.html#a053dc5902511b4095b4d67b19d40e01a',1,'RepBasicOutlierCleaner::nRem_attr_suffix'],['../classRepRuleBasedOutlierCleaner.html#aa22794cbe5de93c9bf9725f66567edfb',1,'RepRuleBasedOutlierCleaner::nRem_attr_suffix'],['../classRepNbrsOutlierCleaner.html#ab8565bb89cb3a245ec6b3b72b6b6e35e',1,'RepNbrsOutlierCleaner::nRem_attr_suffix']]],
   ['nrounds_57',['nrounds',['../classTQRF__Params.html#a20027d7514fad877717d8bf12c1131cf',1,'TQRF_Params']]],
