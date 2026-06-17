@@ -184,7 +184,7 @@ void AggregatePredsPostProcessor::generate_matrix_till_feature_process(const Med
 	//MedFeatures copy_mat = input_mat;
 	copy_mdl.apply(*p_model->p_rep, input_smps, MedModelStage::MED_MDL_LEARN_REP_PROCESSORS,
 		MedModelStage::MED_MDL_APPLY_FTR_GENERATORS);
-	res = move(copy_mdl.features);
+	res = std::move(copy_mdl.features);
 	//apply before 
 	for (FeatureProcessor *fp : before_processors)
 		fp->apply(res, false);

@@ -330,7 +330,7 @@ int FeatureGenerator::filter_features(unordered_set<string>& validFeatures) {
 		if (validFeatures.find(names[i]) != validFeatures.end())
 			names_new.push_back(names[i]);
 
-	names = move(names_new);
+	names = std::move(names_new);
 
 	return ((int)names.size());
 }
@@ -2436,7 +2436,7 @@ int ModelFeatGenerator::_learn(MedPidRepository& rep, const MedSamples& samples,
 		for (size_t i = 0; i < train_pids.size(); ++i)
 			if (accepted_ids.find(train_pids[i]) != accepted_ids.end())
 				final_ids.push_back(train_pids[i]);
-		train_pids = move(final_ids);
+		train_pids = std::move(final_ids);
 	}
 
 	model->load_repository(rep.config_fname, train_pids, rep_feat, true);

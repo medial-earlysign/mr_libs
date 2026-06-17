@@ -2282,7 +2282,7 @@ void medial::signal_hierarchy::sons_code_hierarchy_recursive(MedDictionarySectio
 				}
 			}
 		}
-		last_layer_new_ids = move(new_ids);
+		last_layer_new_ids = std::move(new_ids);
 		++depth_cnt;
 		if (max_depth > 0 && depth_cnt >= max_depth)
 			break;

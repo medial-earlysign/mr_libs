@@ -404,8 +404,8 @@ int FeatureGenExtractTable::filter_features(unordered_set<string>& validFeatures
 			final_list_ext.push_back(extracted_names[i]);
 			keep_idx.push_back(i);
 		}
-	names = move(final_list);
-	extracted_names = move(final_list_ext);
+	names = std::move(final_list);
+	extracted_names = std::move(final_list_ext);
 	//extracted_names is not important to update - but it's not time consuming and for the whole validty of the object
 
 	//update rules to keep only those features:
@@ -414,7 +414,7 @@ int FeatureGenExtractTable::filter_features(unordered_set<string>& validFeatures
 		vector<float> keep_vals(keep_idx.size());
 		for (size_t j = 0; j < keep_idx.size(); ++j)
 			keep_vals[j] = key_rules[i].values[keep_idx[j]];
-		key_rules[i].values = move(keep_vals);
+		key_rules[i].values = std::move(keep_vals);
 	}
 
 	return (int)names.size();

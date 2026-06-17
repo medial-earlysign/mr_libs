@@ -409,7 +409,7 @@ void filter_opts(unordered_map<int, vector<int>> &pid_options,
 			if (validate_in_dates(pid_date, pred_date, interaction))
 				pid_filtered[pid].push_back(pred_date);
 	}
-	pid_options = move(pid_filtered);
+	pid_options = std::move(pid_filtered);
 }
 
 void MedSamplingFixedTime::_get_sampling_options(const unordered_map<int, vector<pair<int, int>>> &pid_time_ranges,

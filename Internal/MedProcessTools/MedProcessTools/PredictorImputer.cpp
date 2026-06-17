@@ -138,7 +138,7 @@ void PredictorImputer::load_MISSING() {
 }
 
 void PredictorImputer::load_sampler(unique_ptr<SamplesGenerator<float>> &&generator) {
-	_sampler = move(generator);
+	_sampler = std::move(generator);
 }
 
 int PredictorImputer::_apply(MedFeatures& features, unordered_set<int>& ids) {

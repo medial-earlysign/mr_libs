@@ -839,9 +839,9 @@ void MedLabels::relabel_samples(MedSamples &samples, bool show_conflicts) const 
 	{
 		filtered.idSamples[i].id = samples.idSamples[keep_ids[i]].id;
 		filtered.idSamples[i].split = samples.idSamples[keep_ids[i]].split;
-		filtered.idSamples[i].samples = move(samples.idSamples[keep_ids[i]].samples);
+		filtered.idSamples[i].samples = std::move(samples.idSamples[keep_ids[i]].samples);
 	}
-	samples = move(filtered);
+	samples = std::move(filtered);
 
 	if (no_rule > 0)
 		MLOG("WARNING MedLabels::relabel_samples - has %d samples with no rules for time window\n", no_rule);

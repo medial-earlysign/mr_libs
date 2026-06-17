@@ -158,7 +158,7 @@ void aggregate_samples(MedFeatures &features, const vector<int> &sample_ids, boo
 		}
 	}
 
-	features = move(final_f);
+	features = std::move(final_f);
 }
 
 void aggregate_samples(MedFeatures &features, bool take_mean, bool get_attr = false) {
@@ -376,11 +376,11 @@ int MedModel::learn(MedPidRepository& rep, MedSamples& model_learning_set_orig, 
 			if (post_processors_learning_sets[i].idSamples.empty())
 				post_processors[i]->Learn(features);
 			else {
-				MedFeatures origFeatures = move(features);
+				MedFeatures origFeatures = std::move(features);
 				apply(rep, post_processors_learning_sets[i], MedModelStage::MED_MDL_APPLY_FTR_GENERATORS, MedModelStage::MED_MDL_APPLY_PREDICTOR);
 				cerr << "#####################################HERE###############################################\n";
 				post_processors[i]->Learn(features);
-				features = move(origFeatures);
+				features = std::move(origFeatures);
 			}
 		}
 	}
@@ -556,7 +556,7 @@ int MedModel::apply(MedPidRepository& rep, MedSamples& samples, MedModelStage st
 			int inner_p = pos;
 			for (size_t i = 0; i < batch.idSamples.size(); ++i)
 				for (size_t j = 0; j < batch.idSamples[i].samples.size(); ++j) {
-					flat_samples[inner_p] = move(batch.idSamples[i].samples[j]);
+					flat_samples[inner_p] = std::move(batch.idSamples[i].samples[j]);
 					++inner_p;
 				}
 			//4. advance into next batch:
@@ -567,7 +567,7 @@ int MedModel::apply(MedPidRepository& rep, MedSamples& samples, MedModelStage st
 		samples.import_from_sample_vec(flat_samples);
 
 		//Clean MedFeature samples and data:
-		features.samples = move(flat_samples);
+		features.samples = std::move(flat_samples);
 		for (auto &it : features.data) //Earse all - it's only partial data, clear memory
 			it.second.clear();
 	}
@@ -677,7 +677,7 @@ int MedModel::apply_predictor(MedSamples &samples) {
 				++i_feat;
 			}
 			predictor->predict_single(features_vec, pred_res);
-			features.samples[0].prediction = move(pred_res);
+			features.samples[0].prediction = std::move(pred_res);
 		}
 		else {
 			if (predictor->predict(features) < 0) {
@@ -987,7 +987,7 @@ int MedModel::learn_and_apply_feature_processors(MedFeatures &features)
 			//create new version:
 			matrix_versions.push_back(ver);
 			MedFeatures new_mat = features;
-			allocated_mem_mat.push_back(move(new_mat));
+			allocated_mem_mat.push_back(std::move(new_mat));
 			ver_set[ver] = &allocated_mem_mat.back();
 		}
 
@@ -998,7 +998,7 @@ int MedModel::learn_and_apply_feature_processors(MedFeatures &features)
 	}
 	//update feature with last version for predcitor - if needed and has more than one version
 	if (matrix_versions.size() > 1) {
-		features = move(*ver_set.at(matrix_versions.back()));
+		features = std::move(*ver_set.at(matrix_versions.back()));
 		MLOG("INFO:: has more than one version of matrix in learn_and_apply\n");
 	}
 	return 0;
@@ -1018,14 +1018,14 @@ int MedModel::learn_feature_processors(MedFeatures &features)
 			//create new version:
 			matrix_versions.push_back(ver);
 			MedFeatures new_mat = features;
-			allocated_mem_mat.push_back(move(new_mat));
+			allocated_mem_mat.push_back(std::move(new_mat));
 			ver_set[ver] = &allocated_mem_mat.back();
 		}
 
 		if (processor->learn(*ver_set.at(ver)) < 0) return -1;
 	}
 	if (matrix_versions.size() > 1) {
-		features = move(*ver_set.at(matrix_versions.back()));
+		features = std::move(*ver_set.at(matrix_versions.back()));
 		MLOG("INFO:: has more than one version of matrix in learn\n");
 	}
 
@@ -2023,14 +2023,14 @@ void MedModel::get_required_signal_categories(unordered_map<string, vector<strin
 		for (const auto &it : local_use)
 		{
 			if (signal_categories_in_use.find(it.first) == signal_categories_in_use.end())
-				signal_categories_in_use[it.first] = move(it.second);
+				signal_categories_in_use[it.first] = std::move(it.second);
 			else {
 				//merge with existing:
 				unordered_set<string> existing_sets(signal_categories_in_use.at(it.first).begin(),
 					signal_categories_in_use.at(it.first).end());
 				existing_sets.insert(it.second.begin(), it.second.end());;
 				vector<string> uniq_vec(existing_sets.begin(), existing_sets.end());
-				signal_categories_in_use[it.first] = move(uniq_vec);
+				signal_categories_in_use[it.first] = std::move(uniq_vec);
 			}
 		}
 	}
@@ -2042,14 +2042,14 @@ void MedModel::get_required_signal_categories(unordered_map<string, vector<strin
 		for (auto &it : local_use)
 		{
 			if (signal_categories_in_use.find(it.first) == signal_categories_in_use.end())
-				signal_categories_in_use[it.first] = move(it.second);
+				signal_categories_in_use[it.first] = std::move(it.second);
 			else {
 				//merge with existing:
 				unordered_set<string> existing_sets(signal_categories_in_use.at(it.first).begin(),
 					signal_categories_in_use.at(it.first).end());
 				existing_sets.insert(it.second.begin(), it.second.end());;
 				vector<string> uniq_vec(existing_sets.begin(), existing_sets.end());
-				signal_categories_in_use[it.first] = move(uniq_vec);
+				signal_categories_in_use[it.first] = std::move(uniq_vec);
 			}
 		}
 	}
@@ -2686,7 +2686,7 @@ void MedModel::clean_model() {
 				for (size_t j = 0; j < multi->processors.size(); ++j)
 					if (multi->processors[j] != NULL)
 						final_res_internal.push_back(multi->processors[j]);
-				multi->processors = move(final_res_internal);
+				multi->processors = std::move(final_res_internal);
 				if (multi->processors.empty()) {
 					delete multi;
 					rep_processors[i] = NULL;
@@ -2696,13 +2696,13 @@ void MedModel::clean_model() {
 				final_res.push_back(rep_processors[i]);
 		}
 	}
-	rep_processors = move(final_res);
+	rep_processors = std::move(final_res);
 
 	vector<FeatureGenerator *> final_res_g;
 	for (size_t i = 0; i < generators.size(); ++i)
 		if (generators[i] != NULL)
 			final_res_g.push_back(generators[i]);
-	generators = move(final_res_g);
+	generators = std::move(final_res_g);
 
 	vector<FeatureProcessor *> final_res_fp;
 	for (size_t i = 0; i < feature_processors.size(); ++i)
@@ -2714,7 +2714,7 @@ void MedModel::clean_model() {
 				for (size_t j = 0; j < multi->processors.size(); ++j)
 					if (multi->processors[j] != NULL)
 						final_res_internal.push_back(multi->processors[j]);
-				multi->processors = move(final_res_internal);
+				multi->processors = std::move(final_res_internal);
 				if (multi->processors.empty()) {
 					delete multi;
 					feature_processors[i] = NULL;
@@ -2724,7 +2724,7 @@ void MedModel::clean_model() {
 				final_res_fp.push_back(feature_processors[i]);
 		}
 	}
-	feature_processors = move(final_res_fp);
+	feature_processors = std::move(final_res_fp);
 
 	vector<PostProcessor *> final_res_pp;
 	for (size_t i = 0; i < post_processors.size(); ++i)
@@ -2736,7 +2736,7 @@ void MedModel::clean_model() {
 				for (size_t j = 0; j < multi->post_processors.size(); ++j)
 					if (multi->post_processors[j] != NULL)
 						final_res_internal.push_back(multi->post_processors[j]);
-				multi->post_processors = move(final_res_internal);
+				multi->post_processors = std::move(final_res_internal);
 				if (multi->post_processors.empty()) {
 					delete multi;
 					post_processors[i] = NULL;
@@ -2746,7 +2746,7 @@ void MedModel::clean_model() {
 				final_res_pp.push_back(post_processors[i]);
 		}
 	}
-	post_processors = move(final_res_pp);
+	post_processors = std::move(final_res_pp);
 }
 
 
@@ -3018,7 +3018,7 @@ int ChangeModelInfo::init(map<string, string>& mapper) {
 			ChangeModelInfo::parse_json_string(json_content, res);
 			if (res.size() != 1)
 				MTHROW_AND_ERR("Can read only 1 ChangeModelInfo from ChangeModelInfo::init\n");
-			*this = move(res[0]);
+			*this = std::move(res[0]);
 		}
 		//! [ChangeModelInfo::init]
 		else

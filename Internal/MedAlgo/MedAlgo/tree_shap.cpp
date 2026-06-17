@@ -1750,7 +1750,7 @@ void fix_feature_dependency_in_groups(const MedMat<float>& abs_cov_feats, const 
 	z = y * x;
 
 	//store output:
-	grp_contribs = move(fixed_contrib);
+	grp_contribs = std::move(fixed_contrib);
 }
 
 void iterative_tree_shap(const TreeEnsemble& trees, const ExplanationDataset &data, tfloat *out_contribs,
@@ -2209,7 +2209,7 @@ void medial::shapley::explain_shapley(const MedFeatures &matrix, int selected_sa
 			for (int ind : group2index[grp_i])
 				mask[ind] = false; //mark always as false the selected feature to test
 
-			truncated_mask = move(mask);
+			truncated_mask = std::move(mask);
 		}
 
 		//build test matrix from all_opts:
@@ -2395,7 +2395,7 @@ template<typename T> void medial::shapley::explain_shapley(const MedFeatures &ma
 			for (int ind : group2index[param_i])
 				mask[ind] = false; //mark always as false the selected feature to test
 
-			truncated_mask = move(mask);
+			truncated_mask = std::move(mask);
 		}
 
 		//build test matrix from all_opts:

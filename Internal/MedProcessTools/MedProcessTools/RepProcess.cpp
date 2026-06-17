@@ -809,7 +809,7 @@ void RepMultiProcessor::get_required_signal_categories(unordered_map<string, vec
 		for (auto &it : local_use)
 		{
 			if (signal_categories_in_use.find(it.first) == signal_categories_in_use.end())
-				signal_categories_in_use[it.first] = move(it.second);
+				signal_categories_in_use[it.first] = std::move(it.second);
 			else
 			{
 				// merge with existing:
@@ -818,7 +818,7 @@ void RepMultiProcessor::get_required_signal_categories(unordered_map<string, vec
 				existing_sets.insert(it.second.begin(), it.second.end());
 				;
 				vector<string> uniq_vec(existing_sets.begin(), existing_sets.end());
-				signal_categories_in_use[it.first] = move(uniq_vec);
+				signal_categories_in_use[it.first] = std::move(uniq_vec);
 			}
 		}
 	}
@@ -4603,7 +4603,7 @@ void RepCreateBitSignal::get_required_signal_categories(unordered_map<string, ve
 	for (const vector<string> &e : categories_sets)
 		uniq_set.insert(e.begin(), e.end());
 	vector<string> uniq_ls(uniq_set.begin(), uniq_set.end());
-	signal_categories_in_use[in_sig] = move(uniq_ls);
+	signal_categories_in_use[in_sig] = std::move(uniq_ls);
 }
 //-------------------------------------------------------------------------------------------------------
 void RepCreateBitSignal::register_virtual_section_name_id(MedDictionarySections &dict)
@@ -4850,7 +4850,7 @@ int RepCreateBitSignal::_apply(PidDynamicRec &rec, vector<int> &time_points, vec
 						updated_states.back().start = i_time;
 					}
 				}
-				states = move(updated_states);
+				states = std::move(updated_states);
 			}
 
 			// Roll back last-appearances information

@@ -1924,7 +1924,7 @@ double medial::process::match_to_prior(MedSamples &samples, float target_prior, 
 			to_change.back().samples.push_back(*pointers_to_smps[i]);
 		}
 		MLOG("Changing prior: was %2.3f%% and changed to %2.3f%%\n", 100 * pr, 100 * target_prior);
-		samples.idSamples = move(to_change);
+		samples.idSamples = std::move(to_change);
 		samples.sort_by_id_date();
 		medial::print::print_samples_stats(samples);
 	}

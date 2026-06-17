@@ -480,7 +480,7 @@ void ChangeModelInfo::parse_json_string(const string &json_content, vector<Chang
 			else
 				MTHROW_AND_ERR("Error ChangeModelInfo::parse_json_string - Unsupported attribute %s\n", attr_name.c_str());
 		}
-		res.push_back(move(change_req));
+		res.push_back(std::move(change_req));
 	}
 	MLOG("Succesfully parsed %zu ChangeModelInfo\n", res.size());
 }

@@ -99,7 +99,7 @@ void EmbeddingGenerator::get_required_signal_categories(unordered_map<string, ve
 				signal_categories_in_use.at(es.sig).end());
 			existing_sets.insert(es.categories_to_embed.begin(), es.categories_to_embed.end());;
 			vector<string> uniq_vec(existing_sets.begin(), existing_sets.end());
-			signal_categories_in_use[es.sig] = move(uniq_vec);
+			signal_categories_in_use[es.sig] = std::move(uniq_vec);
 		}
 	}
 }

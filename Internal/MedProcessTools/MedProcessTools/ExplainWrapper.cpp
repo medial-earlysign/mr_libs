@@ -78,7 +78,7 @@ void ExplainFilters::filter(map<string, float> &explain_list) const {
 	map<string, float> filterd;
 	for (const auto &it : sorted)
 		filterd[it.first] = it.second;
-	explain_list = move(filterd);
+	explain_list = std::move(filterd);
 }
 
 ExplainProcessings::ExplainProcessings() {
@@ -205,7 +205,7 @@ void ExplainProcessings::learn(const MedFeatures &train_mat) {
 				vector<float> f = *original[i];
 				medial::process::split_feature_to_bins(mutual_inf_bin_setting, f, empt, f);
 #pragma omp critical 
-				binned[i] = move(f);
+				binned[i] = std::move(f);
 				prog_bin.update();
 			}
 
@@ -401,7 +401,7 @@ void ExplainProcessings::process(map<string, float> &explain_list) const {
 			}
 
 
-			explain_list = move(group_explain);
+			explain_list = std::move(group_explain);
 		}
 		else { //no grouping
 			MedMat<float> fixed_with_cov(abs_cov_features.ncols, 1);
@@ -470,7 +470,7 @@ void ExplainProcessings::process(map<string, float> &explain_list) const {
 				for (auto &e : group_explain) e.second /= normalization_factor;
 		}
 
-		explain_list = move(group_explain);
+		explain_list = std::move(group_explain);
 	}
 	else {
 		normalization_factor = 0;
@@ -1970,8 +1970,8 @@ void MissingShapExplainer::_learn(const MedFeatures &train_mat) {
 			new_labels[i] = labels[selected_idx_vec[i]];
 			new_weights[i] = weights[selected_idx_vec[i]];
 		}
-		labels = move(new_labels);
-		weights = move(new_weights);
+		labels = std::move(new_labels);
+		weights = std::move(new_weights);
 	}
 
 	retrain_predictor->learn(x_mat, labels, weights);
@@ -2368,7 +2368,7 @@ void ShapleyExplainer::load_MISSING(MedPredictor *original_pred) {
 
 void ShapleyExplainer::load_sampler(MedPredictor *original_pred, unique_ptr<SamplesGenerator<float>> &&generator) {
 	this->original_predictor = original_pred;
-	_sampler = move(generator);
+	_sampler = std::move(generator);
 }
 
 void ShapleyExplainer::dprint(const string &pref) const {
@@ -2481,7 +2481,7 @@ void LimeExplainer::load_MISSING(MedPredictor *original_pred) {
 
 void LimeExplainer::load_sampler(MedPredictor *original_pred, unique_ptr<SamplesGenerator<float>> &&generator) {
 	this->original_predictor = original_pred;
-	_sampler = move(generator);
+	_sampler = std::move(generator);
 }
 
 void LimeExplainer::post_deserialization() {
@@ -3041,7 +3041,7 @@ void IterativeSetExplainer::load_MISSING(MedPredictor *original_pred) {
 
 void IterativeSetExplainer::load_sampler(MedPredictor *original_pred, unique_ptr<SamplesGenerator<float>> &&generator) {
 	this->original_predictor = original_pred;
-	_sampler = move(generator);
+	_sampler = std::move(generator);
 }
 
 void IterativeSetExplainer::dprint(const string &pref) const {

@@ -661,7 +661,7 @@ void micNode::forward_batch(const vector<MedMat<float>> &nodes_outputs, MedMat<f
 
 	//calculate current layer on in as input
 	if (type == "Input") {
-		out = move(in);
+		out = std::move(in);
 		return;
 	}
 
@@ -2099,7 +2099,7 @@ void micNet::predict_single(const vector<float> &x, vector<float> &preds) const
 	}
 
 	// copy results to preds mat
-	preds = move(last_pred.get_vec());
+	preds = std::move(last_pred.get_vec());
 	if (preds.size() > 1) //has additional channel of 1 for bias - remove it
 		preds.resize(preds.size() - 1);
 	/*for (int j = 0; j < n_categ; j++)
@@ -2409,7 +2409,7 @@ int micNet::predict(MedMat<float> &x, vector<float> &preds)
 	if (predict(x, mpreds) < 0) return -1;
 
 	if (params.n_categ == params.n_preds_per_sample && mpreds.ncols == params.n_categ)
-		preds = move(mpreds.get_vec());
+		preds = std::move(mpreds.get_vec());
 	else if (params.n_preds_per_sample == 1 && params.pred_class < params.n_categ && mpreds.ncols == params.n_categ)
 		mpreds.get_col(params.pred_class, preds);
 	else {

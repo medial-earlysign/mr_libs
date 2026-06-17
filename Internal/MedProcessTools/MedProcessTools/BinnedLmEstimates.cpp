@@ -628,8 +628,8 @@ int BinnedLmEstimates::filter_features(unordered_set<string>& validFeatures) {
 		}
 	}
 
-	names = move(names_new);
-	params.estimation_points = move(e_points);
+	names = std::move(names_new);
+	params.estimation_points = std::move(e_points);
 
 	return ((int)names.size());
 }

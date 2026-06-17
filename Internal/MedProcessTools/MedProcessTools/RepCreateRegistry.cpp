@@ -225,7 +225,7 @@ void RepCreateRegistry::get_required_signal_categories(unordered_map<string, vec
 		uniq_set_codes.insert(mi_identifiers.begin(), mi_identifiers.end());
 		uniq_set_codes.insert(af_identifiers.begin(), af_identifiers.end());
 		vector<string> uniq_set_ls(uniq_set_codes.begin(), uniq_set_codes.end());
-		signal_categories_in_use[signal_name_diag] = move(uniq_set_ls);
+		signal_categories_in_use[signal_name_diag] = std::move(uniq_set_ls);
 
 		string signal_name_drugs = signals[drug_idx];
 		unordered_set<string> uniq_set_drugs(ht_drugs.begin(), ht_drugs.end());
@@ -233,7 +233,7 @@ void RepCreateRegistry::get_required_signal_categories(unordered_map<string, vec
 		uniq_set_drugs.insert(ht_dm_drugs.begin(), ht_dm_drugs.end());
 		uniq_set_drugs.insert(ht_extra_drugs.begin(), ht_extra_drugs.end());
 		vector<string> uniq_set_ls_drugs(uniq_set_drugs.begin(), uniq_set_drugs.end());
-		signal_categories_in_use[signal_name_drugs] = move(uniq_set_ls_drugs);
+		signal_categories_in_use[signal_name_drugs] = std::move(uniq_set_ls_drugs);
 	}
 	else if (registry == REP_REGISTRY_DM) {
 		if (dm_drug_sig != "")
@@ -263,7 +263,7 @@ void RepCreateRegistry::get_required_signal_categories(unordered_map<string, vec
 				for (vector<string> &e : rdr.categories)
 					flat_set.insert(e.begin(), e.end());
 				vector<string> flat_ls(flat_set.begin(), flat_set.end());
-				signal_categories_in_use[rdr.sig_name] = move(flat_ls);
+				signal_categories_in_use[rdr.sig_name] = std::move(flat_ls);
 			}
 		}
 	}

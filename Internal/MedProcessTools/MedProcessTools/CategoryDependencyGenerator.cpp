@@ -969,9 +969,9 @@ int CategoryDependencyGenerator::filter_features(unordered_set<string>& validFea
 		if (!luts.empty())
 			filter_luts_s[i] = luts[selected[i]];
 	}
-	top_codes = move(filterd_codes);
+	top_codes = std::move(filterd_codes);
 	if (!luts.empty())
-		luts = move(filter_luts_s);
+		luts = std::move(filter_luts_s);
 	set_names();
 
 	return ((int)names.size());

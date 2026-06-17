@@ -45,7 +45,7 @@ int DuplicateProcessor::_apply(MedFeatures& features, unordered_set<int>& ids) {
 		}
 	}
 
-	features = move(batch);
+	features = std::move(batch);
 
 	return 0;
 }

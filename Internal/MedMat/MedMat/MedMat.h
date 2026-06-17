@@ -115,17 +115,17 @@ public:
 
 	inline MedMat<T>& operator=(MedMat<T> &&other) noexcept {
 		if (this != &other) {
-			m = move(other.m);
+			m = std::move(other.m);
 			nrows = other.nrows;
 			ncols = other.ncols;
-			row_ids = move(other.row_ids);
-			signals = move(other.signals);
-			avg = move(other.avg);
-			std = move(other.std);
+			row_ids = std::move(other.row_ids);
+			signals = std::move(other.signals);
+			avg = std::move(other.avg);
+			std = std::move(other.std);
 			normalized_flag = other.normalized_flag;
 			transposed_flag = other.transposed_flag;
 			missing_value = other.missing_value;
-			recordsMetadata = move(other.recordsMetadata);
+			recordsMetadata = std::move(other.recordsMetadata);
 		}
 		return *this;
 	}

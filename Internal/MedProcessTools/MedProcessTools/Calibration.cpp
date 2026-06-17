@@ -702,7 +702,7 @@ int Calibrator::learn_time_window(const vector<MedSample>& orig_samples, const i
 		for (size_t i = 0; i < new_cals.size(); ++i)
 			new_cals[i].bin = (int)i + 1;
 
-		cals = move(new_cals);
+		cals = std::move(new_cals);
 	}
 	//smooth calc
 	if (do_calibration_smoothing) {

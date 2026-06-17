@@ -1573,7 +1573,7 @@ void MedRegistry::merge_records()
 		else
 			merged_records.push_back(registry_records[i]);
 	}
-	registry_records = move(merged_records);
+	registry_records = std::move(merged_records);
 }
 
 MedRegistry *MedRegistry::create_registry_full(const string &registry_type, const string &init_str,
@@ -2184,7 +2184,7 @@ void medial::registry::complete_active_period_as_controls(vector<MedRegistryReco
 
 
 
-	registry = move(new_reg);
+	registry = std::move(new_reg);
 }
 
 bool MedRegistry::get_pid_records(PidRec &rec, int bDateCode, const vector<int> &used_sigs,

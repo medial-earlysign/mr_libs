@@ -294,7 +294,7 @@ int ResampleMissingProcessor::Learn(MedFeatures& features, unordered_set<int>& i
 		x_mat.get_sub_mat(selected_idx_vec, empty_is_all);
 		for (size_t i = 0; i < selected_idx_vec.size(); ++i)
 			new_samples_ids[i] = original_samples_id[selected_idx_vec[i]];
-		original_samples_id = move(new_samples_ids);
+		original_samples_id = std::move(new_samples_ids);
 	}
 	//use x_mat, original_samples_id to manipulate features => data and samples:
 	vector<MedSample> new_smps(original_samples_id.size());
@@ -309,8 +309,8 @@ int ResampleMissingProcessor::Learn(MedFeatures& features, unordered_set<int>& i
 			vec[j] = x_mat(j, i);
 	}
 
-	features.samples = move(new_smps);
-	features.data = move(new_data);
+	features.samples = std::move(new_smps);
+	features.data = std::move(new_data);
 	features.init_pid_pos_len();
 
 	return 0;

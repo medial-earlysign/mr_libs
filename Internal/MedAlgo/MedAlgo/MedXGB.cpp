@@ -528,7 +528,7 @@ void MedXGB::predict_single(const vector<float> &x, vector<float> &preds) const 
 		MTHROW_AND_ERR("failed to XGDMatrixCreateFromMat\n");
 
 	int n_th = omp_get_thread_num();
-	//std::shared_ptr<DMatrix> mat_gen = std::shared_ptr<DMatrix>(DMatrix::Create(move(p_mat), (float)MED_MAT_MISSING_VALUE, n_th));
+	//std::shared_ptr<DMatrix> mat_gen = std::shared_ptr<DMatrix>(DMatrix::Create(std::move(p_mat), (float)MED_MAT_MISSING_VALUE, n_th));
 
 	//int len_res = n_preds_per_sample();
 	//xgboost::HostDeviceVector<float> wrapper;
@@ -542,7 +542,7 @@ void MedXGB::predict_single(const vector<float> &x, vector<float> &preds) const 
 	const float *out_preds;
 	XGBoosterPredict(xgb_mdl, h_test, 0, 0, 0, &out_len, &out_preds);
 
-	preds = move(vector<float>(out_preds, out_preds + out_len));
+	preds = std::move(vector<float>(out_preds, out_preds + out_len));
 
 
 	//delete mat_gen;

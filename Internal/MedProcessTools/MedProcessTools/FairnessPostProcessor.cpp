@@ -42,7 +42,7 @@ void FairnessPostProcessor::parse_constrains(const string &s) {
 		Cutoff_Constraint cc;
 		cc.set_type(type_str);
 		cc.value = val_;
-		constraints.push_back(move(cc));
+		constraints.push_back(std::move(cc));
 	}
 }
 
@@ -278,7 +278,7 @@ void FairnessPostProcessor::Learn(const MedFeatures &matrix) {
 	{
 		MedSamples grp_samples;
 		grp_samples.import_from_sample_vec(it.second);
-		group_to_bootstrap[it.first] = move(bt.bootstrap(grp_samples, empty_info).at("All"));
+		group_to_bootstrap[it.first] = std::move(bt.bootstrap(grp_samples, empty_info).at("All"));
 	}
 
 	const map<string, float> &ref_bt = group_to_bootstrap.at(reference_group_val);

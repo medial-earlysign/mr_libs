@@ -65,7 +65,7 @@ void IterativeFeatureSelector::doTop2BottomSelection(MedFeatures& features, map<
 			}
 		}
 	}
-	selectedFamilies = move(selectedFamilies_filtered);
+	selectedFamilies = std::move(selectedFamilies_filtered);
 
 	// Iterative addition of families
 	MedTimer timer;

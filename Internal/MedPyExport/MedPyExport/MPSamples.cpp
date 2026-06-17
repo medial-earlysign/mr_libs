@@ -486,7 +486,7 @@ void MPSamples::filter_by_bt(const string &rep_path, const string &json_mat, con
 
 	MedFeatures mat;
 	mod.learn(rep, o, MedModelStage::MED_MDL_LEARN_REP_PROCESSORS, MedModelStage::MED_MDL_APPLY_FTR_PROCESSORS);
-	mat = move(mod.features);
+	mat = std::move(mod.features);
 
 	int before_size = (int)mat.samples.size();
 	string cohort_name = bt_cohort.substr(0, bt_cohort.find('\t'));
