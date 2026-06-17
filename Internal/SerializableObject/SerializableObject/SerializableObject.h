@@ -19,6 +19,7 @@
 #include <regex>
 
 using namespace std;
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_INFRA
 
 #define SRL_LOG(...)	global_logger.log(LOG_SRL, LOG_DEF_LEVEL, __VA_ARGS__)

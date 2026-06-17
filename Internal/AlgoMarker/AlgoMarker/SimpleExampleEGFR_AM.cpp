@@ -2,6 +2,7 @@
 
 #include <Logger/Logger/Logger.h>
 #include <MedTime/MedTime/MedTime.h>
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

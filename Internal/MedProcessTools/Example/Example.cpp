@@ -2,6 +2,7 @@
 #define _CRT_RAND_S
 
 #include "Logger/Logger/Logger.h"
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

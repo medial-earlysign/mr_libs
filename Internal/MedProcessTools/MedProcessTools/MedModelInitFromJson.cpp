@@ -11,6 +11,7 @@
 #include "StripComments.h"
 #include <boost/optional/optional.hpp>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MED_MODEL
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

@@ -2,6 +2,7 @@
 #include <MedUtils/MedUtils/MedUtils.h>
 #include <MedUtils/MedUtils/MedMedical.h>
 #include <SerializableObject/SerializableObject/SerializableObject.h>
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_FTRGNRTR
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 

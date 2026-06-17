@@ -15,6 +15,7 @@
 #include <boost/optional/optional.hpp>
 #include <regex>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MED_MODEL
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 

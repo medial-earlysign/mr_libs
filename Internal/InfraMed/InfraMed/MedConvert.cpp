@@ -20,6 +20,7 @@
 #include <boost/algorithm/string/replace.hpp>
 #include <filesystem>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_CONVERT
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 extern MedLogger global_logger;

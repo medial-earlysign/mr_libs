@@ -8,6 +8,7 @@
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 #include <MedMat/MedMat/MedMat.h>
 #include <Logger/Logger/Logger.h>
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDSTAT
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

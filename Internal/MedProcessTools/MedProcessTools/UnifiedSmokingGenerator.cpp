@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <omp.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_FTRGNRTR
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 using namespace boost;

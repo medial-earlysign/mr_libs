@@ -4,6 +4,7 @@
 #include <MedAlgo/MedAlgo/MedLM.h>
 #include <MedAlgo/MedAlgo/MedKNN.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 extern MedLogger global_logger;

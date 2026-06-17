@@ -8,6 +8,7 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string.hpp>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_SMPL_FILTER
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

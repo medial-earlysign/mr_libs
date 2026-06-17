@@ -22,6 +22,7 @@
 //#define DEBUG_ALGO
 //#define DEBUG_ALGO_2
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

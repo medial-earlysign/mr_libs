@@ -12,6 +12,7 @@
 #include <cstring>
 #include <filesystem>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_INFRA
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 #define _FILE_OFFSET_BITS 64

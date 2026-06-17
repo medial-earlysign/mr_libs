@@ -1,6 +1,7 @@
 #include "ResampleWithMissingProcessor.h"
 #include "ExplainWrapper.h"
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MED_MODEL
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

@@ -59,6 +59,7 @@ string expandEnvVars(const string &str)
 	return ret;
 }
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 //-----------------------------------------------------------------------------------

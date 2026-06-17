@@ -10,6 +10,7 @@
 #include <Logger/Logger/Logger.h>
 #include <boost/math/distributions/students_t.hpp>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDSTAT
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

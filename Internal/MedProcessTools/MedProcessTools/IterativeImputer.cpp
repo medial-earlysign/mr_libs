@@ -15,6 +15,7 @@
 #include <MedUtils/MedUtils/MedGlobalRNG.h>
 #include <MedStat/MedStat/MedPerformance.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_FEATCLEANER
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

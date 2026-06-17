@@ -1,5 +1,6 @@
 #include "MedPredictorsByMissingValues.h"
 #include <MedProcessTools/MedProcessTools/Calibration.h>
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 

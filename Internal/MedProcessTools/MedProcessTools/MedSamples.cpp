@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <iostream>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION MED_SAMPLES_CV
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

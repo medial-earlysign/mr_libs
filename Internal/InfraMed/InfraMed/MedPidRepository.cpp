@@ -3,6 +3,7 @@
 #include <Logger/Logger/Logger.h>
 #include <string.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_REP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 extern MedLogger global_logger;

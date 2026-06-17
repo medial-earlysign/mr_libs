@@ -5,6 +5,7 @@
 #include <MedUtils/MedUtils/MedGenUtils.h>
 #include <MedIO/MedIO/MedIO.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 using namespace std;

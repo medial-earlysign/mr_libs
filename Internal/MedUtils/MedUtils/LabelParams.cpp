@@ -1,6 +1,7 @@
 #include "LabelParams.h"
 #include <MedMat/MedMat/MedMatConstants.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_INFRA
 
 void TimeWindowInteraction::init_from_string(const string &init) {

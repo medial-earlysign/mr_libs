@@ -1,5 +1,6 @@
 #include "RepCategoryDescenders.h"
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_REPCLEANER
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

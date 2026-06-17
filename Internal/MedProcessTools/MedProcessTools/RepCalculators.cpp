@@ -7,6 +7,7 @@
 #include <MedUtils/MedUtils/MedMedical.h>
 #include <cmath>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_REPCLEANER
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 void *SimpleCalculator::new_polymorphic(string derived_class_name) {

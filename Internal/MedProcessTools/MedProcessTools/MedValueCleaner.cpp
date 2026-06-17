@@ -4,6 +4,7 @@
 #include "MedUtils/MedUtils/MedUtils.h"
 #include "MedAlgo/MedAlgo/MedAlgo.h"
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_VALCLNR
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

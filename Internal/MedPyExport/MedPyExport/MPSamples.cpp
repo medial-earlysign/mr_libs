@@ -12,6 +12,7 @@
 #include "MedProcessTools/MedProcessTools/MedSamples.h"
 #include "MedStat/MedStat/MedBootstrap.h"
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_APP
 #define LOCAL_LEVEL LOG_DEF_LEVEL
 

@@ -4,6 +4,7 @@
 #include <sstream>
 #include "MedGitVersion.h"
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MED_UTILS
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 

@@ -9,6 +9,7 @@
 #include <boost/math/distributions/skew_normal.hpp>
 
 #include "Logger/Logger/Logger.h"
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDMAT
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 extern MedLogger global_logger;

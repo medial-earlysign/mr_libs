@@ -12,6 +12,7 @@ string BaseResourcePath = "W:\\Graph_Infra";
 #else
 string BaseResourcePath = "/nas1/Work/Graph_Infra";
 #endif
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MED_UTILS
 
 using namespace std;

@@ -6,6 +6,7 @@
 #include <MedAlgo/MedAlgo/MedAlgo.h>
 #include <MedAlgo/MedAlgo/MedQRF.h>
 
+#undef LOCAL_SECTION
 #define LOCAL_SECTION LOG_MEDALGO
 #define LOCAL_LEVEL	LOG_DEF_LEVEL
 
