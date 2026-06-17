@@ -16,6 +16,7 @@
 import_array();
 %}
 
+%typemap(out) void MPSigExporter::__getitem__ "";
 
 namespace std {
    %template(BoolVector) std::vector<bool>;

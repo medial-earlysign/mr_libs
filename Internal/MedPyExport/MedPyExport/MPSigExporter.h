@@ -88,7 +88,7 @@ public:
 	MPSigExporter_iter(const MPSigExporter_iter& orig) : obj(orig.obj), keys(orig.keys) {}
 	//The return type of both string and the NumPy outarr will result in a [str,outarr] list which is good 
 	//in this case because that makes it convertible to dict easily.
-	std::string next(MEDPY_NP_VARIANT_OUTPUT(void** outarr1, unsigned long long* outarr1_sz, int* outarr1_npytype)) {
+	std::string __next__(MEDPY_NP_VARIANT_OUTPUT(void** outarr1, unsigned long long* outarr1_sz, int* outarr1_npytype)) {
 		if (iterator >= keys.size()) {
 			obj->clear();
 			throw StopIterator();
