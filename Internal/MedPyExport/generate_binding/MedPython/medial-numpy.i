@@ -2058,7 +2058,7 @@
   (DATA_TYPE ARGOUT_ARRAY1[ANY])
 {
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, (PyObject*)array$argnum, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, (PyObject*)array$argnum, $isvoid)); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, (PyObject*)array$argnum);
   #endif
@@ -2090,7 +2090,7 @@
   (DATA_TYPE* ARGOUT_ARRAY1, DIM_TYPE DIM1)
 {
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, (PyObject*)array$argnum, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, (PyObject*)array$argnum, $isvoid)); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, (PyObject*)array$argnum);
   #endif
@@ -2201,7 +2201,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2226,7 +2226,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2252,7 +2252,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2278,7 +2278,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2304,7 +2304,7 @@
 
   if (!array || !require_fortran(array)) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2330,7 +2330,7 @@
 
   if (!array || !require_fortran(array)) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2358,7 +2358,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2386,7 +2386,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2414,7 +2414,7 @@
 
   if (!array || !require_fortran(array)) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2442,7 +2442,7 @@
 
   if (!array || !require_fortran(array)) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2471,7 +2471,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2500,7 +2500,7 @@
 
   if (!array) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2529,7 +2529,7 @@
 
   if (!array || !require_fortran(array)) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2558,7 +2558,7 @@
 
   if (!array || !require_fortran(array)) SWIG_fail;
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2600,7 +2600,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2638,7 +2638,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2688,7 +2688,7 @@
 %#endif
 
     #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2737,7 +2737,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2776,7 +2776,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2815,7 +2815,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2854,7 +2854,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2895,7 +2895,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2936,7 +2936,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -2977,7 +2977,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3018,7 +3018,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3060,7 +3060,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3102,7 +3102,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3144,7 +3144,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3186,7 +3186,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3228,7 +3228,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3270,7 +3270,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3312,7 +3312,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif
@@ -3354,7 +3354,7 @@
 %#endif
 
   #if SWIG_VERSION >= 0x040300
-    resultobj = SWIG_Python_AppendOutput($result, obj, 0); 
+    resultobj = SWIG_Python_AppendOutput($result, obj, $isvoid); 
   #else
     resultobj = SWIG_Python_AppendOutput($result, obj);
   #endif

@@ -1,6 +1,6 @@
 # Medial Python Binding
 
-## Relase Notes - 1.1.3
+## Relase Notes - 1.2.0
 * Bugfix: Compile in low memory system
 * Feature: Update LightGBM to 4.6.0
 * Feature: Support compilation with newer SWIG >= 4.3
